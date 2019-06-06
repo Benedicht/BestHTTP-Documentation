@@ -1,0 +1,8 @@
+site_name: BestHTTP Documentation
+site_author: Tivadar György Nagy
+site_url: http://u3d.as/5sb
+
+theme: readthedocs
+
+markdown_extensions:
+ - admonition
