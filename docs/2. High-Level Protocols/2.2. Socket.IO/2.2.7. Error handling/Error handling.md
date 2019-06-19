@@ -6,21 +6,21 @@ Socket.On(SocketIOEventTypes.Error, OnError);
 
 void OnError(Socket socket, Packet packet, params object[] args)
 {
-Error error = args[0] as Error;
+    Error error = args[0] as Error;
 
-switch (error.Code)
-{
-	case SocketIOErrors.User:
-		Debug.Log("Exception in an event handler!");
-		break;
-	case SocketIOErrors.Internal:
-		Debug.Log("Internal error!");
-		break;
-	default:
-		Debug.Log("Server error!");
-		break;
-}
+    switch (error.Code)
+    {
+        case SocketIOErrors.User:
+            Debug.Log("Exception in an event handler!");
+            break;
+        case SocketIOErrors.Internal:
+            Debug.Log("Internal error!");
+            break;
+        default:
+            Debug.Log("Server error!");
+            break;
+    }
 
-Debug.Log(error.ToString());
+    Debug.Log(error.ToString());
 }
 ```
