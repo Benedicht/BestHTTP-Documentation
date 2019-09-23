@@ -32,7 +32,7 @@ eventSource.OnOpen += OnEventSourceOpened;
 
 void OnEventSourceOpened(EventSource source)
 {
-Debug.log("EventSource Opened!");
+	Debug.log("EventSource Opened!");
 }
 ```
 
@@ -43,7 +43,7 @@ eventSource.OnMessage += OnEventSourceMessage;
 
 void OnEventSourceMessage(EventSource source, Message msg)
 {
-Debug.log("Message: " + msg.Data);
+	Debug.log("Message: " + msg.Data);
 }
 ```
 
@@ -54,7 +54,7 @@ eventSource.OnError += OnEventSourceError;
 
 void OnEventSourceError(EventSource source, string error)
 {
-Debug.log("Error: " + error);
+	Debug.log("Error: " + error);
 }
 ```
 
@@ -65,8 +65,8 @@ eventSource.OnRetry += OnEventSourceRetry;
 
 bool OnEventSourceRetry(EventSource source)
 {
-// disable retry
-return false;
+	// disable retry
+	return false;
 }
 ```
 
@@ -77,7 +77,7 @@ eventSource.OnClosed += OnEventSourceClosed;
 
 void OnEventSourceClosed(EventSource source)
 {
-Debug.log("EventSource Closed!");
+	Debug.log("EventSource Closed!");
 }
 ```
 
@@ -88,7 +88,7 @@ eventSource.OnStateChanged += OnEventSourceStateChanged;
 
 void OnEventSourceStateChanged(EventSource source, States oldState, States newState)
 {
-Debug.log(string.Format("State Changed {0} => {1}", oldState, newState)));
+	Debug.log(string.Format("State Changed {0} => {1}", oldState, newState)));
 }
 ```
 
@@ -109,7 +109,7 @@ eventSource.On("userLogon", OnUserLoggedIn);
 
 void OnUserLoggedIn(EventSource source, Message msg)
 {
-Debug.log(msg.Data);
+	Debug.log(msg.Data);
 }
 ```
 

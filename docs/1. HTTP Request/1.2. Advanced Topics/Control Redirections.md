@@ -17,7 +17,7 @@ bool OnBeforeRedirect(HTTPRequest req, HTTPResponse resp, Uri redirectUri)
   	 req.MethodType = HTTPMethods.Get;
 
   	 // Don't send more data than needed.
- // So we will delete our already processed form data.
+	 // So we will delete our already processed form data.
   	 req.Clear();
    }
 

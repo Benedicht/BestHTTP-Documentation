@@ -19,7 +19,7 @@ The OnRequestFinished() function's implementation might be this:
 ```csharp
 void OnRequestFinished(HTTPRequest request, HTTPResponse response)
 {
-Debug.Log("Request Finished! Text received: " + response.DataAsText);
+	Debug.Log("Request Finished! Text received: " + response.DataAsText);
 }
 ```
 
@@ -38,8 +38,7 @@ Debug.Log("Finished!")).Send();
 The above examples were simple GET requests. If we don’t specify the method, all requests will be GET requests by default. The constructor has another parameter that can be used to specify the method of the request:
 
 ```csharp
-HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Post,
-OnRequestFinished);
+HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Post, OnRequestFinished);
 request.AddField("FieldName", "Field Value");
 request.Send();
 ```
@@ -47,8 +46,7 @@ request.Send();
 To POST any data without setting a field you can use the **RawData** property:
 
 ```csharp
-HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Post,
-OnRequestFinished);
+HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Post, OnRequestFinished);
 request.RawData =  Encoding.UTF8.GetBytes("Field Value");
 request.Send();
 ```
@@ -60,67 +58,43 @@ Beside GET and POST you can use the HEAD, PUT, DELETE and PATCH methods as well:
 ##Head Requests
 
 ```csharp
-HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Head,
-OnRequestFinished);
+HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Head, OnRequestFinished);
 request.Send();
 ```
 
 ##Put Requests
 
 ```csharp
-HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Put,
-OnRequestFinished);
+HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Put, OnRequestFinished);
 request.Send();
 ```
 ##Delete Requests
 
 ```csharp
-HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Delete,
-OnRequestFinished);
+HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Delete, OnRequestFinished);
 request.Send();
 ```
 
 ##Patch Requests
 
 ```csharp
-HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Patch,
-OnRequestFinished);
+HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Patch, OnRequestFinished);
 request.Send();
 ```
 
 ##How To Access The Downloaded Data
-Most of the time we use our requests to receive some data from a server. The raw bytes can be accessed from the HTTPResponse object's Data property. Let's see an example how to download an image:
+Most of the time we use our requests to receive some data from a server. The raw bytes can be accessed from the HTTPResponse object's `Data` property. Let's see an example how to download an image:
 
 ```csharp
 new HTTPRequest(new Uri("http://yourserver.com/path/to/image.png"), (request, response) =>
 {
-var tex = new Texture2D(0, 0);
-tex.LoadImage(response.Data);
-guiTexture.texture = tex;
+	var tex = new Texture2D(0, 0);
+	tex.LoadImage(response.Data);
+	guiTexture.texture = tex;
 }).Send();
 ```
 
-Of course there is a more compact way to do this:
-
-```csharp
-new HTTPRequest(new Uri("http://yourserver.com/path/to/image.png"), (request, response) =>
-guiTexture.texture = response.DataAsTexture2D).Send();
-```
-
-Beside of DataAsTexture2D there is a **DataAsText** property to decode the response as an Utf8 string. More data decoding properties may be added in the future. If you have an idea don't hesitate to mail me.
+Beside of `DataAsTexture2D` there is a `DataAsText` property too to decode the response as an Utf8 string.
 
 !!! Warning "Warning:"
-	All examples in this document are without any error checking! In the production code make sure to add some null checks.
-
-
-##Switching from WWW
-You can yield a HTTPRequest with the help of a StartCoroutine call:
-
-```csharp
-HTTPRequest request = new HTTPRequest(new Uri("http://server.com"));
-request.Send();
-yield return StartCoroutine(request);
-Debug.Log("Request finished! Downloaded Data:" + request.Response.DataAsText);
-```
-
-The Debug.Log will be called only when the request is done. This way you don’t have to supply a callback function (however, you still can if you want to).
+	All examples in this document are without any error checking! See the [Error Handling topic](../1.2. Advanced Topics/Error Handling.md)!

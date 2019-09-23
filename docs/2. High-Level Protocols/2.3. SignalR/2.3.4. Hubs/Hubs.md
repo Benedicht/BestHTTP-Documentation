@@ -19,8 +19,7 @@ signalRConnection["hubName"].On("joined", Joined);
 // "Joined" method implementation on the client
 void Joined(Hub hub, MethodCallMessage msg)
 {
-  Debug.Log(string.Format("{0} joined at {1}",
-msg.Arguments[0], msg.Arguments[1]));
+  Debug.Log(string.Format("{0} joined at {1}", msg.Arguments[0], msg.Arguments[1]));
 }
 ```
 
@@ -55,8 +54,7 @@ signalRConnection["hubName"].Call("GetValue", OnGetValueDone);
 
 void OnGetValueDone(Hub hub, ClientMessage originalMessage, ResultMessage result)
 {
-  Debug.Log("GetValue executed on the server. Return value of the function:" +
-result.ReturnValue.ToString());
+  Debug.Log("GetValue executed on the server. Return value of the function:" + result.ReturnValue.ToString());
 }
 ```
 
@@ -69,11 +67,9 @@ If the method’s return type is void, the ReturnValue is null.
 ```csharp
 signalRConnection["hubName"].Call("GetValue", OnGetValueDone, OnGetValueFailed);
 
-void OnGetValueFailed(Hub hub, ClientMessage originalMessage,
-   FailureMessage error)
+void OnGetValueFailed(Hub hub, ClientMessage originalMessage, FailureMessage error)
 {
-  Debug.Log("GetValue failed. Error message from the server: " +
-error.ErrorMessage);
+  Debug.Log("GetValue failed. Error message from the server: " + error.ErrorMessage);
 }
 ```
 

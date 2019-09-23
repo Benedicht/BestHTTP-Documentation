@@ -3,14 +3,14 @@ Server sent certificates can be validated by implementing an `ICertificateVerify
 
 ```csharp
 using System;
-using Org.BouncyCastle.Crypto.Tls;
-using Org.BouncyCastle.Asn1.X509;
+using BestHTTP.SecureProtocol.Org.BouncyCastle.Crypto.Tls;
+using BestHTTP.SecureProtocol.Org.BouncyCastle.Asn1.X509;
 
 class CustomVerifier : ICertificateVerifyer
 {
 	public bool IsValid(Uri serverUri, X509CertificateStructure[] certs)
 	{
-   	// TODO: Return false, if validation fails
+		// TODO: Return false, if validation fails
    		return true;
 	}
 }

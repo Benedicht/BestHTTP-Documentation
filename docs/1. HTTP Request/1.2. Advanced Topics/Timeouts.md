@@ -31,12 +31,9 @@ HTTPRequest request = new HTTPRequest(new Uri(url), (req, resp) =>
  			 break;
 
  		 // The request finished with an unexpected error.
-// The request's Exception property may contain more information about the error.
+		 // The request's Exception property may contain more information about the error.
  		 case HTTPRequestStates.Error:
- 			 Debug.LogError("Request Finished with Error! " +
-(req.Exception != null ?
-(req.Exception.Message + "\n" + req.Exception.StackTrace) :
-"No Exception"));
+ 			 Debug.LogError("Request Finished with Error! " + (req.Exception != null ? (req.Exception.Message + "\n" + req.Exception.StackTrace) : "No Exception"));
  			 break;
 
  		 // The request aborted, initiated by the user.

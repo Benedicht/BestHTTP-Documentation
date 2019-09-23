@@ -7,8 +7,8 @@ request.RawData =  Encoding.UTF8.GetBytes("Field Value");
 request.OnUploadProgress = OnUploadProgress;
 request.Send();
 
-	void OnUploadProgress(HTTPRequest request, long uploaded, long length) {
-		float progressPercent = (uploaded / (float)length) * 100.0f;
-		Debug.Log("Uploaded: " + progressPercent.ToString("F2") + "%");
-	}
+void OnUploadProgress(HTTPRequest request, long uploaded, long length) {
+	float progressPercent = (uploaded / (float)length) * 100.0f;
+	Debug.Log("Uploaded: " + progressPercent.ToString("F2") + "%");
+}
 ```
