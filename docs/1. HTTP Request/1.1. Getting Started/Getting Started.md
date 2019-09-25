@@ -1,6 +1,6 @@
 #Getting Started Quickly
 
-First, you should add a using statement to your source file after the regular usings:
+After you imported the package, you should add a using statement to your source file like any other regular usings:
 
 ```	
 using BestHTTP;
