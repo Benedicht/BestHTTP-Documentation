@@ -1,7 +1,7 @@
 ## Logging
-To be able to dump out some important - and sometimes less important - information about the plugin, a logger interface and implementation is introduced in v1.7.0. 
+To be able to dump out some important information about the plugin, it has its own logging mechanism.
 
-The default logger can be accessed through the HTTPManager.Logger property. The default loglevel is Warning for debug builds and Error for others. This implementation uses Unity’s `Debug.Log`/`LogWarning`/`LogError` functions.
+The default logger can be accessed through the HTTPManager.Logger property. The default loglevel is `Warning` for *debug builds* and `Error` for others. This implementation uses Unity’s `Debug.Log`/`LogWarning`/`LogError` functions.
 
 A new logger can be written by implementing the ILogger interface from the BestHTTP.Logger namespace.
 

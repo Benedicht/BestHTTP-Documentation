@@ -2,7 +2,7 @@ WebSocket
 We can use the WebSocket feature through the WebSocket class. We just need to pass the Uri of the server to the WebSocket’s constructor:
 
 ```csharp
-var webSocket = new WebSocket(new Uri("wss://html5labs-interop.cloudapp.net/echo"));
+var webSocket = new WebSocket(new Uri("wss://echo.websocket.org"));
 ```
 
 After this step we can register our event handlers to several events:
@@ -47,23 +47,7 @@ private void OnWebSocketClosed(WebSocket webSocket, UInt16 code, string message)
 }
 ```
 
-- **OnError** event: Called when we can’t connect to the server, an internal error occurs or when the connection lost. The second parameter is an Exception object, but it can be null. In this case, checking the InternalRequest of the WebSocket should tell more about the problem.
-
-```csharp
-webSocket.OnError += OnError;
-private void OnError(WebSocket ws, Exception ex)
-{
-string errorMsg = string .Empty;
-if (ws.InternalRequest.Response != null)
-errorMsg = string.Format("Status Code from Server: {0} and Message: {1}",
-ws.InternalRequest.Response.StatusCode,
-ws.InternalRequest.Response.Message);
-
-Debug.Log("An error occured: " + (ex != null ? ex.Message : "Unknown: " + errorMsg));
-}
-```
-
-- **OnErrorDesc** event: A more informative event then the OnError, as the later is called only with an Exception parameter. This event called after the OnError event, but it could provide a more detailed error report.
+- **OnError** event: Called when can’t connect to the server, an internal error occurs or when the connection is lost. The second parameter is an Exception object, but it can be null. In this case, checking the InternalRequest of the WebSocket should tell more about the problem.
 
 ```csharp
 webSocket.OnErrorDesc += OnErrorDesc;
@@ -81,6 +65,8 @@ After we registered to the event we can start open the connection:
 ```csharp
 webSocket.Open();
 ```
+!!! Note
+	Just as other calls, Open is **not** a blocking call. Messages can be sent to the server after an **OnOpen** event.
 
 After this step we will receive an OnOpen event and we can start sending out messages to the server.
 
@@ -88,9 +74,10 @@ After this step we will receive an OnOpen event and we can start sending out mes
 // Sending out text messages:
 webSocket.Send("Message to the Server");
 
-// Sending out binary messages:
 byte[] buffer = new byte[length];
 //fill up the buffer with data
+
+// Sending out binary messages:
 webSocket.Send(buffer);
 ```
 
