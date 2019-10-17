@@ -11,7 +11,7 @@ On Windows Phone 8.1(and greater) and on WinRT(Windows Store Apps) a secure, Tls
 
 ##Android
 
-- To enable stripping link_android_subset.xml in the \Assets\Best HTTP (Pro)\ folder should be used by renaming to link.xml.
+- To enable stripping link_android_subset.xml in the \Assets\Best HTTP\ folder should be used by renaming to link.xml.
 
 ##Windows Phone
 

@@ -1,38 +1,48 @@
-## Changelog
+#2.0.0 (2019.10.)
 
-#2.0.0 (2019)
-**This a major release breaking backward compatibility with older releases.**
+!!! Warning "Warning:"
+	**This is a major release breaking backward compatibility with older releases. See the [Upgrade Guide](Upgrade guide.md) for more details!**
 
-#1.12.2 (2019.06.12)
+**General**
 
-<b>General</b>
+- [<span style="color:green">New Feature</span>] Added [Application-Layer Protocol Negotiation](https://www.keycdn.com/support/alpn) support to the BouncyCastle lib
+- [<span style="color:green">New Feature</span>] HTTP/2 Support added
+- [<span style="color:green">New Feature</span>] New HTTP2Settings property added to the HTTPManager class
+- [<span style="color:green">New Feature</span>] Initial implementation of [HTTP Alternate Services](https://tools.ietf.org/html/rfc7838)
+- [<span style="color:green">New Feature</span>] Added support for Unity 2019.3's [(experimental) Enter Play Mode options](https://blogs.unity3d.com/2019/08/27/unity-2019-3-beta-is-now-available/)
+- [<span style="color:green">New Feature</span>] Added [Assembly Definition file](https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html) to reduce recompile times
+- [<span style="color:blue">Improvement</span>] Rewrote threading to avoid race conditions and reduce locking by using concurrent queues and lightweight `ReaderWriterLockSlim`s where possible.
+- [<span style="color:blue">Improvement</span>] New [online documentation](https://besthttp-documentation.readthedocs.io/en/latest/)
+- [<span style="color:red">Breaking change</span>] Removed Statistics API
+- [<span style="color:red">Breaking change</span>] Changes some BouncyCastle related class' namespace to avoid collition with other plugins and SDKs
+- [<span style="color:red">Breaking change</span>] Rewrote Abort mechanism
+- [<span style="color:red">Breaking change</span>] Minumum Unity version is now 2017.3
+- [<span style="color:red">Bugfix</span>] When the plugin is forced to use url-encoded form with binary data, it will base64 encode the data first
 
-* [<span style="color:blue">Improvement</span>] When the same content is already stored on the disk, new responses will no write it again saving cpu and disk activity
-* [<span style="color:red">Bugfix</span>] Fixed compile errors for UWP
-* [<span style="color:red">Bugfix</span>] Fixed a possible NullReferenceException when the server sends back no headers at all
-* [<span style="color:red">Bugfix</span>] Read and store responses are in a write lock to avoid an error when two or more requests to the same uri are executed.
-* [<span style="color:red">Bugfix</span>] When CookieJar.Get called before any other CookieJar.Load it throwd an error
+**HTTPRequest**
 
-#1.12.1 (2019.05.29)
-<b>General</b>
+- [<span style="color:red">Breaking change</span>] New easier to use http streaming API through the `OnStreamingData` event
+- [<span style="color:red">Breaking change</span>] Renamed `OnProgress` to `OnDownloadProgress`
+- [<span style="color:red">Breaking change</span>] Removed `DisableRetry`, use `MaxRetries` instead
+- [<span style="color:red">Breaking change</span>] Removed `Priority` property
+- [<span style="color:red">Breaking change</span>] Removed `TryToMinimizeTCPLatency` property
+- [<span style="color:red">Breaking change</span>] Removed `GetStreamedFragments` function, use the new `OnStreamingData` event
 
-* [<span style="color:red">Bugfix</span>] Callbacks didn't called when abort requested on a HTTPRequest
-* [<span style="color:red">Bugfix</span>] ReaderWriterLockSlim of the HTTPRequest is nulled out while it later tried to use it
+**Server-Sent Events**
 
-#1.12.0 (2019.05.28)
-<b>General</b>
+- [<span style="color:blue">Improvement</span>] Rewrote implementation to support Server-Sent Events over HTTP/2
 
-* [<span style="color:blue">Improvement</span>] Part of a larger code rewrite/overhaul removed a lot of locks and added lock-free collections and/or using ReaderWriterLockSlim. These changes affect all parts of the plugin from cookies to the signalr core protocol.
-* [<span style="color:red">Bugfix</span>] Fixed a bug in the protocol upgrade callback to do not overwrite the connection's previously set state
-* [<span style="color:green">New Feature</span>] HTTPRequest now supports the async-await pattern when CSHARP_7_OR_LATER is declared by Unity3d
-* [<span style="color:blue">Improvement</span>] HTTPManager.TryToMinimizeTCPLatency's default value became true
-* [<span style="color:blue">Improvement</span>] HTTPManager.MaxConnectionPerServer's default value became 6
+**SocketIO**
 
-<b>SignalRCore</b>
+- [<span style="color:blue">Improvement</span>] Improved compatibility with newer WebAssembly runtime
 
-* [<span style="color:red">Bugfix</span>] JSonProtocol now handles enums properly
-* [<span style="color:blue">Improvement</span>] JSonProtocol now can handle nullable types
+**Websocket**
 
-<b>Server-Sent Events</b>
+- [<span style="color:red">Breaking change</span>] Removed OnErrorDesc event
+- [<span style="color:red">Breaking change</span>] OnError event now has a string parameter instead of an Exception
 
-* [<span style="color:green">New Feature</span>] Example added
+**SignalR Core**
+
+- [<span style="color:green">New Feature</span>] Added automatic reconnection support through the new IRetryPolicy interface
+- [<span style="color:blue">Improvement</span>] Improved ASP.Net Core 3 compatibility
+- [<span style="color:red">Breaking change</span>] Changed up and down streaming API

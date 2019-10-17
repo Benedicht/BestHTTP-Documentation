@@ -18,6 +18,7 @@ Changing the defaults can be made through the static properties of the `HTTPMana
 - **Logger**: An ILogger implementation to be able to control what information will be logged about the plugin’s internals, and how these will be logged.
 - **DefaultCertificateVerifyer**: An `ICertificateVerifyer` implementation can be set to this property. All new requests created after this will use this verifier when a secure protocol is used and the request’s `UseAlternateSSL` is `true`. An `ICertificateVerifyer` implementation can be used to implement server certificate validation.
 - **UseAlternateSSLDefaultValue**: The default value of HTTPRequest’s UseAlternateSSL can be changed through this property.
+- **HTTP2Settings**: Through this property, HTTP/2 related settings can be changes. See the [HTTP/2 topic for more information](../../../5. HTTP2/#settings).
 
 Sample codes:
 
