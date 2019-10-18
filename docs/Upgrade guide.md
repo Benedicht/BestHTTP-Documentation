@@ -60,8 +60,6 @@ void OnError(WebSocket.WebSocket ws, string error)
 
 ## SignalR Core
 
-Documentation about the new and changed streaming API can be found in the [SignalR Core topics](/6. SignalR Core/2. The HubConnection Class/#streaming-from-the-server). 
-
-- [<span style="color:green">New Feature</span>] Added automatic reconnection support through the new IRetryPolicy interface
-- [<span style="color:blue">Improvement</span>] Improved ASP.Net Core 3 compatibility
 - [<span style="color:red">Breaking change</span>] Changed up and down streaming API
+
+Documentation about the new and changed streaming API can be found in the [SignalR Core topics](/6. SignalR Core/2. The HubConnection Class/#streaming-from-the-server). 
