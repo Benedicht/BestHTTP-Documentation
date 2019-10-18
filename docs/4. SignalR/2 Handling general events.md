@@ -1,4 +1,4 @@
-#Handling general events
+# Handling general events
 The Connection class will allow you to subscribe to multiple events. These events are the following:
 
 - **OnConnected**: This event is fired when the connection class successfully connected, and the SignalR protocol is up for communication.

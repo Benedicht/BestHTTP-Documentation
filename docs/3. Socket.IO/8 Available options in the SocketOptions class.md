@@ -1,4 +1,4 @@
-#Available options in the SocketOptions class
+# Available options in the SocketOptions class
 You can pass a SocketOptions instance to the SocketManager’s constructor. You can change the following options:
 
 - **Reconnection**: Whether to reconnect automatically after a disconnect. Its default value is true.

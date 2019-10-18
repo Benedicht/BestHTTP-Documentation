@@ -1,4 +1,5 @@
-#Subscribing and receiving events
+# Subscribing and receiving events
+
 You can subscribe to predefined and custom events. Predefined events are "connect", "connecting", "event", "disconnect", "reconnect", "reconnecting", "reconnect_attempt", "reconnect_failed", "error". Custom events are programmer defined events that your server will send to your client. You can subscribe to an event by calling a socket’s On function:
 
 ```csharp

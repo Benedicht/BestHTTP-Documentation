@@ -1,4 +1,4 @@
-#The Connection class
+# The Connection class
 The Connection class from the BestHTTP.SignalR namespace manages an abstract connection to the SignalR server. Connecting to a SignalR server start with the creation of a Connection object.
 This class will keep track of the current state of the protocol and will fire events.
 

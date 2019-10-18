@@ -1,7 +1,7 @@
-#Hubs
+# Hubs
 In order to define methods on the client that a Hub can call from the server, and to invoke methods on a Hub at the server, Hubs must be added to the Connection object. This can be done by adding the hub names or hub instances to the Connection constructor, demonstrated in the *Connection Class* section.
 
-##Accessing hubs
+## Accessing hubs
 Hub instances can be accessed through the Connection object by index, or by name.
 
 ```csharp
@@ -9,7 +9,7 @@ Hub hub = signalRConnection[0];
 Hub hub = signalRConnection["hubName"];
 ```
 
-##Register server callable methods
+## Register server callable methods
 To handle server callable method calls, we have to call the On function of a hub:
 
 ```csharp
@@ -32,7 +32,7 @@ The MethodCallMessage is a server sent object that contains the following proper
 
 The plugin will use the Hub and Method properties to route the message to the right hub and event handler. The function that handles the method call have to use only the Arguments and State properties.
 
-##Call server-side methods
+## Call server-side methods
 Calling server-side methods can be done by call a Hub’s Call function. The call function overloaded to be able to fulfill every needs. The Call functions are non-blocking functions, they will **not** block until the server sends back any message about the call.
 
 The overloads are the following:
@@ -95,7 +95,7 @@ ProgressMessage progress)
 
 When a ResultMessage or FailureMessage received by the plugin, it will not serve the ProgressMessages that came after these messages.
 
-##Using the Hub class as a base class to inherit from
+## Using the Hub class as a base class to inherit from
 The Hub class can be used as a base class to encapsulate hub functionality.
 
 ```csharp
@@ -130,7 +130,7 @@ SampleHub sampleHub = new SampleHub();
 Connection signalRConnection = new Connection(Uri, sampleHub);
 ```
 
-##Authentication
+## Authentication
 The Connection class has an AuthenticationProvider property that can be set to an object that  implements the IAuthenticationProvider interface.
 The implementor has to implement the following property and functions:
 
@@ -177,7 +177,7 @@ class HeaderAuthenticator : IAuthenticationProvider
 }
 ```
 
-##Writing custom Json encoders
+## Writing custom Json encoders
 Like for the Socket.IO’s Manager class, the SignalR’s Connection class has a JsonEncoder property, and the static Connection.DefaultEncoder can be set too.
 A JsonEncoder must implement the IJsonEncoder interface from the BestHTTP.SignalR.JsonEncoders namespace.
 The package contains a sample LitJsonEncoder, that also used by some samples too.

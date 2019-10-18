@@ -11,4 +11,4 @@ These defines are the following:
 - **BESTHTTP_DISABLE_SIGNALR_CORE**: The SignalR Core implementation will be disabled.
 - **BESTHTTP_DISABLE_SOCKETIO**: The entire Socket.IO implementation will be disabled.
 - **BESTHTTP_DISABLE_ALTERNATE_SSL**: If you are not using HTTPS(or WSS for WebSocket) and HTTP/2, you can disable the alternate ssl handler.
-- **BESTHTTP_DISABLE_HTTP2**: To disable the the HTTP/2 protocol.
+- **BESTHTTP_DISABLE_HTTP2**: To disable the HTTP/2 protocol.

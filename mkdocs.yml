@@ -6,6 +6,5 @@ theme:
     name: null
     custom_dir: 'theme/'
 
-
 markdown_extensions:
  - admonition

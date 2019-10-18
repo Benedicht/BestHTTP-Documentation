@@ -1,4 +1,4 @@
-#Writing a custom Json encoder
+# Writing a custom Json encoder
 If you want to change the default Json encoder for various reasons, first you have to write a new one. To do so, you have to write a new class that implements the `IJsonEncoder` from the `BestHTTP.SocketIO.JsonEncoders` namespace.
 The stripped IJsonEncoder is very tiny, you have to implement only two functions:
 

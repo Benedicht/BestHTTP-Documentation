@@ -1,4 +1,4 @@
-#Sending non-Hub messages
+# Sending non-Hub messages
 Sending non-hub messages to the server is easy as calling a function on the connection object:
 
 ```csharp

@@ -1,4 +1,4 @@
-#Sending events
+# Sending events
 You can send an event with the Emit function. You have to pass the event name as the first parameter and optionally other parameters. These will be encoded to json and will be sent to the server. Optionally you can set a callback function that will be called when the server processes the event(you have to set up the server code properly to be able to send back a callback function. See the Socket.IO server side documentation for more information).
 
 ```csharp
