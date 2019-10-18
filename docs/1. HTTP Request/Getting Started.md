@@ -34,6 +34,9 @@ new HTTPRequest(new Uri("https://google.com"), (request, response) =>
 Debug.Log("Finished!")).Send();
 ```
 
+!!! Notice
+	Error handling is omitted for brevity in most of the samples through the documentation, but there's a complete section dedicated to [error handling](Advanced Topics/Error Handling.md).
+
 ##POST Requests
 The above examples were simple GET requests. If we don’t specify the method, all requests will be GET requests by default. The constructor has another parameter that can be used to specify the method of the request:
 
@@ -97,4 +100,4 @@ new HTTPRequest(new Uri("http://yourserver.com/path/to/image.png"), (request, re
 Beside of `DataAsTexture2D` there is a `DataAsText` property too to decode the response as an Utf8 string.
 
 !!! Warning "Warning:"
-	All examples in this document are without any error checking! See the [Error Handling topic](../1.2. Advanced Topics/Error Handling.md)!
+	All examples in this document are without any error checking! See the [Error Handling topic](Advanced Topics/Error Handling.md)!

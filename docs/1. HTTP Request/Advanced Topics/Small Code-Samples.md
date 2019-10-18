@@ -1,14 +1,14 @@
 #Small Code-Samples
 
-- **Upload a picture using forms**
+## Upload a picture using forms
 
 ```csharp
 var request = new HTTPRequest(new Uri("http://server.com"), HTTPMethods.Post, onFinished);
-request.AddBinaryData("image", texture.EncodeToPNG(), "image.png");
+request.AddBinaryData("image", texture.EncodeToPNG(), "image.png", "image/png");
 request.Send();
 ```
 
-- **Upload a picture without forms, sending only the raw data**
+## Upload a picture without forms, sending only the raw data
 
 ```csharp
 var request = new HTTPRequest(new Uri("http://server.com"), HTTPMethods.Post, onFinished);
@@ -17,10 +17,10 @@ request.Raw = texture.EncodeToPNG();
 request.Send();
 ```
 
-- **Add custom header**
+## Add custom header / send json data
 
 ```csharp
-string json = "{ }";
+string json = "{ 'field': 'value' }";
 
 var request = new HTTPRequest(new Uri("http://server.com"), HTTPMethods.Post, onFinished);
 request.SetHeader("Content-Type", "application/json; charset=UTF-8");
@@ -28,18 +28,18 @@ request.RawData = UTF8.Encoding.GetBytes(json);
 request.Send();
 ```
 
-- **Display download progress**
+## Display download progress
 
 ```csharp
 var request = new HTTPRequest(new Uri("http://serveroflargefile.net/path"), (req, resp) => {
   Debug.Log("Finished!");
 });
 
-request.OnProgress += (req, down, length) => Debug.Log(string.Format("Progress: {0:P2}", down / (float)length));
+request.OnDownloadProgress += (req, down, length) => Debug.Log(string.Format("Progress: {0:P2}", down / (float)length));
 request.Send();
 ```
 
-- **Abort a request**
+## Abort a request
 
 ```csharp
 var request = new HTTPRequest(new Uri(address), (req, resp) => {
@@ -54,7 +54,7 @@ request.Send();
 request.Abort();
 ```
 
-- **Verify hostnames in HTTPS**
+## Verify hostnames in HTTPS
 
 ```csharp
 public sealed class HostNameVerifier : Org.BouncyCastle.Crypto.Tls.ICertificateVerifyer

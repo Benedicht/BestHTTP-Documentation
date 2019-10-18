@@ -1,5 +1,4 @@
-WebSocket
-We can use the WebSocket feature through the WebSocket class. We just need to pass the Uri of the server to the WebSocket’s constructor:
+We can use the WebSocket protocol through the WebSocket class. We just need to pass the Uri of the server to the WebSocket’s constructor:
 
 ```csharp
 var webSocket = new WebSocket(new Uri("wss://echo.websocket.org"));
@@ -65,7 +64,7 @@ After we registered to the event we can start open the connection:
 ```csharp
 webSocket.Open();
 ```
-!!! Note
+!!! Notice
 	Just as other calls, Open is **not** a blocking call. Messages can be sent to the server after an **OnOpen** event.
 
 After this step we will receive an OnOpen event and we can start sending out messages to the server.

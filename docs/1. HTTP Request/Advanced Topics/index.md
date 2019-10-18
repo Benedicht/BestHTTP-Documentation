@@ -1,4 +1,3 @@
-# Advanced Topics
 This section will cover some of the advanced usage that can be done with a `HTTPRequest`.
 
 We can easily enable and disable **some** basic features with the help of the `HTTPRequest` class’ constructor. These parameters are the following:

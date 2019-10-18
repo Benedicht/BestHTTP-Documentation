@@ -1,7 +1,7 @@
 #2.0.0 (2019.10.)
 
 !!! Warning "Warning:"
-	**This is a major release breaking backward compatibility with older releases. See the [Upgrade Guide](Upgrade guide.md) for more details!**
+	**This is a major release breaking backward compatibility with older releases. See the [Upgrade Guide](upgrade guide.md) for more details!**
 
 **General**
 
@@ -14,7 +14,7 @@
 - [<span style="color:blue">Improvement</span>] Rewrote threading to avoid race conditions and reduce locking by using concurrent queues and lightweight `ReaderWriterLockSlim`s where possible.
 - [<span style="color:blue">Improvement</span>] New [online documentation](https://besthttp-documentation.readthedocs.io/en/latest/)
 - [<span style="color:red">Breaking change</span>] Removed Statistics API
-- [<span style="color:red">Breaking change</span>] Changes some BouncyCastle related class' namespace to avoid collition with other plugins and SDKs
+- [<span style="color:red">Breaking change</span>] Changed some BouncyCastle related class' namespace to avoid collition with other plugins and SDKs
 - [<span style="color:red">Breaking change</span>] Rewrote Abort mechanism
 - [<span style="color:red">Breaking change</span>] Minumum Unity version is now 2017.3
 - [<span style="color:red">Bugfix</span>] When the plugin is forced to use url-encoded form with binary data, it will base64 encode the data first
@@ -27,6 +27,7 @@
 - [<span style="color:red">Breaking change</span>] Removed `Priority` property
 - [<span style="color:red">Breaking change</span>] Removed `TryToMinimizeTCPLatency` property
 - [<span style="color:red">Breaking change</span>] Removed `GetStreamedFragments` function, use the new `OnStreamingData` event
+- [<span style="color:red">Breaking change</span>] Removed HTTPFormUsage.RawJSon support
 
 **Server-Sent Events**
 
