@@ -8,7 +8,7 @@ When an error occurs, the plugin will try to reconnect once sending the LastEven
 ##The EventSource class
 The EventSource class is located in the BestHTTP.ServerSentEvents namespace:
 
-```csharp
+```language-csharp
 using BestHTTP.ServerSentEvents;
 
 var sse = new EventSource(new Uri("http://server.com"));
@@ -27,7 +27,7 @@ These are the publicly exposed properties of the EventSource class:
 
 - **OnOpen**: It’s called when the protocol is successfully upgraded.
 
-```csharp
+```language-csharp
 eventSource.OnOpen += OnEventSourceOpened;
 
 void OnEventSourceOpened(EventSource source)
@@ -38,7 +38,7 @@ void OnEventSourceOpened(EventSource source)
 
 - **OnMessage**: It’s called when the client receives a new message from the server. This function will receive a Message object that contains the payload of the message in the Data property. This event is called every time the client receives a message, even when the message has a valid Event name, and we assigned an event handler to this event!
 
-```csharp
+```language-csharp
 eventSource.OnMessage += OnEventSourceMessage;
 
 void OnEventSourceMessage(EventSource source, Message msg)
@@ -49,7 +49,7 @@ void OnEventSourceMessage(EventSource source, Message msg)
 
 - **OnError**: Called when an error encountered while connecting to the server, or while processing the data stream.
 
-```csharp
+```language-csharp
 eventSource.OnError += OnEventSourceError;
 
 void OnEventSourceError(EventSource source, string error)
@@ -60,7 +60,7 @@ void OnEventSourceError(EventSource source, string error)
 
 - **OnRetry**: This function is called before the plugin will try to reconnect to the server. If the function returns false, no attempt will be made and the EventSource will be closed.
 
-```csharp
+```language-csharp
 eventSource.OnRetry += OnEventSourceRetry;
 
 bool OnEventSourceRetry(EventSource source)
@@ -72,7 +72,7 @@ bool OnEventSourceRetry(EventSource source)
 
 - **OnClosed**: This event will be called when the EventSource closed.
 
-```csharp
+```language-csharp
 eventSource.OnClosed += OnEventSourceClosed;
 
 void OnEventSourceClosed(EventSource source)
@@ -83,7 +83,7 @@ void OnEventSourceClosed(EventSource source)
 
 - **OnStateChanged**: Called every time when the State property changes.
 
-```csharp
+```language-csharp
 eventSource.OnStateChanged += OnEventSourceStateChanged;
 
 void OnEventSourceStateChanged(EventSource source, States oldState, States newState)
@@ -97,14 +97,14 @@ These are the public functions of the EventSource object.
 
 - **Open**: Calling this function the plugin will start to connect to the server and upgrade to the Server-Sent Events protocol.
 
-```csharp
+```language-csharp
 EventSource eventSource = new EventSource(new Uri("http://server.com"));
 eventSource.Open();
 ```
 
 - **On**: Using this function clients can subscribe to events.
 
-```csharp
+```language-csharp
 eventSource.On("userLogon", OnUserLoggedIn);
 
 void OnUserLoggedIn(EventSource source, Message msg)
@@ -115,13 +115,13 @@ void OnUserLoggedIn(EventSource source, Message msg)
 
 - **Off**: It can be used to unsubscribe from an event.
 
-```csharp
+```language-csharp
 eventSource.Off("userLogon");
 ```
 
 - **Close**: This function will start to close the EventSource object.
 
-```csharp
+```language-csharp
 eventSource.Close();
 ```
 

@@ -1,6 +1,6 @@
-## HTTP/2
+# HTTP/2
 
-# How it works
+## How it works
 
 BestHTTP implements HTTP/2 over TLS. Using the TLS negotiation and its ALPN extension the plugin let the server know that it's ready to upgrade to the HTTP/2 protocol. 
 If the server has support for HTTP/2 and sends back the proper answer the plugin upgrades the connection and will communicate with the server using the HTTP/2 protocol. Using the TLS' ALPN extension upgrading to HTTP/2 is faster.
@@ -10,10 +10,10 @@ This mechanism prevents the plugin to open multiple connections that will be use
 
 Using HTTP/2 is seemless and requires no prior knowledge whether any target servers has support for it or not. The plugin hides differencies HTTP1.1 and HTTP/2 from the user, but will take advantage of the new protocol every time it has a chance.
 
-# Settings
+## Settings
 
 As most of the global settings, HTTP/2 settings can be accessed through the `HTTPManager` class:
-```csharp
+```language-csharp
 using BestHTTP;
 
 HTTPManager.HTTP2Settings.InitialStreamWindowSize = 5 * 1024 * 1024;

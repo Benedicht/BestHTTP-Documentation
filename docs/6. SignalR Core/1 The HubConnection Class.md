@@ -7,14 +7,14 @@ The `HubConnection` is the main entry point for a SignalR Core connection.
 SignalR Core supports different protocols like Json and MessagePack. The plugin at this time only supports the Json protocol out of the box.
 
 A new `HubConnection` object must be initialized with the uri of the server endpoint and with the protocol that the client want to communicate with:
-```csharp
+```language-csharp
 hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJsonEncoder()));
 ```
 
 # HubOptions
 
 `HubConnection`'s constructor can accept a `HubOptions` instance too:
-```csharp
+```language-csharp
 HubOptions options = new HubOptions();
 hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJsonEncoder()), options);
 ```
@@ -53,14 +53,14 @@ hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJ
 To invoke a method on a server that doesn't return a value, the `Send` method can be used.
 
 Client code:
-```csharp
+```language-csharp
 hub.Send("Send", "my message");
 ```
 
 Its first parameter is the name of the method on the server, than a parameter list can be passed that will be sent to the server.
 
 Related server code:
-```csharp
+```language-csharp
 public class TestHub : Hub
 {
     public Task Send(string message)
@@ -75,7 +75,7 @@ public class TestHub : Hub
 Invoking a server function can be done with the generic `Invoke<TResult>` function. `TResult` is the expected type that the server function returns with.
 
 Sample:
-```csharp
+```language-csharp
 hub.Invoke<int>("Add", 10, 20)
     .OnSuccess(result => Debug.log("10+20: " + result))
     .OnError(error => Debug.log("Add(10, 20) failed to execute. Error: " + error));
@@ -88,7 +88,7 @@ Invoke returns with an `IFuture<TResult>` that can be used to subscribe to vario
 - **OnComplete**: Callback passed to this function will be called after an *OnSuccess* **or** *OnError* callback.
 
 Related server code:
-```csharp
+```language-csharp
 public class TestHub : Hub
 {
     public int Add(int x, int y)
@@ -103,7 +103,7 @@ public class TestHub : Hub
 Clients can define server-callable methods using the generic and non-generic `On` method. The non-generic `On` can be used when the server-callable method has no parameter and the generic one for methods with at least one parameter.
 
 Samples:
-```csharp
+```language-csharp
 // Generic On with one string argument.
 hub.On("Send", (string arg) => Debug.log("Server-sent text: " + arg));
 
@@ -126,7 +126,7 @@ sealed class Person
 ```
 
 Related server code:
-```csharp
+```language-csharp
 public class TestHub : Hub
 {
 	public override async Task OnConnectedAsync()
@@ -145,7 +145,7 @@ public class TestHub : Hub
 When the server sends one return value at a time the client can call a callback for every item if the server function is called using the `GetDownStreamController<TDown>` function.
 
 Sample:
-```csharp
+```language-csharp
 hub.GetDownStreamController<Person>("GetRandomPersons", 20, 2000)
     .OnItem(result => Debug.log("New item arrived: " + result.ToString()))
     .OnSuccess(_ => Debug.log("Streaming finished!"));
@@ -153,7 +153,7 @@ hub.GetDownStreamController<Person>("GetRandomPersons", 20, 2000)
 
 `GetDownStreamController`'s return value is a `DownStreamItemController<TDown>` that implements the `IFuture<TResult>` interface. With DownStreamItemController's OnItem function it can be subscribed for a callback that will be called for every downloaded item.
 The instance of `DownStreamItemController<TDown>` can be used to cancel the streaming:
-```csharp
+```language-csharp
 var controller = hub.GetDownStreamController<int>("ChannelCounter", 10, 1000);
 
 controller.OnItem(result => Debug.log("New item arrived: " + result.ToString()))
@@ -165,7 +165,7 @@ controller.Cancel();
 ```
 
 Related server code:
-```csharp
+```language-csharp
 public class TestHub : Hub
 {
 	public ChannelReader<Person> GetRandomPersons(int count, int delay)
@@ -195,7 +195,7 @@ public class TestHub : Hub
 # Streaming to the server
 
 To stream one or more parameters to a server function the `GetUpStreamController` can be used:
-```csharp
+```language-csharp
 private IEnumerator UploadWord()
 {
     var controller = hub.GetUpStreamController<string, string>("UploadWord");
@@ -222,7 +222,7 @@ private IEnumerator UploadWord()
 `GetUpStreamController` is a generic function, its first type-parameter is the return type of the function then 1-5 types can be added as parameter types. The `GetUpStreamController` call returns an `UpStreamItemController` instance that can be used to upload parameters (`UploadParam`), `Finish` or `Cancel` the uploading. 
 
 It also implements the `IDisposable` interface so it can be used in a using statement and will call Finish when disposed. Here's the previous sample using the IDisposable pattern:
-```csharp
+```language-csharp
 using (var controller = hub.GetUpStreamController<string, string>("UploadWord"))
 {
     controller.OnSuccess(_ =>
@@ -246,7 +246,7 @@ using (var controller = hub.GetUpStreamController<string, string>("UploadWord"))
 The controller also implements the `IFuture` interface to be able to subscribe to the `OnSuccess`, `OnError` and `OnComplete`.
 
 Related server code:
-```csharp
+```language-csharp
 public class UploadHub : Hub 
 {
 	public async Task<string> UploadWord(ChannelReader<string> source)
@@ -274,7 +274,7 @@ public class UploadHub : Hub
 
 After using `GetDownStreamController` to stream results from the server and `GetUpStreamController` to stream parameters to the server, there's a third one to merge these two's functionality, the `GetUpAndDownStreamController` function. With its help we can stream parameters to a server-side function just like with `GetUpStreamController` and stream down its result to the client like we can with `GetDownStreamController`.
 Here's an example usage:
-```csharp
+```language-csharp
 using (var controller = hub.GetUpAndDownStreamController<string, string>("StreamEcho"))
 {
 	controller.OnSuccess(_ =>
@@ -302,7 +302,7 @@ using (var controller = hub.GetUpAndDownStreamController<string, string>("Stream
 `GetUpAndDownStreamController` also returns with an `UpStreamItemController` instance, but in this case its `OnItem` can be used too. The callback passed to the `OnItem` call will be called for every item the server sends back to the client.
 
 Related server code:
-```csharp
+```language-csharp
 public class UploadHub : Hub
 {
 	public ChannelReader<string> StreamEcho(ChannelReader<string> source)

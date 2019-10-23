@@ -5,7 +5,7 @@ Starting in v1.12.0 new async APIs are added to the HTTPRequest. Async APIs are 
 ## Simple async-await Example
 
 Simplest example to download a string using async-await:
-```csharp
+```language-csharp
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -27,7 +27,7 @@ public class AsyncTest : MonoBehaviour
 
 Any outcome that fails to resolve the expected outcome are going to throw an exception.
 
-```csharp
+```language-csharp
 try
 {
     Debug.Log(await request.GetAsStringAsync(tokenSource.Token));
@@ -45,7 +45,7 @@ Possible errors are various timeouts, status codes that indicate errors (401, 40
 
 Async APIs can accept a [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken?view=netstandard-2.0):
 
-```csharp
+```language-csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -82,7 +82,7 @@ When the token's cancellation take action, the plugin will call `Abort` on the `
 
 With [ConfigureAwait](https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.configureawait?view=netstandard-2.0) the `Task` can be configured to continue its exetution on the completing thread. The example below with `ConfigureAwait(false)` should display two different thread ids. With `ConfigureAwait(true)`, thread ids should be the same.
 
-```csharp
+```language-csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;

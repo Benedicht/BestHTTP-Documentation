@@ -7,7 +7,7 @@ Although caching is automatic we have some control over it, or we can gain some 
 - **BeginClear()**: It will start clearing the entire cache on a separate thread.
 - **BeginMaintainence()**: With this function’s help, we can delete cached entries based on the last access time. It deletes entries that’s last access time is older than the specified time. We can also use this function to keep the cache size under control:
 
-```csharp
+```language-csharp
 // Delete cache entries that weren’t accessed in the last two weeks, then
 // delete entries to keep the size of the cache under 50 megabytes, starting with the oldest.
 HTTPCacheService.BeginMaintainence(new HTTPCacheMaintananceParams(TimeSpan.FromDays(14),

@@ -15,7 +15,7 @@ Other breaking changes are:
 
 - [<span style="color:red">Breaking change</span>] New easier to use http streaming API through the `OnStreamingData` event. So instead of calling `GetStreamedFragments` periodically in the main callback, error handling in the main callback and data processing can be separated:
 
-```csharp
+```language-csharp
 var request = new HTTPRequest(new Uri("..."), OnRequestFinished);
 request.OnStreamingData += OnDataDownloaded;
 
@@ -32,7 +32,7 @@ void OnDataDownloaded(HTTPRequest request, HTTPResponse response, byte[] data, i
 - [<span style="color:red">Breaking change</span>] Removed `GetStreamedFragments` function, use the new `OnStreamingData` event.
 - [<span style="color:red">Breaking change</span>] Renamed `OnProgress` to `OnDownloadProgress`
 - [<span style="color:red">Breaking change</span>] Removed `DisableRetry`, use `MaxRetries` instead:
-```csharp
+```language-csharp
 var request = new HTTPRequest(new Uri("..."), OnRequestFinished);
 
 //request.DisableRetry = true;
@@ -49,7 +49,7 @@ request.Send();
 - [<span style="color:red">Breaking change</span>] Removed OnErrorDesc event
 - [<span style="color:red">Breaking change</span>] OnError event now has a string parameter instead of an Exception
 
-```csharp
+```language-csharp
 var webSocket = new WebSocket.WebSocket(new Uri(address));
 webSocket.OnError += OnError;
 

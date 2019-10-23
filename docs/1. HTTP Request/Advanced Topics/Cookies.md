@@ -8,7 +8,7 @@ There are numerous global setting regarding cookies. See the [Global Settings](G
 
 Cookies can be added to a `HTTPRequest` by adding them to the Cookies list:
 
-```csharp
+```language-csharp
 var request = new HTTPRequest(new Uri(address), OnFinished);
 request.Cookies.Add(new Cookie("Name", "Value"));
 request.Send();

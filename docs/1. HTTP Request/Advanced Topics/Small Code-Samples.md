@@ -2,7 +2,7 @@
 
 ## Upload a picture using forms
 
-```csharp
+```language-csharp
 var request = new HTTPRequest(new Uri("http://server.com"), HTTPMethods.Post, onFinished);
 request.AddBinaryData("image", texture.EncodeToPNG(), "image.png", "image/png");
 request.Send();
@@ -10,7 +10,7 @@ request.Send();
 
 ## Upload a picture without forms, sending only the raw data
 
-```csharp
+```language-csharp
 var request = new HTTPRequest(new Uri("http://server.com"), HTTPMethods.Post, onFinished);
 request.SetHeader("Content-Type", "image/png");
 request.Raw = texture.EncodeToPNG();
@@ -19,7 +19,7 @@ request.Send();
 
 ## Add custom header / send json data
 
-```csharp
+```language-csharp
 string json = "{ 'field': 'value' }";
 
 var request = new HTTPRequest(new Uri("http://server.com"), HTTPMethods.Post, onFinished);
@@ -30,7 +30,7 @@ request.Send();
 
 ## Display download progress
 
-```csharp
+```language-csharp
 var request = new HTTPRequest(new Uri("http://serveroflargefile.net/path"), (req, resp) => {
   Debug.Log("Finished!");
 });
@@ -41,7 +41,7 @@ request.Send();
 
 ## Abort a request
 
-```csharp
+```language-csharp
 var request = new HTTPRequest(new Uri(address), (req, resp) => {
 	// State should be HTTPRequestStates.Aborted if we call Abort() before
 	// it’s finishes
@@ -56,7 +56,7 @@ request.Abort();
 
 ## Verify hostnames in HTTPS
 
-```csharp
+```language-csharp
 public sealed class HostNameVerifier : Org.BouncyCastle.Crypto.Tls.ICertificateVerifyer
 {
     public bool IsValid(Uri targetUri, SecureProtocol.Org.BouncyCastle.Asn1.X509.X509CertificateStructure[] certs)

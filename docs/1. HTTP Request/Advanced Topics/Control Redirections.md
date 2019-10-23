@@ -4,7 +4,7 @@ This event is called before the plugin will do a new request to the new uri. The
 
 This function is called on a thread other than the main Unity thread!
 
-```csharp
+```language-csharp
 var request = new HTTPRequest(uri, HTTPMethods.Post);
 request.AddField("field", "data");
 request.OnBeforeRedirection += OnBeforeRedirect;

@@ -2,7 +2,7 @@
 
 As a best practice a `HTTPRequest`'s callback should look like this:
 
-```csharp
+```language-csharp
 private void OnRequestFinished(HTTPRequest req, HTTPResponse resp)
 {
     switch (req.State)
@@ -47,6 +47,6 @@ private void OnRequestFinished(HTTPRequest req, HTTPResponse resp)
 
 A request may fail even before reaching the server so it's wise to check its `State` first. 
 But even if the request reach the server it can fail if the request is badly constructed or incomplete (status code of 4xxx), or because the server had an issue (status code of 5xxx). So in the `Finshed` case we still have to check the `HTTPResponse`'s StatusCode for those codes, or just simple test against the `IsSuccess` property. IsSuccess is just a shortened way to check whether the status code is in a valid range:
-```csharp
+```language-csharp
 public bool IsSuccess { get { return (this.StatusCode >= 200 && this.StatusCode < 300) || this.StatusCode == 304; } }
 ```

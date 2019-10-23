@@ -1,7 +1,7 @@
 # Sending events
 You can send an event with the Emit function. You have to pass the event name as the first parameter and optionally other parameters. These will be encoded to json and will be sent to the server. Optionally you can set a callback function that will be called when the server processes the event(you have to set up the server code properly to be able to send back a callback function. See the Socket.IO server side documentation for more information).
 
-```csharp
+```language-csharp
 // Send a custom event to the server with two parameters
 manager.Socket.Emit("message", "userName", "message");
 
@@ -18,7 +18,7 @@ void OnAckCallback(Socket socket, Packet originalPacket, params object[] args)
 ##Sending acknowledgement to the server
 You can send back an acknowledgement to the server by calling the socket’s EmitAck function. You have to pass the original packet and any optional data:
 
-```csharp
+```language-csharp
 manager["/customNamespace"].On("customEvent", (socket, packet, args) =>
 {
 	socket.EmitAck(packet, "Event", "Received", "Successfully");
@@ -32,7 +32,7 @@ There are two ways of sending binary(byte[]) data.
 
 - By passing to the Emit function the plugin will scan the parameters and if it founds one, it will convert it to a binary attachment(as introduced in Socket.IO 1.0). This is the most efficient way, because it will not convert the byte array to a Base64 encoded string on client side, and back to binary on server side.
 
-```csharp
+```language-csharp
 byte[] data = new byte[10];
 //...
 manager.Socket.Emit("eventWithBinary", "textual param", data);
@@ -46,7 +46,7 @@ Here you will have some options too to use this packet:
 
 - In your event-handler you can access all binary data through the packet’s Attachments property.
 
-```csharp
+```language-csharp
 Socket.On("frame", OnFrame);
 
 void OnFrame(Socket socket, Packet packet, params object[] args)
@@ -57,7 +57,7 @@ void OnFrame(Socket socket, Packet packet, params object[] args)
 
 - The second option is almost the same as the previous, with a little improvement: we will not decode the sent Json string to c# objects. We can do it because we know that the server sent only the binary data, no other information came with this event. So we will let the plugin know that do not decode the payload:
 
-```csharp
+```language-csharp
 // Subscribe to the "frame" event, and set the autoDecodePayload flag to false
 Socket.On("frame", OnFrame, /*autoDecodePayload:*/ false);
 
@@ -72,7 +72,7 @@ The `autoDecodePayload` parameter is `true` by default.
 
 - We can replace back the "{'_placeholder':true,'num':xyz}" string to the index of the attachment in the Attachments list.
 
-```csharp
+```language-csharp
 Socket.On("frame", OnFrame, /*autoDecodePayload:*/ false);
 
 void OnFrame(Socket socket, Packet packet, params object[] args)
@@ -92,7 +92,7 @@ void OnFrame(Socket socket, Packet packet, params object[] args)
 
 - We can replace the "{'_placeholder':true,'num':xyz}" string with the binary data from the Attachments converted to a Base64 encoded string. Advanced Json parsers can convert it to byte arrays when they have to set it to an object’s field or property.
 
-```csharp
+```language-csharp
 Socket.On("frame", OnFrame, /*autoDecodePayload:*/ false);
 
 void OnFrame(Socket socket, Packet packet, params object[] args)

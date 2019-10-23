@@ -1,7 +1,7 @@
 # Sending non-Hub messages
 Sending non-hub messages to the server is easy as calling a function on the connection object:
 
-```csharp
+```language-csharp
 signalRConnection.Send(new { Type = "Broadcast", Value = "Hello SignalR World!" });
 ```
 
@@ -9,6 +9,6 @@ This function will encode the given object to a Json string using the Connection
 
 Already encoded Json strings can be sent using the SendJson function:
 
-```csharp
+```language-csharp
 signalRConnection.SendJson("{ Type: ‘Broadcast’, Value: ‘Hello SignalR World!’ }");
 ```

@@ -2,7 +2,7 @@
 If you want to change the default Json encoder for various reasons, first you have to write a new one. To do so, you have to write a new class that implements the `IJsonEncoder` from the `BestHTTP.SocketIO.JsonEncoders` namespace.
 The stripped IJsonEncoder is very tiny, you have to implement only two functions:
 
-```csharp
+```language-csharp
 public interface IJsonEncoder
 {
 	List<object> Decode(string json);
@@ -16,7 +16,7 @@ The Encode function is used to encode the data that the client wants to send to 
 
 And here comes a complete example using the LitJson library from the examples folder:
 
-```csharp
+```language-csharp
 using LitJson;
 public sealed class LitJsonEncoder : IJsonEncoder
 {

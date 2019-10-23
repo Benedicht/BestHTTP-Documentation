@@ -15,7 +15,7 @@ The `IAuthenticationProvider` has the following properties and events:
 
 Here's the implementation of the `DefaultAccessTokenAuthenticator`:
 
-```csharp
+```language-csharp
 using System;
 
 namespace BestHTTP.SignalRCore.Authentication
@@ -80,7 +80,7 @@ namespace BestHTTP.SignalRCore.Authentication
 # Using an IAuthenticationProvider implementation
 
 An `IAuthenticationProvider` implementation can be used through the `HubConnection`'s `AuthenticationProvider`:
-```csharp
+```language-csharp
 hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJsonEncoder()));
 hub.AuthenticationProvider = new BestHTTP.SignalRCore.Authentication.DefaultAccessTokenAuthenticator(hub);
 ```

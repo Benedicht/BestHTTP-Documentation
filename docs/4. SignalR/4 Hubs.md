@@ -4,7 +4,7 @@ In order to define methods on the client that a Hub can call from the server, an
 ## Accessing hubs
 Hub instances can be accessed through the Connection object by index, or by name.
 
-```csharp
+```language-csharp
 Hub hub = signalRConnection[0];
 Hub hub = signalRConnection["hubName"];
 ```
@@ -12,7 +12,7 @@ Hub hub = signalRConnection["hubName"];
 ## Register server callable methods
 To handle server callable method calls, we have to call the On function of a hub:
 
-```csharp
+```language-csharp
 // Register method implementation
 signalRConnection["hubName"].On("joined", Joined);
 
@@ -39,7 +39,7 @@ The overloads are the following:
 
 - **Call(string method, params object[] args)**: This can be used to call a server-side function in a fire-and-forget style. We will not receive back any messages about the method call’s success or failure. This function can be called without any ‘args’ arguments, to call a parameterless method.
 
-```csharp
+```language-csharp
 // Call a server-side function without any parameters
 signalRConnection["hubName"].Call("Ping");
 
@@ -49,7 +49,7 @@ signalRConnection["hubName"].Call("Message", "param1", "param2");
 
 - **Call(string method, OnMethodResultDelegate onResult, params object[] args)**: This function can be used as the previous one, but a function can be passed as the second parameter that will be called when the server-side function successfully invoked.
 
-```csharp
+```language-csharp
 signalRConnection["hubName"].Call("GetValue", OnGetValueDone);
 
 void OnGetValueDone(Hub hub, ClientMessage originalMessage, ResultMessage result)
@@ -64,7 +64,7 @@ If the method’s return type is void, the ReturnValue is null.
 
 - **Call(string method, OnMethodResultDelegate onResult, OnMethodFailedDelegate onError, params object[] args)**: This function can be used to specify a callback that will be called when the method fails to run on the server. Failures can be happen because of a non-found method, wrong parameters, or unhandled exceptions in the method call.
 
-```csharp
+```language-csharp
 signalRConnection["hubName"].Call("GetValue", OnGetValueDone, OnGetValueFailed);
 
 void OnGetValueFailed(Hub hub, ClientMessage originalMessage, FailureMessage error)
@@ -83,7 +83,7 @@ A FailureMessage contains the following properties:
 
 - **Call(string method, OnMethodResultDelegate onResult, OnMethodFailedDelegate onError, OnMethodProgressDelegate onProgress, params object[] args**): This function can be used to add an additional progress message handler to the server-side method call. For long running jobs the server can send progress messages to the client.
 
-```csharp
+```language-csharp
 signalRConnection["hubName"].Call("GetValue", OnGetValueDone, OnGetValueFailed, OnGetValueProgress);
 
 void OnGetValueProgress(Hub hub, ClientMessage originalMessage,
@@ -98,7 +98,7 @@ When a ResultMessage or FailureMessage received by the plugin, it will not serve
 ## Using the Hub class as a base class to inherit from
 The Hub class can be used as a base class to encapsulate hub functionality.
 
-```csharp
+```language-csharp
 class SampleHub : Hub
 {
  // Default constructor. Every hubs have to have a valid name.
@@ -125,7 +125,7 @@ class SampleHub : Hub
 
 This SampleHub can be instantiated and passed to the Connection’s constructor:
 
-```csharp
+```language-csharp
 SampleHub sampleHub = new SampleHub();
 Connection signalRConnection = new Connection(Uri, sampleHub);
 ```
@@ -142,7 +142,7 @@ The implementor has to implement the following property and functions:
 
 A very simple Header-based authenticator would look like this:
 
-```csharp
+```language-csharp
 class HeaderAuthenticator : IAuthenticationProvider
 {
    public string User { get; private set; }

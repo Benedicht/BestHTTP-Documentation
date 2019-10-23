@@ -22,7 +22,7 @@ Changing the defaults can be made through the static properties of the `HTTPMana
 
 Sample codes:
 
-```csharp
+```language-csharp
 HTTPManager.MaxConnectionPerServer = 10;
 HTTPManager.RequestTimeout = TimeSpan.FromSeconds(120);
 ```

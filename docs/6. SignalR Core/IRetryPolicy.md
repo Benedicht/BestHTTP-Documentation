@@ -1,7 +1,7 @@
 # Automatic reconnection and the IRetryPolicy interface
 
 With ASP.net Core 3 SignalR Core supports automatic reconnection through the `IRetryPolicy` interface:
-```csharp
+```language-csharp
 public interface IRetryPolicy
 {
     /// <summary>
@@ -26,7 +26,7 @@ When called, `GetNextRetryDelay` always receives an up to date `RetryContext`.
 ## Default implementation
 
 The default `IRetryPolicy` implementation that the plugin uses by default looks like this:
-```csharp
+```language-csharp
 public sealed class DefaultRetryPolicy : IRetryPolicy
 {
     private static TimeSpan?[] DefaultBackoffTimes = new TimeSpan?[]
@@ -61,13 +61,13 @@ public sealed class DefaultRetryPolicy : IRetryPolicy
 ```
 
 To use it an instance must be set to the HubConnection's `ReconnectPolicy` property:
-```csharp
+```language-csharp
 hub = new HubConnection(new Uri("..."), new JsonProtocol(new LitJsonEncoder()), options);
 hub.ReconnectPolicy = new DefaultRetryPolicy();
 ```
 
 Or with custom backoff times:
-```csharp
+```language-csharp
 hub = new HubConnection(new Uri(base.sampleSelector.BaseURL + this._path), new JsonProtocol(new LitJsonEncoder()), options);
 hub.ReconnectPolicy = new DefaultRetryPolicy(new TimeSpan?[] {
     TimeSpan.FromSeconds(5),

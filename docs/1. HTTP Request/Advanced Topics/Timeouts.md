@@ -3,24 +3,24 @@ You can set two timeout for a request:
 
 - **ConnectTimeout**: With this property you can control how much time you want to wait for a connection to be made between your app and the remote server. Its default value is 20 seconds.
 
-```csharp
-request = new HTTPRequest(new Uri("http://yourserver.com/"), (req, resp) => { … });
+```language-csharp
+request = new HTTPRequest(new Uri("http://yourserver.com/"), (req, resp) => { ... });
 request.ConnectTimeout = TimeSpan.FromSeconds(2);
 request.Send();
 ```
 
 - **Timeout**: With this property you can control how much time you want to wait for a request to be processed(sending the request, and downloading the response). Its default value is 60 seconds.
 
-```csharp
-request = new HTTPRequest(new Uri("http://yourserver.com/"), (req, resp) => { … });
+```language-csharp
+request = new HTTPRequest(new Uri("http://yourserver.com/"), (req, resp) => { ... });
 request.Timeout = TimeSpan.FromSeconds(10);
 request.Send();
 ```
 
 A more complete example:
 
-```csharp
-string url = "http://besthttp.azurewebsites.net/api/LeaderboardTest?from=0&count=10";
+```language-csharp
+string url = "https://httpbin.org/get";
 HTTPRequest request = new HTTPRequest(new Uri(url), (req, resp) =>
   {
  	 switch (req.State)

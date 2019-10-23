@@ -1,7 +1,7 @@
 #Server Certificate Validation
 Server sent certificates can be validated by implementing an `ICertificateVerifyer` interface and setting it to a HTTPRequest’s `CustomCertificateVerifyer`:
 
-```csharp
+```language-csharp
 using System;
 using BestHTTP.SecureProtocol.Org.BouncyCastle.Crypto.Tls;
 using BestHTTP.SecureProtocol.Org.BouncyCastle.Asn1.X509;

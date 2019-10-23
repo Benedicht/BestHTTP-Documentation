@@ -2,7 +2,7 @@
 Best HTTP supports Basic and Digest authentication through the HTTPRequest’s Credentials property:
 
 
-```csharp
+```language-csharp
 using BestHTTP;
 using BestHTTP.Authentication;
 

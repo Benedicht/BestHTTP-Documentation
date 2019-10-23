@@ -2,14 +2,14 @@
 
 You can subscribe to predefined and custom events. Predefined events are "connect", "connecting", "event", "disconnect", "reconnect", "reconnecting", "reconnect_attempt", "reconnect_failed", "error". Custom events are programmer defined events that your server will send to your client. You can subscribe to an event by calling a socket’s On function:
 
-```csharp
+```language-csharp
 manager.Socket.On("login", OnLogin);
 manager.Socket.On("new message", OnNewMessage);
 ```
 
 An event handler will look like this:
 
-```csharp
+```language-csharp
 void OnLogin(Socket socket, Packet packet, params object[] args)
 {
 }
@@ -22,14 +22,14 @@ void OnLogin(Socket socket, Packet packet, params object[] args)
 
 A message emitted on the server(node.js):
 
-```csharp
+```language-csharp
 // send a message to the client
 socket.emit('message', 'MyNick', 'Msg to the client');
 ```
 
 can be caught by the client:
 
-```csharp
+```language-csharp
 // subscribe to the "message" event
 manager.Socket.On("message", OnMessage);
 
@@ -58,14 +58,14 @@ void OnMessage(Socket socket, Packet packet, params object[] args)
 
 - Once: you can subscribe to an event that will be called only once.
 
-```csharp
+```language-csharp
 // The event handler will be called only once
 manager.Socket.Once("connect", OnConnected);
 ```
 
 - Off: you can remove all event subscription, or just only one.
 
-```csharp
+```language-csharp
 // Removes all event-handlers
 manager.Socket.Off();
 

@@ -13,7 +13,7 @@ Brief feature list of this Socket.IO implementation:
 
 If you want to connect to a Socket.IO service you can do it using the BestHTTP.SocketIO.SocketManager class. First you have to create a SocketManager instance:
 
-```csharp
+```language-csharp
 using System;
 using BestHTTP;
 using BestHTTP.SocketIO;

@@ -1,6 +1,6 @@
 We can use the WebSocket protocol through the WebSocket class. We just need to pass the Uri of the server to the WebSocket’s constructor:
 
-```csharp
+```language-csharp
 var webSocket = new WebSocket(new Uri("wss://echo.websocket.org"));
 ```
 
@@ -8,7 +8,7 @@ After this step we can register our event handlers to several events:
 
 - **OnOpen** event: Called when connection to the server is established. After this event the WebSocket’s IsOpen property will be True until we or the server closes the connection or if an error occurs.
 
-```csharp
+```language-csharp
 webSocket.OnOpen += OnWebSocketOpen;
 private void OnWebSocketOpen(WebSocket webSocket)
 {
@@ -18,7 +18,7 @@ private void OnWebSocketOpen(WebSocket webSocket)
 
 - **OnMessage** event: Called when a textual message received from the server.
 
-```csharp
+```language-csharp
 webSocket.OnMessage += OnMessageReceived;
 private void OnMessageReceived(WebSocket webSocket, string message)
 {
@@ -28,7 +28,7 @@ private void OnMessageReceived(WebSocket webSocket, string message)
 
 - **OnBinary** event: Called when a binary blob message received from the server.
 
-```csharp
+```language-csharp
 webSocket.OnBinary += OnBinaryMessageReceived;
 private void OnBinaryMessageReceived(WebSocket webSocket, byte[] message)
 {
@@ -38,7 +38,7 @@ private void OnBinaryMessageReceived(WebSocket webSocket, byte[] message)
 
 - **OnClosed** event: Called when the client or the server closes the connection, or an internal error occurs. When the client closes the connection through the Close function it can provide a Code and a Message that indicates a reason for closing. The server typically will echos our Code and Message.
 
-```csharp
+```language-csharp
 webSocket.OnClosed += OnWebSocketClosed;
 private void OnWebSocketClosed(WebSocket webSocket, UInt16 code, string message)
 {
@@ -48,7 +48,7 @@ private void OnWebSocketClosed(WebSocket webSocket, UInt16 code, string message)
 
 - **OnError** event: Called when can’t connect to the server, an internal error occurs or when the connection is lost. The second parameter is an Exception object, but it can be null. In this case, checking the InternalRequest of the WebSocket should tell more about the problem.
 
-```csharp
+```language-csharp
 webSocket.OnErrorDesc += OnErrorDesc;
 
 void OnErrorDesc(WebSocket ws, string error)
@@ -61,7 +61,7 @@ void OnErrorDesc(WebSocket ws, string error)
 
 After we registered to the event we can start open the connection:
 
-```csharp
+```language-csharp
 webSocket.Open();
 ```
 !!! Notice
@@ -69,7 +69,7 @@ webSocket.Open();
 
 After this step we will receive an OnOpen event and we can start sending out messages to the server.
 
-```csharp
+```language-csharp
 // Sending out text messages:
 webSocket.Send("Message to the Server");
 
@@ -82,7 +82,7 @@ webSocket.Send(buffer);
 
 After all communication is done we should close the connection:
 
-```csharp
+```language-csharp
 webSocket.Close();
 ```
 

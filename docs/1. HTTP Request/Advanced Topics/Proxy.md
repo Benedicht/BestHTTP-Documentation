@@ -4,7 +4,7 @@ There are two types of proxies the plugin supports: HTTP (`HTTPProxy`) and SOCKS
 
 A proxy object can be set to a HTTPRequest’s Proxy property. This way the request will be go through the given proxy.
 
-```csharp
+```language-csharp
 // HTTP Proxy:
 request.Proxy = new HTTPProxy(new Uri("http://localhost:3128"));
 
@@ -14,7 +14,7 @@ request.Proxy = new SOCKSProxy(new System.Uri("socks://localhost:3129"), /*crede
 
 You can set a global proxy too, so you don’t have to set it to all request manually or to drive higher level protocols through it:
 
-```csharp
+```language-csharp
 // Global HTTP Proxy:
 HTTPManager.Proxy = new HTTPProxy(new Uri("http://localhost:3128"));
 
