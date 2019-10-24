@@ -5,6 +5,8 @@ site_url: http://u3d.as/5sb
 theme: 
     name: null
     custom_dir: 'theme/'
+    search_index_only: true
+    include_search_page: true
 
 markdown_extensions:
  - admonition
