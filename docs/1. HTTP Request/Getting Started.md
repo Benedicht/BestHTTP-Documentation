@@ -54,7 +54,7 @@ request.RawData =  Encoding.UTF8.GetBytes("Field Value");
 request.Send();
 ```
 
-For additional samples check out the Small Code-Samples section.
+For additional samples check out the [Small Code-Samples section](Advanced Topics\Small Code-Samples.md).
 
 Beside GET and POST you can use the HEAD, PUT, DELETE and PATCH methods as well:
 

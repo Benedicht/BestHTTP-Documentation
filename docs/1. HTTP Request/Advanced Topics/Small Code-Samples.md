@@ -4,7 +4,9 @@
 
 ```language-csharp
 var request = new HTTPRequest(new Uri("http://server.com"), HTTPMethods.Post, onFinished);
+
 request.AddBinaryData("image", texture.EncodeToPNG(), "image.png", "image/png");
+
 request.Send();
 ```
 
@@ -12,19 +14,23 @@ request.Send();
 
 ```language-csharp
 var request = new HTTPRequest(new Uri("http://server.com"), HTTPMethods.Post, onFinished);
+
 request.SetHeader("Content-Type", "image/png");
 request.Raw = texture.EncodeToPNG();
+
 request.Send();
 ```
 
-## Add custom header / send json data
+## Send json data
 
 ```language-csharp
 string json = "{ 'field': 'value' }";
 
 var request = new HTTPRequest(new Uri("http://server.com"), HTTPMethods.Post, onFinished);
+
 request.SetHeader("Content-Type", "application/json; charset=UTF-8");
 request.RawData = UTF8.Encoding.GetBytes(json);
+
 request.Send();
 ```
 
@@ -36,6 +42,7 @@ var request = new HTTPRequest(new Uri("http://serveroflargefile.net/path"), (req
 });
 
 request.OnDownloadProgress += (req, down, length) => Debug.Log(string.Format("Progress: {0:P2}", down / (float)length));
+
 request.Send();
 ```
 
