@@ -12,5 +12,5 @@ void OnDownloadProgress(HTTPRequest request, long downloaded, long length) {
 }
 ```
 
-!!! Warning "Warning:"
+!!! Warning
 	When the server sends the content with chunked encoding the plugin can't determine the what will be the final length so length will be advanced by the current chunk's length.
