@@ -1,7 +1,9 @@
-#How to disable features
+# How to disable features
 There are many defines that can be used to disable various features. These defines can be combined, even all can be set. Disabled features will not compile, so build size can be reduced by disabling unused features. Check the Unity manual how you can set these defines: <http://docs.unity3d.com/Manual/PlatformDependentCompilation.html>
 
-These defines are the following:
+## Available defines
+
+These are the defines that has an effect on the plugin:
 
 - **BESTHTTP_DISABLE_COOKIES**: With this define all cookie related code can be disabled. No cookie parsing, saving and sending will occur.
 - **BESTHTTP_DISABLE_CACHING**: With this define all cache related code can be disabled. No caching, or cache validation will be done.
