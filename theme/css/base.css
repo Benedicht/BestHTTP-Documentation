@@ -513,25 +513,54 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
     text-align: left;
 }
 
+.admonition-title:before {
+	margin-right: 4px;
+    font-family: "FontAwesome";
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    content: "\F06A";
+}
+
+.admonition-title {
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    color: #fff;    
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.notice .admonition-title {
+	background: #6ab0de;
+}
+
 .admonition.notice { /* csslint allow: adjoining-classes */
-    color: #3a87ad;
+    color: #000;
     background-color: #d9edf7;
     border-color: #bce8f1;
 }
 
+.warning .admonition-title {
+	background: #f0b37e;
+}
+
 .admonition.warning { /* csslint allow: adjoining-classes */
-    color: #c09853;
-    background-color: #fcf8e3;
+    color: #000;
+    background-color: #ffedcc;
     border-color: #fbeed5;
 }
 
-.admonition.danger { /* csslint allow: adjoining-classes */
-    color: #b94a48;
-    background-color: #f2dede;
-    border-color: #eed3d7;
+.danger .admonition-title {
+	background: #ff6758;
 }
 
-.admonition-title {
-    font-weight: bold;
-    text-align: left;
+.admonition.danger { /* csslint allow: adjoining-classes */
+    color: #000;
+    background-color: #f29f97;
+    border-color: #eed3d7;
 }
