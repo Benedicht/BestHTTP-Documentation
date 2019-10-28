@@ -7,3 +7,11 @@ To disable the use of Bouncy Castle globally, the following line can be added so
 ```language-csharp
 BestHTTP.HTTPManager.UseAlternateSSLDefaultValue = false;
 ```
+
+`HTTPRequest` also has an `UseAlternateSSL` property, but because of connection pooling, the first request's value determines what TLS/SSL handler will be used. 
+
+
+!!! Notice
+	HTTP/2 (because it depends on TLS' `ALPN` feature) and `Server Name Indication` works only with Bouncy Castle.
+	
+Other HTTPS related topcis are [Server Certificate Validation](../1. HTTP Request/Advanced Topics/Server Certificate Validation.md) and [Hostname verification](../1. HTTP Request/Advanced Topics/Small Code-Samples.md#verify-hostnames-in-https).

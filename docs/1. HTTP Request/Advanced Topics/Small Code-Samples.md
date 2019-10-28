@@ -81,3 +81,21 @@ public sealed class HostNameVerifier : Org.BouncyCastle.Crypto.Tls.ICertificateV
 
 HTTPManager.DefaultCertificateVerifyer = new HostNameVerifier();
 ```
+
+## Get header values
+
+```language-csharp
+var request = new HTTPRequest(new Uri("https://httpbin.org/get"), (req, resp) =>
+{
+    // One response can contain multiple header: value pairs for the same 'header'.
+    List<string> values = resp.GetHeaderValues("custom-header");
+    foreach (string header in values)
+        Debug.Log(header);
+
+    // GetFirstHeaderValue returns the first header's value. It's good for headers that we are sure that occur only one per response.
+    string contentLengthHeader = resp.GetFirstHeaderValue("content-length");
+    Debug.Log(contentLengthHeader);
+});
+
+request.Send();
+```
