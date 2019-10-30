@@ -21,4 +21,5 @@ using BestHTTP.SocketIO;
 var manager = new SocketManager(new Uri("https://socket-io-chat.now.sh/socket.io/"));
 ```
 
-The /socket.io/ path in the url is very important, by default the Socket.IO server will listen on this query. So don’t forget to append it to your test url too!
+!!! Notice
+	The */socket.io/* path in the url is very important, by default the Socket.IO server will listen on this query. So don’t forget to append it to your test url too!
