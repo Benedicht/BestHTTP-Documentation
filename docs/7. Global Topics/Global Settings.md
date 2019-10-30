@@ -1,8 +1,8 @@
-#Global Settings
-With the following properties we can change some defaults that otherwise should be specified in the HTTPRequest’s constructor. So most of these properties are time saving shortcuts.
+# Global Settings
+With the following properties we can change some defaults that otherwise should be specified in the HTTPRequest’s constructor. So most of these properties are time saving shortcuts, however, because higher level protocols use the `HTTPRequest` class too, these settings affect all protocols too.
 These changes will affect all request that created after their values changed.
 
-Changing the defaults can be made through the static properties of the `HTTPManager` class:
+Changing the defaults can be made through the static properties of the `HTTPManager` class. Current settings are the following:
 
 - **MaxConnectionPerServer**: Number of connections allowed to a unique host. <http://example.org> and <https://example.org> are counted as two separate servers. The default value is **4**.
 - **KeepAliveDefaultValue**: The default value of the HTTPRequest’s `IsKeepAlive` property. If `IsKeepAlive` is `false`, the tcp connections to the server will be set up before every request and closed right after it. It should be changed to false if consecutive requests are rare. Values given to the HTTPRequest’s constructor will override this value for this request. The default value is `true`.
@@ -18,7 +18,7 @@ Changing the defaults can be made through the static properties of the `HTTPMana
 - **Logger**: An ILogger implementation to be able to control what information will be logged about the plugin’s internals, and how these will be logged.
 - **DefaultCertificateVerifyer**: An `ICertificateVerifyer` implementation can be set to this property. All new requests created after this will use this verifier when a secure protocol is used and the request’s `UseAlternateSSL` is `true`. An `ICertificateVerifyer` implementation can be used to implement server certificate validation.
 - **UseAlternateSSLDefaultValue**: The default value of HTTPRequest’s UseAlternateSSL can be changed through this property.
-- **HTTP2Settings**: Through this property, HTTP/2 related settings can be changes. See the [HTTP/2 topic for more information](../../../5. HTTP2/#settings).
+- **HTTP2Settings**: Through this property, HTTP/2 related settings can be changes. See the [HTTP/2 topic for more information](HTTP2.md#settings).
 
 Sample codes:
 
