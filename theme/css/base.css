@@ -458,12 +458,12 @@ code.code-large, .rst-content tt.code-large {
 }
 
 code {
-    padding: 2px 5px;
-    background: #ccc;
-    border: solid 2px #e1e4e5;
-    color: #f00;
+    padding: 0px 0px;
+	border: none;
+    color: #CC0000;
     white-space: pre-wrap;
     word-wrap: break-word;
+	font-size: 100%;
 }
 
 pre code {
@@ -473,6 +473,7 @@ pre code {
     word-wrap: normal;
     font-family: monospace,serif;
     font-size: 12px;
+	font-weight: unset;
 }
 
 a code {
