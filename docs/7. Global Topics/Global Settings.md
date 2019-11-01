@@ -14,7 +14,7 @@ Changing the defaults can be made through the static properties of the `HTTPMana
 - **ConnectTimeout**: With this option you can set the HTTPRequests’ default `ConnectTimeout` value. The default value is 20 seconds.
 - **RequestTimeout**: With this option you can set the HTTPRequests’ default Timeout value. The default value is 60 seconds.
 - **RootCacheFolderProvider**: By default the plugin will save all cache and cookie data under the path returned by `Application.persistentDataPath`. You can assign a function to this delegate to return a custom root path to define a new path. **This delegate will be called on a non Unity thread!**
-- **Proxy**: The global, default proxy for all HTTPRequests. The HTTPRequest's Proxy still can be changed per-request. Default value is `null`.
+- **Proxy**: The global, default proxy for all HTTPRequests. The HTTPRequest's Proxy still can be changed per-request. Default value is `null`. More information can be found about proxies in the [Proxy](Proxy.md) topic.
 - **Logger**: An ILogger implementation to be able to control what information will be logged about the plugin’s internals, and how these will be logged.
 - **DefaultCertificateVerifyer**: An `ICertificateVerifyer` implementation can be set to this property. All new requests created after this will use this verifier when a secure protocol is used and the request’s `UseAlternateSSL` is `true`. An `ICertificateVerifyer` implementation can be used to implement server certificate validation.
 - **UseAlternateSSLDefaultValue**: The default value of HTTPRequest’s UseAlternateSSL can be changed through this property.
