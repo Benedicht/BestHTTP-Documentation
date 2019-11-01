@@ -1,4 +1,4 @@
-#Proxy
+# Proxy
 
 There are two types of proxies the plugin supports: HTTP (`HTTPProxy`) and SOCKS (`SOCKSProxy`).
 
