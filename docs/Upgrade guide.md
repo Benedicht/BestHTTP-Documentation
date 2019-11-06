@@ -42,7 +42,7 @@ request.Send();
 ```
 - [<span style="color:red">Breaking change</span>] Removed `Priority` property
 - [<span style="color:red">Breaking change</span>] Removed `TryToMinimizeTCPLatency` property, because of the plugin's own buffering mechanism it became an always on setting.
-- [<span style="color:red">Breaking change</span>] Removed HTTPFormUsage.RawJSon support. There's a [small example](/7. Small Code-Samples/Small Code-Samples/#add-custom-header-send-json-data) on how a request can be set up to send json with the RawData property.
+- [<span style="color:red">Breaking change</span>] Removed HTTPFormUsage.RawJSon support. There's a [small example](/1. HTTP Request/Advanced Topics/Small Code-Samples/#send-json-data) on how a request can be set up to send json with the RawData property.
 
 ## Websocket
 
@@ -62,4 +62,4 @@ void OnError(WebSocket.WebSocket ws, string error)
 
 - [<span style="color:red">Breaking change</span>] Changed up and down streaming API
 
-Documentation about the new and changed streaming API can be found in the [SignalR Core topics](/6. SignalR Core/2. The HubConnection Class/#streaming-from-the-server). 
+Documentation about the new and changed streaming API can be found in the [SignalR Core topics](/6. SignalR Core/1 The HubConnection Class/#streaming-from-the-server). 
