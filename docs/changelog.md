@@ -1,7 +1,7 @@
 #2.0.0 (2019.10.31)
 
 !!! Warning
-	**This is a major release breaking backward compatibility with older releases. See the [Upgrade Guide](./upgrade guide.md) for more details!**
+	**This is a major release breaking backward compatibility with older releases. See the [Upgrade Guide](https://besthttp-documentation.readthedocs.io/en/latest/Upgrade guide/) for more details!**
 
 **General**
 
