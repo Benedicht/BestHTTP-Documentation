@@ -1,6 +1,6 @@
 ## Error handling
 
-As a best practice a `HTTPRequest`'s callback should look like this:
+Because `HTTPResponse` in the callback can be null in cases where there were an error on client side (request aborting, timeouts or non-reachable server), as a best practice a `HTTPRequest`'s callback should look like this:
 
 ```language-csharp
 private void OnRequestFinished(HTTPRequest req, HTTPResponse resp)
