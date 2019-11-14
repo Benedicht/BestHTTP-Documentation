@@ -1,5 +1,5 @@
 # Error handling
-An "error" event emitted when a server side or client side error occurs. The first parameter of the event will be an `Error` object. This will contain an error code in the Code property and a string message in the Message property. The `ToString()` function int this class has been overridden, you can use this function to write out its contents.
+An "error" event emitted when a server or client side error occurs. The first parameter of the event will be an `Error` object. It contains an error code in its `Code` property and a textual message in its `Message` property. Error overrides its `ToString()` so it can be used to write out its contents.
 
 ```language-csharp
 Socket.On(SocketIOEventTypes.Error, OnError);
@@ -14,13 +14,14 @@ void OnError(Socket socket, Packet packet, params object[] args)
             Debug.Log("Exception in an event handler!");
             break;
         case SocketIOErrors.Internal:
-            Debug.Log("Internal error!");
+            Debug.Log("Internal error! Message: " + error.Message);
             break;
         default:
-            Debug.Log("Server error!");
+            Debug.Log("Server error! Message: " + error.Message);
             break;
     }
 
+	// Or just use ToString() to print out .Code and .Message:
     Debug.Log(error.ToString());
 }
 ```
