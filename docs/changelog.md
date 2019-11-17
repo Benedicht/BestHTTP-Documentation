@@ -1,4 +1,22 @@
-#2.0.0 (2019.10.31)
+## 2.0.1 (2019.11.17)
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] Request's Response can be null when the ConnectionHelper tries to determine whether the connection can be kept open
+- [<span style="color:red">Bugfix</span>] "host" header must not sent in a HTTP/2 request
+
+**Socket.IO**
+
+- [<span style="color:red">Bugfix</span>] Fixed an error that thrown when the packet's payload contained unicode characters.
+- [<span style="color:red">Bugfix</span>] Fixed error packet deserialization when the code field isn't an integer
+
+**SignalR Core**
+
+- [<span style="color:red">Bugfix</span>] Fixed compile errors when BESTHTTP_DISABLE_WEBSOCKET present
+- [<span style="color:green">New Feature</span>] Added support for allowReconnect in the close message (ASP.Net 3.1 feature)
+
+ 
+## 2.0.0 (2019.10.31)
 
 !!! Warning
 	**This is a major release breaking backward compatibility with older releases. See the [Upgrade Guide](https://besthttp-documentation.readthedocs.io/en/latest/Upgrade guide/) for more details!**
