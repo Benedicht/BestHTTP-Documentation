@@ -15,3 +15,9 @@ BestHTTP.HTTPManager.UseAlternateSSLDefaultValue = false;
 	[HTTP/2](HTTP2.md) (because it depends on TLS' `ALPN` feature) and `Server Name Indication` works only with Bouncy Castle.
 	
 Other HTTPS related topcis are [Server Certificate Validation](../1. HTTP Request/Advanced Topics/Server Certificate Validation.md) and [Hostname verification](../1. HTTP Request/Advanced Topics/Small Code-Samples.md#verify-hostnames-in-https).
+
+## How to debug HTTPS requests
+
+The plugin doesn't verify server certificate so it's easy to set up a proxy and route the intersting requests through it. [Charles Proxy](https://www.charlesproxy.com) is one of the easiest proxy to set up and use.
+
+The plugin also supports the [NSS Key Log Format](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format). In the editor when the *SSLKEYLOGFILE* environment variable is present, the plugin will write the *client random* of the SSL session to the file. 3rd party programs like [Wireshark](https://wiki.wireshark.org/TLS) can use this file to decrypt packets sent by the plugin.
