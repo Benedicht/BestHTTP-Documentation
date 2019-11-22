@@ -1,9 +1,33 @@
+## 2.0.2 (2019.11.22)
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] HostConnection's AddProtocol didn't set the new known protocol causing request processing delays in some cases
+- [<span style="color:red">Bugfix</span>] Parts of the SignalR samples are back
+- [<span style="color:red">Bugfix</span>] Fixed compile errors when specific plugin defines are added
+- [<span style="color:blue">Improvement</span>] Improved CookieJar's domain matching
+
+
+**HTTP/2**
+
+- [<span style="color:green">New Feature</span>] Added PingFrequency option to HTTPManager.HTTP2Settings
+- [<span style="color:red">Bugfix</span>] Pong messages didn't send back the server's payload
+- [<span style="color:red">Bugfix</span>] HTTP2Handler used HTTPManager.MaxConnectionIdleTime instead of HTTPManager.HTTP2Settings.MaxIdleTime
+
+**SignalR Core**
+
+- [<span style="color:green">New Feature</span>] LongPolling transport added
+- [<span style="color:green">New Feature</span>] Automatic transport downgrade
+
 ## 2.0.1 (2019.11.17)
+
+**HTTP/2**
+
+- [<span style="color:red">Bugfix</span>] "host" header must not sent in a HTTP/2 request
 
 **General**
 
 - [<span style="color:red">Bugfix</span>] Request's Response can be null when the ConnectionHelper tries to determine whether the connection can be kept open
-- [<span style="color:red">Bugfix</span>] "host" header must not sent in a HTTP/2 request
 
 **Socket.IO**
 
