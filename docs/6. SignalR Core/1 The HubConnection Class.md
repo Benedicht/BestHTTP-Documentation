@@ -22,7 +22,7 @@ hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJ
 `HubOptions` contains the following properties to set:
 
 - **SkipNegotiation**: When this is set to true, the plugin will skip the negotiation request if the PreferedTransport is WebSocket. Its default value is false.
-- **PreferedTransport**: The preferred transport to choose when more than one available. Its default value is TransportTypes.WebSocket.
+- **PreferedTransport**: The preferred transport to choose when more than one available. Its default value is TransportTypes.WebSocket. When the plugin can't connect with the preferred transport it will try the next available (long polling). If all transport fails to connect, it will emit an OnError event.
 - **PingInterval**: A ping message is only sent if the interval has elapsed without a message being sent. Its default value is 15 seconds.
 - **MaxRedirects**: The maximum count of redirect negoitiation result that the plugin will follow. Its default value is 100.
 
@@ -35,6 +35,12 @@ hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJ
 - **OnReconnecting**: Called when the HubConnection start its reconnection process after loosing its underlying connection.
 - **OnReconnected**: Called after a succesfull reconnection.
 - **OnRedirected**: This event is called when the connection is redirected to a new uri.
+- **OnTransportEvent**: Called for transport related events:
+	- *SelectedToConnect*: Transport is selected to try to connect to the server
+	- *FailedToConnect*: Transport failed to connect to the server. This event can occur after SelectedToConnect, when already connected and an error occurs it will be a ClosedWithError one.
+	- *Connected*: The transport successfully connected to the server.
+	- *Closed*: Transport gracefully terminated.
+	- *ClosedWithError*: Unexpected error occured and the transport can't recover from it.
 
 # Properties
 
