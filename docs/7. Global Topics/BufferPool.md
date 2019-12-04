@@ -11,7 +11,7 @@ Pooling mechanism can be disabled, configured and used by outside of the plugin.
 - **RunMaintenanceEvery**: How often pool maintenance must run. Its default value is 10 seconds.
 - **MinBufferSize**: Minimum buffer size that the plugin will allocate when the requested size is smaller than this value, and canBeLarger is set to true. Its default value 256 bytes.
 - **MaxBufferSize**: Maximum size of a buffer that the plugin will store. Its default value is `long.MaxValue`.
-- **MaxPoolSize**: Maximum accumulated size of the stored buffers. Its default value is `long.MaxValue`.
+- **MaxPoolSize**: Maximum accumulated size of the stored buffers. Its default value is 10 Mb.
 - **RemoveEmptyLists**: Whether to remove empty buffer stores from the free list. Its default value is `true`.
 - **IsDoubleReleaseCheckEnabled**: If it set to true and a byte[] is released more than once it will log out an error. Its default value is `true` when run in the editor, `false` otherwise.
 
