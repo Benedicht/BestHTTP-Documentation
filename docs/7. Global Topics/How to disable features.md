@@ -14,3 +14,11 @@ These are the defines that has an effect on the plugin:
 - **BESTHTTP_DISABLE_SOCKETIO**: The entire Socket.IO implementation will be disabled.
 - **BESTHTTP_DISABLE_ALTERNATE_SSL**: If you are not using HTTPS(or WSS for WebSocket) and HTTP/2, you can disable the alternate ssl handler.
 - **BESTHTTP_DISABLE_HTTP2**: To disable the HTTP/2 protocol.
+
+## Protocol related defines
+
+* SignalR Core
+	- **BESTHTTP_SIGNALR_CORE_ENABLE_GAMEDEVWARE_MESSAGEPACK**
+	- **BESTHTTP_SIGNALR_CORE_ENABLE_NEWTONSOFT_JSON_DOTNET_ENCODER**
+	
+	More can be read about these under the [SignalR Core Encoders](../6. SignalR Core/Encoders.md) topic
