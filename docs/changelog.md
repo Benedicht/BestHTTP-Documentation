@@ -1,5 +1,9 @@
 ## 2.0.3 (2019)
 
+**HTTP/2**
+
+- [<span style="color:green">New Feature</span>] Implemented upload streaming and upload progress reporting
+
 **General**
 
 - [<span style="color:blue">Improvement</span>] Reworked response reading to do not depend on StreamFragmentSize for download progress reporting
@@ -11,6 +15,7 @@
 - [<span style="color:green">New Feature</span>] Implemented MessagePack protocol using the *Json & MessagePack Serialization* [Unity Asset Store package](https://assetstore.unity.com/packages/tools/network/json-messagepack-serialization-59918)
 - [<span style="color:blue">Improvement</span>] Under WebGL built with Unity 2019.2 Uri's IsAbsoluteUri returns the wrong value
 - [<span style="color:red">Bugfix</span>] Redirect uri's query parameters are removed while parsing and/or adding the negotiateVersion query param
+- [<span style="color:red">Bugfix</span>] LongPolling now handles the handshake response
 
 ## 2.0.2 (2019.11.22)
 
