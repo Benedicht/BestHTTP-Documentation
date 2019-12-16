@@ -13,7 +13,7 @@ For the plugin, the JSon encoder is available without any additional steps. The 
 hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJsonEncoder()));
 ```
 
-### How to Enable and Use Newtonsoft's JSON .NET For Unity Encoder
+## How to Enable and Use Newtonsoft's JSON .NET For Unity Encoder
 
 There's an encoder implementation that uses the [Newtonsoft's JSON .NET For Unity](https://assetstore.unity.com/packages/tools/input-management/json-net-for-unity-11347) package.
 
