@@ -1,8 +1,41 @@
-## 2.0.3 (2019.12.06)
+## 2.0.4 (2020.01.)
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] Long running streaming requests' state set to Timeout instead of Abort when aborted
+- [<span style="color:red">Bugfix</span>] Fixed a StackOverflowException when read buffer was larger than StreamFragmentSize
+- [<span style="color:red">Bugfix</span>] When ConfigureAwait set to false, HTTPResponse's Dispose may called before acccessing Data
+- [<span style="color:red">Bugfix</span>] Fixed case to avoid overwriting already set cookie name and value
+- [<span style="color:red">Bugfix</span>] Fixed a memory leak where HostConnection's CloseConnectionAfterInactivity is added back to the Timer
+- [<span style="color:red">Bugfix</span>] Fixed compiler warning when BESTHTTP_DISABLE_HTTP2 is in use
+- [<span style="color:red">Bugfix</span>] Don't process cached alt-svc header
+- [<span style="color:blue">Improvement</span>] Run IsCachedEntityExpiresInTheFuture check before anything else to do not open a TCP channel to the server
+- [<span style="color:blue">Improvement</span>] Added "samesite" cookie parsing
+- [<span style="color:blue">Improvement</span>] Log out connector Connect exceptions when log level set to All
+- [<span style="color:blue">Improvement</span>] Refresh data on disk when the stored and downloaded data length differs
+- [<span style="color:blue">Improvement</span>] Call TryToStore on a status code of 304 too
+- [<span style="color:blue">Improvement</span>] Small improvement to allocate less memory per frame in the Timer.cs
+- [<span style="color:blue">Improvement</span>] Cache-Control Stale-On-Error implementation
 
 **HTTP/2**
 
-- [<span style="color:green">New Feature</span>] Implemented upload streaming and upload progress reporting
+- [<span style="color:blue">Improvement</span>] Retry added for requests whose started already when the connection is closed
+- [<span style="color:red">Bugfix</span>] Some requests stuck when their processing started but the connections is closed
+- [<span style="color:red">Bugfix</span>] Stream id was a static field, instead of a per-connection one
+- [<span style="color:red">Bugfix</span>] Fixed a case where the reading thread didn't close
+- [<span style="color:red">Bugfix</span>] Send lower-case header names
+- [<span style="color:red">Bugfix</span>] Keep around a canceled request's stream to receive and process the server-sent headers. Otherwise the HPACK encoder remains in a faulty state
+
+**SignalR Core**
+
+- [<span style="color:green">New Feature</span>] New `ConnectAsync`, `CloseAsync`, `InvokeAsync` and `SendAsync` functions.
+- [<span style="color:green">New Feature</span>] New sample to demonstrate the usage of the new *Async functions
+
+**SocketIO**
+
+- [<span style="color:red">Bugfix</span>] Do not delete offline packets on each reconnect attempt
+
+## 2.0.3 (2019.12.06)
 
 **General**
 
@@ -10,6 +43,10 @@
 - [<span style="color:blue">Improvement</span>] HTTPResponse.MinBufferSize renamed to MinReadBufferSize
 - [<span style="color:blue">Improvement</span>] VersionMajor and VersionMinor now set for HTTPResponse when it was created from a HTTP/2 connection too
 - [<span style="color:blue">Improvement</span>] Merged recent LitJson changes
+
+**HTTP/2**
+
+- [<span style="color:green">New Feature</span>] Implemented upload streaming and upload progress reporting
 
 **SignalR Core**
 

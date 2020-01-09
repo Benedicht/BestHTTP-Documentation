@@ -2,7 +2,7 @@
 
 The `HubConnection` is the main entry point for a SignalR Core connection.
 
-# Protocols
+## Protocols
 
 SignalR Core supports different protocols to encode its messages like Json and MessagePack. The safest is to use json, as that's the default encoder of the server. But if possible it's recommended to use MessagePack. More can be read about this under the [Encoders topic](Encoders.md).
 On this page the `JsonProtocol` combined with the `LitJsonEncoder` will be used, as these work out of the box.
@@ -12,7 +12,7 @@ A new `HubConnection` object must be initialized with the uri of the server endp
 hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJsonEncoder()));
 ```
 
-# HubOptions
+## HubOptions
 
 `HubConnection`'s constructor can accept a `HubOptions` instance too:
 ```language-csharp
@@ -27,7 +27,7 @@ hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJ
 - **PingInterval**: A ping message is only sent if the interval has elapsed without a message being sent. Its default value is 15 seconds.
 - **MaxRedirects**: The maximum count of redirect negoitiation result that the plugin will follow. Its default value is 100.
 
-# Events
+## Events
 
 - **OnConnected**: This event is called when successfully connected to the hub.
 - **OnError**: This event is called when an unexpected error happen and the connection is closed.
@@ -43,7 +43,7 @@ hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJ
 	- *Closed*: Transport gracefully terminated.
 	- *ClosedWithError*: Unexpected error occured and the transport can't recover from it.
 
-# Properties
+## Properties
 
 - **Uri**: Uri of the Hub endpoint
 - **State**: Current state of the connection.
@@ -55,13 +55,19 @@ hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJ
 - **RedirectCount**: How many times this connection is redirected.
 - **ReconnectPolicy**: The reconnect policy that will be used when the underlying connection is lost. Its default value is null.
 
-# Invoking server methods
+## Connecting to the server
 
-To invoke a method on a server that doesn't return a value, the `Send` method can be used.
+
+
+## Invoking server methods
+
+To invoke a method on a server that doesn't return a value, the `Send` and `SendAsync` methods can be used.
 
 Client code:
 ```language-csharp
 hub.Send("Send", "my message");
+
+await hub.SendAsync("Send", "my message");
 ```
 
 Its first parameter is the name of the method on the server, than a parameter list can be passed that will be sent to the server.
@@ -77,22 +83,27 @@ public class TestHub : Hub
 }
 ```
 
-# Invoking server functions
+## Invoking server functions
 
-Invoking a server function can be done with the generic `Invoke<TResult>` function. `TResult` is the expected type that the server function returns with.
+Invoking a server function can be done with the generic `Invoke<TResult>` or `InvokeAsync<TResult>` functions. `TResult` is the expected type that the server function returns with.
 
 Sample:
 ```language-csharp
 hub.Invoke<int>("Add", 10, 20)
     .OnSuccess(result => Debug.log("10+20: " + result))
     .OnError(error => Debug.log("Add(10, 20) failed to execute. Error: " + error));
+	
+var addResult = await hub.InvokeAsync<int>("Add", 10, 20);
+AddText(string.Format("'<color=green>Add(10, 20)</color>' returned: '<color=yellow>{0}</color>'", addResult)).AddLeftPadding(20);
 ```
 
-Invoke returns with an `IFuture<TResult>` that can be used to subscribe to various Invoke related events:
+`Invoke` returns with an `IFuture<TResult>` that can be used to subscribe to various Invoke related events:
 
 - **OnSuccess**: Callback passed for OnSuccess is called when the server side function is executed and the callback's parameter will be function's return value.
 - **OnError**: Callback passed to this function will be called when there's an error executing the function. The error can be a client or server error. The callback's error parameter will contain information about the error.
 - **OnComplete**: Callback passed to this function will be called after an *OnSuccess* **or** *OnError* callback.
+
+`InvokeAsync` returns with `Task<TResult>` that can be awaited.
 
 Related server code:
 ```language-csharp
@@ -105,7 +116,7 @@ public class TestHub : Hub
 }
 ```
 
-# Server callable client methods
+## Server callable client methods
 
 Clients can define server-callable methods using the generic and non-generic `On` method. The non-generic `On` can be used when the server-callable method has no parameter and the generic one for methods with at least one parameter.
 
@@ -147,7 +158,7 @@ public class TestHub : Hub
 }
 ```
 
-# Streaming from the server
+## Streaming from the server
 
 When the server sends one return value at a time the client can call a callback for every item if the server function is called using the `GetDownStreamController<TDown>` function.
 
@@ -199,7 +210,7 @@ public class TestHub : Hub
 }
 ```
 
-# Streaming to the server
+## Streaming to the server
 
 To stream one or more parameters to a server function the `GetUpStreamController` can be used:
 ```language-csharp
@@ -277,7 +288,7 @@ public class UploadHub : Hub
 }
 ```
 
-# Streaming *to* and *from* the server
+## Streaming *to* and *from* the server
 
 After using `GetDownStreamController` to stream results from the server and `GetUpStreamController` to stream parameters to the server, there's a third one to merge these two's functionality, the `GetUpAndDownStreamController` function. With its help we can stream parameters to a server-side function just like with `GetUpStreamController` and stream down its result to the client like we can with `GetDownStreamController`.
 Here's an example usage:
