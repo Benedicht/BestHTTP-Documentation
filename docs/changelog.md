@@ -16,6 +16,7 @@
 - [<span style="color:blue">Improvement</span>] Call TryToStore on a status code of 304 too
 - [<span style="color:blue">Improvement</span>] Small improvement to allocate less memory per frame in the Timer.cs
 - [<span style="color:blue">Improvement</span>] Cache-Control Stale-On-Error implementation
+- [<span style="color:blue">Improvement</span>] It can handle multiple Cache-Control headers now
 
 **HTTP/2**
 
