@@ -13,7 +13,7 @@ Flow-chart about caching:
 
 ![Caching Explained](media/CachingExplained.svg)
 
-## Disabling caching
+## Disable caching
 
 There's quite a few ways to disable caching. It can be done globally with the [BESTHTTP_DISABLE_CACHING](../../7. Global Topics/How to disable features.md) define or by setting [HTTPManager.IsCachingDisabled](../../7. Global Topics/Global Settings.md) to true before any HTTPRequest instantiation:
 ```language-csharp
@@ -56,3 +56,5 @@ HTTPCacheService.BeginMaintainence(new HTTPCacheMaintananceParams(TimeSpan.FromD
 
 - **GetCacheSize()**: Will return the size of the cache in bytes.
 - **GetCacheEntryCount()**: Will return the number of the entries stored in the cache. The average cache entry size can be computed with the `float avgSize = GetCacheSize() / (float) GetCacheEntryCount()` formula.
+
+- **IsDoingMaintainence**: Its value is `true` while the cache service doing any Clear or Maintainence on a separate thread.
