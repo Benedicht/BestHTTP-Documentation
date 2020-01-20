@@ -26,14 +26,18 @@
 - [<span style="color:red">Bugfix</span>] Fixed a case where the reading thread didn't close
 - [<span style="color:red">Bugfix</span>] Send lower-case header names
 - [<span style="color:red">Bugfix</span>] Keep around a canceled request's stream to receive and process the server-sent headers. Otherwise the HPACK encoder remains in a faulty state
+- [<span style="color:red">Bugfix</span>] Aborting a request while processing its header/data frames before the HTTP2Stream's Process set the request's State to Finished, while its result remained null
 
 **SignalR Core**
 
 - [<span style="color:green">New Feature</span>] New `ConnectAsync`, `CloseAsync`, `InvokeAsync` and `SendAsync` functions.
 - [<span style="color:green">New Feature</span>] New sample to demonstrate the usage of the new *Async functions
+- [<span style="color:red">Bugfix</span>] In some cases the HubConnection remained open while received an error using the Long-Polliong transport.
+- [<span style="color:blue">Improvement</span>] New NegotiationResponse property added to the NegotiationResult class. It's a HTTPResponse object reference to the last /negotiate request.
 
 **SocketIO**
 
+- [<span style="color:blue">Improvement</span>] New "reconnect_before_offline_packets" event.
 - [<span style="color:red">Bugfix</span>] Do not delete offline packets on each reconnect attempt
 
 ## 2.0.3 (2019.12.06)
