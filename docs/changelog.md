@@ -1,7 +1,8 @@
-## 2.0.4 (2020.01.21)
+## 2.0.4 (2020.02.11)
 
 **General**
 
+- [<span style="color:green">New Feature</span>] Possible to override read buffer size through the ReadBufferSizeOverride property
 - [<span style="color:red">Bugfix</span>] Long running streaming requests' state set to Timeout instead of Abort when aborted
 - [<span style="color:red">Bugfix</span>] Fixed a StackOverflowException when read buffer was larger than StreamFragmentSize
 - [<span style="color:red">Bugfix</span>] When ConfigureAwait set to false, HTTPResponse's Dispose may called before acccessing Data
@@ -27,6 +28,7 @@
 - [<span style="color:red">Bugfix</span>] Send lower-case header names
 - [<span style="color:red">Bugfix</span>] Keep around a canceled request's stream to receive and process the server-sent headers. Otherwise the HPACK encoder remains in a faulty state
 - [<span style="color:red">Bugfix</span>] Aborting a request while processing its header/data frames before the HTTP2Stream's Process set the request's State to Finished, while its result remained null
+- [<span style="color:red">Bugfix</span>] Added logging for a possible content-length parse error case
 
 **SignalR Core**
 
@@ -39,6 +41,10 @@
 
 - [<span style="color:blue">Improvement</span>] New "reconnect_before_offline_packets" event.
 - [<span style="color:red">Bugfix</span>] Do not delete offline packets on each reconnect attempt
+
+**Server-Sent Events**
+
+- [<span style="color:green">New Feature</span>] New constructor parameter to override default read buffer size on non-WebGL builds when the server sends data non-chunked
 
 ## 2.0.3 (2019.12.06)
 
