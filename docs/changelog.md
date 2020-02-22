@@ -1,4 +1,19 @@
-## 2.0.4 (2020.02.11)
+## 2.0.5 (2020-02-22)
+
+**SignalR Core**
+
+- [<span style="color:red">Bugfix</span>] Implemented a workaround for UriBuilder behavior on Query building
+- [<span style="color:red">Bugfix</span>] [MessagePack Protocol] Fixed a bug in ReadArguments target is unknown
+- [<span style="color:red">Bugfix</span>] [MessagePack Protocol] BufferPoolMemoryStream now can expand when the initial buffer isn't enough
+- [<span style="color:red">Bugfix</span>] [MessagePack Protocol] Fixed ReadVarInt as it returned a wrong value 
+- [<span style="color:blue">Improvement</span>] [MessagePack Protocol] Type information no longer serialized
+- [<span style="color:blue">Improvement</span>] [MessagePack Protocol] Implemented a new MessagePackExtensionTypeHandler to follow the msgpack spec on sending DateTime
+
+**Websocket**
+
+- [<span style="color:red">Bugfix</span>] newFrameSignal going to be disposed when all threads are finished
+
+## 2.0.4 (2020-02-11)
 
 **General**
 
@@ -10,6 +25,7 @@
 - [<span style="color:red">Bugfix</span>] Fixed a memory leak where HostConnection's CloseConnectionAfterInactivity is added back to the Timer
 - [<span style="color:red">Bugfix</span>] Fixed compiler warning when BESTHTTP_DISABLE_HTTP2 is in use
 - [<span style="color:red">Bugfix</span>] Don't process cached alt-svc header
+- [<span style="color:red">Bugfix</span>] HTTPResponse's RawData no longer pooled
 - [<span style="color:blue">Improvement</span>] Run IsCachedEntityExpiresInTheFuture check before anything else to do not open a TCP channel to the server
 - [<span style="color:blue">Improvement</span>] Added "samesite" cookie parsing
 - [<span style="color:blue">Improvement</span>] Log out connector Connect exceptions when log level set to All
@@ -46,7 +62,7 @@
 
 - [<span style="color:green">New Feature</span>] New constructor parameter to override default read buffer size on non-WebGL builds when the server sends data non-chunked
 
-## 2.0.3 (2019.12.06)
+## 2.0.3 (2019-12-06)
 
 **General**
 
@@ -70,7 +86,7 @@
 
 - [<span style="color:red">Bugfix</span>] OnClose event called more than once
 
-## 2.0.2 (2019.11.22)
+## 2.0.2 (2019-11-22)
 
 **General**
 
@@ -91,7 +107,7 @@
 - [<span style="color:green">New Feature</span>] LongPolling transport added
 - [<span style="color:green">New Feature</span>] Automatic transport downgrade
 
-## 2.0.1 (2019.11.17)
+## 2.0.1 (2019-11-17)
 
 **HTTP/2**
 
@@ -112,7 +128,7 @@
 - [<span style="color:green">New Feature</span>] Added support for allowReconnect in the close message (ASP.Net 3.1 feature)
 
  
-## 2.0.0 (2019.10.31)
+## 2.0.0 (2019-10-31)
 
 !!! Warning
 	**This is a major release breaking backward compatibility with older releases. See the [Upgrade Guide](https://besthttp-documentation.readthedocs.io/en/latest/Upgrade guide/) for more details!**
