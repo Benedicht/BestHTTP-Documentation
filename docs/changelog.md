@@ -1,5 +1,10 @@
 ## 2.0.5 (2020-02-22)
 
+**General**
+
+- [<span style="color:red">Bugfix</span>] Fixed an out of bounds exception in the StreamList (used by FileConnection) class
+- [<span style="color:blue">Improvement</span>] StreamList now Disposes wrapped streams on the go
+
 **SignalR Core**
 
 - [<span style="color:red">Bugfix</span>] Implemented a workaround for UriBuilder behavior on Query building
