@@ -18,6 +18,14 @@
 
 - [<span style="color:red">Bugfix</span>] newFrameSignal going to be disposed when all threads are finished
 
+**HTTP/2**
+
+- [<span style="color:red">Bugfix</span>] Fixed an issue in the frame view that caused issues when received compressed data.
+
+**Examples**
+
+- [<span style="color:green">New Feature</span>] New MultipartFormDataStream implementation to send streams as multiform/form-data encoded.
+
 ## 2.0.4 (2020-02-11)
 
 **General**
