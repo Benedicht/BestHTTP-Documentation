@@ -79,7 +79,7 @@ private bool OnData(HTTPRequest req, HTTPResponse resp, byte[] dataFragment, int
         fs.Write(dataFragment, 0, dataFragmentLength);
     }
 
-    // Return true if dataFrament is processed so the plugin can recycle the byte[]
+    // Return true if dataFragment is processed so the plugin can recycle it
     return true;
 }
 
