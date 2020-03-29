@@ -1,3 +1,21 @@
+## 2.0.6 ()
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] [[ISSUE-3](https://github.com/Benedicht/BestHTTP-Issues/issues/3)] HTTP/1 - Aborts & timeouts are handled only when there's activity on the handler's thread
+
+**SignalR Core**
+
+- [<span style="color:red">Bugfix</span>] [[ISSUE-4](https://github.com/Benedicht/BestHTTP-Issues/issues/4)] Fixed race condition in HubConnection's CloseAsync
+
+**SocketIO**
+
+- [<span style="color:red">Bugfix</span>] Fixed a bug where reconnecting while waiting for a pong message prevented all further ping messages 
+
+**HTTP/2**
+
+- [<span style="color:red">Bugfix</span>] Fixed a NullReferenceException when the server sends no initial settings.
+
 ## 2.0.5 (2020-03-18)
 
 **General**
