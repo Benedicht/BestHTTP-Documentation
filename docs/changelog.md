@@ -3,10 +3,12 @@
 **General**
 
 - [<span style="color:red">Bugfix</span>] [[ISSUE-3](https://github.com/Benedicht/BestHTTP-Issues/issues/3)] HTTP/1 - Aborts & timeouts are handled only when there's activity on the handler's thread
+- [<span style="color:red">Bugfix</span>] Fixed a memory leak of the TCP stream
 
 **SignalR Core**
 
 - [<span style="color:red">Bugfix</span>] [[ISSUE-4](https://github.com/Benedicht/BestHTTP-Issues/issues/4)] Fixed race condition in HubConnection's CloseAsync
+- [<span style="color:red">Bugfix</span>] When the application is quitting HubConnection is going to report a normal closure now
 
 **SocketIO**
 
@@ -15,6 +17,9 @@
 **HTTP/2**
 
 - [<span style="color:red">Bugfix</span>] Fixed a NullReferenceException when the server sends no initial settings.
+- [<span style="color:red">Bugfix</span>] Fixed a case where streaming was on and the HTTP2Stream closed itself because of a timeout
+- [<span style="color:red">Bugfix</span>] Moved clean-up code into one place and AutoResetEvent's close is called when both threads are closed insted of the HTTP2Handler's dispose as it might be called sooner while the AutoResetEvent still in use
+- [<span style="color:red">Bugfix</span>] Request's state is now properly set to TimedOut instead of just Aborted to mach behavior of the HTTP/1 implementation
 
 ## 2.0.5 (2020-03-18)
 
