@@ -49,9 +49,9 @@ private void OnWebSocketClosed(WebSocket webSocket, UInt16 code, string message)
 - **OnError** event: Called when can’t connect to the server, an internal error occurs or when the connection is lost. The second parameter is an Exception object, but it can be null. In this case, checking the InternalRequest of the WebSocket should tell more about the problem.
 
 ```language-csharp
-webSocket.OnErrorDesc += OnErrorDesc;
+webSocket.OnError += OnError;
 
-void OnErrorDesc(WebSocket ws, string error)
+void OnError(WebSocket ws, string error)
 {
 	Debug.Log("Error: " + error);
 }
