@@ -104,3 +104,6 @@ public sealed class AzureSignalRServiceAuthenticator : IAuthenticationProvider
     }
 }
 ```
+
+!!! Warning
+	When used with Azure Functions Invoke and other client to server messaging can be done through Azure Functions (HTTP requests). See [https://docs.microsoft.com/en-us/azure/azure-signalr/signalr-concept-serverless-development-config#sending-messages-from-a-client-to-the-service](https://docs.microsoft.com/en-us/azure/azure-signalr/signalr-concept-serverless-development-config#sending-messages-from-a-client-to-the-service)
