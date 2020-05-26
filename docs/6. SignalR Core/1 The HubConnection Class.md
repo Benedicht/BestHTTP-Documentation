@@ -25,6 +25,7 @@ hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJ
 - **SkipNegotiation**: When this is set to true, the plugin will skip the negotiation request if the PreferedTransport is WebSocket. Its default value is false.
 - **PreferedTransport**: The preferred transport to choose when more than one available. Its default value is TransportTypes.WebSocket. When the plugin can't connect with the preferred transport it will try the next available (long polling). If all transport fails to connect, it will emit an OnError event.
 - **PingInterval**: A ping message is only sent if the interval has elapsed without a message being sent. Its default value is 15 seconds.
+- **PingTimeoutInterval**: If the client doesn't see any message in this interval, considers the connection broken. Its default value is 30 seconds.
 - **MaxRedirects**: The maximum count of redirect negoitiation result that the plugin will follow. Its default value is 100.
 
 ## Events
@@ -343,5 +344,71 @@ public class UploadHub : Hub
 
 		return output.Reader;
 	}
+}
+```
+
+## Send non-streaming parameter
+
+`GetUpStreamController` and `GetUpAndDownStreamController` can send non-streaming parameters with theirs initial requests.
+
+An example of sending multiple non-streaming and a streaming parameter:
+```language-csharp
+public enum MyEnum
+{
+    None,
+    One,
+    Two
+}
+public sealed class Metadata
+{
+    public string strData;
+    public int intData;
+    public MyEnum myEnum;
+}
+
+using (var controller = hub.GetUpStreamController<int, Person>("MixedArgsTest", /*int: */ 1, /*string: */ "text test", new Metadata() { strData = "string data", intData = 5, myEnum = MyEnum.One }))
+{
+    const int numMessages = 5;
+    for (int i = 0; i < numMessages; i++)
+    {
+        Person person = new Person()
+        {
+            Name = "Mr. Smith",
+            Age = 20 + i * 2
+        };
+
+        controller.UploadParam(person);
+    }
+}
+```
+
+Server code:
+```language-csharp
+public enum MyEnum
+{
+    None,
+    One,
+    Two
+}
+
+public sealed class Metadata
+{
+    public string strData;
+    public int intData;
+    public MyEnum myEnum;
+}
+
+public async Task<int> MixedArgsTest(ChannelReader<Person> source, int intParam, string stringParam, Metadata metadata)
+{
+    int count = 0;
+    while (await source.WaitToReadAsync())
+    {
+        while (source.TryRead(out var item))
+        {
+            count++;
+        }
+    }
+
+    return count;
 }
 ```

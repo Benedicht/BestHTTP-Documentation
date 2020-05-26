@@ -40,6 +40,19 @@ catch (Exception ex)
 
 Possible errors are various timeouts, status codes that indicate errors (401, 404 for example), request cancellation, etc.
 
+The exception is an `AsyncHTTPException` containing the `StatusCode` if there were any and the textual `Content` sent by the server:
+```language-csharp
+try
+{
+    Debug.Log(await request.GetAsStringAsync(tokenSource.Token));
+}
+catch(AsyncHTTPException ex)
+{
+    Debug.Log("Status Code: " + ex.StatusCode);
+    Debug.Log("Message: " + ex.Message);
+    Debug.Log("Content: " + ex.Content);
+}
+```
 
 ## Using CancellationToken
 

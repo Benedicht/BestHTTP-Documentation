@@ -1,3 +1,39 @@
+## 2.0.7 (2020)
+
+**General**
+
+- [<span style="color:green">New Feature</span>] Structured logging to be able to better track parallel requests.
+- [<span style="color:green">New Feature</span>] New threaded logger.
+- [<span style="color:green">New Feature</span>] New logging model to support output selection (file, unity's Debug.log, etc.) without changing the logger.
+- [<span style="color:blue">Improvement</span>] New `AsyncHTTPException` added to be able to access the Status Code of the server's response.
+- [<span style="color:red">Bugfix</span>] [[ISSUE-3](https://github.com/Benedicht/BestHTTP-Issues/issues/10)] Fixed a case where HTTPRequest's async isn't returned when called with an already canceled cancellation token
+- [<span style="color:red">Bugfix</span>] Fixed a name collusion that produced an *[Error] Failed to call static function Reset because an object was provided* error in the editor.
+- [<span style="color:red">Bugfix</span>] Fixes for Configurable Enter Play Mode.
+- [<span style="color:red">Bugfix</span>] Moved SetSocketOption into the nearest try-catch block. It should workaround a rare Unity error where setting KeepAlive on the socket level throws an exception under UWP.
+
+**HTTP/2**
+
+- [<span style="color:green">New Feature</span>] [[ISSUE-15](https://github.com/Benedicht/BestHTTP-Issues/issues/15)] Trailing headers support.
+
+**SignalR Core**
+
+- [<span style="color:green">New Feature</span>] [[ISSUE-15](https://github.com/Benedicht/BestHTTP-Issues/issues/5)] Implemented connection timeout. However, all IAuthenticationProvider now requires to implement the Cancel method too.
+- [<span style="color:green">New Feature</span>] `GetUpStreamController` and `GetUpAndDownStreamController` now can send non-streaming parameters too.
+- [<span style="color:green">New Feature</span>] HubOptions now has a new `PingTimeoutInterval`.
+- [<span style="color:red">Bugfix</span>] Send/Invoke tasks don't complete if not connected
+- [<span style="color:red">Bugfix</span>] Fixed timeout by making it dependent on received messages instead of sent messages.
+
+**Websocket**
+
+- [<span style="color:red">Bugfix</span>] [[ISSUE-14](https://github.com/Benedicht/BestHTTP-Issues/issues/14)] Disposing newFrameSignal wasn't thread safe
+- [<span style="color:blue">Improvement</span>] Fixed OnError double checking and reduced it to an else one. 
+
+**Server-Sent Events**
+
+- [<span style="color:green">New Feature</span>] Added new OnComment event that will be called for comments sent by the server.
+- [<span style="color:blue">Improvement</span>] Reduced EnqueueProtocolEvent calls when one chunk of data result in more than one events.
+- [<span style="color:red">Bugfix</span>] It now registers as a protocol and receives cancel requests on shutdown.
+
 ## 2.0.6 (2020-04-15)
 
 **General**

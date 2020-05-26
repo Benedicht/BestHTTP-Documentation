@@ -92,6 +92,16 @@ void OnEventSourceStateChanged(EventSource source, States oldState, States newSt
 }
 ```
 
+- **OnComment**: This event is called for comments received from the server.
+```language-csharp
+eventSource.OnComment += OnEventSourceComment;
+
+void OnEventSourceComment(EventSource source, string comment)
+{
+	Debug.log(string.Format("Comment: {0}", comment)));
+}
+```
+
 ##Functions
 These are the public functions of the EventSource object.
 
