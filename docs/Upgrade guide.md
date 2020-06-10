@@ -7,7 +7,7 @@ Other breaking changes are:
 ## General
 
 - [<span style="color:red">Breaking change</span>] Removed Statistics API. There's no replacement API for connection releated (active/inactive connections, requests in queue, etc.) statistics. Cookie and cache releated ones can be done through the `CookieJar` and `HTTPCacheService` classes.
-- [<span style="color:red">Breaking change</span>] Changed some BouncyCastle related class' namespace to avoid collition with other plugins and SDKs. Namespaces now starts with `BestHTTP.SecureProtocol.Org.BouncyCastle.` instead of just `Org.BouncyCastle.`.
+- [<span style="color:red">Breaking change</span>] Changed some BouncyCastle related class' namespace to avoid collision with other plugins and SDKs. Namespaces now starts with `BestHTTP.SecureProtocol.Org.BouncyCastle.` instead of just `Org.BouncyCastle.`.
 - [<span style="color:red">Breaking change</span>] Rewrote Abort mechanism. This shouldn't be a breaking change per se, but there might be uncaught bugs.
 - [<span style="color:red">Breaking change</span>] Minumum Unity version is now 2017.3 as it's the first version to support .asmdef files. Otherwise the plugin should still work under previous versions too.
 
