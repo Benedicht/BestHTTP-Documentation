@@ -19,6 +19,7 @@ Changing the defaults can be made through the static properties of the `HTTPMana
 - **DefaultCertificateVerifyer**: An `ICertificateVerifyer` implementation can be set to this property. All new requests created after this will use this verifier when a secure protocol is used and the request’s `UseAlternateSSL` is `true`. An `ICertificateVerifyer` implementation can be used to implement server certificate validation.
 - **UseAlternateSSLDefaultValue**: The default value of HTTPRequest’s UseAlternateSSL can be changed through this property.
 - **HTTP2Settings**: Through this property, HTTP/2 related settings can be changes. See the [HTTP/2 topic for more information](HTTP2.md#settings).
+- **IsQuitting**: It's true if the application is quitting and the plugin is shutting down itself.
 
 Sample codes:
 

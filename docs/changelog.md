@@ -1,4 +1,4 @@
-## 2.0.7 (2020)
+## 2.1.0 (2020)
 
 **General**
 
@@ -6,26 +6,41 @@
 - [<span style="color:green">New Feature</span>] New threaded logger.
 - [<span style="color:green">New Feature</span>] New logging model to support output selection (file, unity's Debug.log, etc.) without changing the logger.
 - [<span style="color:blue">Improvement</span>] New `AsyncHTTPException` added to be able to access the Status Code of the server's response.
+- [<span style="color:blue">Improvement</span>] The HTTPUpdateDelegator going to be hidden in the inspector
+- [<span style="color:blue">Improvement</span>] [HTTPManager's IsQuitting](7. Global Topics/Global Settings.md) is no public
+- [<span style="color:blue">Improvement</span>] A few functions in the `HTTPCacheService` and `HTTPCacheFileInfo` became public.
+- [<span style="color:blue">Improvement</span>] Textures loaded through HTTPResponse's DataAsTexture now going to be marked as non-readable.
+- [<span style="color:blue">Improvement</span>] Made public all EventHelper classes (in the BestHTTP.Core namespace) to be able to subscribe to OnEvent callbacks.
 - [<span style="color:red">Bugfix</span>] [[ISSUE-3](https://github.com/Benedicht/BestHTTP-Issues/issues/10)] Fixed a case where HTTPRequest's async isn't returned when called with an already canceled cancellation token
 - [<span style="color:red">Bugfix</span>] Fixed a name collusion that produced an *[Error] Failed to call static function Reset because an object was provided* error in the editor.
 - [<span style="color:red">Bugfix</span>] Fixes for Configurable Enter Play Mode.
 - [<span style="color:red">Bugfix</span>] Moved SetSocketOption into the nearest try-catch block. It should workaround a rare Unity error where setting KeepAlive on the socket level throws an exception under UWP.
+- [<span style="color:red">Bugfix</span>] The plugin no longer going to reuse memory assigned to HTTPRequest's RawData.
+- [<span style="color:red">Bugfix</span>] HTTPCacheService's DeleteEntity now going to be trigger a save library event
+- [<span style="color:red">Bugfix</span>] Switched to Write locks in HTTPCacheService's SaveLibrary to prevent parallel executions
 
 **HTTP/2**
 
 - [<span style="color:green">New Feature</span>] [[ISSUE-15](https://github.com/Benedicht/BestHTTP-Issues/issues/15)] Trailing headers support.
+- [<span style="color:blue">Improvement</span>] Log unexpected exceptions only when the plugin isn't shutting down
+- [<span style="color:blue">Improvement</span>] Log unhandled frames
+- [<span style="color:blue">Improvement</span>] To fix long-polling request issues over HTTP/2, the plugin no longer closes HTTP/2 streames after 30 seconds when it stays in HalfClosedLocal state.
 
 **SignalR Core**
 
 - [<span style="color:green">New Feature</span>] [[ISSUE-15](https://github.com/Benedicht/BestHTTP-Issues/issues/5)] Implemented connection timeout. However, all IAuthenticationProvider now requires to implement the Cancel method too.
 - [<span style="color:green">New Feature</span>] `GetUpStreamController` and `GetUpAndDownStreamController` now can send non-streaming parameters too.
 - [<span style="color:green">New Feature</span>] HubOptions now has a new `PingTimeoutInterval`.
+- [<span style="color:blue">Improvement</span>] Improved the default authenticator to also set the access_token parameter under WebGL
+- [<span style="color:blue">Improvement</span>] Authentication providers now will receive a real websocket url (one that starts with ws:// or wss://) in their PrepareUri to be able to differentiate between HTTP and WebSocket
 - [<span style="color:red">Bugfix</span>] Send/Invoke tasks don't complete if not connected
 - [<span style="color:red">Bugfix</span>] Fixed timeout by making it dependent on received messages instead of sent messages.
+- [<span style="color:red">Bugfix</span>] Pings are not sent by the server for the long-polling transport, so every successful response generates one.
 
 **Websocket**
 
 - [<span style="color:red">Bugfix</span>] [[ISSUE-14](https://github.com/Benedicht/BestHTTP-Issues/issues/14)] Disposing newFrameSignal wasn't thread safe
+- [<span style="color:red">Bugfix</span>] InternalRequest is now aborted if Close called while connecting.
 - [<span style="color:blue">Improvement</span>] Fixed OnError double checking and reduced it to an else one. 
 
 **Server-Sent Events**
