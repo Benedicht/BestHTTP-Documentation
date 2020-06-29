@@ -5,9 +5,9 @@
 - [<span style="color:green">New Feature</span>] Structured logging to be able to better track parallel requests.
 - [<span style="color:green">New Feature</span>] New threaded logger.
 - [<span style="color:green">New Feature</span>] New logging model to support output selection (file, unity's Debug.log, etc.) without changing the logger.
-- [<span style="color:blue">Improvement</span>] New `AsyncHTTPException` added to be able to access the Status Code of the server's response.
+- [<span style="color:blue">Improvement</span>] New [`AsyncHTTPException`](1. HTTP Request/Advanced Topics/Async-await with HTTPRequest.md#handling-errors) added to be able to access the Status Code of the server's response.
 - [<span style="color:blue">Improvement</span>] The HTTPUpdateDelegator going to be hidden in the inspector
-- [<span style="color:blue">Improvement</span>] [HTTPManager's IsQuitting](7. Global Topics/Global Settings.md) is no public
+- [<span style="color:blue">Improvement</span>] [HTTPManager's IsQuitting](7. Global Topics/Global Settings.md) is now public
 - [<span style="color:blue">Improvement</span>] A few functions in the `HTTPCacheService` and `HTTPCacheFileInfo` became public.
 - [<span style="color:blue">Improvement</span>] Textures loaded through HTTPResponse's DataAsTexture now going to be marked as non-readable.
 - [<span style="color:blue">Improvement</span>] Made public all EventHelper classes (in the BestHTTP.Core namespace) to be able to subscribe to OnEvent callbacks.
