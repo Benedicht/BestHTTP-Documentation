@@ -11,6 +11,7 @@
 - [<span style="color:blue">Improvement</span>] A few functions in the `HTTPCacheService` and `HTTPCacheFileInfo` became public.
 - [<span style="color:blue">Improvement</span>] Textures loaded through HTTPResponse's DataAsTexture now going to be marked as non-readable.
 - [<span style="color:blue">Improvement</span>] Made public all EventHelper classes (in the BestHTTP.Core namespace) to be able to subscribe to OnEvent callbacks.
+- [<span style="color:blue">Improvement</span>] Added *Third-Party Notices.txt* and a [similar entry](ThirdPartyNotices.md) in the documentation.
 - [<span style="color:red">Bugfix</span>] [[ISSUE-10](https://github.com/Benedicht/BestHTTP-Issues/issues/10)] Fixed a case where HTTPRequest's async isn't returned when called with an already canceled cancellation token
 - [<span style="color:red">Bugfix</span>] Fixed a name collusion that produced an *[Error] Failed to call static function Reset because an object was provided* error in the editor.
 - [<span style="color:red">Bugfix</span>] Fixes for Configurable Enter Play Mode.
