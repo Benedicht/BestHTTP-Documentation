@@ -15,7 +15,7 @@ Flow-chart about caching:
 
 ## Disable caching
 
-There's quite a few ways to disable caching. It can be done globally with the [BESTHTTP_DISABLE_CACHING](../../7. Global Topics/How to disable features.md) define or by setting [HTTPManager.IsCachingDisabled](../../7. Global Topics/Global Settings.md) to true before any HTTPRequest instantiation:
+There's quite a few ways to disable caching. It can be done globally with the [BESTHTTP_DISABLE_CACHING](../../7.GlobalTopics/HowToDisableFeatures.md) define or by setting [HTTPManager.IsCachingDisabled](../../7.GlobalTopics/GlobalSettings.md) to true before any HTTPRequest instantiation:
 ```language-csharp
 HTTPManager.IsCachingDisabled = true;
 ```
@@ -32,7 +32,7 @@ request.Send();
 <u>HTTPRequest</u>:
 
 - **DisableCache**: With this property caching can be enabled/disabled on a per-request basis.
-- **CacheOnly**: It can be used with [streaming](Download Streaming.md). When set to true, no `OnStreamingData` event is called, the streamed content will be saved straight to the cache if all requirements are met(caching is enabled and there's a caching headers).
+- **CacheOnly**: It can be used with [streaming](DownloadStreaming.md). When set to true, no `OnStreamingData` event is called, the streamed content will be saved straight to the cache if all requirements are met(caching is enabled and there's a caching headers).
 
 <u>HTTPResponse</u>:
 

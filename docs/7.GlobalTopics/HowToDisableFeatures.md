@@ -22,4 +22,4 @@ These are the defines that has an effect on the plugin:
 	- **BESTHTTP_SIGNALR_CORE_ENABLE_GAMEDEVWARE_MESSAGEPACK**
 	- **BESTHTTP_SIGNALR_CORE_ENABLE_NEWTONSOFT_JSON_DOTNET_ENCODER**
 	
-	More can be read about these under the [SignalR Core Encoders](../6. SignalR Core/Encoders.md) topic
+	More can be read about these under the [SignalR Core Encoders](../6.SignalRCore/3.Encoders.md) topic

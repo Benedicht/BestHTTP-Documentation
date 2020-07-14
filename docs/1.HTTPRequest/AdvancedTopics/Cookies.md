@@ -4,7 +4,7 @@ However it can be controlled in various ways:
 It can be disabled per-request or globally by setting the `HTTPRequest` object's `IsCookiesEnabled` property or the `HTTPManager.IsCookiesEnabled` property.
 Cookies can be deleted from the Cookie Jar by calling the `CookieJar.Clear()` function.
 New cookies that are sent from the server can be accessed through the response's `Cookies` property.
-There are numerous global setting regarding cookies. See the [Global Settings](../../7. Global Topics/Global Settings.md) section for more information.
+There are numerous global setting regarding cookies. See the [Global Settings](../../7.GlobalTopics/GlobalSettings.md) section for more information.
 
 Cookies can be added to a `HTTPRequest` by adding them to the Cookies list:
 

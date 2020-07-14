@@ -35,7 +35,7 @@ new HTTPRequest(new Uri("https://google.com"), (request, response) => Debug.Log(
 ```
 
 !!! Notice
-	Error handling is omitted for brevity in most of the samples through the documentation, but there's a complete section dedicated to [error handling](Advanced Topics/Error Handling.md).
+	Error handling is omitted for brevity in most of the samples through the documentation, but there's a complete section dedicated to [error handling](AdvancedTopics/ErrorHandling.md).
 
 ##POST Requests
 The above examples were simple GET requests. If we don’t specify the method, all requests will be GET requests by default. The constructor has another parameter that can be used to specify the method of the request:
@@ -54,7 +54,7 @@ request.RawData =  Encoding.UTF8.GetBytes("Field Value");
 request.Send();
 ```
 
-For additional samples check out the [Small Code-Samples section](Advanced Topics/Small Code-Samples.md).
+For additional samples check out the [Small Code-Samples section](AdvancedTopics/SmallCode-Samples.md).
 
 Beside GET and POST you can use the HEAD, PUT, DELETE and PATCH methods as well:
 
@@ -100,4 +100,4 @@ new HTTPRequest(new Uri("http://yourserver.com/path/to/image.png"), (request, re
 Beside of `DataAsTexture2D` there is a `DataAsText` property too to decode the response as an Utf8 string.
 
 !!! Warning
-	All examples in this document are without any error checking! See the [Error Handling topic](Advanced Topics/Error Handling.md)!
+	All examples in this document are without any error checking! See the [Error Handling topic](AdvancedTopics/ErrorHandling.md)!

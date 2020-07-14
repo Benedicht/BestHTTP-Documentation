@@ -23,7 +23,7 @@ The callback's parameters are the following:
 - **dataFragment**: the actual downloaded bytes. Because the plugin reuses byte arrays, its length can be larger than the downloaded data, so instead of `dataFragment.Length` the `dataFragmentLength` parameter must be used!
 - **dataFragmentLength**: the real downloaded byte count of the dataFragment parameter. Use this parameter instead of `dataFragment.Length`!
 
-The callback also must return `true` or `false` depending on whether the plugin can reuse the `dataFragment` buffer or not. For more details see the [BufferPool documentation](../../7. Global Topics/BufferPool.md).
+The callback also must return `true` or `false` depending on whether the plugin can reuse the `dataFragment` buffer or not. For more details see the [BufferPool documentation](../../7.GlobalTopics/BufferPool.md).
 So in case the dataFragment's reference is kept by user code, the callback must return false:
 
 ```language-csharp
@@ -56,7 +56,7 @@ Size of the `dataFragment` (== `dataFragmentLength`) depends on various factors:
 2. If `StreamChunksImmediately` is `true`, then no buffering will be done. In case of chunked content-encoding the size of the fragment is the chunk length. In case there's a content-length header, the plugin fills up an at least `HTTPResponse.MinBufferSize`d buffer for the next fragment.
 
 Because there's a time window between producing dataFragments and consuming them in an `OnStreamingData` callback, to prevent consuming too much memory there's a hard limit on the queued dataFragments. When this hard limit is reached the reader thread stops producing new fragments and resumes as soon as there's free slots in the queue. This hard limit can be changed through the `MaxFragmentQueueLength` property. So, the maximum amount of memory the plugin will consme for streaming is about (`MaxFragmentQueueLength` * `StreamFragmentSize`).<br>
-With HTTP/2, the reading thread doesn't know the semantics of the frames it reads from the stream, so it can't limit what and how many frames/data it reads (it would also block the reading of other frames too). To limit a HTTP/2 stream and/or the whole HTTP/2 connection [`HTTPManager.HTTP2Settings`](../../7. Global Topics/HTTP2.md)' `InitialStreamWindowSize` and `InitialConnectionWindowSize` can be used.
+With HTTP/2, the reading thread doesn't know the semantics of the frames it reads from the stream, so it can't limit what and how many frames/data it reads (it would also block the reading of other frames too). To limit a HTTP/2 stream and/or the whole HTTP/2 connection [`HTTPManager.HTTP2Settings`](../../7.GlobalTopics/HTTP2.md)' `InitialStreamWindowSize` and `InitialConnectionWindowSize` can be used.
 
 ## Streaming into a file
 

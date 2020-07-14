@@ -57,7 +57,7 @@ void OnError(WebSocket ws, string error)
 }
 ```
 
-- **OnIncompleteFrame** event: See Streaming at the [Advanced Websocket](Advanced WebSocket.md) topic.
+- **OnIncompleteFrame** event: See Streaming at the [Advanced Websocket](AdvancedWebSocket.md) topic.
 
 After we registered to the event we can start open the connection:
 

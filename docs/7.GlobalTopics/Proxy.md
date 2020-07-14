@@ -22,4 +22,4 @@ HTTPManager.Proxy = new HTTPProxy(new Uri("http://localhost:3128"));
 HTTPManager.Proxy = new SOCKSProxy(new System.Uri("socks://localhost:3129"), /*credentials: */ null);
 ```
 
-See the [Global Settings](Global Settings.md) chapter for more settings.
+See the [Global Settings](GlobalSettings.md) chapter for more settings.
