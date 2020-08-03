@@ -1,4 +1,4 @@
-#Control Redirections
+# Control Redirections
 Redirection are handled automatically by the plugin, but sometimes we have to make changes before a new request is made to the uri that we redirected to. We can do these changes in the `OnBeforeRedirection` event handler of a `HTTPRequest`.
 This event is called before the plugin will do a new request to the new uri. The return value of the function will control the redirection: if it's false the redirection is aborted.
 

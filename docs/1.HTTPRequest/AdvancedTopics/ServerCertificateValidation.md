@@ -1,4 +1,4 @@
-#Server Certificate Validation
+# Server Certificate Validation
 Server sent certificates can be validated by implementing an `ICertificateVerifyer` interface and setting it to a HTTPRequest’s `CustomCertificateVerifyer`:
 
 ```language-csharp

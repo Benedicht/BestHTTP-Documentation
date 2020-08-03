@@ -1,4 +1,4 @@
-#Cookies
+# Cookies
 Handling of cookie operations are transparent to the programmer. Setting up the request Cookie header and parsing and maintaining the response's Set-Cookie header are done automatically by the plugin.
 However it can be controlled in various ways:
 It can be disabled per-request or globally by setting the `HTTPRequest` object's `IsCookiesEnabled` property or the `HTTPManager.IsCookiesEnabled` property.

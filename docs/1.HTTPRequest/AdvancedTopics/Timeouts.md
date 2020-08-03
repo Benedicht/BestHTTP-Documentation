@@ -1,4 +1,4 @@
-#Timeouts
+# Timeouts
 You can set two timeout for a request:
 
 - **ConnectTimeout**: With this property you can control how much time you want to wait for a connection to be made between your app and the remote server. Its default value is 20 seconds.

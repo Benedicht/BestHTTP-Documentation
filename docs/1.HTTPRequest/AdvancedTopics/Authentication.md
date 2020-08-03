@@ -1,4 +1,4 @@
-#Authentication
+# Authentication
 Best HTTP supports Basic and Digest authentication through the HTTPRequest’s Credentials property:
 
 

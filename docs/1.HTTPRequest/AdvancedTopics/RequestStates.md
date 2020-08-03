@@ -1,4 +1,4 @@
-#Request States
+# Request States
 All request has a State property that contains its internal state. The possible states are the following:
 
 - **Initial**: Initial status of a request. No callback will be called with this status.

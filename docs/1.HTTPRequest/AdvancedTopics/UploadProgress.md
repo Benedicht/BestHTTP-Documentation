@@ -1,4 +1,4 @@
-#Upload Progress Tracking
+# Upload Progress Tracking
 To track and display upload progress you can use the OnUploadProgress event of the HTTPRequest class. The OnUploadProgress can be used with RawData, forms(through AddField and AddBinaryData) and with UploadStream too.
 
 ```language-csharp
