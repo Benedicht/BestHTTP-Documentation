@@ -2,7 +2,7 @@
 
 A `HTTPRequest` tracks timings of various phases. These phases could be the following:
 
-1. **Queued**: Duration the plugin kept the request in its internal queue. Normally this should be a very low time, but when [MaxConnectionPerServer](/7.GlobalTopics/GlobalSettings/) or HTTP/2's negotiated [MaxConcurrentStreams](/7.GlobalTopics/HTTP2/#settings) applies requests could stay in the queue longer.
+1. **Queued**: Duration the plugin kept the request in its internal queue. Normally this should be a very low time, but when [MaxConnectionPerServer](../../7.GlobalTopics/GlobalSettings/) or HTTP/2's negotiated [MaxConcurrentStreams](../../7.GlobalTopics/HTTP2/#settings) applies requests could stay in the queue longer.
 2. **Queued for redirection**: The same as the previous, but the request already made a round-trip to a server and got redirected.
 3. **DNS Lookup**: Duration to resolve the server's IP address. Absent if the request processed on a reused connection.
 4. **TCP Connection**: Time required to connect to the server through a new TCP channel. Absent if the request processed on a reused connection.
