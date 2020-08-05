@@ -1,3 +1,40 @@
+## 2.2.0 (2020-08-)
+
+**General**
+
+- [<span style="color:green">New Feature</span>] New [Timing API](1.HTTPRequest/AdvancedTopics/Timing.md) to measure when request processing spent most of its time.
+- [<span style="color:blue">Improvement</span>] Bouncy Castle optimizations: depending on the negotiated ciphers download speed can increase up to 50%! Memory hungry parts are also rewritten to use the plugin's [BufferPool](7.GlobalTopics/BufferPool.md) to decrase GC usage.
+- [<span style="color:blue">Improvement</span>] Added the use of [Encrypt-then-MAC (RFC 7366)](https://tools.ietf.org/html/rfc7366) extension.
+- [<span style="color:blue">Improvement</span>] Changed thread names for HTTP/1 and HTTP/2 threads so they can be identified in the profiler.
+- [<span style="color:blue">Improvement</span>] Renamed confusing *"Remote server closed the connection before sending response header!"* exception text.
+- [<span style="color:red">Bugfix</span>] Fixed compile errors when BESTHTTP_DISABLE_CACHING and/or BESTHTTP_DISABLE_COOKIES is used.
+- [<span style="color:red">Bugfix</span>] Fixed a bug where an exception thrown while connecting treated as ConnectionTimedOut.
+- [<span style="color:red">Bugfix</span>] When the underlying stream has no more data, `ReadOnlyBufferedStream` now returns with the value (0 or -1) the stream returned with.
+- [<span style="color:red">Bugfix</span>] Fixed compile error using the old runtime
+
+**HTTP/1**
+
+- [<span style="color:blue">Improvement</span>] Use the lower value when server provided keep-alive timeout is available. Timeout is set lower then what sent to be more resistant to lag.
+- [<span style="color:red">Bugfix</span>] With chunked encoding and gzip combined, when the last chunk contained only the gzip trail or parts of it it got truncated and thrown an exception.
+
+**HTTP/2**
+
+- [<span style="color:blue">Improvement</span>] Suspending a http/2 session's worker thread now going to take account for the disconnect time too.
+- [<span style="color:blue">Improvement</span>] Preliminary support for [RFC 8441](https://tools.ietf.org/html/rfc8441)
+- [<span style="color:red">Bugfix</span>] Various frames' data didn't release back to the BufferPool
+
+**SignalR Core**
+
+- [<span style="color:blue">Improvement</span>] Added support to be able to serialize floats.
+
+**SocketIO**
+
+- [<span style="color:green">New Feature</span>] [[ISSUE-25](https://github.com/Benedicht/BestHTTP-Issues/issues/25)] HTTPRequestCustomizationCallback implementation
+
+**Websocket**
+
+- [<span style="color:blue">Improvement</span>] Made the `WebSocketResponse`'s `MaxFragmentSize` public and changed its type to int. Now it can be accessed and modified on non-WebGL platforms.
+
 ## 2.1.0 (2020-06-29)
 
 **General**
