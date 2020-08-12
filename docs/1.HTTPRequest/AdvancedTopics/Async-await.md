@@ -2,6 +2,9 @@
 
 Starting in v1.12.0 new async APIs are added to the HTTPRequest. Async APIs are `GetHTTPResponseAsync`, `GetAsStringAsync`, `GetAsTexture2DAsync`, `GetRawDataAsync` and using LitJson from the Examples folder there's a `GetFromJsonResultAsync` too.
 
+!!! Warning
+	When Get...Async APIs are used, the plugin overwrites any previously set callback, hence no callback will be called for that request!
+
 ## Simple async-await Example
 
 Simplest example to download a string using async-await:
