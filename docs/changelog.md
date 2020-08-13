@@ -22,6 +22,7 @@
 - [<span style="color:blue">Improvement</span>] Suspending a http/2 session's worker thread now going to take account for the disconnect time too.
 - [<span style="color:blue">Improvement</span>] Preliminary support for [RFC 8441](https://tools.ietf.org/html/rfc8441)
 - [<span style="color:red">Bugfix</span>] Various frames' data didn't release back to the BufferPool
+- [<span style="color:red">Bugfix</span>] Ignore RST_STREAM frame when received for a stream with CLOSED state
 
 **SignalR Core**
 
