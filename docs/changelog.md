@@ -1,6 +1,7 @@
 ## 2.2.0 (TBR)
 
 **TLS**
+
 - [<span style="color:blue">Improvement</span>] Bouncy Castle optimizations: depending on the negotiated ciphers download speed can increase and memory hungry parts are also rewritten to use the plugin's [BufferPool](7.GlobalTopics/BufferPool.md) to decrease GC usage. As parts of the optimizations now the plugin requires the "Allow 'unsafe' Code" to be set
 - [<span style="color:blue">Improvement</span>] Added the use of [Encrypt-then-MAC (RFC 7366)](https://tools.ietf.org/html/rfc7366) extension
 - [<span style="color:blue">Improvement</span>] Added [ChaCha20-Poly1305 (RFC 7905](https://tools.ietf.org/html/rfc7905) ciphers to the client offered cipher suites to negotiate with the server
