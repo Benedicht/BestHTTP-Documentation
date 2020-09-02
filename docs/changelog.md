@@ -1,28 +1,46 @@
 ## 2.2.0 (TBR)
 
+**TLS**
+- [<span style="color:blue">Improvement</span>] Bouncy Castle optimizations: depending on the negotiated ciphers download speed can increase and memory hungry parts are also rewritten to use the plugin's [BufferPool](7.GlobalTopics/BufferPool.md) to decrease GC usage. As parts of the optimizations now the plugin requires the "Allow 'unsafe' Code" to be set
+- [<span style="color:blue">Improvement</span>] Added the use of [Encrypt-then-MAC (RFC 7366)](https://tools.ietf.org/html/rfc7366) extension
+- [<span style="color:blue">Improvement</span>] Added [ChaCha20-Poly1305 (RFC 7905](https://tools.ietf.org/html/rfc7905) ciphers to the client offered cipher suites to negotiate with the server
+- [<span style="color:blue">Improvement</span>] Moved read buffer to the lowest level to reduce context switching when TLS is used, halving reads per TLS message
+- [<span style="color:blue">Improvement</span>] Removed an optional error throwing to follow browser behavior
+
 **General**
 
-- [<span style="color:green">New Feature</span>] New [Timing API](1.HTTPRequest/AdvancedTopics/Timing.md) to measure when request processing spent most of its time.
-- [<span style="color:blue">Improvement</span>] **Bouncy Castle optimizations**: depending on the negotiated ciphers download speed can increase up to 50%! Memory hungry parts are also rewritten to use the plugin's [BufferPool](7.GlobalTopics/BufferPool.md) to decrease GC usage.
-- [<span style="color:blue">Improvement</span>] Added the use of [Encrypt-then-MAC (RFC 7366)](https://tools.ietf.org/html/rfc7366) extension.
-- [<span style="color:blue">Improvement</span>] Changed thread names for HTTP/1 and HTTP/2 threads so they can be identified in the profiler.
-- [<span style="color:blue">Improvement</span>] Renamed confusing *"Remote server closed the connection before sending response header!"* exception text.
-- [<span style="color:red">Bugfix</span>] Fixed compile errors when BESTHTTP_DISABLE_CACHING and/or BESTHTTP_DISABLE_COOKIES is used.
-- [<span style="color:red">Bugfix</span>] Fixed a bug where an exception thrown while connecting treated as ConnectionTimedOut.
-- [<span style="color:red">Bugfix</span>] When the underlying stream has no more data, `ReadOnlyBufferedStream` now returns with the value (0 or -1) the stream returned with.
+- [<span style="color:green">New Feature</span>] New [Timing API](1.HTTPRequest/AdvancedTopics/Timing.md) to measure when request processing spent most of its time
+- [<span style="color:blue">Improvement</span>] Changed thread names for HTTP/1 and HTTP/2 threads so they can be identified in the profiler
+- [<span style="color:blue">Improvement</span>] Renamed confusing *"Remote server closed the connection before sending response header!"* exception text
+- [<span style="color:blue">Improvement</span>] IL2CPP optimizations by adding and using `Il2CppSetOptionAttribute` and `Il2CppEagerStaticClassConstructionAttribute`
+- [<span style="color:blue">Improvement</span>] Added more places to check request cancellation reducing time requirement in some cases to call the request's callback
+- [<span style="color:red">Bugfix</span>] Fixed compile errors when BESTHTTP_DISABLE_CACHING and/or BESTHTTP_DISABLE_COOKIES is used
+- [<span style="color:red">Bugfix</span>] Fixed a bug where an exception thrown while connecting treated as ConnectionTimedOut
+- [<span style="color:red">Bugfix</span>] When the underlying stream has no more data, `ReadOnlyBufferedStream` now returns with the value (0 or -1) the stream returned with
 - [<span style="color:red">Bugfix</span>] Fixed compile error using the old runtime
+- [<span style="color:red">Bugfix</span>] Dispose a ManualResetEvent used in DNS querying
+- [<span style="color:red">Bugfix</span>] Test token.IsCancellationRequested before calling final async logic
 
 **HTTP/1**
 
-- [<span style="color:blue">Improvement</span>] Use the lower value when server provided keep-alive timeout is available. Timeout is set lower then what sent to be more resistant to lag.
-- [<span style="color:red">Bugfix</span>] With chunked encoding and gzip combined, when the last chunk contained only the gzip trail or parts of it it got truncated and thrown an exception.
+- [<span style="color:blue">Improvement</span>] Use the lower value when server provided keep-alive timeout is available. Timeout is set lower then what sent to be more resistant to lag
+- [<span style="color:red">Bugfix</span>] With chunked encoding and gzip combined, when the last chunk contained only the gzip trail or parts of it it got truncated and thrown an exception
+- [<span style="color:red">Bugfix</span>] Fixed bug where redirection occured to the same host while also receiving a Connection: Close header&value resulted in the reuse of the closing connection
 
 **HTTP/2**
 
 - [<span style="color:blue">Improvement</span>] Suspending a http/2 session's worker thread now going to take account for the disconnect time too.
 - [<span style="color:blue">Improvement</span>] Preliminary support for [RFC 8441](https://tools.ietf.org/html/rfc8441)
+- [<span style="color:blue">Improvement</span>] Yandex.ru returned with a FLOW_CONTROL_ERROR(3) error when the plugin tried to set the connection window to the RFC defined maximum (2^31 - 1 bytes). Reducing the default by 10 Mib is sufficent.
 - [<span style="color:red">Bugfix</span>] Various frames' data didn't release back to the BufferPool
 - [<span style="color:red">Bugfix</span>] Ignore RST_STREAM frame when received for a stream with CLOSED state
+- [<span style="color:red">Bugfix</span>] Server's initial window size change wasn't handled possibly limiting upload speed
+- [<span style="color:red">Bugfix</span>] The plugin expected at least 1 byte of data for frames where padding is available corrupting downloaded data where the server inserts frames where only padding is present
+- [<span style="color:red">Bugfix</span>] Fixed a case where the server sent a HTTP/2 GOAWAY frame caused request(s) to get aborted twice
+
+**SignalR**
+
+- [<span style="color:blue">Improvement</span>] Moved unnecessary logging behind a log level check
 
 **SignalR Core**
 
@@ -34,7 +52,7 @@
 
 **Websocket**
 
-- [<span style="color:blue">Improvement</span>] Made the `WebSocketResponse`'s `MaxFragmentSize` public and changed its type to int. Now it can be accessed and modified on non-WebGL platforms.
+- [<span style="color:blue">Improvement</span>] Made the `WebSocketResponse`'s `MaxFragmentSize` public and changed its type to int. Now it can be accessed and modified on non-WebGL platforms
 
 ## 2.1.0 (2020-06-29)
 
