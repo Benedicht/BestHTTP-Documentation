@@ -1,3 +1,10 @@
+## 2.2.1 (TBR)
+
+**Websocket**
+
+- [<span style="color:red">Bugfix</span>] Buffer used to masking the frame released back to the BufferPool before the masking itself, resulting in a possible frame corruption
+
+
 ## 2.2.0 (2020-09-02)
 
 **TLS**
