@@ -1,8 +1,48 @@
 ## 2.2.1 (TBR)
 
+**TLS**
+
+- [<span style="color:green">New Feature</span>] Added new `HTTPManager.TlsClientFactory` callback to be able to provide custom Tls clients
+- [<span style="color:blue">Improvement</span>] `X509Name` going to cache ToString result
+- [<span style="color:red">Bugfix</span>] SendCertificateVerifyMessage logged different function name
+
+**General**
+
+- [<span style="color:blue">Improvement</span>] Made `HTTPManager.GetRootCacheFolder()` public instead of internal
+- [<span style="color:blue">Improvement</span>] Switched to all-yellow logging color
+- [<span style="color:blue">Improvement</span>] Renamed `FileStreamModes.Open` to `OpenRead` and added new `OpenReadWrite`
+- [<span style="color:blue">Improvement</span>] `ThreadedLogger`'s thread is now named
+- [<span style="color:blue">Improvement</span>] Added `ExitThreadAfterInactivity` to `ThreadedLogger`
+- [<span style="color:red">Bugfix</span>] Fixed example prefab ([ISSUE-36](https://github.com/Benedicht/BestHTTP-Issues/issues/36))
+- [<span style="color:red">Bugfix</span>] New `Queued` HTTPRequest state for possible double send fix ([ISSUE-38](https://github.com/Benedicht/BestHTTP-Issues/issues/38))
+
+**HTTP/1**
+
+- [<span style="color:blue">Improvement</span>] Request will send [Keep-Alive header](https://tools.ietf.org/html/draft-thomson-hybi-http-timeout-03) to the server to let them know about the client setting
+
+**HTTP/2**
+
+- [<span style="color:red">Bugfix</span>] Fixed a possible infinite loop when `HTTP2FrameHelper`'s `StreamRead` had to read zero bytes, or when the TCP stream is got closed and stream.Read returns zero
+- [<span style="color:blue">Improvement</span>] Removed a few unnecessary instructions from buffer processing
+
 **Websocket**
 
 - [<span style="color:red">Bugfix</span>] Buffer used to masking the frame released back to the BufferPool before the masking itself, resulting in a possible frame corruption
+- [<span style="color:red">Bugfix</span>] Set the websocket's state to Closed on http request error
+- [<span style="color:red">Bugfix</span>] Removed PingFrequency from timeout calculation
+
+**SignalR Core**
+
+- [<span style="color:red">Bugfix</span>] Fixed issue where calling close on an initial hub connection doesn't lose the connection (and no close callbacks are called either)
+
+**SocketIO**
+
+- [<span style="color:red">Bugfix</span>] Added missing documentation about `SocketOptions`' `AdditionalQueryParams`
+
+**WebGL**
+
+- [<span style="color:red">Bugfix</span>] Switch to use the URL class to avoid possible escaping issues
+- [<span style="color:blue">Improvement</span>] Response handling speedup by not copying response body
 
 
 ## 2.2.0 (2020-09-02)
