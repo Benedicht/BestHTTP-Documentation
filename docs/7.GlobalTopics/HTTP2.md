@@ -19,10 +19,37 @@ using BestHTTP;
 HTTPManager.HTTP2Settings.InitialStreamWindowSize = 5 * 1024 * 1024;
 ```
 
-Current options are the following:
+## MaxConcurrentStreams
+Maximum concurrent http2 stream on http2 connection will allow. Its default value is 128;
 
-1. **MaxConcurrentStreams**: Maximum concurrent http2 stream on http2 connection will allow. Its default value is 128;
-2. **InitialStreamWindowSize**: Initial window size of a http2 stream. Its default value is 10 MiB (10 * 1024 * 1024).
-3. **InitialConnectionWindowSize**: Global window size of a http/2 connection. Its default value is the maximum possible value on 31 bits.
-4. **MaxFrameSize**: Maximum size of a http2 frame. Its default value is 16384.
-5. **MaxIdleTime**: With HTTP/2 only one connection will be open so we can can keep it open longer as we hope it will be resued more. Its default value is 120 seconds.
+```language-csharp
+HTTPManager.HTTP2Settings.MaxConcurrentStreams = 256;
+```
+
+## InitialStreamWindowSize
+Initial window size of a http2 stream. Its default value is 10 MiB (10 * 1024 * 1024).
+
+```language-csharp
+HTTPManager.HTTP2Settings.InitialStreamWindowSize = 1 * 1024 * 1024;
+```
+
+## InitialConnectionWindowSize
+Global window size of a http/2 connection. Its default value is the maximum possible value on 31 bits.
+
+```language-csharp
+HTTPManager.HTTP2Settings.InitialConnectionWindowSize = HTTPManager.HTTP2Settings.MaxConcurrentStreams * 1024 * 1024;
+```
+
+## MaxFrameSize
+Maximum payload size of a http2 frame. Its default value is 16384. It must be between 16_384 and 16_777_215.
+
+```language-csharp
+HTTPManager.HTTP2Settings.MaxFrameSize = 1 * 1024 * 1024;
+```
+
+## MaxIdleTime
+With HTTP/2 only one connection will be open so we can can keep it open longer as we hope it will be resued more. Its default value is 120 seconds.
+
+```language-csharp
+HTTPManager.HTTP2Settings.MaxIdleTime = TimeSpan.FromSeconds(30);
+```
