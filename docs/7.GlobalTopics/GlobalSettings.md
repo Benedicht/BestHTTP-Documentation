@@ -116,7 +116,7 @@ HTTPManager.HTTP2Settings.MaxConcurrentStreams = 256;
 It's true if the application is quitting and the plugin is shutting down itself.
 
 ## UserAgent
-User-agent string that will be sent with each requests.
+User-agent string that will be sent with each requests. It's default value contains the version of the plugin (`"BestHTTP/2 v2.2.1"` for example).
 
 ```language-csharp
 HTTPManager.UserAgent = string.Empty;
