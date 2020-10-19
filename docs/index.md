@@ -11,6 +11,9 @@ For HTTP requests, the [Getting Started Quickly](1.HTTPRequest/GettingStarted.md
 	3. [Server repository](https://github.com/Benedicht/BestHTTP_DemoSite)
 2. This document is a quick guide, not all functions and properties can be found here, but suggestions, bugreports and pull-requests are always welcome on the documentation's own [github repo](https://github.com/Benedicht/BestHTTP-Documentation).
 
+!!! Notice
+	All supported protocols are client implementations only, but all server side solutions (server, framework, cloud hosting, etc.) are supported!
+
 ## Contact
 
 For support, feature request or general questions you can email me at <besthttp@gmail.com>, or create a new issue at the plugin's public [Issues repository](https://github.com/Benedicht/BestHTTP-Issues).
