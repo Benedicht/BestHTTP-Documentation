@@ -129,3 +129,7 @@ And setting the new output for the logger can be done like this:
 ```language-csharp
 HTTPManager.Logger.Output = new FileOutput("besthttp.log");
 ```
+
+## LoggingContext
+
+To help indentify and track protocols, they have a `LoggingContext` instance that gets passed to the logger. Because a high level protocol usually uses other protocol(s), the hight level protocol adds own logging context to the lower one and going to get logged too.
