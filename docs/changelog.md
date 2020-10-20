@@ -1,4 +1,4 @@
-## 2.2.1 (TBR)
+## 2.2.1 (2020-10-20)
 
 **TLS**
 
@@ -27,6 +27,7 @@
 
 **Websocket**
 
+- [<span style="color:blue">Improvement</span>] Lowered `CloseAfterNoMesssage`'s default value to 2 seconds
 - [<span style="color:red">Bugfix</span>] Buffer used to masking the frame released back to the BufferPool before the masking itself, resulting in a possible frame corruption
 - [<span style="color:red">Bugfix</span>] Set the websocket's state to Closed on http request error
 - [<span style="color:red">Bugfix</span>] Removed PingFrequency from timeout calculation
