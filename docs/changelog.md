@@ -1,3 +1,13 @@
+## 2.2.2 (2020-10-22)
+
+**Websocket**
+
+- [<span style="color:red">Bugfix</span>] ServerNoContextTakeover is set to the wrong value in the PerMessageCompression constructor
+
+**WebGL**
+
+- [<span style="color:red">Bugfix</span>] Fixed case where the response got corrupted
+
 ## 2.2.1 (2020-10-20)
 
 **TLS**
