@@ -10,6 +10,9 @@ This mechanism prevents the plugin to open multiple connections that will be use
 
 Using HTTP/2 is seemless and requires no prior knowledge whether any target servers has support for it or not. The plugin hides differencies HTTP1.1 and HTTP/2 from the user, but will take advantage of the new protocol every time it has a chance.
 
+!!! Notice
+	With HTTP/2 the `HTTPRequest`'s `IsKeepAlive` setting is ignored.
+
 ## Settings
 
 As most of the global settings, HTTP/2 settings can be accessed through the `HTTPManager` class:

@@ -14,7 +14,7 @@ BestHTTP.HTTPManager.UseAlternateSSLDefaultValue = false;
 !!! Notice
 	[HTTP/2](HTTP2.md) (because it depends on TLS' `ALPN` feature) and `Server Name Indication` works only with Bouncy Castle.
 	
-Other HTTPS related topcis are [Server Certificate Validation](../1.HTTPRequest/AdvancedTopics/ServerCertificateValidation.md) and [Hostname verification](../1.HTTPRequest/AdvancedTopics/SmallCode-Samples.md#verify-hostnames-in-https).
+Other HTTPS related topcis are [Server Certificate Validation](../1.HTTP/AdvancedTopics/ServerCertificateValidation.md) and [Hostname verification](../1.HTTP/AdvancedTopics/SmallCode-Samples.md#verify-hostnames-in-https).
 
 ## How to debug HTTPS requests
 

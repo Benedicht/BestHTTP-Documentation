@@ -1,4 +1,4 @@
-#Getting Started Quickly
+# Getting Started Quickly
 
 After you imported the package, you should add a using statement to your source file like any other regular usings:
 
@@ -6,7 +6,7 @@ After you imported the package, you should add a using statement to your source 
 using BestHTTP;
 ```
 
-##GET Requests
+## GET Requests
 The simplest way to do a request to a web server is to create a `HTTPRequest` object providing the url and a callback function to it's constructor. After we constructed a new `HTTPRequest` object the only thing we need to do, is actually send the request with the Send() function. Let's see an example:
 
 ```language-csharp
@@ -37,7 +37,7 @@ new HTTPRequest(new Uri("https://google.com"), (request, response) => Debug.Log(
 !!! Notice
 	Error handling is omitted for brevity in most of the samples through the documentation, but there's a complete section dedicated to [error handling](AdvancedTopics/ErrorHandling.md).
 
-##POST Requests
+## POST Requests
 The above examples were simple GET requests. If we don’t specify the method, all requests will be GET requests by default. The constructor has another parameter that can be used to specify the method of the request:
 
 ```language-csharp
@@ -58,34 +58,34 @@ For additional samples check out the [Small Code-Samples section](AdvancedTopics
 
 Beside GET and POST you can use the HEAD, PUT, DELETE and PATCH methods as well:
 
-##Head Requests
+## Head Requests
 
 ```language-csharp
 HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Head, OnRequestFinished);
 request.Send();
 ```
 
-##Put Requests
+## Put Requests
 
 ```language-csharp
 HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Put, OnRequestFinished);
 request.Send();
 ```
-##Delete Requests
+## Delete Requests
 
 ```language-csharp
 HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Delete, OnRequestFinished);
 request.Send();
 ```
 
-##Patch Requests
+## Patch Requests
 
 ```language-csharp
 HTTPRequest request = new HTTPRequest(new Uri("http://server.com/path"), HTTPMethods.Patch, OnRequestFinished);
 request.Send();
 ```
 
-##How To Access The Downloaded Data
+## How To Access The Downloaded Data
 Most of the time we use our requests to receive some data from a server. The raw bytes can be accessed from the `HTTPResponse` object's `Data` property. Let's see an example how to download an image:
 
 ```language-csharp

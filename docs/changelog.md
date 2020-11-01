@@ -68,7 +68,7 @@
 
 **General**
 
-- [<span style="color:green">New Feature</span>] New [Timing API](1.HTTPRequest/AdvancedTopics/Timing.md) to measure when request processing spent most of its time
+- [<span style="color:green">New Feature</span>] New [Timing API](1.HTTP/AdvancedTopics/Timing.md) to measure when request processing spent most of its time
 - [<span style="color:blue">Improvement</span>] Changed thread names for HTTP/1 and HTTP/2 threads so they can be identified in the profiler
 - [<span style="color:blue">Improvement</span>] Renamed confusing *"Remote server closed the connection before sending response header!"* exception text
 - [<span style="color:blue">Improvement</span>] IL2CPP optimizations by adding and using `Il2CppSetOptionAttribute` and `Il2CppEagerStaticClassConstructionAttribute`
@@ -120,7 +120,7 @@
 - [<span style="color:green">New Feature</span>] Structured logging to be able to better track parallel requests.
 - [<span style="color:green">New Feature</span>] New threaded logger.
 - [<span style="color:green">New Feature</span>] New logging model to support output selection (file, unity's Debug.log, etc.) without changing the logger.
-- [<span style="color:blue">Improvement</span>] New [`AsyncHTTPException`](1.HTTPRequest/AdvancedTopics/Async-await.md#handling-errors) added to be able to access the Status Code of the server's response.
+- [<span style="color:blue">Improvement</span>] New [`AsyncHTTPException`](1.HTTP/AdvancedTopics/Async-await.md#handling-errors) added to be able to access the Status Code of the server's response.
 - [<span style="color:blue">Improvement</span>] The HTTPUpdateDelegator going to be hidden in the inspector
 - [<span style="color:blue">Improvement</span>] [HTTPManager's IsQuitting](7.GlobalTopics/GlobalSettings.md) is now public
 - [<span style="color:blue">Improvement</span>] A few functions in the `HTTPCacheService` and `HTTPCacheFileInfo` became public.

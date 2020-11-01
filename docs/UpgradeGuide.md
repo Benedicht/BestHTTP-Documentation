@@ -42,7 +42,7 @@ request.Send();
 ```
 - [<span style="color:red">Breaking change</span>] Removed `Priority` property
 - [<span style="color:red">Breaking change</span>] Removed `TryToMinimizeTCPLatency` property, because of the plugin's own buffering mechanism it became an always on setting.
-- [<span style="color:red">Breaking change</span>] Removed HTTPFormUsage.RawJSon support. There's a [small example](https://besthttp-documentation.readthedocs.io/en/latest/1.HTTPRequest/AdvancedTopics/SmallCode-Samples/#send-json-data) on how a request can be set up to send json with the RawData property.
+- [<span style="color:red">Breaking change</span>] Removed HTTPFormUsage.RawJSon support. There's a [small example](https://besthttp-documentation.readthedocs.io/en/latest/1.HTTP/AdvancedTopics/SmallCode-Samples/#send-json-data) on how a request can be set up to send json with the RawData property.
 
 ## Websocket
 
