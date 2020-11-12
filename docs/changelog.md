@@ -1,11 +1,25 @@
 ## 2.3.0 (TBR)
 
+**General**
+
+- [<span style="color:green">New Feature</span>] New `Exceptions` property for proxies to be able to skip proxy for specified hosts
+- [<span style="color:red">Bugfix</span>] LitJson dictionary (object) instantiation fix
+- [<span style="color:red">Bugfix</span>] HeartbeatManager wasn't cleared on application quit
+
 **SocketIO**
 
 - [<span style="color:green">New Feature</span>] Support for [Socket.IO 3](https://socket.io/blog/socket-io-3-release/)
-- [<span style="color:green">New Feature</span>] New [ServerVersion option](3.Socket.IO/8.Options.md) that can be set if the server's Socket.IO version is known.
-- [<span style="color:green">New Feature</span>] New [Auth function](3.Socket.IO/8.Options.md) to send payload while connecting to a namespace (only with Socket.IO 3).
+- [<span style="color:green">New Feature</span>] New [ServerVersion option](3.Socket.IO/8.Options.md) that can be set if the server's Socket.IO version is known
+- [<span style="color:green">New Feature</span>] New [Auth function](3.Socket.IO/8.Options.md) to send payload while connecting to a namespace (only with Socket.IO 3)
 - [<span style="color:red">Bugfix</span>] Fixed an issue where reconnection failed if there were an upgrading transport while waiting for reconnect countdown
+
+**Websocket**
+
+- [<span style="color:red">Bugfix</span>] Fixed type in `CloseAfterNoMesssage`
+
+**SignalR Core**
+
+- [<span style="color:green">New Feature</span>] Added CancellationToken support for `InvokeAsync` and `SendAsync`
 
 ## 2.2.2 (2020-10-22)
 
