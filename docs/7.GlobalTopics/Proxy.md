@@ -1,4 +1,4 @@
-# Proxy
+# Proxies
 
 There are two types of proxies the plugin supports: HTTP (`HTTPProxy`) and SOCKS (`SOCKSProxy`).
 
@@ -23,3 +23,29 @@ HTTPManager.Proxy = new SOCKSProxy(new System.Uri("socks://localhost:3129"), /*c
 ```
 
 See the [Global Settings](GlobalSettings.md) chapter for more settings.
+
+## HTTPProxy
+
+The HTTPProxy implementation supports proxy authentication, explicit, transparent and non-transparent proxies. It supports sending the whole URL to the proxy because some non-transparent proxies expecting it.
+
+## SOCKSProxy
+
+Supports only the username/password authentication.
+
+## Add Exceptions
+
+To do not route one or more requests through a globally set proxy the proxy's `Exceptions` list can be used:
+
+```language-csharp
+HTTPManager.Proxy = new HTTPProxy(new Uri("http://localhost:8888"), null, true);
+
+// Add exceptions
+HTTPManager.Proxy.Exceptions = new List<string>();
+HTTPManager.Proxy.Exceptions.Add("httpbin");
+
+// This request not going through the proxy
+var request = new HTTPRequest(new Uri("https://httpbin.org"));
+request.Send();
+```
+
+Any request that's [CurrentUri](../1.HTTP/HTTPRequest.md#properties).Host's beginning matches a string from the proxy's Exceptions will not going trhough the proxy.
