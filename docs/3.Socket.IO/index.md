@@ -47,6 +47,8 @@ options.Auth = (socketManager, socket) => LitJson.JsonMapper.ToJson(new { token 
 var manager = new SocketManager(new Uri("http://localhost:3000/socket.io/"), options);
 ```
 
+The Auth callback is called automatically for every namespace. Auth must return a valid json string or `null`.
+
 On the server the authentication payload can be accessed through `socket.handshake.auth`:
 
 ```language-csharp
