@@ -23,3 +23,34 @@ var manager = new SocketManager(new Uri("https://socket-io-chat.now.sh/socket.io
 
 !!! Notice
 	The */socket.io/* path in the url is very important, by default the Socket.IO server will listen on this query. So don’t forget to append it to your test url too!
+	
+## Socket.IO 3 support
+
+Engine.IO v4 and Socket.IO v3 changed the underlying protocol and behavior in a non backward compatible way. The plugin tries its best to handle both the old versions and the new seamlessly but it's not possible for every use-case. If the server version is known it's the best to set `SocketOptions`' `ServerVersion`:
+
+```language-csharp
+SocketOptions options = new SocketOptions();
+options.ServerVersion = SupportedSocketIOVersions.v3;
+options.Auth = (m, s) => LitJson.JsonMapper.ToJson(new { token = 123 });
+
+var manager = new SocketManager(new Uri("http://localhost:3000/socket.io/"), options);
+```
+
+The plugin also implements the new authentication support of v3, where a json payload can be sent with the first namespace connect packet:
+
+```language-csharp
+SocketOptions options = new SocketOptions();
+options.ServerVersion = SupportedSocketIOVersions.v3;
+
+options.Auth = (socketManager, socket) => LitJson.JsonMapper.ToJson(new { token = 123 });
+
+var manager = new SocketManager(new Uri("http://localhost:3000/socket.io/"), options);
+```
+
+On the server the authentication payload can be accessed throgh `socket.handshake.auth`:
+
+```language-csharp
+io.on('connection', (socket) => {
+    console.log(socket.id + ' connected! auth: ' + JSON.stringify(socket.handshake.auth));
+});
+```
