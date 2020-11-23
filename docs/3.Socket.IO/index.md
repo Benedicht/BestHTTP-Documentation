@@ -31,7 +31,6 @@ Engine.IO v4 and Socket.IO v3 changed the underlying protocol and behavior in a 
 ```language-csharp
 SocketOptions options = new SocketOptions();
 options.ServerVersion = SupportedSocketIOVersions.v3;
-options.Auth = (m, s) => LitJson.JsonMapper.ToJson(new { token = 123 });
 
 var manager = new SocketManager(new Uri("http://localhost:3000/socket.io/"), options);
 ```
@@ -40,6 +39,7 @@ The plugin also implements the new authentication support of v3, where a json pa
 
 ```language-csharp
 SocketOptions options = new SocketOptions();
+// Auth works only with Socket.IO v3
 options.ServerVersion = SupportedSocketIOVersions.v3;
 
 options.Auth = (socketManager, socket) => LitJson.JsonMapper.ToJson(new { token = 123 });
