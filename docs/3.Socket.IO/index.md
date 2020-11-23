@@ -47,7 +47,7 @@ options.Auth = (socketManager, socket) => LitJson.JsonMapper.ToJson(new { token 
 var manager = new SocketManager(new Uri("http://localhost:3000/socket.io/"), options);
 ```
 
-On the server the authentication payload can be accessed throgh `socket.handshake.auth`:
+On the server the authentication payload can be accessed through `socket.handshake.auth`:
 
 ```language-csharp
 io.on('connection', (socket) => {
