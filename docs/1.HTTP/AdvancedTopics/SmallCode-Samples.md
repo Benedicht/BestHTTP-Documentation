@@ -16,7 +16,7 @@ request.Send();
 var request = new HTTPRequest(new Uri("http://server.com"), HTTPMethods.Post, onFinished);
 
 request.SetHeader("Content-Type", "image/png");
-request.Raw = texture.EncodeToPNG();
+request.RawData = texture.EncodeToPNG();
 
 request.Send();
 ```
