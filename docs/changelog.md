@@ -2,7 +2,7 @@
 
 **General**
 
-- [<span style="color:green">New Feature</span>] New `Exceptions` property for proxies to be able to skip proxy for specified hosts
+- [<span style="color:green">New Feature</span>] New [`Exceptions`](7.GlobalTopics/Proxy.md#add-exceptions) property for proxies to be able to skip proxy for specified hosts
 - [<span style="color:red">Bugfix</span>] LitJson dictionary (object) instantiation fix
 - [<span style="color:red">Bugfix</span>] HeartbeatManager wasn't cleared on application quit
 
