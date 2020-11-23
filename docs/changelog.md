@@ -15,7 +15,7 @@
 
 **Websocket**
 
-- [<span style="color:red">Bugfix</span>] Fixed type in `CloseAfterNoMesssage`
+- [<span style="color:red">Bugfix</span>] Fixed typo in `CloseAfterNoMesssage`
 
 **SignalR Core**
 
