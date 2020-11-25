@@ -1,0 +1,22 @@
+.circles {
+  position: relative;
+}
+.circle-with-text {
+  position: absolute;
+  background: linear-gradient(orange, red);
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  text-align: center;
+  margin: 5px 20px;
+  font-size: 12px;
+  padding: 10px;
+  display: flex;
+  height: 12px;
+  width: 12px;
+  color: #fff;
+}
+
+.circle-image {
+	position: relative;	
+}
