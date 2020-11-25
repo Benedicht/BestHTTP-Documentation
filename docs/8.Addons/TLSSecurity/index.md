@@ -29,7 +29,6 @@ TLSSecurity.Setup();
 
 ## Certification Manager Window
 
-
 <!--![Certification Manager Window](media/CertificationManager.png)-->
 <div class="circles" >
 	<img src="media/CertificationManager.png" class="circle-image" />
