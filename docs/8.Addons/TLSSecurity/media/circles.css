@@ -1,9 +1,8 @@
 .circles {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
+	margin: 20px auto 30px auto;
 }
-
-.circles {margin: 20px auto 30px auto;}
 .circles img {margin: unset !important;}
 
 .circle-with-text {
@@ -13,7 +12,6 @@
   align-items: center;
   border-radius: 100%;
   text-align: center;
-  margin: 5px 20px;
   font-size: 12px;
   padding: 10px;
   display: flex;

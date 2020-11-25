@@ -34,9 +34,9 @@ TLSSecurity.Setup();
 <div class="circles" >
 	<img src="media/CertificationManager.png" class="circle-image" />
 	
-	<div class="circle-with-text" style="top:6.5%;left:0.5%">1</div>
-	<div class="circle-with-text" style="top:6.5%;left:7%">2</div>
-	<div class="circle-with-text" style="top:6.5%;left:40%">3</div>
+	<div class="circle-with-text" style="top:5%;left:2.5%">1</div>
+	<div class="circle-with-text" style="top:5%;left:15%">2</div>
+	<div class="circle-with-text" style="top:5%;left:38%">3</div>
 </div>
 
 </br>
