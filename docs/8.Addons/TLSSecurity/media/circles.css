@@ -1,6 +1,11 @@
 .circles {
   position: relative;
+  display: inline-block;
 }
+
+.circles {margin: 20px auto 30px auto;}
+.circles img {margin: unset !important;}
+
 .circle-with-text {
   position: absolute;
   background: linear-gradient(orange, red);
@@ -19,4 +24,5 @@
 
 .circle-image {
 	position: relative;	
+	display: block;
 }

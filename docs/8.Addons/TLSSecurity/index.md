@@ -1,4 +1,4 @@
-<link href="media/cirles.css" rel="stylesheet" />
+<link href="media/circles.css" rel="stylesheet" />
 
 # About
 
@@ -12,9 +12,9 @@ This addon implements all certification verification steps a browser normally do
 - Caching OCSP responses
 - Support for [OCSP Must-Staple](https://casecurity.org/2014/06/18/ocsp-must-staple/)
 - Trusted Root CA, Trusted Intermediate and Client Credentials management through an easy to use *Certification Manager Window* to
-	1. update
-	2. add custom
-	3. delete non-needed certificates
+	1. Update all certificates from a trusted source
+	2. Add custom certificates
+	3. Delete non-needed certificates
 - Domain Name Matching
 
 ## How to setup
@@ -31,14 +31,12 @@ TLSSecurity.Setup();
 
 
 <!--![Certification Manager Window](media/CertificationManager.png)-->
-<div> 
-	<div class="circles" >
-		<img src="/8.Addons/TLSSecurity/media/CertificationManager.png" class="circle-image" />
-		
-		<div class="circle-with-text" style="top:6.5%;left:20px">1</div>
-		<div class="circle-with-text" style="top:6.5%;left:270px">2</div>
-		<div class="circle-with-text" style="top:6.5%;left:570px">3</div>
-	</div>
+<div class="circles" >
+	<img src="/8.Addons/TLSSecurity/media/CertificationManager.png" class="circle-image" />
+	
+	<div class="circle-with-text" style="top:6.5%;left:0.5%">1</div>
+	<div class="circle-with-text" style="top:6.5%;left:7%">2</div>
+	<div class="circle-with-text" style="top:6.5%;left:40%">3</div>
 </div>
 
 </br>
@@ -73,4 +71,41 @@ TLSSecurity.Setup();
 
 ## Options
 
-Options of the addon can be accessed through the static `SecurityOptions` class.
+Options of the addon can be accessed through the static `SecurityOptions` class:
+
+- **FolderAndFileOptions**: Folder, file and extension options.
+- **OCSP**: OCSP and OCSP cache options.
+- **TrustedRootsOptions**: Database options of the Trusted CAs database.
+- **TrustedIntermediatesOptions**: Database options of the Trusted Intermediate Certifications database
+- **Database options of the Client Credentials database**: Database options of the Client Credentials database
+
+## OCSPOptions
+
+- **ShortLifeSpanThreshold**: The addon not going to check revocation status for short lifespan certificates.
+- **EnableOCSPQueries**: Enable or disable sending out OCSP requests for revocation checking.
+- **FailHard**: Treat unknown revocation statuses (unknown OCSP status or unreachable servers) as revoked and abort the TLS negotiation.
+- **FailOnMissingCertWhenMustStaplePresent**: 
+- **FailOnMissingNonce**: 
+- **OCSPCache**: 
+
+## OCSPCacheOptions
+
+- **Enabled**: 
+- **MaxEntries**:
+- **CacheUnknownFor**: 
+- **DeleteUnusedEntriesAfter**: 
+- **MaxWaitTime**: 
+- **RetryUnknownAfter**: 
+- **FolderName**: 
+- **DatabaseOptions**: 
+- **HTTPRequestOptions**: 
+
+## OCSPCacheHTTPRequestOptions
+
+OCSP requests are plain old `HTTPRequest`s and every BestHTTP/2 global settings affecting them, but through this options OCSP requests can be further customized.
+
+- **DataLengthThreshold**: 
+- **UseKeepAlive**: 
+- **UseCache**:
+- **ConnectTimeout**:
+- **Timeout**:
