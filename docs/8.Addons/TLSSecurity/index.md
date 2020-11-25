@@ -32,7 +32,7 @@ TLSSecurity.Setup();
 
 <!--![Certification Manager Window](media/CertificationManager.png)-->
 <div class="circles" >
-	<img src="/8.Addons/TLSSecurity/media/CertificationManager.png" class="circle-image" />
+	<img src="media/CertificationManager.png" class="circle-image" />
 	
 	<div class="circle-with-text" style="top:6.5%;left:0.5%">1</div>
 	<div class="circle-with-text" style="top:6.5%;left:7%">2</div>
