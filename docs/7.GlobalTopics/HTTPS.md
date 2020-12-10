@@ -24,4 +24,23 @@ The plugin also supports the [NSS Key Log Format](https://developer.mozilla.org/
 
 ## Certication Verification
 
-The plugin by default doesn't do any certication verification, accepts all -including self signed- certificates. 
+The plugin by default doesn't do any certication verification, accepts all -including self signed- certificates. To add a global verifier `HTTPManager.DefaultCertificateVerifyer` can be used:
+
+```language-csharp
+using System;
+using BestHTTP.SecureProtocol.Org.BouncyCastle.Crypto.Tls;
+using BestHTTP.SecureProtocol.Org.BouncyCastle.Asn1.X509;
+
+class CustomVerifier : ICertificateVerifyer
+{
+    public bool IsValid(Uri serverUri, X509CertificateStructure[] certs)
+    {
+        // TODO: Return false, if validation fails
+        return true;
+    }
+}
+
+HTTPManager.DefaultCertificateVerifyer = new CustomVerifier();
+```
+
+This implementation is the same as the one that the plugin uses by default: returns true for all https connection.

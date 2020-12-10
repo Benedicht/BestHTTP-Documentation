@@ -16,4 +16,4 @@ For HTTP requests, the [Getting Started Quickly](1.HTTP/GettingStarted.md) topic
 
 ## Contact
 
-For support, feature request or general questions you can email me at <besthttp@gmail.com>, or create a new issue at the plugin's public [Issues repository](https://github.com/Benedicht/BestHTTP-Issues).
+For support, feature requests or general questions you can email me at <besthttp@gmail.com>, join to the plugin's [discord server](https://discord.gg/yD9tXwQ) or create a new issue at the public [Issues repository](https://github.com/Benedicht/BestHTTP-Issues).
