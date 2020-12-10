@@ -1838,5 +1838,10 @@ Prism.languages.dotnet = Prism.languages.cs = Prism.languages.csharp;
 	Prism.hooks.add('before-highlightall', function(env) {
 		env.selector += ', code[class*="language-language-"], [class*="language-language-"] code, code[class*="lang-lang-"], [class*="lang-lang-"] code';
 	});
+	Prism.hooks.add('before-all-elements-highlight', function(env) {
+		for (var i = 0, element; element = env.elements[i++];) {
+			element.className = element.className.replaceAll('language-language-', 'language-');
+		}
+	});
 }());
 
