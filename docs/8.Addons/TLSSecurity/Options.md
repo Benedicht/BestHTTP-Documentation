@@ -50,6 +50,12 @@ OCSP requests are plain old `HTTPRequest`s and every BestHTTP/2 global settings 
 ## Examples
 
 ```language-csharp
+#if !UNITY_WEBGL || UNITY_EDITOR
+using BestHTTP.Addons.TLSSecurity;
+
 // To disable the OCSP cache's memory cache:
 SecurityOptions.OCSP.OCSPCache.DatabaseOptions.DiskManager.MaxCacheSizeInBytes = 0;
+
+TLSSecurity.Setup();
+#endif
 ```

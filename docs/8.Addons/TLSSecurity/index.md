@@ -14,6 +14,7 @@ This addon implements all certification verification steps a browser normally do
 	2. Add custom certificates
 	3. Delete non-needed certificates
 - Domain Name Matching
+- [Client Authentication](https://comodosslstore.com/blog/what-is-ssl-tls-client-authentication-how-does-it-work.html)
 - Wide variety of options to configure almost every bits of the addon
 
 ## How to setup
