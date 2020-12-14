@@ -1,3 +1,27 @@
+## 2.3.1 (2020-12-14)
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] Enable cookies in the editor when the WebGL platform is selected
+- [<span style="color:red">Bugfix</span>] Redirect to the same url is now breaks out from the redirect cycle
+- [<span style="color:blue">Improvement</span>] `DateTime` logging changes to workaround a possible Unity issue
+- [<span style="color:blue">Improvement</span>] Fixed `HeaderParser` compatibility with non-conformant headers
+- [<span style="color:blue">Improvement</span>] `HeaderParser` is now used to determine whether a response is cachable to use less cpu and memory
+- [<span style="color:blue">Improvement</span>] `HTTPRequest`'s MaxRedirects' default is now 10
+
+**HTTP/2**
+
+- [<span style="color:blue">Improvement</span>] Send ENABLE_PUSH = 0 settings to the server
+
+**SocketIO**
+
+- [<span style="color:red">Bugfix</span>] The correct EIO version is sent now with the requests
+- [<span style="color:blue">Improvement</span>] Changed socket notification about transport open to reduce overhead
+
+**Websocket**
+
+- [<span style="color:blue">Improvement</span>] Don't log error on application quit
+
 ## 2.3.0 (2020-11-23)
 
 **General**
