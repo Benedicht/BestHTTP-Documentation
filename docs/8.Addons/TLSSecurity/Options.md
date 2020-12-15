@@ -2,6 +2,7 @@
 
 Options of the addon can be accessed through the static `SecurityOptions` class:
 
+- **UseServerSentIntermediateCertificates**: If false, only certificates stored in the trusted intermediates database are used to reconstruct the certificate chain. When set to true (default), it improves compatibility but the addon going to use/accept certificates that not stored in its trusted database.
 - **FolderAndFileOptions**: Folder, file and extension options.
 - **OCSP**: OCSP and OCSP cache options.
 - **TrustedRootsOptions**: Database options of the Trusted CAs database.
