@@ -1,7 +1,11 @@
 # About
 
-While the Best HTTP/2 plugin lacks any certification verification and accepts all certifications as valid by default, this addon aims to deliver a complete solution for certification verification, revocation checking and managing trusted root CAs and intermediates.
+Implementing a good certification validatation isn't an easy task, but this addon aims even higher. It implements the same steps a browser does to ensure the communication over the negotiated connection is safe and secure. Additionally provides a management window to easily manage trusted certificates, update and test them.
 This addon implements all certification verification steps a browser normally do and additionally provides a management window to easily manage trusted certificates, update and test them.
+
+Take a step further to improve the security of all protocols connecting through a TLS connection with a one line setup. Works with **all** protocols Best HTTP/2 supports.
+
+All source code included. Requires the latest version of [Best HTTP/2](http://u3d.as/1E3h).
 
 ## Features
 
