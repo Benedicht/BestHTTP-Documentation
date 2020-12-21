@@ -55,7 +55,7 @@ These are the basis of the trust chain, servers doesn't send root certificates t
 10. <p id="root_10">**Help (?) Button**: Opens a browser window to this manual.</p>
 
 11. <p id="root_11">**# Column**: Index of the certificate.</p>
-12. <p id="root_12">**User Column**: It has a ✔, if it's a user-addded certificate.</p>
+12. <p id="root_12">**User Column**: It has a ✔, if it's a user-added certificate.</p>
 13. <p id="root_13">**Lock Column**: It has a ✔, if it's locked and can't be deleted. Currently only certificates needed to update from the default URL are locked.</p>
 14. <p id="root_14">**Subject Column**: Subject field of the certificate.</p>
 15. <p id="root_15">**Issuer Column**: Issuer field of the certificate.</p>
@@ -106,7 +106,7 @@ Because servers can choose to not send intermediate certificates it's a good pra
 10. <p id="intermediate_10">**Help (?) Button**: Opens a browser window to this manual.</p>
 
 11. <p id="intermediate_11">**# Column**: Index of the certificate.</p>
-12. <p id="intermediate_12">**User Column**: It has a ✔, if it's a user-addded certificate.</p>
+12. <p id="intermediate_12">**User Column**: It has a ✔, if it's a user-added certificate.</p>
 13. <p id="intermediate_13">**Lock Column**: It has a ✔, if it's locked and can't be deleted. Currently only certificates needed to update from the default URL are locked.</p>
 14. <p id="intermediate_14">**Subject Column**: Subject field of the certificate.</p>
 15. <p id="intermediate_15">**Issuer Column**: Issuer field of the certificate.</p>

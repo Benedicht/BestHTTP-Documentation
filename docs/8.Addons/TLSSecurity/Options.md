@@ -31,10 +31,10 @@ OCSP request caching related options.
 
 OCSP requests are plain old `HTTPRequest`s and every BestHTTP/2 global settings affecting them, but through this options OCSP requests can be further customized.
 
-- **DataLengthThreshold**: A treshold in bytes to switch to a POST request instead of GET. Setting it to `0` all requests are sent as POST.
+- **DataLengthThreshold**: A threshold in bytes to switch to a POST request instead of GET. Setting it to `0` all requests are sent as POST.
 - **UseKeepAlive**: Whether to try to keep the connection alive to the OCSP server.
 - **UseCache**: Whether to cache responses if possible.
-- **ConnectTimeout**: Time limit to estabilish a connection to the server.
+- **ConnectTimeout**: Time limit to establish a connection to the server.
 - **Timeout**: Time limit to send and receive an OCSP response from the server.
 
 ## Database Options
@@ -46,7 +46,7 @@ OCSP requests are plain old `HTTPRequest`s and every BestHTTP/2 global settings 
 ## DiskManager Options
 
 - **MaxCacheSizeInBytes**: This limits the maximum database rows kept in memory.
-- **HashDigest**: Hash digest algorithm name to generete the database's hash.
+- **HashDigest**: Hash digest algorithm name to generate the database's hash.
 
 ## Examples
 

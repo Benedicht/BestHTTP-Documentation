@@ -1,6 +1,6 @@
 # About
 
-Implementing a good certification validatation isn't an easy task, but this addon aims even higher. It implements the same steps a browser does to ensure the communication over the negotiated connection is safe and secure. Additionally provides a management window to easily manage trusted certificates, update and test them.
+Implementing a good certification validation isn't an easy task, but this addon aims even higher. It implements the same steps a browser does to ensure the communication over the negotiated connection is safe and secure. Additionally, provides a management window to easily manage trusted certificates, update and test them.
 This addon implements all certification verification steps a browser normally do and additionally provides a management window to easily manage trusted certificates, update and test them.
 
 Take a step further to improve the security of all protocols connecting through a TLS connection with a one line setup. Works with **all** protocols Best HTTP/2 supports.
@@ -21,9 +21,10 @@ All source code included. Requires the latest version of [Best HTTP/2](http://u3
 - [Client Authentication](https://comodosslstore.com/blog/what-is-ssl-tls-client-authentication-how-does-it-work.html)
 - Wide variety of options to configure almost every bits of the addon
 
-## How to setup
+## Setup Guide
 
-The addon is easy to setup, after importing the package just have to call one function on application startup:
+This addon doesn't require any installation steps, but it's recommended to import after the Best HTTP/2 package.
+After importing the package just must call one function on application startup:
 
 ```language-csharp
 #if !UNITY_WEBGL || UNITY_EDITOR
@@ -89,4 +90,4 @@ void OnRequestFinished(HTTPRequest req, HTTPResponse resp)
 }
 ```
 
-For a failed TLS verification it should produce two log lines, something like this: ![TLS Error Log Entries](media/TLSErrorLogEntries.png)
+For a failed TLS verification, it should produce two log lines, something like this: ![TLS Error Log Entries](media/TLSErrorLogEntries.png)
