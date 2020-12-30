@@ -4,6 +4,10 @@ My goal was to create an easy to use, but still powerful plugin to Unity to take
 
 For HTTP requests, the [Getting Started Quickly](1.HTTP/GettingStarted.md) topic is the next recommended reading.
 
+## Available Addons:
+
+1. [TLS Security Addon](8.Addons/TLSSecurity)
+
 ## Online resources
 
 1. A [WebGL demo page](https://besthttpdemo.azureedge.net/) is available to demonstrate a few capabilities of the plugin. Both the samples and server has its own git repo:

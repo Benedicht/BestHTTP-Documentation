@@ -5,7 +5,7 @@ This addon implements all certification verification steps a browser normally do
 
 Take a step further to improve the security of all protocols connecting through a TLS connection with a one line setup. Works with **all** protocols Best HTTP/2 supports.
 
-All source code included. Requires the latest version of [Best HTTP/2](http://u3d.as/1E3h).
+All source code included. Requires the latest version of [Best HTTP/2](http://u3d.as/1E3h). Link to the addon's store page: [http://u3d.as/2dSX](http://u3d.as/2dSX).
 
 ## Features
 
@@ -38,7 +38,8 @@ Calling `TLSSecurity.Setup()` going to set up the addon and installs itself as s
 This step needed as the databases going to open those files and read into memory only the required chunks. While it has some disk overhead, more complexity and can work on platforms and devices where it can create and write into a new file, it greatly reduces runtime memory requirements.
 This step also done only once, when the files are there no resources going to be loaded and written. To make updating certification databases possible, a hash file is generated and compared in the Setup call, so even if the files are there but the hashes are different a new file going to be written.
 
-Under WebGL BestHTTP/2 must use the underlying browser's XmlHTTPRequest implementation, all tls verification is done by the browser.
+!!! Notice
+	Under WebGL BestHTTP/2 must use the underlying browser's XmlHTTPRequest implementation, all tls verification is done by the browser.
 
 ## How To Detect TLS Certification Verification Failures
 
