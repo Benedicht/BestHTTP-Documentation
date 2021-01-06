@@ -1,3 +1,26 @@
+## 2.3.2 (2021-01-06)
+
+**TLS**
+
+- [<span style="color:green">New Feature</span>] [TLS Security Addon](http://u3d.as/2dSX) is now available!
+- [<span style="color:red">Bugfix</span>] Disabled chacha20-poly1305-04 as it seems it has a data corruption bug
+- [<span style="color:blue">Improvement</span>] Improved compatibility with other TLS handlers by not aborting the TLS connection if the server sends back an encrypt-then-mac extension when a non blockcipher is selected
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] Start to count down for a request's timeout when a HTTP1 or 2 handler picks it for processing
+- [<span style="color:red">Bugfix</span>] Caching discarded entities when it has only Cache-Control header with a max-age directive
+- [<span style="color:blue">Improvement</span>] An already finished but waiting for processing its callback not going to be aborted by a timeout or direct Abort call
+- [<span style="color:blue">Improvement</span>] When wrapping an Exception, AsyncHTTPException's message is going to be the exception's message
+
+**SocketIO**
+
+- [<span style="color:red">Bugfix</span>] Fixed various issues around custom namespaces
+
+**SignalR Core**
+
+- [<span style="color:blue">Improvement</span>] Send back a ping message if the client received one from the server
+
 ## 2.3.1 (2020-12-14)
 
 **General**
