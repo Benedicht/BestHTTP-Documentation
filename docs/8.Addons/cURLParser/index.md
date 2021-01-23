@@ -46,7 +46,7 @@ curl --include \
      https://onesignal.com/api/v1/notifications
 `
 
-And generates the following code:
+And the addon generates the following code:
 ```language-csharp
 async Task SendRequest_onesignalcom_api_v1_notifications()
 {
