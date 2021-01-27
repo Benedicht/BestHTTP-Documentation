@@ -101,3 +101,11 @@ Beside of `DataAsTexture2D` there is a `DataAsText` property too to decode the r
 
 !!! Warning
 	All examples in this document are without any error checking! See the [Error Handling topic](AdvancedTopics/ErrorHandling.md)!
+	
+## More Examples
+
+More examples and sample code snippets can be found under the [Small Code-Samples](AdvancedTopics/SmallCode-Samples.md) topic, like
+
+1. [How to send binary data in a Form](AdvancedTopics/SmallCode-Samples.md#upload-a-picture-using-forms)
+2. [How to send JSON data](AdvancedTopics/SmallCode-Samples.md#send-json-data)
+3. [How to access response headers](AdvancedTopics/SmallCode-Samples.md#get-header-values)
