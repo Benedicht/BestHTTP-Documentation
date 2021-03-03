@@ -2,7 +2,7 @@
 
 # About
 
-cURLParser is a tool to help translate cURL commands into Best HTTP/2 code.
+cURLParser is a tool to help translate cURL commands into Best HTTP/2 code. Link to the Unity Asset Store page: [https://assetstore.unity.com/packages/tools/network/best-http-2-curl-parser-addon-187305](https://assetstore.unity.com/packages/tools/network/best-http-2-curl-parser-addon-187305?aid=1101lfX8E)
 
 ## Setup Guide
 

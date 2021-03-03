@@ -5,7 +5,7 @@ This addon implements all certification verification steps a browser normally do
 
 Take a step further to improve the security of all protocols connecting through a TLS connection with a one line setup. Works with **all** protocols Best HTTP/2 supports.
 
-All source code included. Requires the latest version of [Best HTTP/2](http://u3d.as/1E3h). Link to the addon's store page: [http://u3d.as/2dSX](http://u3d.as/2dSX).
+All source code included. Requires the latest version of [Best HTTP/2](https://assetstore.unity.com/packages/tools/network/best-http-2-155981?aid=1101lfX8E). Link to the addon's store page: [https://assetstore.unity.com/packages/tools/network/best-http-2-tls-security-addon-184441](https://assetstore.unity.com/packages/tools/network/best-http-2-tls-security-addon-184441?aid=1101lfX8E).
 
 ## Features
 

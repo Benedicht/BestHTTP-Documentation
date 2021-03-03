@@ -2,7 +2,7 @@
 
 **TLS**
 
-- [<span style="color:green">New Feature</span>] [TLS Security Addon](http://u3d.as/2dSX) is now available!
+- [<span style="color:green">New Feature</span>] [TLS Security Addon](https://assetstore.unity.com/packages/tools/network/best-http-2-tls-security-addon-184441?aid=1101lfX8E) is now available!
 - [<span style="color:red">Bugfix</span>] Disabled chacha20-poly1305-04 as it seems it has a data corruption bug
 - [<span style="color:blue">Improvement</span>] Improved compatibility with other TLS handlers by not aborting the TLS connection if the server sends back an encrypt-then-mac extension when a non blockcipher is selected
 
