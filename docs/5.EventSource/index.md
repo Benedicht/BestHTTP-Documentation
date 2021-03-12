@@ -1,11 +1,11 @@
-#Server-Sent Events (EventSource)
+# Server-Sent Events (EventSource)
 
 The Server-Sent Events is a one-way string-based protocol. Data comes from the server, and there are no option to send anything to the server. It’s implemented using the [latest draft](http://www.w3.org/TR/eventsource/).
 While the protocol’s name is Server-Sent Events, the class itself is named EventSource.
 
 When an error occurs, the plugin will try to reconnect once sending the LastEventId to let the server send any buffered message that we should receive.
 
-##The EventSource class
+## The EventSource class
 The EventSource class is located in the BestHTTP.ServerSentEvents namespace:
 
 ```language-csharp
@@ -14,7 +14,7 @@ using BestHTTP.ServerSentEvents;
 var sse = new EventSource(new Uri("http://server.com"));
 ```
 
-##Properties
+## Properties
 These are the publicly exposed properties of the EventSource class:
 
 - **Uri**: This is the endpoint where the protocol tries to connect to. It’s set through the constructor.
@@ -23,7 +23,7 @@ These are the publicly exposed properties of the EventSource class:
 - **LastEventId**: The last received event’s id. It will be null, if no event id received at all.
 - **InternalRequest**: The internal HTTPRequest object that will be sent out in the Open function.
 
-##Events
+## Events
 
 - **OnOpen**: It’s called when the protocol is successfully upgraded.
 
@@ -46,6 +46,9 @@ void OnEventSourceMessage(EventSource source, Message msg)
 	Debug.log("Message: " + msg.Data);
 }
 ```
+
+!!! Warning
+	This event isn't called under WebGL! It's good for debugging in the Unity editor but it's a good practice to always subscribe to named events with the `On` method.
 
 - **OnError**: Called when an error encountered while connecting to the server, or while processing the data stream.
 
@@ -102,7 +105,8 @@ void OnEventSourceComment(EventSource source, string comment)
 }
 ```
 
-##Functions
+## Functions
+
 These are the public functions of the EventSource object.
 
 - **Open**: Calling this function the plugin will start to connect to the server and upgrade to the Server-Sent Events protocol.
@@ -135,9 +139,10 @@ eventSource.Off("userLogon");
 eventSource.Close();
 ```
 
-##The Message class
+## The Message class
 The Message class is a logical unit that contains all the information that a server can send.
-###Properties
+
+### Properties
 - **Id**: Id of the sent event. Can be null, if no id sent. It’s used by the plugin.
 - **Event**: Name of the event. Can be null, if no event name sent.
 - **Data**: The actual payload of the message.

@@ -29,7 +29,7 @@ string json = "{ 'field': 'value' }";
 var request = new HTTPRequest(new Uri("http://server.com"), HTTPMethods.Post, onFinished);
 
 request.SetHeader("Content-Type", "application/json; charset=UTF-8");
-request.RawData = UTF8.Encoding.GetBytes(json);
+request.RawData = System.Text.Encoding.UTF8.GetBytes(json);
 
 request.Send();
 ```

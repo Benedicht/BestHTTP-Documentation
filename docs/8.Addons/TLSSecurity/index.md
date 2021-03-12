@@ -1,7 +1,11 @@
 # About
 
-While the Best HTTP/2 plugin lacks any certification verification and accepts all certifications as valid by default, this addon aims to deliver a complete solution for certification verification, revocation checking and managing trusted root CAs and intermediates.
+Implementing a good certification validation isn't an easy task, but this addon aims even higher. It implements the same steps a browser does to ensure the communication over the negotiated connection is safe and secure. Additionally, provides a management window to easily manage trusted certificates, update and test them.
 This addon implements all certification verification steps a browser normally do and additionally provides a management window to easily manage trusted certificates, update and test them.
+
+Take a step further to improve the security of all protocols connecting through a TLS connection with a one line setup. Works with **all** protocols Best HTTP/2 supports.
+
+All source code included. Requires the latest version of [Best HTTP/2](https://assetstore.unity.com/packages/tools/network/best-http-2-155981?aid=1101lfX8E). Link to the addon's store page: [https://assetstore.unity.com/packages/tools/network/best-http-2-tls-security-addon-184441](https://assetstore.unity.com/packages/tools/network/best-http-2-tls-security-addon-184441?aid=1101lfX8E).
 
 ## Features
 
@@ -17,9 +21,10 @@ This addon implements all certification verification steps a browser normally do
 - [Client Authentication](https://comodosslstore.com/blog/what-is-ssl-tls-client-authentication-how-does-it-work.html)
 - Wide variety of options to configure almost every bits of the addon
 
-## How to setup
+## Setup Guide
 
-The addon is easy to setup, after importing the package just have to call one function on application startup:
+This addon doesn't require any installation steps, but it's recommended to import after the Best HTTP/2 package.
+After importing the package just must call one function on application startup:
 
 ```language-csharp
 #if !UNITY_WEBGL || UNITY_EDITOR
@@ -33,7 +38,8 @@ Calling `TLSSecurity.Setup()` going to set up the addon and installs itself as s
 This step needed as the databases going to open those files and read into memory only the required chunks. While it has some disk overhead, more complexity and can work on platforms and devices where it can create and write into a new file, it greatly reduces runtime memory requirements.
 This step also done only once, when the files are there no resources going to be loaded and written. To make updating certification databases possible, a hash file is generated and compared in the Setup call, so even if the files are there but the hashes are different a new file going to be written.
 
-Under WebGL BestHTTP/2 must use the underlying browser's XmlHTTPRequest implementation, all tls verification is done by the browser.
+!!! Notice
+	Under WebGL BestHTTP/2 must use the underlying browser's XmlHTTPRequest implementation, all tls verification is done by the browser.
 
 ## How To Detect TLS Certification Verification Failures
 
@@ -85,4 +91,4 @@ void OnRequestFinished(HTTPRequest req, HTTPResponse resp)
 }
 ```
 
-For a failed TLS verification it should produce two log lines, something like this: ![TLS Error Log Entries](media/TLSErrorLogEntries.png)
+For a failed TLS verification, it should produce two log lines, something like this: ![TLS Error Log Entries](media/TLSErrorLogEntries.png)
