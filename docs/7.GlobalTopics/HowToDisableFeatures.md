@@ -22,4 +22,9 @@ These are the defines that has an effect on the plugin:
 	- **BESTHTTP_SIGNALR_CORE_ENABLE_GAMEDEVWARE_MESSAGEPACK**
 	- **BESTHTTP_SIGNALR_CORE_ENABLE_NEWTONSOFT_JSON_DOTNET_ENCODER**
 	
-	More can be read about these under the [SignalR Core Encoders](../6.SignalRCore/3.Encoders.md) topic
+	More can be read about these under the [SignalR Core Encoders](../6.SignalRCore/3.Encoders.md) topic.
+	
+* Socket.IO 3
+	- **BESTHTTP_SOCKETIO_ENABLE_GAMEDEVWARE_MESSAGEPACK**
+	
+	More can be read about these under the [Socket.IO 3 Parsers](../3.1Socket.IO3/index.md#parsers) topic.
