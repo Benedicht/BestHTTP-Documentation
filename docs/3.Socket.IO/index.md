@@ -26,33 +26,4 @@ var manager = new SocketManager(new Uri("https://socket-io-chat.now.sh/socket.io
 	
 ## Socket.IO 3 support
 
-Engine.IO v4 and Socket.IO v3 changed the underlying protocol and behavior in a non backward compatible way. The plugin tries its best to handle both the old versions and the new seamlessly but it's not possible for every use-case. If the server version is known it's the best to set `SocketOptions`' `ServerVersion`:
-
-```language-csharp
-SocketOptions options = new SocketOptions();
-options.ServerVersion = SupportedSocketIOVersions.v3;
-
-var manager = new SocketManager(new Uri("http://localhost:3000/socket.io/"), options);
-```
-
-The plugin also implements the new authentication support of v3, where a json payload can be sent with the first namespace connect packet:
-
-```language-csharp
-SocketOptions options = new SocketOptions();
-// Auth works only with Socket.IO v3
-options.ServerVersion = SupportedSocketIOVersions.v3;
-
-options.Auth = (socketManager, socket) => LitJson.JsonMapper.ToJson(new { token = 123 });
-
-var manager = new SocketManager(new Uri("http://localhost:3000/socket.io/"), options);
-```
-
-The Auth callback is called automatically for every namespace. Auth must return a valid json string or `null`.
-
-On the server the authentication payload can be accessed through `socket.handshake.auth`:
-
-```language-csharp
-io.on('connection', (socket) => {
-    console.log(socket.id + ' connected! auth: ' + JSON.stringify(socket.handshake.auth));
-});
-```
+For Socket.IO 3, use classes from the [BestHTTP.SocketIO3](../3.1Socket.IO3) namespace!
