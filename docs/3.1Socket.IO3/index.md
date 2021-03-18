@@ -1,13 +1,15 @@
 # Socket.IO 3
 Changes made in Socket.IO v3 (and Engine.IO v4) enables a less complex parser and message sending logic. To make the plugin's Socket.IO implementation a more user-friendly API with strongly typed callbacks, keeping backward compatibility became unaccomplishable. Breaking the backward compatibility however enabled to add even more features like volatile emits and new parsers.
 
-The old implementation is still available in the package, but with Socket.IO 3, i recommend to classes from the new *BestHTTP.SocketIO3* namespace.
+The old implementation is still available in the package, but with Socket.IO 3, i recommend to use classes from the new *BestHTTP.SocketIO3* namespace.
 
 ## Connecting to a Socket.IO service
 
 First step to connect to a Socket.IO server is to create a SocketManager instance:
 
 ```language-csharp
+using BestHTTP.SocketIO3;
+
 var manager = new SocketManager(new Uri("http://localhost:3000"));
 ```
 
@@ -16,6 +18,8 @@ The official Socket.IO server implementation [binds to the /socket.io/](https://
 By default SocketManager going to start to connect to the server as soon as a namespace is accessed through its `Socket` property or `GetSocket` function:
 
 ```language-csharp
+using BestHTTP.SocketIO3;
+
 var manager = new SocketManager(new Uri("http://localhost:3000"));
 
 // Accessing the root ("/") socket
@@ -30,6 +34,8 @@ var customNamespace = manager.GetSocket("/my_namespace");
 This auto connection can be disabled through a `SocketOptions` instance:
 
 ```language-csharp
+using BestHTTP.SocketIO3;
+
 SocketOptions options = new SocketOptions();
 options.AutoConnect = false;
 
@@ -46,9 +52,38 @@ This way the SocketManager going to start to connect to the server when its Open
 
 `Open` and connection to the server in general is non-blocking, the function returns immediately and messages are sent only after the `connect` event.
 
+!!! Notice
+	Don't forget that the new implementation is under the `BestHTTP.SocketIO3` namespace!
+	
+## Socket IDs
+
+As of Socket.IO 3 the connection has an ID and all namespaces (sockets) has a different one too. The connection's ID can be accessed through the `SocketManager`’s `Handshake` property:
+
+```language-csharp
+var manager = new SocketManager(new Uri("http://localhost:3000"));
+manager.Socket.On("connect", () => Debug.Log(manager.Handshake.Sid));
+```
+
+Per-socket ID is received when the socket is connected, can be accessed through the connect event as a parameter, or later through the socket instance:
+```language-csharp
+manager = new SocketManager(new Uri("http://localhost:3000"), options);
+manager.Socket.On<ConnectResponse>(SocketIOEventTypes.Connect, OnConnected);
+
+void OnConnected(ConnectResponse resp)
+{
+    // Method 1: received as parameter
+    Debug.Log("Sid through parameter: " + resp.sid);
+
+    // Method 2: access through the socket
+    Debug.Log("Sid through socket: " + manager.Socket.Id);
+}
+```
+
+`ConnectResponse`'s `sid` and `Socket`'s `Id` is the same value.
+
 ## Disconnecting
 
-`SocketManager`'s Close function closes all sockets, shuts down the transport and no more communication is done to the server. Calling `Disconnect` on a socket disconnects only that socket, communication through other sockets are still possible. Disconnecting the last socket closes the SocketManager too.
+`SocketManager`'s `Close` function closes all sockets, shuts down the transport and no more communication is done to the server. Calling `Disconnect` on a socket disconnects only that socket, communication through other sockets are still possible. Disconnecting the last socket closes the SocketManager too.
 
 ## Subscribing to events
 
@@ -99,6 +134,8 @@ private void OnUserInfo(UserInfo userInfo)
 }
 ```
 
+By default any additional fields that present in the receiving type that has no corresponding field in the json going to be initialized to its default value. 
+
 Binary data can be sent alone too (Server):
 ```language-csharp
 socket.emit('binary', Buffer.from([9, 8, 7, 6, 5, 4, 3, 2, 1]));
@@ -114,7 +151,10 @@ private void OnBinaryMessage(byte[] buffer)
 }
 ```
 
-The the client tries to parse the parameters it can inject the `SocketManager` or the receiving `Socket` instance (Server):
+### Inject SocketManager and Socket as callback parameters
+
+While the client parse the parameters it can inject the `SocketManager` or the receiving `Socket` instance (Server) into the parameter list:
+
 ```language-csharp
 socket.emit('binary', Buffer.from([9, 8, 7, 6, 5, 4, 3, 2, 1]));
 ```
@@ -276,7 +316,18 @@ When there's a timeout or the transport disconnects from the server unintentiona
 
 ## Emitted events
 
+All light blue rounded rectangles int this flow chart can be subscribed to:
+
  ![Events Flowchart](media/events_flowchart.svg)
+ 
+As described above `connect` and `error` are special events witch means they have parameters. Other emitted events have no parameters (other than the possibility of injecting `SocketManager` and `Socket` instances):
+
+```language-csharp
+manager.Socket.On("connecting", () => Debug.Log("connecting"));
+manager.Socket.On("reconnect", () => Debug.Log("reconnect"));
+manager.Socket.On("reconnecting", () => Debug.Log("reconnecting"));
+// ...
+```
  
 ## Parsers
 
