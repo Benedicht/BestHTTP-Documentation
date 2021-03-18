@@ -9,10 +9,10 @@
 
 **Socket.IO 3**
 
-- [<span style="color:green">New Feature</span>] A [new Socket.IO implementation](3.1Socket.IO3) for Socket.IO 3 with [strongly typed callbacks](3.1Socket.IO3/index.md#subscribing-to-events)!
+- [<span style="color:green">New Feature</span>] A [new Socket.IO implementation](3.1Socket.IO3/index.md) for Socket.IO 3 with [strongly typed callbacks](3.1Socket.IO3/index.md#subscribing-to-events)!
 - [<span style="color:green">New Feature</span>] New parser interface to be able to implement parsers other than json
 - [<span style="color:green">New Feature</span>] New [MsgPackParser](3.1Socket.IO3/index.md#parsers)
-- [<span style="color:blue">Improvement</span>] [Improved documentation](3.1Socket.IO3)
+- [<span style="color:blue">Improvement</span>] [Improved documentation](3.1Socket.IO3/index.md)
 
 **SignalR Core**
 
