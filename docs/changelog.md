@@ -1,3 +1,32 @@
+## 2.4.0 (2020-03-)
+
+**General**
+
+- [<span style="color:blue">Improvement</span>] Threads are now started as background threads
+- [<span style="color:blue">Improvement</span>] Reworked HTTPRequest timeout handling, now callbacks are called almost instantly.
+- [<span style="color:blue">Improvement</span>] Moved LitJson to the source folder instead of the examples, now it's under the BestHTTP.JSON namespace.
+- [<span style="color:red">Bugfix</span>] [ISSUE-53](https://github.com/Benedicht/BestHTTP-Issues/issues/53) Redirect fails when UriBuilder escapes query string in the redirect location
+
+**Socket.IO 3**
+
+- [<span style="color:green">New Feature</span>] A [new Socket.IO implementation](3.1Socket.IO3) for Socket.IO 3 with [strongly typed callbacks](3.1Socket.IO3/index.md#subscribing-to-events)!
+- [<span style="color:green">New Feature</span>] New parser interface to be able to implement parsers other than json
+- [<span style="color:green">New Feature</span>] New [MsgPackParser](3.1Socket.IO3/index.md#parsers)
+- [<span style="color:blue">Improvement</span>] [Improved documentation](3.1Socket.IO3)
+
+**SignalR Core**
+
+- [<span style="color:red">Bugfix</span>] [Long-Polling Transport] stream got disposed while the transport tried to reuse it
+- [<span style="color:blue">Improvement</span>] Introduced MessagePackProtocolSerializationOptions to be able to change how enums are serialized
+
+**EventSource**
+
+- [<span style="color:red">Bugfix</span>] [WebGL] Call Close on the browser's EventSource object to prevent its autmatic reconnection
+
+**HTTP**
+
+- [<span style="color:blue">Improvement</span>] [WebGL] UploadStream is now going to be uploaded too.
+
 ## 2.3.2 (2021-01-06)
 
 **TLS**
@@ -323,7 +352,7 @@
 
 - [<span style="color:green">New Feature</span>] New `ConnectAsync`, `CloseAsync`, `InvokeAsync` and `SendAsync` functions.
 - [<span style="color:green">New Feature</span>] New sample to demonstrate the usage of the new *Async functions
-- [<span style="color:red">Bugfix</span>] In some cases the HubConnection remained open while received an error using the Long-Polliong transport.
+- [<span style="color:red">Bugfix</span>] In some cases the HubConnection remained open while received an error using the Long-Polling transport.
 - [<span style="color:blue">Improvement</span>] New NegotiationResponse property added to the NegotiationResult class. It's a HTTPResponse object reference to the last /negotiate request.
 
 **SocketIO**
