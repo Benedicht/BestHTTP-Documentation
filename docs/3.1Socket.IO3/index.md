@@ -81,6 +81,9 @@ void OnConnected(ConnectResponse resp)
 
 `ConnectResponse`'s `sid` and `Socket`'s `Id` is the same value.
 
+!!! Notice
+	`ConnectResponse` can be found in the *BestHTTP.SocketIO3.Events* namespace.
+
 ## Disconnecting
 
 `SocketManager`'s `Close` function closes all sockets, shuts down the transport and no more communication is done to the server. Calling `Disconnect` on a socket disconnects only that socket, communication through other sockets are still possible. Disconnecting the last socket closes the SocketManager too.
