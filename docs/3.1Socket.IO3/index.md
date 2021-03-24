@@ -3,6 +3,9 @@ Changes made in Socket.IO v3 (and Engine.IO v4) enables a less complex parser an
 
 The old implementation is still available in the package, but with Socket.IO 3, i recommend to use classes from the new *BestHTTP.SocketIO3* namespace.
 
+!!! Notice
+	Compatible with Socket.IO 4 too as [Socket.IO 4 contains no protocol related changes](https://socket.io/docs/v4/migrating-from-3-x-to-4-0/).
+
 ## Connecting to a Socket.IO service
 
 First step to connect to a Socket.IO server is to create a SocketManager instance:
@@ -52,7 +55,7 @@ This way the SocketManager going to start to connect to the server when its Open
 
 `Open` and connection to the server in general is non-blocking, the function returns immediately and messages are sent only after the `connect` event.
 
-!!! Notice
+!!! Warning
 	Don't forget that the new implementation is under the `BestHTTP.SocketIO3` namespace!
 	
 ## Socket IDs

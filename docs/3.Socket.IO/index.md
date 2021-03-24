@@ -24,6 +24,6 @@ var manager = new SocketManager(new Uri("https://socket-io-chat.now.sh/socket.io
 !!! Notice
 	The */socket.io/* path in the url is very important, by default the Socket.IO server will listen on this query. So don’t forget to append it to your test url too!
 	
-## Socket.IO 3 support
+## Socket.IO 3 and 4 support
 
-For Socket.IO 3, use classes from the [BestHTTP.SocketIO3](../3.1Socket.IO3) namespace!
+For Socket.IO 3 and up, use classes from the [BestHTTP.SocketIO3](../3.1Socket.IO3) namespace!
