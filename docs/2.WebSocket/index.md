@@ -78,6 +78,8 @@ void OnError(WebSocket ws, string error)
 
 - **OnIncompleteFrame**: Longer text or binary messages are fragmented, these fragments are assembled by the plugin automatically by default. This mechanism can be overwritten if we register an event handler to the WebSocket’s `OnIncompleteFrame` event. This event called every time the client receives an incomplete fragment. If an event hanler is added to `OnIncompleteFrame`, incomplete fragments going to be ignored by the plugin and it doesn’t try to assemble these nor store them. This event can be used to achieve streaming experience. It's not available under WebGL!
 
+- **OnInternalRequestCreated**: Called when the internal `HTTPRequest` object created. The plugin might call it more than once for one WebSocket instance if it has to fall back from the HTTP/2 implementation to the HTTP/1 one. It's not available under WebGL.
+
 ## Methods
 
 All methods are non-blocking, `Open` and `Close` just starts the opening and closing logic, `Send` places the data to a buffer that will be picked up by the sender thread.
@@ -126,7 +128,15 @@ webSocket.Close();
 - **StartPingThread**: Set to `true` to let the plugin send ping messages periodically to the server. Its default value is false. It's not available under WebGL!
 - **PingFrequency**: The delay between two ping messages in milliseconds. Its default value is 1000 (1 second). It's not available under WebGL!
 - **CloseAfterNoMesssage**: If `StartPingThread` set to true, the plugin will close the connection and emit an `OnError` event if no message is received from the server in the given time. Its default value is 2 sec. It's not available under WebGL!
-- **InternalRequest**: The internal `HTTPRequest` object the plugin uses to send the websocket upgrade request to the server. It's not available under WebGL!
+- **InternalRequest**: The internal `HTTPRequest` object the plugin uses to send the websocket upgrade request to the server. It's not available under WebGL! To customize this internal request, use the `OnInternalRequestCreated` callback:
+
+```language-csharp
+string token = "...";
+
+var ws = new WebSocket(new Uri("wss://server.com/"));
+ws.OnInternalRequestCreated += (ws, req) => req.AddHeader("Authentication", $"Bearer {token}");
+```
+
 - **Extensions**: `IExtension` implementations the plugin will negotiate with the server to use. It's not available under WebGL!
 - **Latency**: If `StartPingThread` is set to `true`, the plugin going to calculate Latency from the ping-pong message round-trip times. It's not available under WebGL!
 - **LastMessageReceived**: When the last message is received from the server. It's not available under WebGL!
@@ -152,9 +162,19 @@ var webSocket = new WebSocket(new Uri("wss://echo.websocket.org/"), null, null, 
 
 Extension usage depends on the server too, but if the server agrees to use the extension, the plugin can receive and send compressed messages automatically.
 
-## WebSocketResponse class
+## Implementations
 
-Under every non-WebGL platforms the plugin constructs a `HTTPRequest` to request a websocket upgrade from the server. If the server agrees on the upgrade the plugin creates a `WebSocketResponse` object (instead of the regular `HTTPResponse`) to handle message sending and receiving. This `WebSocketResponse` object's lifetime is bound to its websocket object and it's possible to access it after the `OnOpen` event. Accessing it has little usage, but in a few cases it can be beneficial:
+The plugin now have three implementations:
+
+#### WebGL
+
+Under WebGL the plugin **must** use the underlying browser's [WebSocket implementation](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket). Browsers are exposing a limited API, hence not all features, methods and properties are available under this platform.
+
+#### HTTP/1 Upgrade
+
+This implementation uses HTTP/1 upgrade mechanism. This was the default for every non-webgl platform.
+
+If the server agrees on the upgrade the plugin creates a `WebSocketResponse` object (instead of the regular `HTTPResponse`) to handle message sending and receiving. This `WebSocketResponse` object's lifetime is bound to its websocket object and it's possible to access it after the `OnOpen` event. Accessing it has little usage, but in a few cases it can be beneficial:
 ```language-csharp
 void OnOpened(WebSocket webSocket)
 {
@@ -162,6 +182,20 @@ void OnOpened(WebSocket webSocket)
 }
 ```
 
-## WebSockets Under WebGL
+#### WebSocket Over HTTP/2
 
-Under WebGL the plugin **must** use the underlying browser's [WebSocket implementation](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket). Browsers are exposing a limited API, hence not all features, methods and properties are available under this platform.
+This new implementation is based on [RFC 8441](https://tools.ietf.org/html/rfc8441) and uses an already open HTTP/2 connection that advertised itself as one that supports the Extended Connect method.
+If there's no open HTTP/2 connection the plugin uses the 'old' HTTP/1 based one. Because connecting over the already open HTTP/2 connection still can fail, the plugin can fallback to the HTTP/1 based one. When a fallback happens a new `HTTPRequest` object will be created by the new implementation and the `OnInternalRequestCreated` callback will be called again for this request too. 
+If fallback is disabled WebSocket's `OnError` will be called.
+
+This implementation uses the underlying HTTP/2 connection's framing mechanism, the maximum fragment size is the one that the HTTP/2 connection negotiated. 
+
+Both WebSocket Over HTTP/2 and it's fallback mechanism can be disabled:
+
+```language-csharp
+// Disable WebSocket Over HTTP/2
+HTTPManager.HTTP2Settings.WebSocketOverHTTP2Settings.EnableWebSocketOverHTTP2 = false;
+
+// Disable fallback mechanism
+HTTPManager.HTTP2Settings.WebSocketOverHTTP2Settings.EnableImplementationFallback = false;
+```

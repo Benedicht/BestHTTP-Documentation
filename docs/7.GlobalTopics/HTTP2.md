@@ -13,7 +13,7 @@ Using HTTP/2 is seemless and requires no prior knowledge whether any target serv
 !!! Notice
 	With HTTP/2 the `HTTPRequest`'s `IsKeepAlive` setting is ignored.
 
-## Settings
+# Settings
 
 As most of the global settings, HTTP/2 settings can be accessed through the `HTTPManager` class:
 ```language-csharp
@@ -55,4 +55,22 @@ With HTTP/2 only one connection will be open so we can can keep it open longer a
 
 ```language-csharp
 HTTPManager.HTTP2Settings.MaxIdleTime = TimeSpan.FromSeconds(30);
+```
+
+# WebSocket Over HTTP/2 Settings
+
+Through these options the WebSocket Over HTTP/2 implementation can be customized.
+
+## EnableWebSocketOverHTTP2
+Set it to false to disable Websocket Over HTTP/2 (RFC 8441). It's true by default.
+
+```language-csharp
+HTTPManager.HTTP2Settings.WebSocketOverHTTP2Settings.EnableWebSocketOverHTTP2 = false;
+```
+
+## EnableImplementationFallback
+Set it to disable fallback logic from the Websocket Over HTTP/2 implementation to the 'old' HTTP/1 implementation when it fails to connect.
+
+```language-csharp
+HTTPManager.HTTP2Settings.WebSocketOverHTTP2Settings.EnableImplementationFallback = false;
 ```
