@@ -190,7 +190,7 @@ If fallback is disabled WebSocket's `OnError` will be called.
 
 This implementation uses the underlying HTTP/2 connection's framing mechanism, the maximum fragment size is the one that the HTTP/2 connection negotiated. 
 
-Both WebSocket Over HTTP/2 and it's fallback mechanism can be disabled:
+Both WebSocket Over HTTP/2 and its fallback mechanism can be disabled:
 
 ```language-csharp
 // Disable WebSocket Over HTTP/2
@@ -199,3 +199,9 @@ HTTPManager.HTTP2Settings.WebSocketOverHTTP2Settings.EnableWebSocketOverHTTP2 = 
 // Disable fallback mechanism
 HTTPManager.HTTP2Settings.WebSocketOverHTTP2Settings.EnableImplementationFallback = false;
 ```
+
+Pros of WebSocket Over HTTP/2:
+
+- Less resource usage both on the client and server
+- It doesn't have to do the TCP and TLS handshake round trips
+- Better utilization of TCP
