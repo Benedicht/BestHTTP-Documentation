@@ -10,10 +10,6 @@
 - [<span style="color:blue">Improvement</span>] Buffer improvements
 - [<span style="color:red">Bugfix</span>] More Unity DateTime locale bug workaround
 
-**HTTP/2**
-
-- [<span style="color:blue">Improvement</span>] 
-
 **SocketIO 3**
 
 - [<span style="color:red">Bugfix</span>] Fixed emitting to custom namespaces
