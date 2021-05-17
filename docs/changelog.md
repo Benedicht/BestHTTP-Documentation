@@ -1,3 +1,30 @@
+## 2.5.0 (2021-05-17)
+
+**Websocket**
+
+- [<span style="color:green">New Feature</span>] New [Websocket Over HTTP/2 implementation](https://besthttp-documentation.readthedocs.io/en/latest/#2.WebSocket/#implementations)
+
+**General**
+
+- [<span style="color:blue">Improvement</span>] Added log when the DNS query is finished
+- [<span style="color:blue">Improvement</span>] Buffer improvements
+- [<span style="color:red">Bugfix</span>] More Unity DateTime locale bug workaround
+
+**HTTP/2**
+
+- [<span style="color:blue">Improvement</span>] 
+
+**SocketIO 3**
+
+- [<span style="color:red">Bugfix</span>] Fixed emitting to custom namespaces
+- [<span style="color:red">Bugfix</span>] Default namespace not going to be opened by default
+
+**SignalR Core**
+
+- [<span style="color:blue">Improvement</span>] Added vector serializers compatible with Neuecc's MessagePack implementation
+- [<span style="color:red">Bugfix</span>] Cancel and clear (async) invocations when the connection is closed
+- [<span style="color:red">Bugfix</span>] Fixed case where reconnecting opened more connections 
+
 ## 2.4.0 (2021-03-18)
 
 **General**
