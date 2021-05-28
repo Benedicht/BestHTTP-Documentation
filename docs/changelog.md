@@ -1,3 +1,17 @@
+## 2.5.1 (2021-05-28)
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] Disabled strack trace collection for BufferPool releases
+
+**HTTP/2**
+
+- [<span style="color:red">Bugfix</span>] First request over HTTP/2 doesn't set ProcessingStarted
+
+**SocketIO 3**
+
+- [<span style="color:red">Bugfix</span>] [MsgPackParser] Skip object reading when there's no OnError subscriber
+
 ## 2.5.0 (2021-05-17)
 
 **Websocket**
