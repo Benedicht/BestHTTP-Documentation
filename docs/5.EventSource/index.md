@@ -47,9 +47,6 @@ void OnEventSourceMessage(EventSource source, Message msg)
 }
 ```
 
-!!! Warning
-	This event isn't called under WebGL! It's good for debugging in the Unity editor but it's a good practice to always subscribe to named events with the `On` method.
-
 - **OnError**: Called when an error encountered while connecting to the server, or while processing the data stream.
 
 ```language-csharp
