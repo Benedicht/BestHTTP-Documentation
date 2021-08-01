@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Tivadar György Nagy">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Changelog - Best HTTP/2 Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Changelog";
+    var mkdocs_page_input_path = "changelog.md";
+    var mkdocs_page_url = "/5sb/changelog/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Best HTTP/2 Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Introduction</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ThirdPartyNotices/">Third-Party Notices</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../UpgradeGuide/">UpgradeGuide</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Changelog</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#251-2021-05-28">2.5.1 (2021-05-28)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#250-2021-05-17">2.5.0 (2021-05-17)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#240-2021-03-18">2.4.0 (2021-03-18)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#232-2021-01-06">2.3.2 (2021-01-06)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#231-2020-12-14">2.3.1 (2020-12-14)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#230-2020-11-23">2.3.0 (2020-11-23)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#222-2020-10-22">2.2.2 (2020-10-22)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#221-2020-10-20">2.2.1 (2020-10-20)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#220-2020-09-02">2.2.0 (2020-09-02)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#210-2020-06-29">2.1.0 (2020-06-29)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#206-2020-04-15">2.0.6 (2020-04-15)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#205-2020-03-18">2.0.5 (2020-03-18)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#204-2020-02-11">2.0.4 (2020-02-11)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#203-2019-12-06">2.0.3 (2019-12-06)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#202-2019-11-22">2.0.2 (2019-11-22)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#201-2019-11-17">2.0.1 (2019-11-17)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#200-2019-10-31">2.0.0 (2019-10-31)</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../platforms/">Platforms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.HTTP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../1.HTTP/GettingStarted/">Getting Started Quickly</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../1.HTTP/HTTPRequest/">HTTPRequest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../1.HTTP/HTTPResponse/">HTTPResponse</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">AdvancedTopics</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/Async-await/">Async-Await with HTTPRequest</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/Authentication/">Authentication</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/Caching/">Caching</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/Cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/DownloadProgress/">Download Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/DownloadStreaming/">Download Streaming</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/ErrorHandling/">ErrorHandling</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/Redirections/">Control Redirections</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/Request.Abort/">Aborting a Request</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/RequestStates/">Request States</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/ServerCertificateValidation/">Server Certificate Validation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/SmallCode-Samples/">Small Code-Samples</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/Timeouts/">Timeouts</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/Timing/">Timing API</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/UploadProgress/">Upload Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../1.HTTP/AdvancedTopics/UploadStreaming/">Upload Streaming</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2.WebSocket</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../2.WebSocket/">Index</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.1Socket.IO3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../3.1Socket.IO3/">Socket.IO 3</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.Socket.IO</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../3.Socket.IO/">SocketIO</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.Socket.IO/1.Namespaces/">Connecting to namespaces</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.Socket.IO/2.ReceivingEvents/">Subscribing and receiving events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.Socket.IO/3.SendingEvents/">Sending events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.Socket.IO/4.DefaultEncoder/">Set the default Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.Socket.IO/5.CustomEncoder/">Writing a custom Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.Socket.IO/6.AutoDecodePayload/">AutoDecodePayload</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.Socket.IO/7.ErrorHandling/">Error handling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.Socket.IO/8.Options/">The SocketOptions class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4.SignalR</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../4.SignalR/">Index</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.SignalR/1.Connection/">The Connection class</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.SignalR/2.GeneralEvents/">Handling general events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.SignalR/3.Sending/">Sending non-Hub messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.SignalR/4.Hubs/">Hubs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.EventSource</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../5.EventSource/">Server-Sent Events (EventSource)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.SignalRCore</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../6.SignalRCore/">SignalR Core</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../6.SignalRCore/1.HubConnection/">The HubConnection Class</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../6.SignalRCore/2.Authentication/">The IAuthenticationProvider interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../6.SignalRCore/3.Encoders/">Encoders</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../6.SignalRCore/4.IRetryPolicy/">Automatic reconnection and the IRetryPolicy interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../6.SignalRCore/5.AzureSignalRService/">How to connect to an Azure SignalR Service</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">7.GlobalTopics</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../7.GlobalTopics/BufferPool/">Buffer Pool</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.GlobalTopics/ConnectionPool/">Connection Pooling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.GlobalTopics/GlobalSettings/">Global Settings</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.GlobalTopics/HTTP2/">HTTP/2</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.GlobalTopics/HTTPS/">HTTPS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.GlobalTopics/HowToDisableFeatures/">How to disable features</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.GlobalTopics/Logging/">Logging</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.GlobalTopics/Proxy/">Proxies</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.GlobalTopics/ThreadSafety/">ThreadSafety</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8.Addons</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">TLSSecurity</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../8.Addons/TLSSecurity/">About</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../8.Addons/TLSSecurity/CertificationManagerWindow/">CertificationManagerWindow</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../8.Addons/TLSSecurity/Options/">SecurityOptions</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">cURLParser</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../8.Addons/cURLParser/">Index</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Best HTTP/2 Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Changelog</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="251-2021-05-28">2.5.1 (2021-05-28)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Disabled strack trace collection for BufferPool releases</li>
+</ul>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] First request over HTTP/2 doesn't set ProcessingStarted</li>
+</ul>
+<p><strong>SocketIO 3</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] [MsgPackParser] Skip object reading when there's no OnError subscriber</li>
+</ul>
+<h2 id="250-2021-05-17">2.5.0 (2021-05-17)</h2>
+<p><strong>Websocket</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] New <a href="https://besthttp-documentation.readthedocs.io/en/latest/#2.WebSocket/#implementations">Websocket Over HTTP/2 implementation</a></li>
+</ul>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Added log when the DNS query is finished</li>
+<li>[<span style="color:blue">Improvement</span>] Buffer improvements</li>
+<li>[<span style="color:red">Bugfix</span>] More Unity DateTime locale bug workaround</li>
+</ul>
+<p><strong>SocketIO 3</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed emitting to custom namespaces</li>
+<li>[<span style="color:red">Bugfix</span>] Default namespace not going to be opened by default</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Added vector serializers compatible with Neuecc's MessagePack implementation</li>
+<li>[<span style="color:red">Bugfix</span>] Cancel and clear (async) invocations when the connection is closed</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed case where reconnecting opened more connections </li>
+</ul>
+<h2 id="240-2021-03-18">2.4.0 (2021-03-18)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Threads are now started as background threads</li>
+<li>[<span style="color:blue">Improvement</span>] Reworked HTTPRequest timeout handling, now callbacks are called almost instantly.</li>
+<li>[<span style="color:blue">Improvement</span>] Moved LitJson to the source folder instead of the examples, now it's under the BestHTTP.JSON namespace.</li>
+<li>[<span style="color:red">Bugfix</span>] <a href="https://github.com/Benedicht/BestHTTP-Issues/issues/53">ISSUE-53</a> Redirect fails when UriBuilder escapes query string in the redirect location</li>
+</ul>
+<p><strong>Socket.IO 3</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] A <a href="../3.1Socket.IO3/">new Socket.IO implementation</a> for Socket.IO 3 with <a href="../3.1Socket.IO3/#subscribing-to-events">strongly typed callbacks</a>!</li>
+<li>[<span style="color:green">New Feature</span>] New parser interface to be able to implement parsers other than json</li>
+<li>[<span style="color:green">New Feature</span>] New <a href="../3.1Socket.IO3/#parsers">MsgPackParser</a></li>
+<li>[<span style="color:blue">Improvement</span>] <a href="../3.1Socket.IO3/">Improved documentation</a></li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] [Long-Polling Transport] stream got disposed while the transport tried to reuse it</li>
+<li>[<span style="color:blue">Improvement</span>] Introduced MessagePackProtocolSerializationOptions to be able to change how enums are serialized</li>
+</ul>
+<p><strong>EventSource</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] [WebGL] Call Close on the browser's EventSource object to prevent its autmatic reconnection</li>
+</ul>
+<p><strong>HTTP</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] [WebGL] UploadStream is now going to be uploaded too.</li>
+</ul>
+<h2 id="232-2021-01-06">2.3.2 (2021-01-06)</h2>
+<p><strong>TLS</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] <a href="https://assetstore.unity.com/packages/tools/network/best-http-2-tls-security-addon-184441?aid=1101lfX8E">TLS Security Addon</a> is now available!</li>
+<li>[<span style="color:red">Bugfix</span>] Disabled chacha20-poly1305-04 as it seems it has a data corruption bug</li>
+<li>[<span style="color:blue">Improvement</span>] Improved compatibility with other TLS handlers by not aborting the TLS connection if the server sends back an encrypt-then-mac extension when a non blockcipher is selected</li>
+</ul>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Start to count down for a request's timeout when a HTTP1 or 2 handler picks it for processing</li>
+<li>[<span style="color:red">Bugfix</span>] Caching discarded entities when it has only Cache-Control header with a max-age directive</li>
+<li>[<span style="color:blue">Improvement</span>] An already finished but waiting for processing its callback not going to be aborted by a timeout or direct Abort call</li>
+<li>[<span style="color:blue">Improvement</span>] When wrapping an Exception, AsyncHTTPException's message is going to be the exception's message</li>
+</ul>
+<p><strong>SocketIO</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed various issues around custom namespaces</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Send back a ping message if the client received one from the server</li>
+</ul>
+<h2 id="231-2020-12-14">2.3.1 (2020-12-14)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Enable cookies in the editor when the WebGL platform is selected</li>
+<li>[<span style="color:red">Bugfix</span>] Redirect to the same url is now breaks out from the redirect cycle</li>
+<li>[<span style="color:blue">Improvement</span>] <code>DateTime</code> logging changes to workaround a possible Unity issue</li>
+<li>[<span style="color:blue">Improvement</span>] Fixed <code>HeaderParser</code> compatibility with non-conformant headers</li>
+<li>[<span style="color:blue">Improvement</span>] <code>HeaderParser</code> is now used to determine whether a response is cachable to use less cpu and memory</li>
+<li>[<span style="color:blue">Improvement</span>] <code>HTTPRequest</code>'s MaxRedirects' default is now 10</li>
+</ul>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Send ENABLE_PUSH = 0 settings to the server</li>
+</ul>
+<p><strong>SocketIO</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] The correct EIO version is sent now with the requests</li>
+<li>[<span style="color:blue">Improvement</span>] Changed socket notification about transport open to reduce overhead</li>
+</ul>
+<p><strong>Websocket</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Don't log error on application quit</li>
+</ul>
+<h2 id="230-2020-11-23">2.3.0 (2020-11-23)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] New <a href="../7.GlobalTopics/Proxy/#add-exceptions"><code>Exceptions</code></a> property for proxies to be able to skip proxy for specified hosts</li>
+<li>[<span style="color:red">Bugfix</span>] LitJson dictionary (object) instantiation fix</li>
+<li>[<span style="color:red">Bugfix</span>] HeartbeatManager wasn't cleared on application quit</li>
+</ul>
+<p><strong>SocketIO</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] Support for <a href="https://socket.io/blog/socket-io-3-release/">Socket.IO 3</a></li>
+<li>[<span style="color:green">New Feature</span>] New <a href="../3.Socket.IO/8.Options/">ServerVersion option</a> that can be set if the server's Socket.IO version is known</li>
+<li>[<span style="color:green">New Feature</span>] New <a href="../3.Socket.IO/8.Options/">Auth function</a> to send payload while connecting to a namespace (only with Socket.IO 3)</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed an issue where reconnection failed if there were an upgrading transport while waiting for reconnect countdown</li>
+</ul>
+<p><strong>Websocket</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed typo in <code>CloseAfterNoMesssage</code></li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] Added CancellationToken support for <code>InvokeAsync</code> and <code>SendAsync</code></li>
+</ul>
+<h2 id="222-2020-10-22">2.2.2 (2020-10-22)</h2>
+<p><strong>Websocket</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] ServerNoContextTakeover is set to the wrong value in the PerMessageCompression constructor</li>
+</ul>
+<p><strong>WebGL</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed case where the response got corrupted</li>
+</ul>
+<h2 id="221-2020-10-20">2.2.1 (2020-10-20)</h2>
+<p><strong>TLS</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] Added new <code>HTTPManager.TlsClientFactory</code> callback to be able to provide custom Tls clients</li>
+<li>[<span style="color:blue">Improvement</span>] <code>X509Name</code> going to cache ToString result</li>
+<li>[<span style="color:red">Bugfix</span>] SendCertificateVerifyMessage logged different function name</li>
+</ul>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Made <code>HTTPManager.GetRootCacheFolder()</code> public instead of internal</li>
+<li>[<span style="color:blue">Improvement</span>] Switched to all-yellow logging color</li>
+<li>[<span style="color:blue">Improvement</span>] Renamed <code>FileStreamModes.Open</code> to <code>OpenRead</code> and added new <code>OpenReadWrite</code></li>
+<li>[<span style="color:blue">Improvement</span>] <code>ThreadedLogger</code>'s thread is now named</li>
+<li>[<span style="color:blue">Improvement</span>] Added <code>ExitThreadAfterInactivity</code> to <code>ThreadedLogger</code></li>
+<li>[<span style="color:red">Bugfix</span>] Fixed example prefab (<a href="https://github.com/Benedicht/BestHTTP-Issues/issues/36">ISSUE-36</a>)</li>
+<li>[<span style="color:red">Bugfix</span>] New <code>Queued</code> HTTPRequest state for possible double send fix (<a href="https://github.com/Benedicht/BestHTTP-Issues/issues/38">ISSUE-38</a>)</li>
+</ul>
+<p><strong>HTTP/1</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Request will send <a href="https://tools.ietf.org/html/draft-thomson-hybi-http-timeout-03">Keep-Alive header</a> to the server to let them know about the client setting</li>
+</ul>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed a possible infinite loop when <code>HTTP2FrameHelper</code>'s <code>StreamRead</code> had to read zero bytes, or when the TCP stream is got closed and stream.Read returns zero</li>
+<li>[<span style="color:blue">Improvement</span>] Removed a few unnecessary instructions from buffer processing</li>
+</ul>
+<p><strong>Websocket</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Lowered <code>CloseAfterNoMesssage</code>'s default value to 2 seconds</li>
+<li>[<span style="color:red">Bugfix</span>] Buffer used to masking the frame released back to the BufferPool before the masking itself, resulting in a possible frame corruption</li>
+<li>[<span style="color:red">Bugfix</span>] Set the websocket's state to Closed on http request error</li>
+<li>[<span style="color:red">Bugfix</span>] Removed PingFrequency from timeout calculation</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed issue where calling close on an initial hub connection doesn't lose the connection (and no close callbacks are called either)</li>
+</ul>
+<p><strong>SocketIO</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Added missing documentation about <code>SocketOptions</code>' <code>AdditionalQueryParams</code></li>
+</ul>
+<p><strong>WebGL</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Switch to use the URL class to avoid possible escaping issues</li>
+<li>[<span style="color:blue">Improvement</span>] Response handling speedup by not copying response body</li>
+</ul>
+<h2 id="220-2020-09-02">2.2.0 (2020-09-02)</h2>
+<p><strong>TLS</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Bouncy Castle optimizations: depending on the negotiated ciphers download speed can increase and memory hungry parts are also rewritten to use the plugin's <a href="../7.GlobalTopics/BufferPool/">BufferPool</a> to decrease GC usage. As parts of the optimizations now the plugin requires the "Allow 'unsafe' Code" to be set</li>
+<li>[<span style="color:blue">Improvement</span>] Added the use of <a href="https://tools.ietf.org/html/rfc7366">Encrypt-then-MAC (RFC 7366)</a> extension</li>
+<li>[<span style="color:blue">Improvement</span>] Added <a href="https://tools.ietf.org/html/rfc7905">ChaCha20-Poly1305 (RFC 7905</a> ciphers to the client offered cipher suites to negotiate with the server</li>
+<li>[<span style="color:blue">Improvement</span>] Moved read buffer to the lowest level to reduce context switching when TLS is used, halving reads per TLS message</li>
+<li>[<span style="color:blue">Improvement</span>] Removed an optional error throwing to follow browser behavior</li>
+</ul>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] New <a href="../1.HTTP/AdvancedTopics/Timing/">Timing API</a> to measure when request processing spent most of its time</li>
+<li>[<span style="color:blue">Improvement</span>] Changed thread names for HTTP/1 and HTTP/2 threads so they can be identified in the profiler</li>
+<li>[<span style="color:blue">Improvement</span>] Renamed confusing <em>"Remote server closed the connection before sending response header!"</em> exception text</li>
+<li>[<span style="color:blue">Improvement</span>] IL2CPP optimizations by adding and using <code>Il2CppSetOptionAttribute</code> and <code>Il2CppEagerStaticClassConstructionAttribute</code></li>
+<li>[<span style="color:blue">Improvement</span>] Added more places to check request cancellation reducing time requirement in some cases to call the request's callback</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed compile errors when BESTHTTP_DISABLE_CACHING and/or BESTHTTP_DISABLE_COOKIES is used</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed a bug where an exception thrown while connecting treated as ConnectionTimedOut</li>
+<li>[<span style="color:red">Bugfix</span>] When the underlying stream has no more data, <code>ReadOnlyBufferedStream</code> now returns with the value (0 or -1) the stream returned with</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed compile error using the old runtime</li>
+<li>[<span style="color:red">Bugfix</span>] Dispose a ManualResetEvent used in DNS querying</li>
+<li>[<span style="color:red">Bugfix</span>] Test token.IsCancellationRequested before calling final async logic</li>
+</ul>
+<p><strong>HTTP/1</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Use the lower value when server provided keep-alive timeout is available. Timeout is set lower then what sent to be more resistant to lag</li>
+<li>[<span style="color:red">Bugfix</span>] With chunked encoding and gzip combined, when the last chunk contained only the gzip trail or parts of it it got truncated and thrown an exception</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed bug where redirection occured to the same host while also receiving a Connection: Close header&amp;value resulted in the reuse of the closing connection</li>
+</ul>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Suspending a http/2 session's worker thread now going to take account for the disconnect time too.</li>
+<li>[<span style="color:blue">Improvement</span>] Preliminary support for <a href="https://tools.ietf.org/html/rfc8441">RFC 8441</a></li>
+<li>[<span style="color:blue">Improvement</span>] Yandex.ru returned with a FLOW_CONTROL_ERROR(3) error when the plugin tried to set the connection window to the RFC defined maximum (2^31 - 1 bytes). Reducing the default by 10 Mib is sufficent.</li>
+<li>[<span style="color:red">Bugfix</span>] Various frames' data didn't release back to the BufferPool</li>
+<li>[<span style="color:red">Bugfix</span>] Ignore RST_STREAM frame when received for a stream with CLOSED state</li>
+<li>[<span style="color:red">Bugfix</span>] Server's initial window size change wasn't handled possibly limiting upload speed</li>
+<li>[<span style="color:red">Bugfix</span>] The plugin expected at least 1 byte of data for frames where padding is available corrupting downloaded data where the server inserts frames where only padding is present</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed a case where the server sent a HTTP/2 GOAWAY frame caused request(s) to get aborted twice</li>
+</ul>
+<p><strong>SignalR</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Moved unnecessary logging behind a log level check</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Added support to be able to serialize floats.</li>
+</ul>
+<p><strong>SocketIO</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] [<a href="https://github.com/Benedicht/BestHTTP-Issues/issues/25">ISSUE-25</a>] HTTPRequestCustomizationCallback implementation</li>
+</ul>
+<p><strong>Websocket</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Made the <code>WebSocketResponse</code>'s <code>MaxFragmentSize</code> public and changed its type to int. Now it can be accessed and modified on non-WebGL platforms</li>
+</ul>
+<h2 id="210-2020-06-29">2.1.0 (2020-06-29)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] Structured logging to be able to better track parallel requests.</li>
+<li>[<span style="color:green">New Feature</span>] New threaded logger.</li>
+<li>[<span style="color:green">New Feature</span>] New logging model to support output selection (file, unity's Debug.log, etc.) without changing the logger.</li>
+<li>[<span style="color:blue">Improvement</span>] New <a href="../1.HTTP/AdvancedTopics/Async-await/#handling-errors"><code>AsyncHTTPException</code></a> added to be able to access the Status Code of the server's response.</li>
+<li>[<span style="color:blue">Improvement</span>] The HTTPUpdateDelegator going to be hidden in the inspector</li>
+<li>[<span style="color:blue">Improvement</span>] <a href="../7.GlobalTopics/GlobalSettings/">HTTPManager's IsQuitting</a> is now public</li>
+<li>[<span style="color:blue">Improvement</span>] A few functions in the <code>HTTPCacheService</code> and <code>HTTPCacheFileInfo</code> became public.</li>
+<li>[<span style="color:blue">Improvement</span>] Textures loaded through HTTPResponse's DataAsTexture now going to be marked as non-readable.</li>
+<li>[<span style="color:blue">Improvement</span>] Made public all EventHelper classes (in the BestHTTP.Core namespace) to be able to subscribe to OnEvent callbacks.</li>
+<li>[<span style="color:blue">Improvement</span>] Added <em>Third-Party Notices.txt</em> and a <a href="../ThirdPartyNotices/">similar entry</a> in the documentation.</li>
+<li>[<span style="color:red">Bugfix</span>] [<a href="https://github.com/Benedicht/BestHTTP-Issues/issues/10">ISSUE-10</a>] Fixed a case where HTTPRequest's async isn't returned when called with an already canceled cancellation token</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed a name collusion that produced an <em>[Error] Failed to call static function Reset because an object was provided</em> error in the editor.</li>
+<li>[<span style="color:red">Bugfix</span>] Fixes for Configurable Enter Play Mode.</li>
+<li>[<span style="color:red">Bugfix</span>] Moved SetSocketOption into the nearest try-catch block. It should workaround a rare Unity error where setting KeepAlive on the socket level throws an exception under UWP.</li>
+<li>[<span style="color:red">Bugfix</span>] The plugin no longer going to reuse memory assigned to HTTPRequest's RawData.</li>
+<li>[<span style="color:red">Bugfix</span>] HTTPCacheService's DeleteEntity now going to be trigger a save library event</li>
+<li>[<span style="color:red">Bugfix</span>] Switched to Write locks in HTTPCacheService's SaveLibrary to prevent parallel executions</li>
+</ul>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] [<a href="https://github.com/Benedicht/BestHTTP-Issues/issues/15">ISSUE-15</a>] Trailing headers support.</li>
+<li>[<span style="color:blue">Improvement</span>] Log unexpected exceptions only when the plugin isn't shutting down</li>
+<li>[<span style="color:blue">Improvement</span>] Log unhandled frames</li>
+<li>[<span style="color:blue">Improvement</span>] To fix long-polling request issues over HTTP/2, the plugin no longer closes HTTP/2 streames after 30 seconds when it stays in HalfClosedLocal state.</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] [<a href="https://github.com/Benedicht/BestHTTP-Issues/issues/5">ISSUE-5</a>] Implemented connection timeout. However, all IAuthenticationProvider now requires to implement the Cancel method too.</li>
+<li>[<span style="color:green">New Feature</span>] <code>GetUpStreamController</code> and <code>GetUpAndDownStreamController</code> now can send non-streaming parameters too.</li>
+<li>[<span style="color:green">New Feature</span>] HubOptions now has a new <code>PingTimeoutInterval</code>.</li>
+<li>[<span style="color:blue">Improvement</span>] Improved the default authenticator to also set the access_token parameter under WebGL</li>
+<li>[<span style="color:blue">Improvement</span>] Authentication providers now will receive a real websocket url (one that starts with ws:// or wss://) in their PrepareUri to be able to differentiate between HTTP and WebSocket</li>
+<li>[<span style="color:red">Bugfix</span>] Send/Invoke tasks don't complete if not connected</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed timeout by making it dependent on received messages instead of sent messages.</li>
+<li>[<span style="color:red">Bugfix</span>] Pings are not sent by the server for the long-polling transport, so every successful response generates one.</li>
+</ul>
+<p><strong>Websocket</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] [<a href="https://github.com/Benedicht/BestHTTP-Issues/issues/14">ISSUE-14</a>] Disposing newFrameSignal wasn't thread safe</li>
+<li>[<span style="color:red">Bugfix</span>] InternalRequest is now aborted if Close called while connecting.</li>
+<li>[<span style="color:blue">Improvement</span>] Fixed OnError double checking and reduced it to an else one. </li>
+</ul>
+<p><strong>Server-Sent Events</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] Added new OnComment event that will be called for comments sent by the server.</li>
+<li>[<span style="color:blue">Improvement</span>] Reduced EnqueueProtocolEvent calls when one chunk of data result in more than one events.</li>
+<li>[<span style="color:red">Bugfix</span>] It now registers as a protocol and receives cancel requests on shutdown.</li>
+</ul>
+<h2 id="206-2020-04-15">2.0.6 (2020-04-15)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] [<a href="https://github.com/Benedicht/BestHTTP-Issues/issues/3">ISSUE-3</a>] HTTP/1 - Aborts &amp; timeouts are handled only when there's activity on the handler's thread</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed a memory leak of the TCP stream</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] [<a href="https://github.com/Benedicht/BestHTTP-Issues/issues/4">ISSUE-4</a>] Fixed race condition in HubConnection's CloseAsync</li>
+<li>[<span style="color:red">Bugfix</span>] When the application is quitting HubConnection is going to report a normal closure now</li>
+</ul>
+<p><strong>SocketIO</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed a bug where reconnecting while waiting for a pong message prevented all further ping messages </li>
+</ul>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed a NullReferenceException when the server sends no initial settings.</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed a case where streaming was on and the HTTP2Stream closed itself because of a timeout</li>
+<li>[<span style="color:red">Bugfix</span>] Moved clean-up code into one place and AutoResetEvent's close is called when both threads are closed insted of the HTTP2Handler's dispose as it might be called sooner while the AutoResetEvent still in use</li>
+<li>[<span style="color:red">Bugfix</span>] Request's state is now properly set to TimedOut instead of just Aborted to mach behavior of the HTTP/1 implementation</li>
+</ul>
+<h2 id="205-2020-03-18">2.0.5 (2020-03-18)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed an out of bounds exception in the StreamList (used by FileConnection) class</li>
+<li>[<span style="color:blue">Improvement</span>] StreamList now Disposes wrapped streams on the go</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Implemented a workaround for UriBuilder behavior on Query building</li>
+<li>[<span style="color:red">Bugfix</span>] [MessagePack Protocol] Fixed a bug in ReadArguments target is unknown</li>
+<li>[<span style="color:red">Bugfix</span>] [MessagePack Protocol] BufferPoolMemoryStream now can expand when the initial buffer isn't enough</li>
+<li>[<span style="color:red">Bugfix</span>] [MessagePack Protocol] Fixed ReadVarInt as it returned a wrong value </li>
+<li>[<span style="color:blue">Improvement</span>] [MessagePack Protocol] Type information no longer serialized</li>
+<li>[<span style="color:blue">Improvement</span>] [MessagePack Protocol] Implemented a new MessagePackExtensionTypeHandler to follow the msgpack spec on sending DateTime</li>
+</ul>
+<p><strong>Websocket</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] newFrameSignal going to be disposed when all threads are finished</li>
+</ul>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed an issue in the frame view that caused issues when received compressed data.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] New MultipartFormDataStream implementation to send streams as multiform/form-data encoded.</li>
+</ul>
+<h2 id="204-2020-02-11">2.0.4 (2020-02-11)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] Possible to override read buffer size through the ReadBufferSizeOverride property</li>
+<li>[<span style="color:red">Bugfix</span>] Long running streaming requests' state set to Timeout instead of Abort when aborted</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed a StackOverflowException when read buffer was larger than StreamFragmentSize</li>
+<li>[<span style="color:red">Bugfix</span>] When ConfigureAwait set to false, HTTPResponse's Dispose may called before acccessing Data</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed case to avoid overwriting already set cookie name and value</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed a memory leak where HostConnection's CloseConnectionAfterInactivity is added back to the Timer</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed compiler warning when BESTHTTP_DISABLE_HTTP2 is in use</li>
+<li>[<span style="color:red">Bugfix</span>] Don't process cached alt-svc header</li>
+<li>[<span style="color:red">Bugfix</span>] HTTPResponse's RawData no longer pooled</li>
+<li>[<span style="color:blue">Improvement</span>] Run IsCachedEntityExpiresInTheFuture check before anything else to do not open a TCP channel to the server</li>
+<li>[<span style="color:blue">Improvement</span>] Added "samesite" cookie parsing</li>
+<li>[<span style="color:blue">Improvement</span>] Log out connector Connect exceptions when log level set to All</li>
+<li>[<span style="color:blue">Improvement</span>] Refresh data on disk when the stored and downloaded data length differs</li>
+<li>[<span style="color:blue">Improvement</span>] Call TryToStore on a status code of 304 too</li>
+<li>[<span style="color:blue">Improvement</span>] Small improvement to allocate less memory per frame in the Timer.cs</li>
+<li>[<span style="color:blue">Improvement</span>] Cache-Control Stale-On-Error implementation</li>
+<li>[<span style="color:blue">Improvement</span>] It can handle multiple Cache-Control headers now</li>
+</ul>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Retry added for requests whose started already when the connection is closed</li>
+<li>[<span style="color:red">Bugfix</span>] Some requests stuck when their processing started but the connections is closed</li>
+<li>[<span style="color:red">Bugfix</span>] Stream id was a static field, instead of a per-connection one</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed a case where the reading thread didn't close</li>
+<li>[<span style="color:red">Bugfix</span>] Send lower-case header names</li>
+<li>[<span style="color:red">Bugfix</span>] Keep around a canceled request's stream to receive and process the server-sent headers. Otherwise the HPACK encoder remains in a faulty state</li>
+<li>[<span style="color:red">Bugfix</span>] Aborting a request while processing its header/data frames before the HTTP2Stream's Process set the request's State to Finished, while its result remained null</li>
+<li>[<span style="color:red">Bugfix</span>] Added logging for a possible content-length parse error case</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] New <code>ConnectAsync</code>, <code>CloseAsync</code>, <code>InvokeAsync</code> and <code>SendAsync</code> functions.</li>
+<li>[<span style="color:green">New Feature</span>] New sample to demonstrate the usage of the new *Async functions</li>
+<li>[<span style="color:red">Bugfix</span>] In some cases the HubConnection remained open while received an error using the Long-Polling transport.</li>
+<li>[<span style="color:blue">Improvement</span>] New NegotiationResponse property added to the NegotiationResult class. It's a HTTPResponse object reference to the last /negotiate request.</li>
+</ul>
+<p><strong>SocketIO</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] New "reconnect_before_offline_packets" event.</li>
+<li>[<span style="color:red">Bugfix</span>] Do not delete offline packets on each reconnect attempt</li>
+</ul>
+<p><strong>Server-Sent Events</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] New constructor parameter to override default read buffer size on non-WebGL builds when the server sends data non-chunked</li>
+</ul>
+<h2 id="203-2019-12-06">2.0.3 (2019-12-06)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Reworked response reading to do not depend on StreamFragmentSize for download progress reporting</li>
+<li>[<span style="color:blue">Improvement</span>] HTTPResponse.MinBufferSize renamed to MinReadBufferSize</li>
+<li>[<span style="color:blue">Improvement</span>] VersionMajor and VersionMinor now set for HTTPResponse when it was created from a HTTP/2 connection too</li>
+<li>[<span style="color:blue">Improvement</span>] Merged recent LitJson changes</li>
+</ul>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] Implemented upload streaming and upload progress reporting</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] Implemented MessagePack protocol using the <em>Json &amp; MessagePack Serialization</em> <a href="https://assetstore.unity.com/packages/tools/network/json-messagepack-serialization-59918">Unity Asset Store package</a></li>
+<li>[<span style="color:blue">Improvement</span>] Under WebGL built with Unity 2019.2 Uri's IsAbsoluteUri returns the wrong value</li>
+<li>[<span style="color:red">Bugfix</span>] Redirect uri's query parameters are removed while parsing and/or adding the negotiateVersion query param</li>
+<li>[<span style="color:red">Bugfix</span>] LongPolling now handles the handshake response</li>
+</ul>
+<p><strong>Websocket</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] OnClose event called more than once</li>
+</ul>
+<h2 id="202-2019-11-22">2.0.2 (2019-11-22)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] HostConnection's AddProtocol didn't set the new known protocol causing request processing delays in some cases</li>
+<li>[<span style="color:red">Bugfix</span>] Parts of the SignalR samples are back</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed compile errors when specific plugin defines are added</li>
+<li>[<span style="color:blue">Improvement</span>] Improved CookieJar's domain matching</li>
+</ul>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] Added PingFrequency option to HTTPManager.HTTP2Settings</li>
+<li>[<span style="color:red">Bugfix</span>] Pong messages didn't send back the server's payload</li>
+<li>[<span style="color:red">Bugfix</span>] HTTP2Handler used HTTPManager.MaxConnectionIdleTime instead of HTTPManager.HTTP2Settings.MaxIdleTime</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] LongPolling transport added</li>
+<li>[<span style="color:green">New Feature</span>] Automatic transport downgrade</li>
+</ul>
+<h2 id="201-2019-11-17">2.0.1 (2019-11-17)</h2>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] "host" header must not sent in a HTTP/2 request</li>
+</ul>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Request's Response can be null when the ConnectionHelper tries to determine whether the connection can be kept open</li>
+</ul>
+<p><strong>Socket.IO</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed an error that thrown when the packet's payload contained unicode characters.</li>
+<li>[<span style="color:red">Bugfix</span>] Fixed error packet deserialization when the code field isn't an integer</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed compile errors when BESTHTTP_DISABLE_WEBSOCKET present</li>
+<li>[<span style="color:green">New Feature</span>] Added support for allowReconnect in the close message (ASP.Net 3.1 feature)</li>
+</ul>
+<h2 id="200-2019-10-31">2.0.0 (2019-10-31)</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p><strong>This is a major release breaking backward compatibility with older releases. See the <a href="https://besthttp-documentation.readthedocs.io/en/latest/UpgradeGuide/">Upgrade Guide</a> for more details!</strong></p>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] Added <a href="https://www.keycdn.com/support/alpn">Application-Layer Protocol Negotiation</a> support to the BouncyCastle lib</li>
+<li>[<span style="color:green">New Feature</span>] HTTP/2 Support added</li>
+<li>[<span style="color:green">New Feature</span>] New HTTP2Settings property added to the HTTPManager class</li>
+<li>[<span style="color:green">New Feature</span>] Initial implementation of <a href="https://tools.ietf.org/html/rfc7838">HTTP Alternate Services</a></li>
+<li>[<span style="color:green">New Feature</span>] Added support for Unity 2019.3's <a href="https://blogs.unity3d.com/2019/08/27/unity-2019-3-beta-is-now-available/">(experimental) Enter Play Mode options</a></li>
+<li>[<span style="color:green">New Feature</span>] Added <a href="https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html">Assembly Definition file</a> to reduce recompile times</li>
+<li>[<span style="color:blue">Improvement</span>] Rewrote threading to avoid race conditions and reduce locking by using concurrent queues and lightweight <code>ReaderWriterLockSlim</code>s instead of lock blocks.</li>
+<li>[<span style="color:blue">Improvement</span>] New <a href="https://besthttp-documentation.readthedocs.io/en/latest/">online documentation</a></li>
+<li>[<span style="color:red">Breaking change</span>] Removed Statistics API</li>
+<li>[<span style="color:red">Breaking change</span>] Changed some BouncyCastle related class' namespace to avoid collition with other plugins and SDKs</li>
+<li>[<span style="color:red">Breaking change</span>] Rewrote Abort mechanism</li>
+<li>[<span style="color:red">Breaking change</span>] Minumum Unity version is now 2017.3</li>
+<li>[<span style="color:red">Bugfix</span>] When the plugin is forced to use url-encoded form with binary data, it will base64 encode the data first</li>
+</ul>
+<p><strong>HTTPRequest</strong></p>
+<ul>
+<li>[<span style="color:red">Breaking change</span>] New easier to use http streaming API through the <code>OnStreamingData</code> event</li>
+<li>[<span style="color:red">Breaking change</span>] Renamed <code>OnProgress</code> to <code>OnDownloadProgress</code></li>
+<li>[<span style="color:red">Breaking change</span>] Removed <code>DisableRetry</code>, use <code>MaxRetries</code> instead</li>
+<li>[<span style="color:red">Breaking change</span>] Removed <code>Priority</code> property</li>
+<li>[<span style="color:red">Breaking change</span>] Removed <code>TryToMinimizeTCPLatency</code> property</li>
+<li>[<span style="color:red">Breaking change</span>] Removed <code>GetStreamedFragments</code> function, use the new <code>OnStreamingData</code> event</li>
+<li>[<span style="color:red">Breaking change</span>] Removed HTTPFormUsage.RawJSon support</li>
+</ul>
+<p><strong>Server-Sent Events</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Rewrote implementation to support Server-Sent Events over HTTP/2</li>
+</ul>
+<p><strong>SocketIO</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Improved compatibility with newer WebAssembly runtime</li>
+</ul>
+<p><strong>Websocket</strong></p>
+<ul>
+<li>[<span style="color:red">Breaking change</span>] Removed OnErrorDesc event</li>
+<li>[<span style="color:red">Breaking change</span>] OnError event now has a string parameter instead of an Exception</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:green">New Feature</span>] Added automatic reconnection support through the new IRetryPolicy interface</li>
+<li>[<span style="color:blue">Improvement</span>] Improved ASP.Net Core 3 compatibility</li>
+<li>[<span style="color:red">Breaking change</span>] Changed up and down streaming API</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../platforms/" class="btn btn-neutral float-right" title="Platforms">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../UpgradeGuide/" class="btn btn-neutral" title="UpgradeGuide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../UpgradeGuide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../platforms/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+
+</body>
+</html>

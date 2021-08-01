@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Tivadar György Nagy">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Global Settings - Best HTTP/2 Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Global Settings";
+    var mkdocs_page_input_path = "7.GlobalTopics\\GlobalSettings.md";
+    var mkdocs_page_url = "/5sb/7.GlobalTopics/GlobalSettings/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Best HTTP/2 Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Introduction</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../ThirdPartyNotices/">Third-Party Notices</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../UpgradeGuide/">UpgradeGuide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../changelog/">Changelog</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../platforms/">Platforms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.HTTP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../1.HTTP/GettingStarted/">Getting Started Quickly</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../1.HTTP/HTTPRequest/">HTTPRequest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../1.HTTP/HTTPResponse/">HTTPResponse</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">AdvancedTopics</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Async-await/">Async-Await with HTTPRequest</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Authentication/">Authentication</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Caching/">Caching</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/DownloadProgress/">Download Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/DownloadStreaming/">Download Streaming</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/ErrorHandling/">ErrorHandling</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Redirections/">Control Redirections</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Request.Abort/">Aborting a Request</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/RequestStates/">Request States</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/ServerCertificateValidation/">Server Certificate Validation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/SmallCode-Samples/">Small Code-Samples</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Timeouts/">Timeouts</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Timing/">Timing API</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/UploadProgress/">Upload Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/UploadStreaming/">Upload Streaming</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2.WebSocket</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../2.WebSocket/">Index</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.1Socket.IO3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../3.1Socket.IO3/">Socket.IO 3</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.Socket.IO</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/">SocketIO</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/1.Namespaces/">Connecting to namespaces</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/2.ReceivingEvents/">Subscribing and receiving events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/3.SendingEvents/">Sending events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/4.DefaultEncoder/">Set the default Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/5.CustomEncoder/">Writing a custom Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/6.AutoDecodePayload/">AutoDecodePayload</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/7.ErrorHandling/">Error handling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/8.Options/">The SocketOptions class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4.SignalR</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/">Index</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/1.Connection/">The Connection class</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/2.GeneralEvents/">Handling general events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/3.Sending/">Sending non-Hub messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/4.Hubs/">Hubs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.EventSource</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../5.EventSource/">Server-Sent Events (EventSource)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.SignalRCore</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/">SignalR Core</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/1.HubConnection/">The HubConnection Class</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/2.Authentication/">The IAuthenticationProvider interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/3.Encoders/">Encoders</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/4.IRetryPolicy/">Automatic reconnection and the IRetryPolicy interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/5.AzureSignalRService/">How to connect to an Azure SignalR Service</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">7.GlobalTopics</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../BufferPool/">Buffer Pool</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ConnectionPool/">Connection Pooling</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Global Settings</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#global-settings">Global Settings</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#maxconnectionperserver">MaxConnectionPerServer</a></li>
+        
+            <li><a class="toctree-l4" href="#keepalivedefaultvalue">KeepAliveDefaultValue</a></li>
+        
+            <li><a class="toctree-l4" href="#iscachingdisabled">IsCachingDisabled</a></li>
+        
+            <li><a class="toctree-l4" href="#maxconnectionidletime">MaxConnectionIdleTime</a></li>
+        
+            <li><a class="toctree-l4" href="#iscookiesenabled">IsCookiesEnabled</a></li>
+        
+            <li><a class="toctree-l4" href="#cookiejarsize">CookieJarSize</a></li>
+        
+            <li><a class="toctree-l4" href="#enableprivatebrowsing">EnablePrivateBrowsing</a></li>
+        
+            <li><a class="toctree-l4" href="#connecttimeout">ConnectTimeout</a></li>
+        
+            <li><a class="toctree-l4" href="#requesttimeout">RequestTimeout</a></li>
+        
+            <li><a class="toctree-l4" href="#rootcachefolderprovider">RootCacheFolderProvider</a></li>
+        
+            <li><a class="toctree-l4" href="#proxy">Proxy</a></li>
+        
+            <li><a class="toctree-l4" href="#logger">Logger</a></li>
+        
+            <li><a class="toctree-l4" href="#defaultcertificateverifyer">DefaultCertificateVerifyer</a></li>
+        
+            <li><a class="toctree-l4" href="#usealternatessldefaultvalue">UseAlternateSSLDefaultValue</a></li>
+        
+            <li><a class="toctree-l4" href="#http2settings">HTTP2Settings</a></li>
+        
+            <li><a class="toctree-l4" href="#isquitting">IsQuitting</a></li>
+        
+            <li><a class="toctree-l4" href="#useragent">UserAgent</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../HTTP2/">HTTP/2</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../HTTPS/">HTTPS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../HowToDisableFeatures/">How to disable features</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Logging/">Logging</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Proxy/">Proxies</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ThreadSafety/">ThreadSafety</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8.Addons</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">TLSSecurity</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/">About</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/CertificationManagerWindow/">CertificationManagerWindow</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/Options/">SecurityOptions</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">cURLParser</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/cURLParser/">Index</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Best HTTP/2 Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>7.GlobalTopics &raquo;</li>
+        
+      
+    
+    <li>Global Settings</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="global-settings">Global Settings</h1>
+<p>With the following properties we can change some defaults that otherwise should be specified in the HTTPRequest's constructor. So most of these properties are time saving shortcuts, however, because higher level protocols use the <code>HTTPRequest</code> class too, these settings affect all protocols too.
+These changes will affect all request that created after their values changed.</p>
+<p>Changing the defaults can be made through the static properties of the <code>HTTPManager</code> class. Current settings are the following:</p>
+<h2 id="maxconnectionperserver">MaxConnectionPerServer</h2>
+<p>Number of TCP connections allowed to a unique host. <a href="http://example.org">http://example.org</a> and <a href="https://example.org">https://example.org</a> are counted as two separate servers. Its default value is <strong>6</strong>.</p>
+<pre><code class="language-csharp">HTTPManager.MaxConnectionPerServer = 10;
+</code></pre>
+
+<div class="admonition notice">
+<p class="admonition-title">Notice</p>
+<p><a href="../HTTP2/">HTTP/2</a> uses one TCP connection, it has different setting for stream concurrency.</p>
+</div>
+<h2 id="keepalivedefaultvalue">KeepAliveDefaultValue</h2>
+<p>The default value of the HTTPRequest's <code>IsKeepAlive</code> property. If <code>IsKeepAlive</code> is <code>false</code>, the tcp connections to the server will be set up before every request and closed right after it. It should be changed to false if consecutive requests are rare. Values given to the HTTPRequest's constructor will override this value for this request. Its default value is <code>true</code>.</p>
+<pre><code class="language-csharp">HTTPManager.KeepAliveDefaultValue = false;
+</code></pre>
+
+<h2 id="iscachingdisabled">IsCachingDisabled</h2>
+<p>With this property we can globally disable or enable the caching service. Values given to the HTTPRequest's constructor will override this value for this request. Its default value is <strong>false</strong>.</p>
+<pre><code class="language-csharp">HTTPManager.IsCachingDisabled = true;
+</code></pre>
+
+<h2 id="maxconnectionidletime">MaxConnectionIdleTime</h2>
+<p>Specifies the idle time BestHTTP should wait before it destroys the connection after it's finished the last request. Its default value is 20 seconds.</p>
+<pre><code class="language-csharp">HTTPManager.MaxConnectionIdleTime = TimeSpan.FromSeconds(60);
+</code></pre>
+
+<h2 id="iscookiesenabled">IsCookiesEnabled</h2>
+<p>With this option all <code>Cookie</code> operation can be enabled or disabled. Its default value is true.</p>
+<pre><code class="language-csharp">HTTPManager.IsCookiesEnabled = false;
+</code></pre>
+
+<h2 id="cookiejarsize">CookieJarSize</h2>
+<p>With this option the size of the <code>Cookie</code> store can be controlled. Its default value is 10485760 (<strong>10 MB</strong>).</p>
+<pre><code class="language-csharp">HTTPManager.CookieJarSize = 1048576;
+</code></pre>
+
+<h2 id="enableprivatebrowsing">EnablePrivateBrowsing</h2>
+<p>If this option is enabled no <code>Cookie</code> will be written to the disk. Its default value is false. </p>
+<pre><code class="language-csharp">HTTPManager.EnablePrivateBrowsing = true;
+</code></pre>
+
+<h2 id="connecttimeout">ConnectTimeout</h2>
+<p>With this option you can set the HTTPRequests' default <code>ConnectTimeout</code> value. Its default value is 20 seconds.</p>
+<pre><code class="language-csharp">HTTPManager.ConnectTimeout = TimeSpan.FromSeconds(60);
+</code></pre>
+
+<h2 id="requesttimeout">RequestTimeout</h2>
+<p>With this option you can set the HTTPRequests' default Timeout value. Its default value is 60 seconds.</p>
+<pre><code class="language-csharp">HTTPManager.RequestTimeout = TimeSpan.FromSeconds(60);
+</code></pre>
+
+<h2 id="rootcachefolderprovider">RootCacheFolderProvider</h2>
+<p>By default the plugin will save all cache and cookie data under the path returned by <code>Application.persistentDataPath</code>. You can assign a function to this delegate to return a custom root path to define a new path. <strong>This delegate will be called on a non Unity thread!</strong></p>
+<pre><code class="language-csharp">HTTPManager.RootCacheFolderProvider = () =&gt; Application.temporaryCachePath;
+</code></pre>
+
+<h2 id="proxy">Proxy</h2>
+<p>The global, default proxy for all HTTPRequests. The HTTPRequest's Proxy still can be changed per-request. Default value is <code>null</code>. More information can be found about proxies in the <a href="../Proxy/">Proxy</a> topic.</p>
+<pre><code class="language-csharp">HTTPManager.Proxy = new HTTPProxy(new Uri(&quot;http://localhost:8888&quot;), null, true);
+</code></pre>
+
+<h2 id="logger">Logger</h2>
+<p>An <a href="../Logging/">ILogger implementation</a> to be able to control what information will be logged about the plugin's internals, and how these will be logged.</p>
+<pre><code class="language-csharp">HTTPManager.Logger = new ThreadedLogger();
+</code></pre>
+
+<h2 id="defaultcertificateverifyer">DefaultCertificateVerifyer</h2>
+<p>An <code>ICertificateVerifyer</code> implementation can be set to this property. All new requests created after this will use this verifier when a secure protocol is used and the request's <code>UseAlternateSSL</code> is <code>true</code>. An <code>ICertificateVerifyer</code> implementation can be used to implement server certificate validation.</p>
+<pre><code class="language-csharp">HTTPManager.DefaultCertificateVerifyer = new AlwaysValidVerifyer();
+</code></pre>
+
+<h2 id="usealternatessldefaultvalue">UseAlternateSSLDefaultValue</h2>
+<p>The default value of HTTPRequest's UseAlternateSSL can be changed through this property. Its default value is <code>true</code>.</p>
+<pre><code class="language-csharp">HTTPManager.UseAlternateSSLDefaultValue = false;
+</code></pre>
+
+<h2 id="http2settings">HTTP2Settings</h2>
+<p>Through this property, HTTP/2 related settings can be changed. See the <a href="../HTTP2/#settings">HTTP/2 topic for more information</a>.</p>
+<pre><code class="language-csharp">HTTPManager.HTTP2Settings.MaxConcurrentStreams = 256;
+</code></pre>
+
+<h2 id="isquitting">IsQuitting</h2>
+<p>It's true if the application is quitting and the plugin is shutting down itself.</p>
+<h2 id="useragent">UserAgent</h2>
+<p>User-agent string that will be sent with each requests. It's default value contains the version of the plugin (<code>"BestHTTP/2 v2.2.1"</code> for example).</p>
+<pre><code class="language-csharp">HTTPManager.UserAgent = string.Empty;
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../HTTP2/" class="btn btn-neutral float-right" title="HTTP/2">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../ConnectionPool/" class="btn btn-neutral" title="Connection Pooling"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../ConnectionPool/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../HTTP2/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+
+</body>
+</html>

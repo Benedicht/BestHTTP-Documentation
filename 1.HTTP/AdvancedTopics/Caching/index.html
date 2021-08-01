@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Tivadar György Nagy">
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Caching - Best HTTP/2 Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Caching";
+    var mkdocs_page_input_path = "1.HTTP\\AdvancedTopics\\Caching.md";
+    var mkdocs_page_url = "/5sb/1.HTTP/AdvancedTopics/Caching/";
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Best HTTP/2 Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Introduction</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../ThirdPartyNotices/">Third-Party Notices</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../UpgradeGuide/">UpgradeGuide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../changelog/">Changelog</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../platforms/">Platforms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.HTTP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../GettingStarted/">Getting Started Quickly</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../HTTPRequest/">HTTPRequest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../HTTPResponse/">HTTPResponse</a>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">AdvancedTopics</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Async-await/">Async-Await with HTTPRequest</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Authentication/">Authentication</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">Caching</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#headers">Headers</a></li>
+    
+
+    <li class="toctree-l4"><a href="#disable-caching">Disable caching</a></li>
+    
+
+    <li class="toctree-l4"><a href="#caching-related-properties">Caching related properties</a></li>
+    
+
+    <li class="toctree-l4"><a href="#maintainence">Maintainence</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../DownloadProgress/">Download Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../DownloadStreaming/">Download Streaming</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../ErrorHandling/">ErrorHandling</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Redirections/">Control Redirections</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Request.Abort/">Aborting a Request</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../RequestStates/">Request States</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../ServerCertificateValidation/">Server Certificate Validation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../SmallCode-Samples/">Small Code-Samples</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Timeouts/">Timeouts</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Timing/">Timing API</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../UploadProgress/">Upload Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../UploadStreaming/">Upload Streaming</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2.WebSocket</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../2.WebSocket/">Index</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.1Socket.IO3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../3.1Socket.IO3/">Socket.IO 3</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.Socket.IO</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../3.Socket.IO/">SocketIO</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3.Socket.IO/1.Namespaces/">Connecting to namespaces</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3.Socket.IO/2.ReceivingEvents/">Subscribing and receiving events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3.Socket.IO/3.SendingEvents/">Sending events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3.Socket.IO/4.DefaultEncoder/">Set the default Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3.Socket.IO/5.CustomEncoder/">Writing a custom Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3.Socket.IO/6.AutoDecodePayload/">AutoDecodePayload</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3.Socket.IO/7.ErrorHandling/">Error handling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3.Socket.IO/8.Options/">The SocketOptions class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4.SignalR</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../4.SignalR/">Index</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../4.SignalR/1.Connection/">The Connection class</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../4.SignalR/2.GeneralEvents/">Handling general events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../4.SignalR/3.Sending/">Sending non-Hub messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../4.SignalR/4.Hubs/">Hubs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.EventSource</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../5.EventSource/">Server-Sent Events (EventSource)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.SignalRCore</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../6.SignalRCore/">SignalR Core</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../6.SignalRCore/1.HubConnection/">The HubConnection Class</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../6.SignalRCore/2.Authentication/">The IAuthenticationProvider interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../6.SignalRCore/3.Encoders/">Encoders</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../6.SignalRCore/4.IRetryPolicy/">Automatic reconnection and the IRetryPolicy interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../6.SignalRCore/5.AzureSignalRService/">How to connect to an Azure SignalR Service</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">7.GlobalTopics</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../7.GlobalTopics/BufferPool/">Buffer Pool</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../7.GlobalTopics/ConnectionPool/">Connection Pooling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../7.GlobalTopics/GlobalSettings/">Global Settings</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../7.GlobalTopics/HTTP2/">HTTP/2</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../7.GlobalTopics/HTTPS/">HTTPS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../7.GlobalTopics/HowToDisableFeatures/">How to disable features</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../7.GlobalTopics/Logging/">Logging</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../7.GlobalTopics/Proxy/">Proxies</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../7.GlobalTopics/ThreadSafety/">ThreadSafety</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8.Addons</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">TLSSecurity</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../8.Addons/TLSSecurity/">About</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../8.Addons/TLSSecurity/CertificationManagerWindow/">CertificationManagerWindow</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../8.Addons/TLSSecurity/Options/">SecurityOptions</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">cURLParser</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../8.Addons/cURLParser/">Index</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Best HTTP/2 Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>AdvancedTopics &raquo;</li>
+        
+      
+        
+          <li>1.HTTP &raquo;</li>
+        
+      
+    
+    <li>Caching</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Caching works automatically and without any further setup. The plugin handles the caching headers received from the server in the response and adds additional headers to the request to check the cached content's freshness. </p>
+<h2 id="headers">Headers</h2>
+<p>Caching uses the following headers:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag">ETag</a>: When present for a cached entity, the plugin will send out an <code>If-None-Match</code> header with the following request to test the stored entity's freshness. If the server returns with an <em>304 - Not Modified</em>, the plugin loads the content from the local cache.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified">Last-Modified</a>: All operations is the same as with the ETag header, but it will send out an <code>If-Modified-Since</code> header.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expires">Expires</a>: When present for a cached entity and its value is in the future, the plugin loads content from the cache without contacting the server to validate the entity's freshness. When present all previous headers are ignored.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control">Cache-Control</a>: When present with the max-age option and the entity's calculated age is less then its max-age, the plugin loads the content from the cache the same way as with the Expires. When present all previous headers are ignored.</li>
+</ul>
+<p>Flow-chart about caching:</p>
+<p><img alt="Caching Explained" src="../media/CachingExplained.svg" /></p>
+<h2 id="disable-caching">Disable caching</h2>
+<p>There's quite a few ways to disable caching. It can be done globally with the <a href="../../../7.GlobalTopics/HowToDisableFeatures/">BESTHTTP_DISABLE_CACHING</a> define or by setting <a href="../../../7.GlobalTopics/GlobalSettings/">HTTPManager.IsCachingDisabled</a> to true before any HTTPRequest instantiation:</p>
+<pre><code class="language-csharp">HTTPManager.IsCachingDisabled = true;
+</code></pre>
+
+<p>It can be disabled per-request by setting the HTTPRequest's DisableCache property to true:</p>
+<pre><code class="language-csharp">var request = new HTTPRequest(new Uri(&quot;...&quot;), ImageDownloaded);
+request.DisableCache = true;
+request.Send();
+</code></pre>
+
+<h2 id="caching-related-properties">Caching related properties</h2>
+<p><u>HTTPRequest</u>:</p>
+<ul>
+<li><strong>DisableCache</strong>: With this property caching can be enabled/disabled on a per-request basis.</li>
+<li><strong>CacheOnly</strong>: It can be used with <a href="../DownloadStreaming/">streaming</a>. When set to true, no <code>OnStreamingData</code> event is called, the streamed content will be saved straight to the cache if all requirements are met(caching is enabled and there's a caching headers).</li>
+</ul>
+<p><u>HTTPResponse</u>:</p>
+<ul>
+<li><strong>IsFromCache</strong>: Indicates that the response body is read from the cache.</li>
+<li><strong>CacheFileInfo</strong>: Provides information about the file used for caching the request.</li>
+<li><strong>IsCacheOnly</strong>: Determines if this response is only stored to cache. If both <code>IsCacheOnly</code> and <code>IsStreamed</code> are true, <code>OnStreamingData</code> isn't called.</li>
+</ul>
+<h2 id="maintainence">Maintainence</h2>
+<p>Although caching is automatic we have some control over it, or we can gain some info using the public functions of the <code>HTTPCacheService</code> class:</p>
+<ul>
+<li><strong>BeginClear()</strong>: It will start clearing the entire cache on a separate thread.</li>
+<li><strong>BeginMaintainence()</strong>: With this function’s help, we can delete cached entries based on the last access time. It deletes entries that’s last access time is older than the specified time. We can also use this function to keep the cache size under control:</li>
+</ul>
+<pre><code class="language-csharp">// Delete cache entries that weren’t accessed in the last two weeks, then
+// delete entries to keep the size of the cache under 50 megabytes, starting with the oldest.
+HTTPCacheService.BeginMaintainence(new HTTPCacheMaintananceParams(TimeSpan.FromDays(14), 50 * 1024 * 1024));
+</code></pre>
+
+<ul>
+<li><strong>GetCacheSize()</strong>: Will return the size of the cache in bytes.</li>
+<li>
+<p><strong>GetCacheEntryCount()</strong>: Will return the number of the entries stored in the cache. The average cache entry size can be computed with the <code>float avgSize = GetCacheSize() / (float) GetCacheEntryCount()</code> formula.</p>
+</li>
+<li>
+<p><strong>IsDoingMaintainence</strong>: Its value is <code>true</code> while the cache service doing any Clear or Maintainence on a separate thread.</p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Cookies/" class="btn btn-neutral float-right" title="Cookies">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Authentication/" class="btn btn-neutral" title="Authentication"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Authentication/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Cookies/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+
+</body>
+</html>

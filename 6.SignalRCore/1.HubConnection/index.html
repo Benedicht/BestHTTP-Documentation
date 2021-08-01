@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Tivadar György Nagy">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>The HubConnection Class - Best HTTP/2 Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "The HubConnection Class";
+    var mkdocs_page_input_path = "6.SignalRCore\\1.HubConnection.md";
+    var mkdocs_page_url = "/5sb/6.SignalRCore/1.HubConnection/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Best HTTP/2 Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Introduction</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../ThirdPartyNotices/">Third-Party Notices</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../UpgradeGuide/">UpgradeGuide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../changelog/">Changelog</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../platforms/">Platforms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.HTTP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../1.HTTP/GettingStarted/">Getting Started Quickly</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../1.HTTP/HTTPRequest/">HTTPRequest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../1.HTTP/HTTPResponse/">HTTPResponse</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">AdvancedTopics</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Async-await/">Async-Await with HTTPRequest</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Authentication/">Authentication</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Caching/">Caching</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/DownloadProgress/">Download Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/DownloadStreaming/">Download Streaming</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/ErrorHandling/">ErrorHandling</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Redirections/">Control Redirections</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Request.Abort/">Aborting a Request</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/RequestStates/">Request States</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/ServerCertificateValidation/">Server Certificate Validation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/SmallCode-Samples/">Small Code-Samples</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Timeouts/">Timeouts</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Timing/">Timing API</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/UploadProgress/">Upload Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/UploadStreaming/">Upload Streaming</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2.WebSocket</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../2.WebSocket/">Index</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.1Socket.IO3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../3.1Socket.IO3/">Socket.IO 3</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.Socket.IO</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/">SocketIO</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/1.Namespaces/">Connecting to namespaces</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/2.ReceivingEvents/">Subscribing and receiving events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/3.SendingEvents/">Sending events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/4.DefaultEncoder/">Set the default Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/5.CustomEncoder/">Writing a custom Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/6.AutoDecodePayload/">AutoDecodePayload</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/7.ErrorHandling/">Error handling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/8.Options/">The SocketOptions class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4.SignalR</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/">Index</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/1.Connection/">The Connection class</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/2.GeneralEvents/">Handling general events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/3.Sending/">Sending non-Hub messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/4.Hubs/">Hubs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.EventSource</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../5.EventSource/">Server-Sent Events (EventSource)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.SignalRCore</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">SignalR Core</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">The HubConnection Class</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#the-hubconnection-class">The HubConnection Class</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#protocols">Protocols</a></li>
+        
+            <li><a class="toctree-l4" href="#huboptions">HubOptions</a></li>
+        
+            <li><a class="toctree-l4" href="#events">Events</a></li>
+        
+            <li><a class="toctree-l4" href="#properties">Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#connecting-to-the-server">Connecting to the server</a></li>
+        
+            <li><a class="toctree-l4" href="#invoking-server-methods">Invoking server methods</a></li>
+        
+            <li><a class="toctree-l4" href="#invoking-server-functions">Invoking server functions</a></li>
+        
+            <li><a class="toctree-l4" href="#server-callable-client-methods">Server callable client methods</a></li>
+        
+            <li><a class="toctree-l4" href="#streaming-from-the-server">Streaming from the server</a></li>
+        
+            <li><a class="toctree-l4" href="#streaming-to-the-server">Streaming to the server</a></li>
+        
+            <li><a class="toctree-l4" href="#streaming-to-and-from-the-server">Streaming to and from the server</a></li>
+        
+            <li><a class="toctree-l4" href="#send-non-streaming-parameter">Send non-streaming parameter</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../2.Authentication/">The IAuthenticationProvider interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.Encoders/">Encoders</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.IRetryPolicy/">Automatic reconnection and the IRetryPolicy interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../5.AzureSignalRService/">How to connect to an Azure SignalR Service</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">7.GlobalTopics</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/BufferPool/">Buffer Pool</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/ConnectionPool/">Connection Pooling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/GlobalSettings/">Global Settings</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/HTTP2/">HTTP/2</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/HTTPS/">HTTPS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/HowToDisableFeatures/">How to disable features</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/Logging/">Logging</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/Proxy/">Proxies</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/ThreadSafety/">ThreadSafety</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8.Addons</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">TLSSecurity</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/">About</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/CertificationManagerWindow/">CertificationManagerWindow</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/Options/">SecurityOptions</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">cURLParser</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/cURLParser/">Index</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Best HTTP/2 Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>6.SignalRCore &raquo;</li>
+        
+      
+    
+    <li>The HubConnection Class</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="the-hubconnection-class">The HubConnection Class</h1>
+<p>The <code>HubConnection</code> is the main entry point for a SignalR Core connection.</p>
+<h2 id="protocols">Protocols</h2>
+<p>SignalR Core supports different protocols to encode its messages like Json and MessagePack. The safest is to use json, as that's the default encoder of the server. But if possible it's recommended to use MessagePack. More can be read about this under the <a href="../3.Encoders/">Encoders topic</a>.
+On this page the <code>JsonProtocol</code> combined with the <code>LitJsonEncoder</code> will be used, as these work out of the box.</p>
+<p>A new <code>HubConnection</code> object must be initialized with the uri of the server endpoint and with the protocol that the client want to communicate with:</p>
+<pre><code class="language-csharp">hub = new HubConnection(new Uri(&quot;https://server/hub&quot;), new JsonProtocol(new LitJsonEncoder()));
+</code></pre>
+
+<h2 id="huboptions">HubOptions</h2>
+<p><code>HubConnection</code>'s constructor can accept a <code>HubOptions</code> instance too:</p>
+<pre><code class="language-csharp">HubOptions options = new HubOptions();
+hub = new HubConnection(new Uri(&quot;https://server/hub&quot;), new JsonProtocol(new LitJsonEncoder()), options);
+</code></pre>
+
+<p></br>
+<code>HubOptions</code> contains the following properties to set:</p>
+<ul>
+<li><strong>SkipNegotiation</strong>: When this is set to true, the plugin will skip the negotiation request if the PreferedTransport is WebSocket. Its default value is false.</li>
+<li><strong>PreferedTransport</strong>: The preferred transport to choose when more than one available. Its default value is TransportTypes.WebSocket. When the plugin can't connect with the preferred transport it will try the next available (long polling). If all transport fails to connect, it will emit an OnError event.</li>
+<li><strong>PingInterval</strong>: A ping message is only sent if the interval has elapsed without a message being sent. Its default value is 15 seconds.</li>
+<li><strong>PingTimeoutInterval</strong>: If the client doesn't see any message in this interval, considers the connection broken. Its default value is 30 seconds.</li>
+<li><strong>MaxRedirects</strong>: The maximum count of redirect negoitiation result that the plugin will follow. Its default value is 100.</li>
+<li><strong>ConnectTimeout</strong>: The maximum time that the plugin allowed to spend trying to connect. Its default value is 1 minute.</li>
+</ul>
+<h2 id="events">Events</h2>
+<ul>
+<li><strong>OnConnected</strong>: This event is called when successfully connected to the hub.</li>
+<li><strong>OnError</strong>: This event is called when an unexpected error happen and the connection is closed.</li>
+<li><strong>OnClosed</strong>: This event is called when the connection is gracefully terminated.</li>
+<li><strong>OnMessage</strong>: This event is called for every server-sent message. When returns false, no further processing of the message is done by the plugin.</li>
+<li><strong>OnReconnecting</strong>: Called when the HubConnection start its reconnection process after loosing its underlying connection.</li>
+<li><strong>OnReconnected</strong>: Called after a succesfull reconnection.</li>
+<li><strong>OnRedirected</strong>: This event is called when the connection is redirected to a new uri.</li>
+<li><strong>OnTransportEvent</strong>: Called for transport related events:<ul>
+<li><em>SelectedToConnect</em>: Transport is selected to try to connect to the server</li>
+<li><em>FailedToConnect</em>: Transport failed to connect to the server. This event can occur after SelectedToConnect, when already connected and an error occurs it will be a ClosedWithError one.</li>
+<li><em>Connected</em>: The transport successfully connected to the server.</li>
+<li><em>Closed</em>: Transport gracefully terminated.</li>
+<li><em>ClosedWithError</em>: Unexpected error occured and the transport can't recover from it.</li>
+</ul>
+</li>
+</ul>
+<h2 id="properties">Properties</h2>
+<ul>
+<li><strong>Uri</strong>: Uri of the Hub endpoint</li>
+<li><strong>State</strong>: Current state of the connection.</li>
+<li><strong>Transport</strong>: Current, active ITransport instance.</li>
+<li><strong>Protocol</strong>: The IProtocol implementation that will parse, encode and decode messages.</li>
+<li><strong>AuthenticationProvider</strong>: An IAuthenticationProvider implementation that will be used to authenticate the connection. Its default value is an instance of the <code>DefaultAccessTokenAuthenticator</code> class.</li>
+<li><strong>NegotiationResult</strong>: Negotiation response sent by the server.</li>
+<li><strong>Options</strong>: Options that has been used to create the HubConnection.</li>
+<li><strong>RedirectCount</strong>: How many times this connection is redirected.</li>
+<li><strong>ReconnectPolicy</strong>: The reconnect policy that will be used when the underlying connection is lost. Its default value is null.</li>
+</ul>
+<h2 id="connecting-to-the-server">Connecting to the server</h2>
+<p>To start the protocol's connection process the <code>StartConnect</code> and <code>ConnectAsync</code> functions can be used.</p>
+<h2 id="invoking-server-methods">Invoking server methods</h2>
+<p>To invoke a method on a server that doesn't return a value, the <code>Send</code> and <code>SendAsync</code> methods can be used.</p>
+<p>Client code:</p>
+<pre><code class="language-csharp">hub.Send(&quot;Send&quot;, &quot;my message&quot;);
+
+await hub.SendAsync(&quot;Send&quot;, &quot;my message&quot;);
+</code></pre>
+
+<p>Or with a cancellation token:</p>
+<pre><code class="language-csharp">using (var source = new CancellationTokenSource(TimeSpan.FromSeconds(2)))
+{
+    try
+    {
+        await hub.SendAsync(&quot;Send&quot;, source.Token, &quot;my message&quot;);
+    }
+    catch(TaskCanceledException)
+    {
+        Debug.Log(&quot;Timed out!&quot;);
+    }
+}
+</code></pre>
+
+<div class="admonition notice">
+<p class="admonition-title">Notice</p>
+<p>It can't cancel an already sent call, the server still going to process it, but the client going to give back controll sooner.</p>
+</div>
+<p>Its first parameter is the name of the method on the server, than a parameter list can be passed that will be sent to the server.</p>
+<p>Related server code:</p>
+<pre><code class="language-csharp">public class TestHub : Hub
+{
+    public Task Send(string message)
+    {
+        return Clients.All.SendAsync(&quot;Send&quot;, $&quot;{Context.ConnectionId}: {message}&quot;);
+    }
+}
+</code></pre>
+
+<h2 id="invoking-server-functions">Invoking server functions</h2>
+<p>Invoking a server function can be done with the generic <code>Invoke&lt;TResult&gt;</code> or <code>InvokeAsync&lt;TResult&gt;</code> functions. <code>TResult</code> is the expected type that the server function returns with.</p>
+<p>Sample:</p>
+<pre><code class="language-csharp">hub.Invoke&lt;int&gt;(&quot;Add&quot;, 10, 20)
+    .OnSuccess(result =&gt; Debug.log(&quot;10+20: &quot; + result))
+    .OnError(error =&gt; Debug.log(&quot;Add(10, 20) failed to execute. Error: &quot; + error));
+
+var addResult = await hub.InvokeAsync&lt;int&gt;(&quot;Add&quot;, 10, 20);
+AddText(string.Format(&quot;'&lt;color=green&gt;Add(10, 20)&lt;/color&gt;' returned: '&lt;color=yellow&gt;{0}&lt;/color&gt;'&quot;, addResult)).AddLeftPadding(20);
+</code></pre>
+
+<p><code>Invoke</code> returns with an <code>IFuture&lt;TResult&gt;</code> that can be used to subscribe to various Invoke related events:</p>
+<ul>
+<li><strong>OnSuccess</strong>: Callback passed for OnSuccess is called when the server side function is executed and the callback's parameter will be function's return value.</li>
+<li><strong>OnError</strong>: Callback passed to this function will be called when there's an error executing the function. The error can be a client or server error. The callback's error parameter will contain information about the error.</li>
+<li><strong>OnComplete</strong>: Callback passed to this function will be called after an <em>OnSuccess</em> <strong>or</strong> <em>OnError</em> callback.</li>
+</ul>
+<p><code>InvokeAsync</code> returns with <code>Task&lt;TResult&gt;</code> that can be awaited. As a second parameter a <code>CancellationToken</code> can be added to cancel the call on client side.</p>
+<pre><code class="language-csharp">using (var source = new CancellationTokenSource(TimeSpan.FromSeconds(2)))
+{
+    try
+    {
+        var addResult = await hub.InvokeAsync&lt;int&gt;(&quot;Add&quot;, source.Token, 10, 20);
+        // ...
+    }
+    catch(TaskCanceledException)
+    {
+        Debug.Log(&quot;Timed out!&quot;);
+    }
+}
+</code></pre>
+
+<p>Related server code:</p>
+<pre><code class="language-csharp">public class TestHub : Hub
+{
+    public int Add(int x, int y)
+    {
+        return x + y;
+    }
+}
+</code></pre>
+
+<div class="admonition notice">
+<p class="admonition-title">Notice</p>
+<p>All <code>Send</code>, <code>Invoke</code> and theirs *Async counterparts are going to wait for a completion message from the server and their IFuture/Task completes when received it.</p>
+</div>
+<h2 id="server-callable-client-methods">Server callable client methods</h2>
+<p>Clients can define server-callable methods using the generic and non-generic <code>On</code> method. The non-generic <code>On</code> can be used when the server-callable method has no parameter and the generic one for methods with at least one parameter.</p>
+<p>Samples:</p>
+<pre><code class="language-csharp">// Generic On with one string argument.
+hub.On(&quot;Send&quot;, (string arg) =&gt; Debug.log(&quot;Server-sent text: &quot; + arg));
+
+// Generic On, with one type:
+hub.On&lt;Person&gt;(&quot;Person&quot;, (person) =&gt; Debug.log(&quot;Server-sent data: &quot; + person.ToString()));
+
+// Generic On, with two types:
+hub.On&lt;Person, Person&gt;(&quot;TwoPersons&quot;, (person1, person2) =&gt; Debug.log(&quot;...&quot;));
+
+sealed class Person
+{
+    public string Name { get; set; }
+    public long Age { get; set; }
+
+    public override string ToString()
+    {
+        return string.Format(&quot;[Person Name: '{0}', Age: '&lt;color=yellow&gt;{1}&lt;/color&gt;']&quot;, this.Name, this.Age.ToString());
+    }
+}
+</code></pre>
+
+<p>Related server code:</p>
+<pre><code class="language-csharp">public class TestHub : Hub
+{
+    public override async Task OnConnectedAsync()
+    {
+        await Clients.All.SendAsync(&quot;Send&quot;, $&quot;{Context.ConnectionId} joined&quot;);
+
+        await Clients.Client(Context.ConnectionId).SendAsync(&quot;Person&quot;, new Person { Name = &quot;Person 007&quot;, Age = 35 });
+
+        await Clients.Client(Context.ConnectionId).SendAsync(&quot;TwoPersons&quot;, new Person { Name = &quot;Person 008&quot;, Age = 36 }, new Person { Name = &quot;Person 009&quot;, Age = 37 });
+    }
+}
+</code></pre>
+
+<h2 id="streaming-from-the-server">Streaming from the server</h2>
+<p>When the server sends one return value at a time the client can call a callback for every item if the server function is called using the <code>GetDownStreamController&lt;TDown&gt;</code> function.</p>
+<p>Sample:</p>
+<pre><code class="language-csharp">hub.GetDownStreamController&lt;Person&gt;(&quot;GetRandomPersons&quot;, 20, 2000)
+    .OnItem(result =&gt; Debug.log(&quot;New item arrived: &quot; + result.ToString()))
+    .OnSuccess(_ =&gt; Debug.log(&quot;Streaming finished!&quot;));
+</code></pre>
+
+<p><code>GetDownStreamController</code>'s return value is a <code>DownStreamItemController&lt;TDown&gt;</code> that implements the <code>IFuture&lt;TResult&gt;</code> interface. With DownStreamItemController's OnItem function it can be subscribed for a callback that will be called for every downloaded item.
+The instance of <code>DownStreamItemController&lt;TDown&gt;</code> can be used to cancel the streaming:</p>
+<pre><code class="language-csharp">var controller = hub.GetDownStreamController&lt;int&gt;(&quot;ChannelCounter&quot;, 10, 1000);
+
+controller.OnItem(result =&gt; Debug.log(&quot;New item arrived: &quot; + result.ToString()))
+          .OnSuccess(_ =&gt; Debug.log(&quot;Streaming finished!&quot;))
+          .OnError(error =&gt; Debug.log(&quot;Error: &quot; + error));
+
+// A stream request can be cancelled any time by calling the controller's Cancel method
+controller.Cancel();
+</code></pre>
+
+<p>Related server code:</p>
+<pre><code class="language-csharp">public class TestHub : Hub
+{
+    public ChannelReader&lt;Person&gt; GetRandomPersons(int count, int delay)
+    {
+        var channel = Channel.CreateUnbounded&lt;Person&gt;();
+
+        Task.Run(async () =&gt;
+        {
+            Random rand = new Random();
+            for (var i = 0; i &lt; count; i++)
+            {
+                await channel.Writer.WriteAsync(new Person { Name = &quot;Name_&quot; + rand.Next(), Age = rand.Next(20, 99) });
+
+                await Task.Delay(delay);
+            }
+
+            await Clients.Client(Context.ConnectionId).SendAsync(&quot;Person&quot;, new Person { Name = &quot;Person 000&quot;, Age = 0 });
+
+            channel.Writer.TryComplete();
+        });
+
+        return channel.Reader;
+    }
+}
+</code></pre>
+
+<h2 id="streaming-to-the-server">Streaming to the server</h2>
+<p>To stream one or more parameters to a server function the <code>GetUpStreamController</code> can be used:</p>
+<pre><code class="language-csharp">private IEnumerator UploadWord()
+{
+    var controller = hub.GetUpStreamController&lt;string, string&gt;(&quot;UploadWord&quot;);
+    controller.OnSuccess(result =&gt;
+        {
+            Debug.log(&quot;Upload finished!&quot;);
+        });
+
+    yield return new WaitForSeconds(_yieldWaitTime);
+    controller.UploadParam(&quot;Hello &quot;);
+
+    yield return new WaitForSeconds(_yieldWaitTime);
+    controller.UploadParam(&quot;World&quot;);
+
+    yield return new WaitForSeconds(_yieldWaitTime);
+    controller.UploadParam(&quot;!!&quot;);
+
+    yield return new WaitForSeconds(_yieldWaitTime);
+
+    controller.Finish();
+}
+</code></pre>
+
+<p><code>GetUpStreamController</code> is a generic function, its first type-parameter is the return type of the function then 1-5 types can be added as parameter types. The <code>GetUpStreamController</code> call returns an <code>UpStreamItemController</code> instance that can be used to upload parameters (<code>UploadParam</code>), <code>Finish</code> or <code>Cancel</code> the uploading. </p>
+<p>It also implements the <code>IDisposable</code> interface so it can be used in a using statement and will call Finish when disposed. Here's the previous sample using the IDisposable pattern:</p>
+<pre><code class="language-csharp">using (var controller = hub.GetUpStreamController&lt;string, string&gt;(&quot;UploadWord&quot;))
+{
+    controller.OnSuccess(_ =&gt;
+        {
+            Debug.log(&quot;Upload finished!&quot;);
+        });
+
+    yield return new WaitForSeconds(_yieldWaitTime);
+    controller.UploadParam(&quot;Hello &quot;);
+
+    yield return new WaitForSeconds(_yieldWaitTime);
+    controller.UploadParam(&quot;World&quot;);
+
+    yield return new WaitForSeconds(_yieldWaitTime);
+    controller.UploadParam(&quot;!!&quot;);
+
+    yield return new WaitForSeconds(_yieldWaitTime);
+}
+</code></pre>
+
+<p>The controller also implements the <code>IFuture</code> interface to be able to subscribe to the <code>OnSuccess</code>, <code>OnError</code> and <code>OnComplete</code>.</p>
+<p>Related server code:</p>
+<pre><code class="language-csharp">public class UploadHub : Hub 
+{
+    public async Task&lt;string&gt; UploadWord(ChannelReader&lt;string&gt; source)
+    {
+        var sb = new StringBuilder();
+
+        // receiving a StreamCompleteMessage should cause this WaitToRead to return false
+        while (await source.WaitToReadAsync())
+        {
+            while (source.TryRead(out var item))
+            {
+                Debug.WriteLine($&quot;received: {item}&quot;);
+                Console.WriteLine($&quot;received: {item}&quot;);
+                sb.Append(item);
+            }
+        }
+
+        // method returns, somewhere else returns a CompletionMessage with any errors
+        return sb.ToString();
+    }
+}
+</code></pre>
+
+<h2 id="streaming-to-and-from-the-server">Streaming <em>to</em> and <em>from</em> the server</h2>
+<p>After using <code>GetDownStreamController</code> to stream results from the server and <code>GetUpStreamController</code> to stream parameters to the server, there's a third one to merge these two's functionality, the <code>GetUpAndDownStreamController</code> function. With its help we can stream parameters to a server-side function just like with <code>GetUpStreamController</code> and stream down its result to the client like we can with <code>GetDownStreamController</code>.
+Here's an example usage:</p>
+<pre><code class="language-csharp">using (var controller = hub.GetUpAndDownStreamController&lt;string, string&gt;(&quot;StreamEcho&quot;))
+{
+    controller.OnSuccess(_ =&gt;
+    {
+        Debug.log(&quot;Finished!&quot;);
+    });
+
+    controller.OnItem(item =&gt;
+    {
+        Debug.log(&quot;On Item: &quot; + item);
+    });
+
+    const int numMessages = 5;
+    for (int i = 0; i &lt; numMessages; i++)
+    {
+        yield return new WaitForSeconds(_yieldWaitTime);
+
+        controller.UploadParam(string.Format(&quot;Message from client {0}/{1}&quot;, i + 1, numMessages));
+    }
+
+    yield return new WaitForSeconds(_yieldWaitTime);
+}
+</code></pre>
+
+<p><code>GetUpAndDownStreamController</code> also returns with an <code>UpStreamItemController</code> instance, but in this case its <code>OnItem</code> can be used too. The callback passed to the <code>OnItem</code> call will be called for every item the server sends back to the client.</p>
+<p>Related server code:</p>
+<pre><code class="language-csharp">public class UploadHub : Hub
+{
+    public ChannelReader&lt;string&gt; StreamEcho(ChannelReader&lt;string&gt; source)
+    {
+        var output = Channel.CreateUnbounded&lt;string&gt;();
+
+        _ = Task.Run(async () =&gt;
+        {
+            while (await source.WaitToReadAsync())
+            {
+                while (source.TryRead(out var item))
+                {
+                    Debug.WriteLine($&quot;Echoing '{item}'.&quot;);
+                    await output.Writer.WriteAsync(&quot;echo:&quot; + item);
+                }
+            }
+            output.Writer.Complete();
+
+        });
+
+        return output.Reader;
+    }
+}
+</code></pre>
+
+<h2 id="send-non-streaming-parameter">Send non-streaming parameter</h2>
+<p><code>GetUpStreamController</code> and <code>GetUpAndDownStreamController</code> can send non-streaming parameters with theirs initial requests.</p>
+<p>An example of sending multiple non-streaming and a streaming parameter:</p>
+<pre><code class="language-csharp">public enum MyEnum
+{
+    None,
+    One,
+    Two
+}
+public sealed class Metadata
+{
+    public string strData;
+    public int intData;
+    public MyEnum myEnum;
+}
+
+using (var controller = hub.GetUpStreamController&lt;int, Person&gt;(&quot;MixedArgsTest&quot;, /*int: */ 1, /*string: */ &quot;text test&quot;, new Metadata() { strData = &quot;string data&quot;, intData = 5, myEnum = MyEnum.One }))
+{
+    const int numMessages = 5;
+    for (int i = 0; i &lt; numMessages; i++)
+    {
+        Person person = new Person()
+        {
+            Name = &quot;Mr. Smith&quot;,
+            Age = 20 + i * 2
+        };
+
+        controller.UploadParam(person);
+    }
+}
+</code></pre>
+
+<p>Server code:</p>
+<pre><code class="language-csharp">public enum MyEnum
+{
+    None,
+    One,
+    Two
+}
+
+public sealed class Metadata
+{
+    public string strData;
+    public int intData;
+    public MyEnum myEnum;
+}
+
+public async Task&lt;int&gt; MixedArgsTest(ChannelReader&lt;Person&gt; source, int intParam, string stringParam, Metadata metadata)
+{
+    int count = 0;
+    while (await source.WaitToReadAsync())
+    {
+        while (source.TryRead(out var item))
+        {
+            count++;
+        }
+    }
+
+    return count;
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../2.Authentication/" class="btn btn-neutral float-right" title="The IAuthenticationProvider interface">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../" class="btn btn-neutral" title="SignalR Core"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../2.Authentication/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+
+</body>
+</html>

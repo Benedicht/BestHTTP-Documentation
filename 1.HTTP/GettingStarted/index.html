@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Tivadar György Nagy">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Getting Started Quickly - Best HTTP/2 Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Getting Started Quickly";
+    var mkdocs_page_input_path = "1.HTTP\\GettingStarted.md";
+    var mkdocs_page_url = "/5sb/1.HTTP/GettingStarted/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Best HTTP/2 Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Introduction</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../ThirdPartyNotices/">Third-Party Notices</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../UpgradeGuide/">UpgradeGuide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../changelog/">Changelog</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../platforms/">Platforms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.HTTP</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Getting Started Quickly</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#getting-started-quickly">Getting Started Quickly</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#get-requests">GET Requests</a></li>
+        
+            <li><a class="toctree-l4" href="#post-requests">POST Requests</a></li>
+        
+            <li><a class="toctree-l4" href="#head-requests">Head Requests</a></li>
+        
+            <li><a class="toctree-l4" href="#put-requests">Put Requests</a></li>
+        
+            <li><a class="toctree-l4" href="#delete-requests">Delete Requests</a></li>
+        
+            <li><a class="toctree-l4" href="#patch-requests">Patch Requests</a></li>
+        
+            <li><a class="toctree-l4" href="#how-to-access-the-downloaded-data">How To Access The Downloaded Data</a></li>
+        
+            <li><a class="toctree-l4" href="#more-examples">More Examples</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../HTTPRequest/">HTTPRequest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../HTTPResponse/">HTTPResponse</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">AdvancedTopics</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/Async-await/">Async-Await with HTTPRequest</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/Authentication/">Authentication</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/Caching/">Caching</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/Cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/DownloadProgress/">Download Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/DownloadStreaming/">Download Streaming</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/ErrorHandling/">ErrorHandling</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/Redirections/">Control Redirections</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/Request.Abort/">Aborting a Request</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/RequestStates/">Request States</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/ServerCertificateValidation/">Server Certificate Validation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/SmallCode-Samples/">Small Code-Samples</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/Timeouts/">Timeouts</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/Timing/">Timing API</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/UploadProgress/">Upload Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../AdvancedTopics/UploadStreaming/">Upload Streaming</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2.WebSocket</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../2.WebSocket/">Index</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.1Socket.IO3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../3.1Socket.IO3/">Socket.IO 3</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.Socket.IO</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/">SocketIO</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/1.Namespaces/">Connecting to namespaces</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/2.ReceivingEvents/">Subscribing and receiving events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/3.SendingEvents/">Sending events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/4.DefaultEncoder/">Set the default Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/5.CustomEncoder/">Writing a custom Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/6.AutoDecodePayload/">AutoDecodePayload</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/7.ErrorHandling/">Error handling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.Socket.IO/8.Options/">The SocketOptions class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4.SignalR</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/">Index</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/1.Connection/">The Connection class</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/2.GeneralEvents/">Handling general events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/3.Sending/">Sending non-Hub messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/4.Hubs/">Hubs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.EventSource</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../5.EventSource/">Server-Sent Events (EventSource)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.SignalRCore</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/">SignalR Core</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/1.HubConnection/">The HubConnection Class</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/2.Authentication/">The IAuthenticationProvider interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/3.Encoders/">Encoders</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/4.IRetryPolicy/">Automatic reconnection and the IRetryPolicy interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/5.AzureSignalRService/">How to connect to an Azure SignalR Service</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">7.GlobalTopics</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/BufferPool/">Buffer Pool</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/ConnectionPool/">Connection Pooling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/GlobalSettings/">Global Settings</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/HTTP2/">HTTP/2</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/HTTPS/">HTTPS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/HowToDisableFeatures/">How to disable features</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/Logging/">Logging</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/Proxy/">Proxies</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/ThreadSafety/">ThreadSafety</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8.Addons</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">TLSSecurity</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/">About</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/CertificationManagerWindow/">CertificationManagerWindow</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/Options/">SecurityOptions</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">cURLParser</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/cURLParser/">Index</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Best HTTP/2 Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>1.HTTP &raquo;</li>
+        
+      
+    
+    <li>Getting Started Quickly</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="getting-started-quickly">Getting Started Quickly</h1>
+<p>After you imported the package, you should add a using statement to your source file like any other regular usings:</p>
+<pre><code>using BestHTTP;
+</code></pre>
+
+<h2 id="get-requests">GET Requests</h2>
+<p>The simplest way to do a request to a web server is to create a <code>HTTPRequest</code> object providing the url and a callback function to it's constructor. After we constructed a new <code>HTTPRequest</code> object the only thing we need to do, is actually send the request with the Send() function. Let's see an example:</p>
+<pre><code class="language-csharp">HTTPRequest request = new HTTPRequest(new Uri(&quot;https://google.com&quot;), OnRequestFinished);
+request.Send();
+</code></pre>
+
+<p>The OnRequestFinished() function's implementation might be this:</p>
+<pre><code class="language-csharp">void OnRequestFinished(HTTPRequest request, HTTPResponse response)
+{
+    Debug.Log(&quot;Request Finished! Text received: &quot; + response.DataAsText);
+}
+</code></pre>
+
+<p>As you can see the callback function always receives the original <code>HTTPRequest</code> object and an <code>HTTPResponse</code> object that holds the response from the server. The <code>HTTPResponse</code> object is <code>null</code> if there were an error and the request object has an <code>Exception</code> property that might carry extra information about the error if there were any.</p>
+<p>While the requests are always processed on separate threads, calling the callback function is done on Unity's main thread, so we don't have to do any thread synchronization.</p>
+<p>If we want to write more compact code we can use c#'s lambda expressions. In this example we don't even need a temporary variable:</p>
+<pre><code class="language-csharp">new HTTPRequest(new Uri(&quot;https://google.com&quot;), (request, response) =&gt; Debug.Log(&quot;Finished!&quot;))
+    .Send();
+</code></pre>
+
+<div class="admonition notice">
+<p class="admonition-title">Notice</p>
+<p>Error handling is omitted for brevity in most of the samples through the documentation, but there's a complete section dedicated to <a href="../AdvancedTopics/ErrorHandling/">error handling</a>.</p>
+</div>
+<h2 id="post-requests">POST Requests</h2>
+<p>The above examples were simple GET requests. If we don’t specify the method, all requests will be GET requests by default. The constructor has another parameter that can be used to specify the method of the request:</p>
+<pre><code class="language-csharp">HTTPRequest request = new HTTPRequest(new Uri(&quot;http://server.com/path&quot;), HTTPMethods.Post, OnRequestFinished);
+request.AddField(&quot;FieldName&quot;, &quot;Field Value&quot;);
+request.Send();
+</code></pre>
+
+<p>To POST any data without setting a field you can use the <code>RawData</code> property:</p>
+<pre><code class="language-csharp">HTTPRequest request = new HTTPRequest(new Uri(&quot;http://server.com/path&quot;), HTTPMethods.Post, OnRequestFinished);
+request.RawData =  Encoding.UTF8.GetBytes(&quot;Field Value&quot;);
+request.Send();
+</code></pre>
+
+<p>For additional samples check out the <a href="../AdvancedTopics/SmallCode-Samples/">Small Code-Samples section</a>.</p>
+<p>Beside GET and POST you can use the HEAD, PUT, DELETE and PATCH methods as well:</p>
+<h2 id="head-requests">Head Requests</h2>
+<pre><code class="language-csharp">HTTPRequest request = new HTTPRequest(new Uri(&quot;http://server.com/path&quot;), HTTPMethods.Head, OnRequestFinished);
+request.Send();
+</code></pre>
+
+<h2 id="put-requests">Put Requests</h2>
+<pre><code class="language-csharp">HTTPRequest request = new HTTPRequest(new Uri(&quot;http://server.com/path&quot;), HTTPMethods.Put, OnRequestFinished);
+request.Send();
+</code></pre>
+
+<h2 id="delete-requests">Delete Requests</h2>
+<pre><code class="language-csharp">HTTPRequest request = new HTTPRequest(new Uri(&quot;http://server.com/path&quot;), HTTPMethods.Delete, OnRequestFinished);
+request.Send();
+</code></pre>
+
+<h2 id="patch-requests">Patch Requests</h2>
+<pre><code class="language-csharp">HTTPRequest request = new HTTPRequest(new Uri(&quot;http://server.com/path&quot;), HTTPMethods.Patch, OnRequestFinished);
+request.Send();
+</code></pre>
+
+<h2 id="how-to-access-the-downloaded-data">How To Access The Downloaded Data</h2>
+<p>Most of the time we use our requests to receive some data from a server. The raw bytes can be accessed from the <code>HTTPResponse</code> object's <code>Data</code> property. Let's see an example how to download an image:</p>
+<pre><code class="language-csharp">new HTTPRequest(new Uri(&quot;http://yourserver.com/path/to/image.png&quot;), (request, response) =&gt;
+{
+    var tex = new Texture2D(0, 0);
+    tex.LoadImage(response.Data);
+    guiTexture.texture = tex;
+}).Send();
+</code></pre>
+
+<p>Beside of <code>DataAsTexture2D</code> there is a <code>DataAsText</code> property too to decode the response as an Utf8 string.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All examples in this document are without any error checking! See the <a href="../AdvancedTopics/ErrorHandling/">Error Handling topic</a>!</p>
+</div>
+<h2 id="more-examples">More Examples</h2>
+<p>More examples and sample code snippets can be found under the <a href="../AdvancedTopics/SmallCode-Samples/">Small Code-Samples</a> topic, like</p>
+<ol>
+<li><a href="../AdvancedTopics/SmallCode-Samples/#upload-a-picture-using-forms">How to send binary data in a Form</a></li>
+<li><a href="../AdvancedTopics/SmallCode-Samples/#send-json-data">How to send JSON data</a></li>
+<li><a href="../AdvancedTopics/SmallCode-Samples/#get-header-values">How to access response headers</a></li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../HTTPRequest/" class="btn btn-neutral float-right" title="HTTPRequest">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../platforms/" class="btn btn-neutral" title="Platforms"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../platforms/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../HTTPRequest/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Tivadar György Nagy">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Sending events - Best HTTP/2 Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Sending events";
+    var mkdocs_page_input_path = "3.Socket.IO\\3.SendingEvents.md";
+    var mkdocs_page_url = "/5sb/3.Socket.IO/3.SendingEvents/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Best HTTP/2 Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Introduction</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../ThirdPartyNotices/">Third-Party Notices</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../UpgradeGuide/">UpgradeGuide</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../changelog/">Changelog</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../platforms/">Platforms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.HTTP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../1.HTTP/GettingStarted/">Getting Started Quickly</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../1.HTTP/HTTPRequest/">HTTPRequest</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../1.HTTP/HTTPResponse/">HTTPResponse</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">AdvancedTopics</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Async-await/">Async-Await with HTTPRequest</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Authentication/">Authentication</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Caching/">Caching</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/DownloadProgress/">Download Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/DownloadStreaming/">Download Streaming</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/ErrorHandling/">ErrorHandling</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Redirections/">Control Redirections</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Request.Abort/">Aborting a Request</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/RequestStates/">Request States</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/ServerCertificateValidation/">Server Certificate Validation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/SmallCode-Samples/">Small Code-Samples</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Timeouts/">Timeouts</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/Timing/">Timing API</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/UploadProgress/">Upload Progress Tracking</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.HTTP/AdvancedTopics/UploadStreaming/">Upload Streaming</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2.WebSocket</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../2.WebSocket/">Index</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.1Socket.IO3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../3.1Socket.IO3/">Socket.IO 3</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.Socket.IO</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">SocketIO</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../1.Namespaces/">Connecting to namespaces</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../2.ReceivingEvents/">Subscribing and receiving events</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Sending events</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#sending-events">Sending events</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#sending-acknowledgement-to-the-server">Sending acknowledgement to the server</a></li>
+        
+            <li><a class="toctree-l4" href="#sending-binary-data">Sending binary data</a></li>
+        
+            <li><a class="toctree-l4" href="#receiving-binary-data">Receiving binary data</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.DefaultEncoder/">Set the default Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../5.CustomEncoder/">Writing a custom Json encoder</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../6.AutoDecodePayload/">AutoDecodePayload</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.ErrorHandling/">Error handling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../8.Options/">The SocketOptions class</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4.SignalR</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/">Index</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/1.Connection/">The Connection class</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/2.GeneralEvents/">Handling general events</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/3.Sending/">Sending non-Hub messages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.SignalR/4.Hubs/">Hubs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.EventSource</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../5.EventSource/">Server-Sent Events (EventSource)</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.SignalRCore</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/">SignalR Core</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/1.HubConnection/">The HubConnection Class</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/2.Authentication/">The IAuthenticationProvider interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/3.Encoders/">Encoders</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/4.IRetryPolicy/">Automatic reconnection and the IRetryPolicy interface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.SignalRCore/5.AzureSignalRService/">How to connect to an Azure SignalR Service</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">7.GlobalTopics</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/BufferPool/">Buffer Pool</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/ConnectionPool/">Connection Pooling</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/GlobalSettings/">Global Settings</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/HTTP2/">HTTP/2</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/HTTPS/">HTTPS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/HowToDisableFeatures/">How to disable features</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/Logging/">Logging</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/Proxy/">Proxies</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../7.GlobalTopics/ThreadSafety/">ThreadSafety</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8.Addons</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">TLSSecurity</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/">About</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/CertificationManagerWindow/">CertificationManagerWindow</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/TLSSecurity/Options/">SecurityOptions</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">cURLParser</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../8.Addons/cURLParser/">Index</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Best HTTP/2 Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>3.Socket.IO &raquo;</li>
+        
+      
+    
+    <li>Sending events</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="sending-events">Sending events</h1>
+<p>You can send an event with the Emit function. You have to pass the event name as the first parameter and optionally other parameters. These will be encoded to json and will be sent to the server. Optionally you can set a callback function that will be called when the server processes the event(you have to set up the server code properly to be able to send back a callback function. See the Socket.IO server side documentation for more information).</p>
+<pre><code class="language-csharp">// Send a custom event to the server with two parameters
+manager.Socket.Emit(&quot;message&quot;, &quot;userName&quot;, &quot;message&quot;);
+
+// Send an event and define a callback function that will be called as an
+// acknowledgement of this event
+manager.Socket.Emit(&quot;custom event&quot;, OnAckCallback, &quot;param 1&quot;, &quot;param 2&quot;);
+
+void OnAckCallback(Socket socket, Packet originalPacket, params object[] args)
+{
+    Debug.Log(&quot;OnAckCallback!&quot;);
+}
+</code></pre>
+
+<h2 id="sending-acknowledgement-to-the-server">Sending acknowledgement to the server</h2>
+<p>You can send back an acknowledgement to the server by calling the socket’s EmitAck function. You have to pass the original packet and any optional data:</p>
+<pre><code class="language-csharp">manager[&quot;/customNamespace&quot;].On(&quot;customEvent&quot;, (socket, packet, args) =&gt;
+{
+    socket.EmitAck(packet, &quot;Event&quot;, &quot;Received&quot;, &quot;Successfully&quot;);
+});
+</code></pre>
+
+<p><em>You can keep a reference to the packet, and call the EmitAck from somewhere else.</em></p>
+<h2 id="sending-binary-data">Sending binary data</h2>
+<p>There are two ways of sending binary(byte[]) data.</p>
+<ul>
+<li>By passing to the Emit function the plugin will scan the parameters and if it founds one, it will convert it to a binary attachment(as introduced in Socket.IO 1.0). This is the most efficient way, because it will not convert the byte array to a Base64 encoded string on client side, and back to binary on server side.</li>
+</ul>
+<pre><code class="language-csharp">byte[] data = new byte[10];
+//...
+manager.Socket.Emit(&quot;eventWithBinary&quot;, &quot;textual param&quot;, data);
+</code></pre>
+
+<ul>
+<li>If the binary data is embedded in an object as a field or property the Json encoder must support the conversion. The default Json encoder can’t convert the embedded binary data to Json, you have to use a more advanced Json parser library (like <a href="https://assetstore.unity.com/packages/tools/input-management/json-net-for-unity-11347?aid=1101lfX8E">"JSON .NET For Unity"</a>)</li>
+</ul>
+<h2 id="receiving-binary-data">Receiving binary data</h2>
+<p>In the Socket.IO server when binary data sent to the client it will replace the data with a Json object({'_placeholder':true,'num':xyz}) and will send the binary data in another packet. On client side these packets will be collected and will be merged into one packet. The binary data will be in the packet’s Attachments property.
+Here you will have some options too to use this packet:</p>
+<ul>
+<li>In your event-handler you can access all binary data through the packet’s Attachments property.</li>
+</ul>
+<pre><code class="language-csharp">Socket.On(&quot;frame&quot;, OnFrame);
+
+void OnFrame(Socket socket, Packet packet, params object[] args)
+{
+    texture.LoadImage(packet.Attachments[0]);
+}
+</code></pre>
+
+<ul>
+<li>The second option is almost the same as the previous, with a little improvement: we will not decode the sent Json string to c# objects. We can do it because we know that the server sent only the binary data, no other information came with this event. So we will let the plugin know that do not decode the payload:</li>
+</ul>
+<pre><code class="language-csharp">// Subscribe to the &quot;frame&quot; event, and set the autoDecodePayload flag to false
+Socket.On(&quot;frame&quot;, OnFrame, /*autoDecodePayload:*/ false);
+
+void OnFrame(Socket socket, Packet packet, params object[] args)
+{
+    // Use the Attachments property as before
+    texture.LoadImage(packet.Attachments[0]);
+}
+</code></pre>
+
+<p>The <code>autoDecodePayload</code> parameter is <code>true</code> by default.</p>
+<ul>
+<li>We can replace back the "{'_placeholder':true,'num':xyz}" string to the index of the attachment in the Attachments list.</li>
+</ul>
+<pre><code class="language-csharp">Socket.On(&quot;frame&quot;, OnFrame, /*autoDecodePayload:*/ false);
+
+void OnFrame(Socket socket, Packet packet, params object[] args)
+{
+    // Replace the Json object with the index
+    packet.ReconstructAttachmentAsIndex();
+
+    // now, decode the Payload to an object[]
+    args = packet.Decode(socket.Manager.Encoder);
+
+    // args now contains only an index number (probably 0)
+    byte[] data = packet.Attachments[Convert.ToInt32(args[0])];
+
+    texture.LoadImage(data);
+}
+</code></pre>
+
+<ul>
+<li>We can replace the "{'_placeholder':true,'num':xyz}" string with the binary data from the Attachments converted to a Base64 encoded string. Advanced Json parsers can convert it to byte arrays when they have to set it to an object’s field or property.</li>
+</ul>
+<pre><code class="language-csharp">Socket.On(&quot;frame&quot;, OnFrame, /*autoDecodePayload:*/ false);
+
+void OnFrame(Socket socket, Packet packet, params object[] args)
+{
+    // Replace the Json object with the Base64 encoded string
+    packet.ReconstructAttachmentAsBase64();
+
+    // now, decode the Payload to an object[]
+    args = packet.Decode(socket.Manager.Encoder);
+
+    // args now contains a Base64 encoded string
+    byte[] data = Convert.FromBase64String(args[0] as string);
+
+    texture.LoadImage(data);
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../4.DefaultEncoder/" class="btn btn-neutral float-right" title="Set the default Json encoder">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../2.ReceivingEvents/" class="btn btn-neutral" title="Subscribing and receiving events"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../2.ReceivingEvents/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../4.DefaultEncoder/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+
+</body>
+</html>
