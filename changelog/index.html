@@ -33,7 +33,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "2.5.1 (2021-05-28)", url: "#_top", children: [
+          {title: "2.5.2 (2021-08-02)", url: "#_top", children: [
+          ]},
+          {title: "2.5.1 (2021-05-28)", url: "#251-2021-05-28", children: [
           ]},
           {title: "2.5.0 (2021-05-17)", url: "#250-2021-05-17", children: [
           ]},
@@ -113,7 +115,29 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h2 id="251-2021-05-28">2.5.1 (2021-05-28)</h2>
+    <h2 id="252-2021-08-02">2.5.2 (2021-08-02)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] [WebGL] In some cases XHR_Send called twice</li>
+<li>[<span style="color:blue">Improvement</span>] Return early if base request is cancelled instead of throwing an exception</li>
+<li>[<span style="color:blue">Improvement</span>] Change TCP Client's buffer sizes only when a custom value is set in the HTTPManager</li>
+<li>[<span style="color:blue">Improvement</span>] Sample URL changes</li>
+</ul>
+<p><strong>HTTP/2</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Possible bugfix for a case where Process is called for a request while the handler already shutting down resulting in a NullRef. exception</li>
+<li>[<span style="color:red">Bugfix</span>] GOAWAY frame's additional data read from the wrong position of the buffer</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Append access_token query param only if there's a negotiated access token</li>
+<li>[<span style="color:red">Bugfix</span>] Set connectionStartedAt on a reconnect attempt too to avoid an outdated value cancelling authentication requests</li>
+</ul>
+<p><strong>SocketIO 3</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] [Default Json parser] Catch and log exception when doing ReadParameters</li>
+</ul>
+<h2 id="251-2021-05-28">2.5.1 (2021-05-28)</h2>
 <p><strong>General</strong></p>
 <ul>
 <li>[<span style="color:red">Bugfix</span>] Disabled strack trace collection for BufferPool releases</li>
@@ -129,7 +153,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h2 id="250-2021-05-17">2.5.0 (2021-05-17)</h2>
 <p><strong>Websocket</strong></p>
 <ul>
-<li>[<span style="color:green">New Feature</span>] New <a href="https://besthttp-documentation.readthedocs.io/en/latest/#2.WebSocket/#implementations">Websocket Over HTTP/2 implementation</a></li>
+<li>[<span style="color:green">New Feature</span>] New <a href="/2.WebSocket/#implementations">Websocket Over HTTP/2 implementation</a></li>
 </ul>
 <p><strong>General</strong></p>
 <ul>
@@ -567,7 +591,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 </div>
-<p><strong>This is a major release breaking backward compatibility with older releases. See the <a href="https://besthttp-documentation.readthedocs.io/en/latest/UpgradeGuide/">Upgrade Guide</a> for more details!</strong></p>
+<p><strong>This is a major release breaking backward compatibility with older releases. See the <a href="/UpgradeGuide/">Upgrade Guide</a> for more details!</strong></p>
 <p><strong>General</strong></p>
 <ul>
 <li>[<span style="color:green">New Feature</span>] Added <a href="https://www.keycdn.com/support/alpn">Application-Layer Protocol Negotiation</a> support to the BouncyCastle lib</li>
@@ -577,7 +601,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>[<span style="color:green">New Feature</span>] Added support for Unity 2019.3's <a href="https://blogs.unity3d.com/2019/08/27/unity-2019-3-beta-is-now-available/">(experimental) Enter Play Mode options</a></li>
 <li>[<span style="color:green">New Feature</span>] Added <a href="https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html">Assembly Definition file</a> to reduce recompile times</li>
 <li>[<span style="color:blue">Improvement</span>] Rewrote threading to avoid race conditions and reduce locking by using concurrent queues and lightweight <code>ReaderWriterLockSlim</code>s instead of lock blocks.</li>
-<li>[<span style="color:blue">Improvement</span>] New <a href="https://besthttp-documentation.readthedocs.io/en/latest/">online documentation</a></li>
+<li>[<span style="color:blue">Improvement</span>] New <a href="https://benedicht.github.io/BestHTTP-Documentation/">online documentation</a></li>
 <li>[<span style="color:red">Breaking change</span>] Removed Statistics API</li>
 <li>[<span style="color:red">Breaking change</span>] Changed some BouncyCastle related class' namespace to avoid collition with other plugins and SDKs</li>
 <li>[<span style="color:red">Breaking change</span>] Rewrote Abort mechanism</li>
