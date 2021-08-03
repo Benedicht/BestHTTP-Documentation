@@ -1,3 +1,27 @@
+## 2.5.2 (2021-08-02)
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] Moved documentation from readthedocs to github pages
+- [<span style="color:red">Bugfix</span>] [WebGL] In some cases XHR_Send called twice
+- [<span style="color:blue">Improvement</span>] Return early if base request is cancelled instead of throwing an exception
+- [<span style="color:blue">Improvement</span>] Change TCP Client's buffer sizes only when a custom value is set in the HTTPManager
+- [<span style="color:blue">Improvement</span>] Sample URL changes
+
+**HTTP/2**
+
+- [<span style="color:red">Bugfix</span>] Possible bugfix for a case where Process is called for a request while the handler already shutting down resulting in a NullRef. exception
+- [<span style="color:red">Bugfix</span>] GOAWAY frame's additional data read from the wrong position of the buffer
+
+**SignalR Core**
+
+- [<span style="color:blue">Improvement</span>] Append access_token query param only if there's a negotiated access token
+- [<span style="color:red">Bugfix</span>] Set connectionStartedAt on a reconnect attempt too to avoid an outdated value cancelling authentication requests
+
+**SocketIO 3**
+
+- [<span style="color:blue">Improvement</span>] [Default Json parser] Catch and log exception when doing ReadParameters
+
 ## 2.5.1 (2021-05-28)
 
 **General**
@@ -16,7 +40,7 @@
 
 **Websocket**
 
-- [<span style="color:green">New Feature</span>] New [Websocket Over HTTP/2 implementation](https://besthttp-documentation.readthedocs.io/en/latest/#2.WebSocket/#implementations)
+- [<span style="color:green">New Feature</span>] New [Websocket Over HTTP/2 implementation](/2.WebSocket/#implementations)
 
 **General**
 
@@ -470,7 +494,7 @@
 ## 2.0.0 (2019-10-31)
 
 !!! Warning
-**This is a major release breaking backward compatibility with older releases. See the [Upgrade Guide](https://besthttp-documentation.readthedocs.io/en/latest/UpgradeGuide/) for more details!**
+**This is a major release breaking backward compatibility with older releases. See the [Upgrade Guide](/UpgradeGuide/) for more details!**
 
 **General**
 
@@ -481,7 +505,7 @@
 - [<span style="color:green">New Feature</span>] Added support for Unity 2019.3's [(experimental) Enter Play Mode options](https://blogs.unity3d.com/2019/08/27/unity-2019-3-beta-is-now-available/)
 - [<span style="color:green">New Feature</span>] Added [Assembly Definition file](https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html) to reduce recompile times
 - [<span style="color:blue">Improvement</span>] Rewrote threading to avoid race conditions and reduce locking by using concurrent queues and lightweight `ReaderWriterLockSlim`s instead of lock blocks.
-- [<span style="color:blue">Improvement</span>] New [online documentation](https://besthttp-documentation.readthedocs.io/en/latest/)
+- [<span style="color:blue">Improvement</span>] New [online documentation](https://benedicht.github.io/BestHTTP-Documentation/)
 - [<span style="color:red">Breaking change</span>] Removed Statistics API
 - [<span style="color:red">Breaking change</span>] Changed some BouncyCastle related class' namespace to avoid collition with other plugins and SDKs
 - [<span style="color:red">Breaking change</span>] Rewrote Abort mechanism

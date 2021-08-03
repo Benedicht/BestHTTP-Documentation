@@ -1,7 +1,7 @@
 # SocketIO
 
 !!! Warning
-	With the release of the [BestHTTP.SocketIO3 namespace to support Socket.IO 3 and 4](../3.1Socket.IO3), this implementation entered into maintenance only mode receiving only bugfixes.
+	With the release of the [BestHTTP.SocketIO3 namespace to support Socket.IO 3 and 4](../3.1Socket.IO3/), this implementation entered into maintenance only mode receiving only bugfixes.
 
 The Socket.IO implementation uses features that the plugin already have. It will send `HTTPRequest`s to get the handshake data, sending and receiving packets when the polling transport is used with all of its features(cookies, connection reuse, etc.). And the `WebSocket` implementation is used for the `WebSocket` transport.
 
@@ -29,4 +29,4 @@ var manager = new SocketManager(new Uri("https://socket-io-chat.now.sh/socket.io
 	
 ## Socket.IO 3 and 4 support
 
-For Socket.IO 3 and up, use classes from the [BestHTTP.SocketIO3](../3.1Socket.IO3) namespace!
+For Socket.IO 3 and up, use classes from the [BestHTTP.SocketIO3](../3.1Socket.IO3/) namespace!
