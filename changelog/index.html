@@ -33,7 +33,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "2.5.2 (2021-08-02)", url: "#_top", children: [
+          {title: "2.5.3 (2021-10-18)", url: "#_top", children: [
+          ]},
+          {title: "2.5.2 (2021-08-02)", url: "#252-2021-08-02", children: [
           ]},
           {title: "2.5.1 (2021-05-28)", url: "#251-2021-05-28", children: [
           ]},
@@ -115,7 +117,35 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h2 id="252-2021-08-02">2.5.2 (2021-08-02)</h2>
+    <h2 id="253-2021-10-18">2.5.3 (2021-10-18)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed race condition in the timing api that could result in an exception</li>
+<li>[<span style="color:red">Bugfix</span>] Resend request with proxy authtentication header when it's a transparent proxy. Possible workaround for waiting for chunked encoded proxy response</li>
+<li>[<span style="color:red">Bugfix</span>] Possible fix of a race condition in the <code>BufferPool</code> implementation</li>
+<li>[<span style="color:red">Bugfix</span>] <a href="https://github.com/Benedicht/BestHTTP-Issues/issues/75">[ISSUE-75]</a> HTTP2Response uses int for contentLength instead of long so doesn't track large (2.1GB+) files</li>
+<li>[<span style="color:blue">Improvement</span>] Dispose implementation overhaul</li>
+<li>[<span style="color:blue">Improvement</span>] Added support for relative redirect urls</li>
+<li>[<span style="color:blue">Improvement</span>] Logging out a BufferSegment now going to log out (part of) the data too</li>
+<li>[<span style="color:blue">Improvement</span>] [WebGL] Add Set-Cookie header ibky when its value isn't empty</li>
+<li>[<span style="color:blue">Improvement</span>] [WebGL] Use the default IO service under WebGL too, but explicitly disable the caching service and cookie saving</li>
+<li>[<span style="color:blue">Improvement</span>] Removed non-used ConcurrentStack file</li>
+<li>[<span style="color:blue">Improvement</span>] Don't keep an HTTP1 connection in the connection pool if the last processed request/response returned max=0 in a Keep-Alive header</li>
+</ul>
+<p><strong> SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] [Long-Polling transport] Removed fake ping message as it's triggered a client-sent one, that triggered a new fake one, etc.</li>
+<li>[<span style="color:blue">Improvement</span>] [MessagePackProtocol] Added support for parameterless callbacks</li>
+</ul>
+<p><strong> Websocket</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] [Long-Polling transport] Use WebSocket's <code>MaxFragmentSize</code> in WebSocketResponse</li>
+</ul>
+<p><strong> Socket.IO 3</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Call Dispose on <code>StringReaders</code></li>
+</ul>
+<h2 id="252-2021-08-02">2.5.2 (2021-08-02)</h2>
 <p><strong>General</strong></p>
 <ul>
 <li>[<span style="color:red">Bugfix</span>] Moved documentation from readthedocs to github pages</li>
