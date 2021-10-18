@@ -296,7 +296,17 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://u3d.as/5sb/8.Addons/TLSSecurity/changelog/</loc>
+     <lastmod>2021-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://u3d.as/5sb/8.Addons/cURLParser/</loc>
+     <lastmod>2021-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://u3d.as/5sb/8.Addons/cURLParser/changelog/</loc>
      <lastmod>2021-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
