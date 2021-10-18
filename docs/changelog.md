@@ -1,3 +1,32 @@
+## 2.5.3 (2021-10-18)
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] Fixed race condition in the timing api that could result in an exception
+- [<span style="color:red">Bugfix</span>] Resend request with proxy authtentication header when it's a transparent proxy. Possible workaround for waiting for chunked encoded proxy response
+- [<span style="color:red">Bugfix</span>] Possible fix of a race condition in the `BufferPool` implementation
+- [<span style="color:red">Bugfix</span>] [[ISSUE-75]](https://github.com/Benedicht/BestHTTP-Issues/issues/75) HTTP2Response uses int for contentLength instead of long so doesn't track large (2.1GB+) files
+- [<span style="color:blue">Improvement</span>] Dispose implementation overhaul
+- [<span style="color:blue">Improvement</span>] Added support for relative redirect urls
+- [<span style="color:blue">Improvement</span>] Logging out a BufferSegment now going to log out (part of) the data too
+- [<span style="color:blue">Improvement</span>] [WebGL] Add Set-Cookie header ibky when its value isn't empty
+- [<span style="color:blue">Improvement</span>] [WebGL] Use the default IO service under WebGL too, but explicitly disable the caching service and cookie saving
+- [<span style="color:blue">Improvement</span>] Removed non-used ConcurrentStack file
+- [<span style="color:blue">Improvement</span>] Don't keep an HTTP1 connection in the connection pool if the last processed request/response returned max=0 in a Keep-Alive header
+
+** SignalR Core**
+
+- [<span style="color:red">Bugfix</span>] [Long-Polling transport] Removed fake ping message as it's triggered a client-sent one, that triggered a new fake one, etc.
+- [<span style="color:blue">Improvement</span>] [MessagePackProtocol] Added support for parameterless callbacks
+
+** Websocket**
+
+- [<span style="color:red">Bugfix</span>] [Long-Polling transport] Use WebSocket's `MaxFragmentSize` in WebSocketResponse
+
+** Socket.IO 3**
+
+- [<span style="color:red">Bugfix</span>] Call Dispose on `StringReaders`
+
 ## 2.5.2 (2021-08-02)
 
 **General**
