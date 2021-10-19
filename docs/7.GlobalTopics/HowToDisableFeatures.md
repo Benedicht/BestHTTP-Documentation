@@ -6,6 +6,7 @@ There are many defines that can be used to disable various features. These defin
 These are the defines that has an effect on the plugin:
 
 - **BESTHTTP_DISABLE_COOKIES**: With this define all cookie related code can be disabled. No cookie parsing, saving and sending will occur.
+- **BESTHTTP_DISABLE_COOKIE_SAVE**: With this define cookies remain enabled, only persisting them going to be disabled.
 - **BESTHTTP_DISABLE_CACHING**: With this define all cache related code can be disabled. No caching, or cache validation will be done.
 - **BESTHTTP_DISABLE_SERVERSENT_EVENTS**: Server-Sent Events can be disabled with this. SignalR will not fallback to this.
 - **BESTHTTP_DISABLE_WEBSOCKET**: Websocket can be disabled with this. SignalR and Socket.IO will not use this protocol.
