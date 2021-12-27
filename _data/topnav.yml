@@ -1,0 +1,44 @@
+## Topnav single links
+## if you want to list an external url, use external_url instead of url. the theme will apply a different link base.
+topnav:
+- title: Topnav
+  items:
+    - title: GitHub
+      external_url: https://github.com/Benedicht/BestProductsDoc
+#    - title: News
+#      url: /news
+
+#Topnav dropdowns
+topnav_dropdowns:
+- title: Topnav dropdowns
+  folders:
+    - title: Products
+      folderitems:
+        - title: Best HTTP/2
+          url: /pages/best_http2/introduction.html
+      
+        - title: ┣ HTTP Requests
+          url: /pages/best_http2/protocols/http/GettingStarted.html
+          
+        - title: ┣ WebSockets
+          url: /pages/best_http2/protocols/websocket/websocket.html
+          
+        - title: ┣ Socket.IO v3+
+          url: /pages/best_http2/protocols/socketio/socketio.html
+
+        - title: ┣ SignalR Core
+          url: /pages/best_http2/protocols/signalr_core/signalr_core.html
+
+        - title: ┣ Event-Source
+          url: /pages/best_http2/protocols/event_source/event_source.html
+
+        - title: ┣ cURL Parser Addon
+          url: /pages/best_http2/addons/curl_parser/curl_parser.html
+          
+        - title: ┣ TLS Security Addon
+          url: /pages/best_http2/addons/tls_security/tls_security.html
+          
+        - title: Best MQTT
+          url: /pages/best_mqtt/introduction.html
+
+# Copyright 2021 Google LLC

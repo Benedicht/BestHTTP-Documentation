@@ -1,0 +1,82 @@
+folderpath: /
+entries:
+- title: sidebar
+  product: Documentation
+  folders:
+
+  - title: Getting Started
+    output: web
+    folderitems:
+    
+    - title: Documentation
+      url: index.html
+      output: web
+
+  - title: Best HTTP/2
+    output: web
+    folderitems:
+ 
+      - title: Introduction
+        url: pages/best_http2/introduction.html
+        output: web
+
+      - title: Platforms
+        url: pages/best_http2/platforms.html
+        output: web
+        
+      - title: Changelog
+        url: pages/best_http2/changelog.html
+        output: web
+        
+      - title: 3rd Part Notices
+        url: pages/best_http2/ThirdPartyNotices.html
+        output: web
+
+      - title: Upgrade Guide
+        url: pages/best_http2/UpgradeGuide.html
+        output: web
+        
+        subfolders:
+          - title: Protocols
+            output: web
+            subfolderitems:
+       
+              - title: HTTP
+                output: web
+                url: pages/best_http2/protocols/http/GettingStarted.html
+       
+              - title: Websocket
+                url: pages/best_http2/protocols/websocket/websocket.html
+                output: web
+                
+              - title: Socket.IO
+                output: web
+                url: pages/best_http2/protocols/socketio/socketio.html
+                
+              - title: SignalR Core
+                output: web
+                url: pages/best_http2/protocols/signalr_core/signalr_core.html
+                
+              - title: Event-Source
+                output: web
+                url: pages/best_http2/protocols/event_source/event_source.html
+ 
+          - title: Addons
+            output: web
+        
+            subfolderitems:
+              - title: cURL Parser Addon
+                url: pages/best_http2/addons/curl_parser/curl_parser.html
+                output: web
+         
+              - title: TLS Security Addon
+                url: pages/best_http2/addons/tls_security/tls_security.html
+                output: web
+ 
+  - title: Best MQTT
+    output: web
+    folderitems:
+    
+      - title: Introduction
+        url: pages/best_mqtt/introduction.html
+        output: web

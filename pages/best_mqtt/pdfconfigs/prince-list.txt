@@ -1,0 +1,68 @@
+---
+layout: none
+search: exclude
+---
+{% comment %}
+{% assign sidebars = site.data.sidebars[site.pdf_sidebar].entries %}
+{% for sidebar in sidebars %}
+   {% for folder in sidebar.folders %}
+	  {% if folder.output contains "pdf" %}
+			  {% for folderitem in folder.folderitems %}
+				 {% if folderitem.output contains "pdf"  %}
+					{{site.url}}{{site.baseurl}}{{sidebar.folderpath}}{{folderitem.url}}
+					{{site.url}}{{site.baseurl}}/{{folderitem.url}}
+						  {% for subfolders in folderitem.subfolders %}
+							 {% if subfolders.output contains "pdf" %}
+										{% for subfolderitem in subfolders.subfolderitems %}
+										   {% if subfolderitem.output contains "pdf" %}
+											  {{site.url}}{{site.baseurl}}/{{subfolderitem.url}}
+										   {% endif %}
+										{% endfor %}
+							 {% endif %}
+						  {% endfor %}
+				{% endif %}
+			 {% endfor %}
+	  {% endif %}
+  {% endfor %}
+{% endfor %}
+{% endcomment %}
+
+ {% assign sidebar = site.data.sidebars[site.pdf_sidebar] %}
+  {% for entry in sidebar.entries %}
+  {% for folder in entry.folders %}
+  {% if folder.output contains "pdf" %}
+          {% for folderitem in folder.folderitems %}
+		  {% capture page_url %}{{site.baseurl}}{{page.url}}{% endcapture %}
+		  {% capture item_url %}{{site.url}}{{site.baseurl}}{{sidebar.folderpath}}{{folderitem.url}}{% endcapture %}
+          {% if folderitem.output contains "pdf" %}
+          {% if folderitem.external_url %}
+			{{folderitem.external_url}}
+          {% elsif page_url == item_url %}
+			{{item_url}}
+          {% elsif folderitem.type == "empty" %}
+			{{item_url}}
+          {% else %}
+			{{item_url}}
+          {% endif %}
+          {% for subfolders in folderitem.subfolders %}
+			  {% if subfolders.output contains "pdf" %}
+						  {% for subfolderitem in subfolders.subfolderitems %}
+							  {% capture page_url %}{{site.baseurl}}{{page.url}}{% endcapture %}
+							  {% capture item_url %}{{site.url}}{{site.baseurl}}{{sidebar.folderpath}}{{subfolderitem.url}}{% endcapture %}
+							  {% if subfolderitem.output contains "pdf" %}				  
+								  {% if subfolderitem.external_url %}
+									{{subfolderitem.external_url}}
+								  {% elsif page_url == item_url %}
+									{{item_url}}
+								  {% else %}
+									{{item_url}}
+								  {% endif %}
+							  {% endif %}
+						  {% endfor %}
+			  {% endif %}
+          {% endfor %}
+          {% endif %}
+          {% endfor %}
+     {% endif %}
+	{% endfor %}
+	{% endfor %}

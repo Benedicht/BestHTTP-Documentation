@@ -1,0 +1,239 @@
+folderpath: /pages/best_http2/
+entries:
+- title: sidebar
+  product: Best HTTP/2
+  folders:
+  
+  - title: Overview
+    output: web, pdf
+    folderitems:
+
+      - title: Introduction
+        url: introduction.html
+        output: web
+
+      - title: Platforms
+        url: platforms.html
+        output: web
+        
+      - title: Changelog
+        url: changelog.html
+        output: web
+        
+      - title: 3rd Part Notices
+        url: ThirdPartyNotices.html
+        output: web
+
+      - title: Upgrade Guide
+        url: UpgradeGuide.html
+        output: web
+        
+#      - title: WebGL Demo
+#        output: web
+#        url: demo.html
+        
+  - title: Protocols
+    output: web
+    folderitems:
+       
+      - title: Socket.IO
+        output: web
+        url: protocols/socketio/socketio.html
+
+      - title: Event-Source
+        output: web
+        url: protocols/event_source/event_source.html
+
+        subfolders:
+          - title: HTTP
+            output: web            
+            subfolderitems:
+                - title: Getting Started
+                  output: web
+                  url: protocols/http/GettingStarted.html
+                  
+                - title: HTTPRequest
+                  output: web
+                  url: protocols/http/HTTPRequest.html
+                  
+                - title: HTTPResponse
+                  output: web
+                  url: protocols/http/HTTPResponse.html
+                  
+                - title: Async-Await
+                  output: web
+                  url: protocols/http/Async-await.html
+                  
+                - title: Authentication
+                  output: web
+                  url: protocols/http/Authentication.html
+                  
+                - title: Caching
+                  output: web
+                  url: protocols/http/Caching.html
+                  
+                - title: Cookies
+                  output: web
+                  url: protocols/http/Cookies.html
+                  
+                - title: Download Progress Tracking
+                  output: web
+                  url: protocols/http/DownloadProgress.html
+                  
+                - title: Download Streaming
+                  output: web
+                  url: protocols/http/DownloadStreaming.html
+                  
+                - title: Upload Progress Tracking
+                  output: web
+                  url: protocols/http/UploadProgress.html
+                  
+                - title: Upload Streaming
+                  output: web
+                  url: protocols/http/UploadStreaming.html
+                  
+                - title: Error Handling
+                  output: web
+                  url: protocols/http/ErrorHandling.html
+                  
+                - title: Redirections
+                  output: web
+                  url: protocols/http/Redirections.html
+                  
+                - title: Request Cancelling
+                  output: web
+                  url: protocols/http/Request.Abort.html
+                  
+                - title: Request States
+                  output: web
+                  url: protocols/http/RequestStates.html
+                  
+                - title: Server Certifcate Validation
+                  output: web
+                  url: protocols/http/ServerCertificateValidation.html
+                  
+                - title: Small Code Samples
+                  output: web
+                  url: protocols/http/SmallCode-Samples.html
+                  
+                - title: Timeouts
+                  output: web
+                  url: protocols/http/Timeouts.html
+                  
+                - title: Timing
+                  output: web
+                  url: protocols/http/Timing.html
+          
+          - title: Websocket
+            output: web            
+            subfolderitems:                           
+                - title: Introduction
+                  output: web
+                  url: protocols/websocket/websocket.html
+                  
+                - title: Advanced topics
+                  output: web
+                  url: protocols/websocket/advanced.html
+                  
+          - title: SignalR Core
+            output: web
+            subfolderitems:
+                - title: Introduction
+                  output: web
+                  url: protocols/signalr_core/signalr_core.html
+                  
+                - title: HubConnection
+                  output: web
+                  url: protocols/signalr_core/HubConnection.html
+                  
+                - title: Authentication
+                  output: web
+                  url: protocols/signalr_core/Authentication.html
+                  
+                - title: Azure SignalR Service
+                  output: web
+                  url: protocols/signalr_core/AzureSignalRService.html
+                  
+                - title: Encoders
+                  output: web
+                  url: protocols/signalr_core/Encoders.html
+                  
+                - title: Automatic Reconnection
+                  output: web
+                  url: protocols/signalr_core/IRetryPolicy.html
+        
+  - title: Global Topics
+    output: web
+    folderitems:
+    
+        - title: Buffer Pool
+          output: web
+          url: global_topics/BufferPool.html
+          
+        - title: Connection Pool
+          output: web
+          url: global_topics/ConnectionPool.html
+          
+        - title: Global Settings
+          output: web
+          url: global_topics/GlobalSettings.html
+          
+        - title: How to disable features
+          output: web
+          url: global_topics/HowToDisableFeatures.html
+          
+        - title: HTTP/2
+          output: web
+          url: global_topics/HTTP2.html
+          
+        - title: HTTPS
+          output: web
+          url: global_topics/HTTPS.html
+          
+        - title: Logging
+          output: web
+          url: global_topics/Logging.html
+          
+        - title: Proxy
+          output: web
+          url: global_topics/Proxy.html
+          
+        - title: Thread Safety
+          output: web
+          url: global_topics/ThreadSafety.html
+
+        - title: File System Abstraction
+          output: web
+          url: global_topics/filesystem.html
+
+  - title: TLS Security Addon
+    output: web
+    
+    folderitems:
+      - title: Introduction
+        url: addons/tls_security/tls_security.html
+        output: web
+
+      - title: Options
+        url: addons/tls_security/Options.html
+        output: web
+
+      - title: Certifcate Manager Window
+        url: addons/tls_security/CertificationManagerWindow.html
+        output: web
+
+      - title: Changelog
+        url: addons/tls_security/changelog.html
+        output: web
+     
+  - title: cURL Parser Addon
+    output: web
+    folderitems:
+    
+      - title: Introduction
+        output: web
+        url: addons/curl_parser/curl_parser.html
+        
+      - title: Changelog
+        output: web
+        url: addons/curl_parser/changelog.html

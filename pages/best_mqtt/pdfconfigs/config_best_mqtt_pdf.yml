@@ -1,0 +1,18 @@
+destination: _pdf_site/
+url: "http://127.0.0.1:4012"
+baseurl: "/BestMQTT-pdf"
+port: 4012
+output: pdf
+product: Best MQTT
+print_title: Best MQTT Documentation
+print_subtitle: Offline Version
+output: pdf
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page_print"
+
+pdf_sidebar: best_mqtt_sidebar

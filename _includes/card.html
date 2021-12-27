@@ -1,0 +1,12 @@
+<div class="card" style="flex-direction: row;" >
+	{% if {{include.img_url}} %}<img class="card-img-top" src="{{include.img_url}}" alt="{{include.alt}}" style="height: 64px;" > {% endif %}
+	<div class="card-body">
+		<h5 class="card-title">{{include.title}}</h5>
+		<p class="card-text" style="width: 28rem;">{{include.content}}</p>
+		{% if {{include.url}} %}
+			<div class="card-footer">
+				<a href="{{include.url | relative_url}}" class="btn btn-primary">Browse Documentation</a>
+			</div>			
+		{% endif %}
+	</div>
+</div>

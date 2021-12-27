@@ -1,0 +1,46 @@
+body {
+	#background: #986958;
+}
+
+.main-header {
+	text-align: center;
+	background: #b09489;
+	color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px 10px;
+}
+
+.introduction {
+	padding: 10px;
+	text-align: left;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.flex-sub-container {
+	display: flex; 
+	flex-direction: row; 
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.content-root {
+	background-color: #aaa; 
+	display: flex; 
+	flex-direction: column; 
+	width: 50%; 
+	height: 100%
+}
+
+.content-header {
+	display: flex; 
+	align-self: center; 
+	padding: 0px 0px 20px 0px;
+}

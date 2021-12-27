@@ -1,0 +1,80 @@
+folderpath: /pages/best_mqtt/
+entries:
+- title: Sidebar
+  product: Best MQTT
+  folders:
+  - title: Overview
+    output: web, pdf
+    folderitems:
+
+    - title:
+      url: pdfconfigs/titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: pdfconfigs/tocpage.html
+      output: pdf
+      type: frontmatter
+    
+    - title: Introduction
+      url: introduction.html
+      output: web, pdf
+
+#    - title: Supported Platforms
+#      url: platforms.html
+#      output: web, pdf
+
+    - title: Changelog
+      url: changelog.html
+      output: web
+
+    - title: WebGL Demo
+      url: demo.html
+      output: web
+      
+#    - title: 3rd Party Notices
+#      url: ThirdPartyNotices.html
+#      output: web, pdf
+
+  - title: Getting Started
+    output: web, pdf
+    folderitems:    
+        - title: Client Setup
+          output: web, pdf
+          url: getting_started/client_setup.html
+          
+        - title: Publish
+          output: web, pdf
+          url: getting_started/publish.html
+    
+        - title: Subscribe
+          output: web, pdf
+          url: getting_started/subscribe.html
+    
+        - title: Topic Names & Filters
+          output: web, pdf
+          url: getting_started/topic_filters.html
+          
+        - title: QoS Levels
+          output: web, pdf
+          url: getting_started/qos.html
+          
+        - title: Last-Wills
+          output: web, pdf
+          url: getting_started/last_will.html
+          
+        - title: Sessions
+          output: web, pdf
+          url: getting_started/sessions.html
+          
+        - title: Optimization Tips & Tricks
+          output: web, pdf
+          url: getting_started/optimization_tips_tricks.html
+    
+  - title: Reference
+    output: web, pdf
+    
+    folderitems:
+      - title: MQTTClient
+        output: web, pdf
+        url: reference_guide/mqttclient.html
