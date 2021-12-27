@@ -33,7 +33,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "2.5.3 (2021-10-18)", url: "#_top", children: [
+          {title: "2.5.4 (2021-12-27)", url: "#_top", children: [
+          ]},
+          {title: "2.5.3 (2021-10-18)", url: "#253-2021-10-18", children: [
           ]},
           {title: "2.5.2 (2021-08-02)", url: "#252-2021-08-02", children: [
           ]},
@@ -117,7 +119,36 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h2 id="253-2021-10-18">2.5.3 (2021-10-18)</h2>
+    <h2 id="254-2021-12-27">2.5.4 (2021-12-27)</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Call ResetSetups only when run in the editor</li>
+<li>[<span style="color:red">Bugfix</span>] [<a href="https://github.com/Benedicht/BestHTTP-Issues/issues/77">ISSUE-77</a>] Potential managed memory leak with HTTP2Stream disposal</li>
+<li>[<span style="color:red">Bugfix</span>] <code>ThreadedLogger</code>: Empty cached StringBuilder on thread exit</li>
+<li>[<span style="color:blue">Improvement</span>] Improved compatibility with High Managed Stripping Level</li>
+<li>[<span style="color:blue">Improvement</span>] Added a new log entry when a new request event is added to the event queue</li>
+<li>[<span style="color:blue">Improvement</span>] Removed per-field content-length header from the multipart/form-data implementations</li>
+</ul>
+<p><strong>TLS</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Updated BouncyCastle to the latest version</li>
+</ul>
+<p><strong>SocketIO 3+</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed client acknowledgment sending</li>
+</ul>
+<p><strong>SignalR Core</strong></p>
+<ul>
+<li>[<span style="color:blue">Improvement</span>] Send and invoke functions are now thread safe</li>
+<li>[<span style="color:blue">Improvement</span>] Subscribing to a server-sent event now throws and exception if the connection's state is equal or larger than CloseInitiated</li>
+</ul>
+<p><strong>Examples</strong></p>
+<ul>
+<li>[<span style="color:red">Bugfix</span>] Fixed BufferPoolMemoryStream usage in MultipartFormDataStream</li>
+<li>[<span style="color:red">Bugfix</span>] Change root sample url</li>
+<li>[<span style="color:blue">Improvement</span>] Changed the WebSocket demo's url to a working one</li>
+</ul>
+<h2 id="253-2021-10-18">2.5.3 (2021-10-18)</h2>
 <p><strong>General</strong></p>
 <ul>
 <li>[<span style="color:red">Bugfix</span>] Fixed race condition in the timing api that could result in an exception</li>
@@ -507,7 +538,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <p><strong>Examples</strong></p>
 <ul>
-<li>[<span style="color:green">New Feature</span>] New MultipartFormDataStream implementation to send streams as multiform/form-data encoded.</li>
+<li>[<span style="color:green">New Feature</span>] New MultipartFormDataStream implementation to send streams as multipart/form-data encoded.</li>
 </ul>
 <h2 id="204-2020-02-11">2.0.4 (2020-02-11)</h2>
 <p><strong>General</strong></p>
