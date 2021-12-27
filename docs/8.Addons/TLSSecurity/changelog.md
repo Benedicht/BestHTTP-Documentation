@@ -4,7 +4,7 @@
 
 **General**
 
-- [<span style="color:red">Bugfix</span>] ResetSetup()
+- [<span style="color:red">Bugfix</span>] Call ResetSetup() only in the editor
 - [<span style="color:red">Bugfix</span>] Fixed bug in AVL tree implementation where RemoveNode not set the new root node's Parent
 - [<span style="color:blue">Improvement</span>] Updated to recent trusted root and intermediate certificates.
 
