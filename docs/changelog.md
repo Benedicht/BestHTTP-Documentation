@@ -1,3 +1,33 @@
+## 2.5.4 (2021-12-27)
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] Call ResetSetups only when run in the editor
+- [<span style="color:red">Bugfix</span>] [[ISSUE-77](https://github.com/Benedicht/BestHTTP-Issues/issues/77)] Potential managed memory leak with HTTP2Stream disposal
+- [<span style="color:red">Bugfix</span>] `ThreadedLogger`: Empty cached StringBuilder on thread exit
+- [<span style="color:blue">Improvement</span>] Improved compatibility with High Managed Stripping Level
+- [<span style="color:blue">Improvement</span>] Added a new log entry when a new request event is added to the event queue
+- [<span style="color:blue">Improvement</span>] Removed per-field content-length header from the multipart/form-data implementations
+
+**TLS**
+
+- [<span style="color:blue">Improvement</span>] Updated BouncyCastle to the latest version
+
+**SocketIO 3+**
+
+- [<span style="color:red">Bugfix</span>] Fixed client acknowledgment sending
+
+**SignalR Core**
+
+- [<span style="color:blue">Improvement</span>] Send and invoke functions are now thread safe
+- [<span style="color:blue">Improvement</span>] Subscribing to a server-sent event now throws and exception if the connection's state is equal or larger than CloseInitiated
+
+**Examples**
+
+- [<span style="color:red">Bugfix</span>] Fixed BufferPoolMemoryStream usage in MultipartFormDataStream
+- [<span style="color:red">Bugfix</span>] Change root sample url
+- [<span style="color:blue">Improvement</span>] Changed the WebSocket demo's url to a working one
+
 ## 2.5.3 (2021-10-18)
 
 **General**
@@ -403,7 +433,7 @@
 
 **Examples**
 
-- [<span style="color:green">New Feature</span>] New MultipartFormDataStream implementation to send streams as multiform/form-data encoded.
+- [<span style="color:green">New Feature</span>] New MultipartFormDataStream implementation to send streams as multipart/form-data encoded.
 
 ## 2.0.4 (2020-02-11)
 
