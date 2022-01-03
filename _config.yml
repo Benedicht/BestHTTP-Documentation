@@ -1,8 +1,8 @@
 permalink: /:path/:basename:output_ext
 
-baseurl: /BestProductsDoc
+baseurl: /BestHTTP-Documentation
 
-repository: Benedicht/BestProductsDoc
+repository: Benedicht/BestHTTP-Documentation
 
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
