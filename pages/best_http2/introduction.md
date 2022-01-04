@@ -15,7 +15,7 @@ For HTTP requests, the [Getting Started Quickly](protocols/http/GettingStarted.m
 
 ## Online resources
 
-1. A [WebGL demo page](https://besthttpwebgldemo.azurewebsites.net) is available to demonstrate a few capabilities of the plugin. Both the samples and server has its own git repo:
+1. A [WebGL demo page](demo.html) is available to demonstrate a few capabilities of the plugin. Both the samples and server has its own git repo:
 	2. [Samples repository](https://github.com/Benedicht/BestHTTP_Examples). All samples are in the plugin's package too.
 	3. [Server repository](https://github.com/Benedicht/BestHTTP_DemoSite)
 2. This document is a quick guide, not all functions and properties can be found here, but suggestions, bugreports and pull-requests are always welcome on the documentation's own [github repo](https://github.com/Benedicht/BestHTTP-Documentation).

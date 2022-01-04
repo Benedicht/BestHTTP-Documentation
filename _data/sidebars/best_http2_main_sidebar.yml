@@ -12,6 +12,10 @@ entries:
         url: introduction.html
         output: web
 
+      - title: WebGL Demo
+        output: web
+        url: demo.html
+        
       - title: Platforms
         url: platforms.html
         output: web
@@ -27,10 +31,6 @@ entries:
       - title: Upgrade Guide
         url: UpgradeGuide.html
         output: web
-        
-      - title: WebGL Demo
-        output: web
-        url: demo.html
         
   - title: Protocols
     output: web

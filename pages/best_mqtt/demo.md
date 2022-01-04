@@ -3,8 +3,6 @@ title: WebGL Demo
 sidebar: best_mqtt_sidebar
 ---
 
-All source code is included in the package!
-
 <link rel="stylesheet" type="text/css" href="{{demo_folder}}{{ "demo/TemplateData/style.css" }}">
 <link rel="stylesheet" type="text/css" href="{{demo_folder}}{{ "demo/TemplateData/main.css"}}">
 
