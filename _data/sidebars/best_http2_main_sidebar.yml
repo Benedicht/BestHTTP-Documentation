@@ -28,9 +28,9 @@ entries:
         url: UpgradeGuide.html
         output: web
         
-#      - title: WebGL Demo
-#        output: web
-#        url: demo.html
+      - title: WebGL Demo
+        output: web
+        url: demo.html
         
   - title: Protocols
     output: web

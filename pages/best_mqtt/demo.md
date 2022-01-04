@@ -27,11 +27,11 @@ All source code is included in the package!
 	
 <script>
   var buildUrl = "{{ "/pages/best_mqtt/demo/Build" | relative_url }}";
-  var loaderUrl = buildUrl + "/Demo.loader.js";
+  var loaderUrl = buildUrl + "/demo.loader.js";
   var config = {
-	dataUrl: buildUrl + "/Demo.data.unityweb",
-	frameworkUrl: buildUrl + "/Demo.framework.js.unityweb",
-	codeUrl: buildUrl + "/Demo.wasm.unityweb",
+	dataUrl: buildUrl + "/demo.data.unityweb",
+	frameworkUrl: buildUrl + "/demo.framework.js.unityweb",
+	codeUrl: buildUrl + "/demo.wasm.unityweb",
 	streamingAssetsUrl: "StreamingAssets",
 	companyName: "Best MQTT",
 	productName: "Best MQTT WebGL Demo",
