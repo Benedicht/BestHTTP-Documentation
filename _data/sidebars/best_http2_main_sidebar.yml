@@ -36,7 +36,7 @@ entries:
     output: web
     folderitems:
        
-      - title: Socket.IO
+      - title: Socket.IO for v3 and v4
         output: web
         url: protocols/socketio/socketio.html
 
@@ -161,6 +161,45 @@ entries:
                 - title: Automatic Reconnection
                   output: web
                   url: protocols/signalr_core/IRetryPolicy.html
+        
+          - title: Socket.IO for v2
+            output: web
+            subfolderitems:
+                - title: Introduction
+                  output: web
+                  url: protocols/socketio_2/introduction.html
+                  
+                - title: Namespaces
+                  output: web
+                  url: protocols/socketio_2/namespaces.html
+                  
+                - title: Receiving Events
+                  output: web
+                  url: protocols/socketio_2/receiving_events.html
+                  
+                - title: Sending Events
+                  output: web
+                  url: protocols/socketio_2/sending_events.html
+
+                - title: Default Encoder
+                  output: web
+                  url: protocols/socketio_2/default_encoder.html
+                  
+                - title: Custom Encoder
+                  output: web
+                  url: protocols/socketio_2/custom_encoder.html
+
+                - title: Auto Decode Payload
+                  output: web
+                  url: protocols/socketio_2/auto_decode_payload.html
+
+                - title: Error Handling
+                  output: web
+                  url: protocols/socketio_2/error_handling.html
+                  
+                - title: Options
+                  output: web
+                  url: protocols/socketio_2/options.html
         
   - title: Global Topics
     output: web
