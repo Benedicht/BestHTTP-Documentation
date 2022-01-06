@@ -59,6 +59,19 @@ With HTTP/2 only one connection will be open so we can can keep it open longer a
 HTTPManager.HTTP2Settings.MaxIdleTime = TimeSpan.FromSeconds(30);
 ```
 
+## PingFrequency
+Minimum time between two ping messages.
+```csharp
+HTTPManager.HTTP2Settings.PingFrequency = TimeSpan.FromSeconds(30);
+```
+
+## Timeout
+Timeout to receive a ping acknowledgement from the server. If no ack reveived in this time the connection will be treated as broken.
+
+```csharp
+HTTPManager.HTTP2Settings.Timeout = TimeSpan.FromSeconds(5);
+```
+
 # WebSocket Over HTTP/2 Settings
 
 Through these options the WebSocket Over HTTP/2 implementation can be customized.
