@@ -113,3 +113,38 @@ a.sidebarTitle {
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
     background-color: #E50E51;
 }
+
+@media screen and (prefers-color-scheme: dark){
+	.highlight {
+		/* background: #4a3e3e; */
+		background: #000000;
+		color: #c1c1c1;
+	}
+
+	.highlight .nn { color: #04ff00 } /* Name.Namespace */
+
+	div#toc ul {
+		background-color: black;
+	}
+	
+	.nav ul li a {
+		color: white;
+		background-color: black;
+	}
+	
+	.nav li a:hover {
+		color: white;
+		background-color: grey;
+	}
+	
+	.nav li a {
+		color: white;
+		background-color: black;
+	}
+
+	body {
+		/* background: #4a3e3e; */
+		background: #000000;
+		color: #c1c1c1;
+	}
+}
