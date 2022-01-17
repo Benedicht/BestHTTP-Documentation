@@ -37,7 +37,7 @@ new HTTPRequest(new Uri("https://google.com"), (request, response) => Debug.Log(
 	.Send();
 ```
 
-{% include note.html content="Error handling is omitted for brevity in most of the samples through the documentation, but there's a complete section dedicated to [error handling](AdvancedTopics/ErrorHandling.md)." %}
+{% include note.html content="Error handling is omitted for brevity in most of the samples through the documentation, but there's a complete section dedicated to [error handling](ErrorHandling.html)." %}
 
 ## POST Requests
 The above examples were simple GET requests. If we don’t specify the method, all requests will be GET requests by default. The constructor has another parameter that can be used to specify the method of the request:
@@ -56,7 +56,7 @@ request.RawData =  Encoding.UTF8.GetBytes("Field Value");
 request.Send();
 ```
 
-For additional samples check out the [Small Code-Samples section](AdvancedTopics/SmallCode-Samples.md).
+For additional samples check out the [Small Code-Samples section](SmallCode-Samples.html).
 
 Beside GET and POST you can use the HEAD, PUT, DELETE and PATCH methods as well:
 
@@ -105,8 +105,8 @@ Beside of `DataAsTexture2D` there is a `DataAsText` property too to decode the r
 	
 ## More Examples
 
-More examples and sample code snippets can be found under the [Small Code-Samples](AdvancedTopics/SmallCode-Samples.md) topic, like
+More examples and sample code snippets can be found under the [Small Code-Samples](SmallCode-Samples.html) topic, like
 
-1. [How to send binary data in a Form](AdvancedTopics/SmallCode-Samples.md#upload-a-picture-using-forms)
-2. [How to send JSON data](AdvancedTopics/SmallCode-Samples.md#send-json-data)
-3. [How to access response headers](AdvancedTopics/SmallCode-Samples.md#get-header-values)
+1. [How to send binary data in a Form](SmallCode-Samples.html#upload-a-picture-using-forms)
+2. [How to send JSON data](SmallCode-Samples.html#send-json-data)
+3. [How to access response headers](SmallCode-Samples.html#get-header-values)
