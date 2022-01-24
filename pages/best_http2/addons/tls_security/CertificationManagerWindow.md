@@ -48,26 +48,26 @@ These are the basis of the trust chain, servers doesn't send root certificates t
 	<a href="#root_18"><div class="circle-with-text" style="top:96%;left:38.5%">18</div></a>
 </div>
 
-1.  <p id="root_1">**Reset URL**: Reset the URL input back to its addon supplied url.</p>
-2.  <p id="root_2">**URL Input**: The URL that the addon going to download the certifications. The addon expects CSV formatted data, but the URL can point to a local file using the file:// protocol. The default URLs are pointing to Mozilla repositories.</p>
-3.  <p id="root_3">**Download**: Clicking on this button start the downloading, content parsing and loading process. Downloading the certificates already uses all verification implemented in the addon.</p>
-4.  <p id="root_4">**Clear Before Download**: Check to remove all non-locked and non-user added (if `Keep Custom` is checked) certificates before download.</p>
-5.  <p id="root_5">**Clear**: Remove all non-locked and non-user added (if `Keep Custom` is checked) certificates.</p>
-6.  <p id="root_6">**Keep Custom**: If set Clear buttons doesn't remove user added certificates.</p>
-7.  <p id="root_7">**Add Custom**: Add certificates from .cer, .pem and .p7b files.</p>
-8.  <p id="root_8">**Delete Selected**: Delete selected certificates. Locked certificates can't be deleted!</p>
-9.  <p id="root_9">**Search Input**: It can be used to search certificates by their `Subject` name. Minimum 3 characters needed.</p>
-10. <p id="root_10">**Help (?) Button**: Opens a browser window to this manual.</p>
+1.  <p id="root_1"><b>Reset URL</b>: Reset the URL input back to its addon supplied url.</p>
+2.  <p id="root_2"><b>URL Input</b>: The URL that the addon going to download the certifications. The addon expects CSV formatted data, but the URL can point to a local file using the file:// protocol. The default URLs are pointing to Mozilla repositories.</p>
+3.  <p id="root_3"><b>Download</b>: Clicking on this button start the downloading, content parsing and loading process. Downloading the certificates already uses all verification implemented in the addon.</p>
+4.  <p id="root_4"><b>Clear Before Download</b>: Check to remove all non-locked and non-user added (if `Keep Custom` is checked) certificates before download.</p>
+5.  <p id="root_5"><b>Clear</b>: Remove all non-locked and non-user added (if `Keep Custom` is checked) certificates.</p>
+6.  <p id="root_6"><b>Keep Custom</b>: If set Clear buttons doesn't remove user added certificates.</p>
+7.  <p id="root_7"><b>Add Custom</b>: Add certificates from .cer, .pem and .p7b files.</p>
+8.  <p id="root_8"><b>Delete Selected</b>: Delete selected certificates. Locked certificates can't be deleted!</p>
+9.  <p id="root_9"><b>Search Input</b>: It can be used to search certificates by their `Subject` name. Minimum 3 characters needed.</p>
+10. <p id="root_10"></b>Help (?) Button</b>: Opens a browser window to this manual.</p>
 
-11. <p id="root_11">**# Column**: Index of the certificate.</p>
-12. <p id="root_12">**User Column**: It has a ✔, if it's a user-added certificate.</p>
-13. <p id="root_13">**Lock Column**: It has a ✔, if it's locked and can't be deleted. Currently only certificates needed to update from the default URL are locked.</p>
-14. <p id="root_14">**Subject Column**: Subject field of the certificate.</p>
-15. <p id="root_15">**Issuer Column**: Issuer field of the certificate.</p>
+11. <p id="root_11"><b># Column</b>: Index of the certificate.</p>
+12. <p id="root_12"><b>User Column</b>: It has a ✔, if it's a user-added certificate.</p>
+13. <p id="root_13"><b>Lock Column</b>: It has a ✔, if it's locked and can't be deleted. Currently only certificates needed to update from the default URL are locked.</p>
+14. <p id="root_14"><b>Subject Column</b>: Subject field of the certificate.</p>
+15. <p id="root_15"><b>Issuer Column</b>: Issuer field of the certificate.</p>
 
-16. <p id="root_16">**Certifications**: Number of certifications displayed.</p>
-17. <p id="root_17">**Certificate Size Stats**: Min, max, sum and average size of certificate data in bytes. This can help adjusting cache sizes.</p>
-18. <p id="root_18">**Status**: Status of the last operation.</p>
+16. <p id="root_16"><b>Certifications</b>: Number of certifications displayed.</p>
+17. <p id="root_17"><b>Certificate Size Stats</b>: Min, max, sum and average size of certificate data in bytes. This can help adjusting cache sizes.</p>
+18. <p id="root_18"><b>Status</b>: Status of the last operation.</p>
 
 {% include note.html content="Double clicking on a row or hitting Enter while at least one row is selected dumps out certification information to the console." %}
 
@@ -98,26 +98,26 @@ Because servers can choose to not send intermediate certificates it's a good pra
 	<a href="#intermediate_18"><div class="circle-with-text" style="top:96%;left:38.5%">18</div></a>
 </div>
 
-1.  <p id="intermediate_1">**Reset URL**: Reset the URL input back to its addon supplied url.</p>
-2.  <p id="intermediate_2">**URL Input**: The URL that the addon going to download the certifications. The addon expects CSV formatted data, but the URL can point to a local file using the file:// protocol. The default URLs are pointing to Mozilla repositories.</p>
-3.  <p id="intermediate_3">**Download**: Clicking on this button start the downloading, content parsing and loading process. Downloading the certificates already uses all verification implemented in the addon.</p>
-4.  <p id="intermediate_4">**Clear Before Download**: Check to remove all non-locked and non-user added (if `Keep Custom` is checked) certificates before download.</p>
-5.  <p id="intermediate_5">**Clear**: Remove all non-locked and non-user added (if `Keep Custom` is checked) certificates.</p>
-6.  <p id="intermediate_6">**Keep Custom**: If set Clear buttons doesn't remove user added certificates.</p>
-7.  <p id="intermediate_7">**Add Custom**: Add certificates from .cer, .pem and .p7b files.</p>
-8.  <p id="intermediate_8">**Delete Selected**: Delete selected certificates. Locked certificates can't be deleted!</p>
-9.  <p id="intermediate_9">**Search Input**: It can be used to search certificates by their `Subject` name. Minimum 3 characters needed.</p>
-10. <p id="intermediate_10">**Help (?) Button**: Opens a browser window to this manual.</p>
+1.  <p id="intermediate_1"><b>Reset URL</b>: Reset the URL input back to its addon supplied url.</p>
+2.  <p id="intermediate_2"><b>URL Input</b>: The URL that the addon going to download the certifications. The addon expects CSV formatted data, but the URL can point to a local file using the file:// protocol. The default URLs are pointing to Mozilla repositories.</p>
+3.  <p id="intermediate_3"><b>Download</b>: Clicking on this button start the downloading, content parsing and loading process. Downloading the certificates already uses all verification implemented in the addon.</p>
+4.  <p id="intermediate_4"><b>Clear Before Download</b>: Check to remove all non-locked and non-user added (if `Keep Custom` is checked) certificates before download.</p>
+5.  <p id="intermediate_5"><b>Clear</b>: Remove all non-locked and non-user added (if `Keep Custom` is checked) certificates.</p>
+6.  <p id="intermediate_6"><b>Keep Custom</b>: If set Clear buttons doesn't remove user added certificates.</p>
+7.  <p id="intermediate_7"><b>Add Custom</b>: Add certificates from .cer, .pem and .p7b files.</p>
+8.  <p id="intermediate_8"><b>Delete Selected</b>: Delete selected certificates. Locked certificates can't be deleted!</p>
+9.  <p id="intermediate_9"><b>Search Input</b>: It can be used to search certificates by their `Subject` name. Minimum 3 characters needed.</p>
+10. <p id="intermediate_10"><b>Help (?) Button</b>: Opens a browser window to this manual.</p>
 
-11. <p id="intermediate_11">**# Column**: Index of the certificate.</p>
-12. <p id="intermediate_12">**User Column**: It has a ✔, if it's a user-added certificate.</p>
-13. <p id="intermediate_13">**Lock Column**: It has a ✔, if it's locked and can't be deleted. Currently only certificates needed to update from the default URL are locked.</p>
-14. <p id="intermediate_14">**Subject Column**: Subject field of the certificate.</p>
-15. <p id="intermediate_15">**Issuer Column**: Issuer field of the certificate.</p>
+11. <p id="intermediate_11"><b># Column</b>: Index of the certificate.</p>
+12. <p id="intermediate_12"><b>User Column</b>: It has a ✔, if it's a user-added certificate.</p>
+13. <p id="intermediate_13"><b>Lock Column</b>: It has a ✔, if it's locked and can't be deleted. Currently only certificates needed to update from the default URL are locked.</p>
+14. <p id="intermediate_14"><b>Subject Column</b>: Subject field of the certificate.</p>
+15. <p id="intermediate_15"><b>Issuer Column</b>: Issuer field of the certificate.</p>
 
-16. <p id="intermediate_16">**Certifications**: Number of certifications displayed.</p>
-17. <p id="intermediate_17">**Certificate Size Stats**: Min, max, sum and average size of certificate data in bytes. This can help adjusting cache sizes.</p>
-18. <p id="intermediate_18">**Status**: Status of the last operation.</p>
+16. <p id="intermediate_16"><b>Certifications</b>: Number of certifications displayed.</p>
+17. <p id="intermediate_17"><b>Certificate Size Stats</b>Min, max, sum and average size of certificate data in bytes. This can help adjusting cache sizes.</p>
+18. <p id="intermediate_18"><b>Status</b>: Status of the last operation.</p>
 
 {% include note.html content="Double clicking on a row or hitting Enter while at least one row is selected dumps out certification information to the console." %}
 
@@ -140,15 +140,15 @@ A client certificate can be associated with a domain. If the server asks for a c
 	<a href="#client_8"><div class="circle-with-text" style="top:95%;left:10%">8</div></a>
 </div>
 
-1. <p id="client_1">**Add for domain**: Clicking on it a `Domain and File Selector` window is shown. If the domain is filled and the certification file is selected clicking on the *Ok* button going to add the certification for the domain.</p>
-2. <p id="client_2">**Delete Selected**: Delete selected domain-certificate associations.</p>
-3. <p id="client_3">**Help (?) Button**: Opens a browser window to this manual.</p>
+1. <p id="client_1"><b>Add for domain</b>: Clicking on it a `Domain and File Selector` window is shown. If the domain is filled and the certification file is selected clicking on the *Ok* button going to add the certification for the domain.</p>
+2. <p id="client_2"><b>Delete Selected</b>: Delete selected domain-certificate associations.</p>
+3. <p id="client_3"><b>Help (?) Button</b>: Opens a browser window to this manual.</p>
 
-4. <p id="client_4">**# Column**: Index of the certificate</p>
-5. <p id="client_5">**Target Domain Column**: The certificate sent only if it's requested for the target domain.</p>
-6. <p id="client_6">**Authority Column**: *Common Name* or *Organizational Unit Name* from the certificate's Issuer field.</p>
-7. <p id="client_7">**Certifications**: Number of certifications displayed.</p>
-8. <p id="client_8">**Certificate Size Stats**: Min, max, sum and average size of certificate data in bytes. This can help adjusting cache sizes.</p>
+4. <p id="client_4"><b># Column</b>: Index of the certificate</p>
+5. <p id="client_5"><b>Target Domain Column</b>: The certificate sent only if it's requested for the target domain.</p>
+6. <p id="client_6"><b>Authority Column</b>: *Common Name* or *Organizational Unit Name* from the certificate's Issuer field.</p>
+7. <p id="client_7"><b>Certifications</b>: Number of certifications displayed.</p>
+8. <p id="client_8"><b>Certificate Size Stats</b>: Min, max, sum and average size of certificate data in bytes. This can help adjusting cache sizes.</p>
 
 Clicking on the `Add for domain` button a new window opens to select the certification file and domain:
 
