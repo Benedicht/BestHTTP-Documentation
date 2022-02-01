@@ -3,7 +3,7 @@ title: HTTP/2
 sidebar: best_http2_main_sidebar
 ---
 
-# How it works
+## How it works
 
 BestHTTP implements HTTP/2 over TLS. Using the TLS negotiation and its ALPN extension the plugin let the server know that it's ready to upgrade to the HTTP/2 protocol. 
 If the server has support for HTTP/2 and sends back the proper answer the plugin upgrades the connection and will communicate with the server using the HTTP/2 protocol. Using the TLS' ALPN extension upgrading to HTTP/2 is faster.
@@ -15,7 +15,7 @@ Using HTTP/2 is seemless and requires no prior knowledge whether any target serv
 
 {% include note.html content="With HTTP/2 the `HTTPRequest`'s `IsKeepAlive` setting is ignored." %}
 
-# Latency
+## Latency
 
 Using HTTP/2 Ping frames the client can measure the latency between the server and the client. Setting a lower [PingFrequency](#pingfrequency) rate will help get a more accurate view of the latency with the price of more overhead.
 
