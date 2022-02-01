@@ -3,7 +3,7 @@ title: HTTP/2
 sidebar: best_http2_main_sidebar
 ---
 
-## How it works
+# How it works
 
 BestHTTP implements HTTP/2 over TLS. Using the TLS negotiation and its ALPN extension the plugin let the server know that it's ready to upgrade to the HTTP/2 protocol. 
 If the server has support for HTTP/2 and sends back the proper answer the plugin upgrades the connection and will communicate with the server using the HTTP/2 protocol. Using the TLS' ALPN extension upgrading to HTTP/2 is faster.
@@ -15,62 +15,66 @@ Using HTTP/2 is seemless and requires no prior knowledge whether any target serv
 
 {% include note.html content="With HTTP/2 the `HTTPRequest`'s `IsKeepAlive` setting is ignored." %}
 
-# Settings
+# Latency
 
-As most of the global settings, HTTP/2 settings can be accessed through the `HTTPManager` class:
+Using HTTP/2 Ping frames the client can measure the latency between the server and the client. Setting a lower [PingFrequency](#pingfrequency) rate will help get a more accurate view of the latency with the price of more overhead.
+
+Here's a small example how the Latency property can be acquired from the plugin.
 ```csharp
+using System;
+
 using BestHTTP;
+using BestHTTP.Connections;
+using BestHTTP.Connections.HTTP2;
+using BestHTTP.Core;
 
-HTTPManager.HTTP2Settings.InitialStreamWindowSize = 5 * 1024 * 1024;
+using UnityEngine;
+
+public sealed class PrintHTTP2Latency : MonoBehaviour
+{
+    public string ServerURL;
+
+    private Uri serverUri;
+    private string key = null;
+    private double lastPrintedLatency = 0;
+
+    private void Start()
+    {
+        serverUri = new Uri(ServerURL);
+    }
+
+    private void Update()
+    {
+        // Cache they Server+Proxy unique key. It expects that the global Proxy isn't changing.
+        if (string.IsNullOrEmpty(key))
+            key = HostDefinition.GetKeyFor(serverUri, HTTPManager.Proxy);
+
+        // For the given Server+Proxy combination Find a HTTPConnection that has a HTTP2Handler
+        var httpConnection = HostManager.GetHost(serverUri.Host)
+            .GetHostDefinition(key)
+            .Find(con => con is HTTPConnection http && http.requestHandler is HTTP2Handler) as HTTPConnection;
+
+        // No connection yet
+        if (httpConnection == null)
+            return;
+
+        // Get the HTTP2Handler and print latency. If Latency is zero, no ping ack received from the server yet.
+        if (httpConnection.requestHandler is HTTP2Handler http2handler &&
+            http2handler.Latency > 0 &&
+            lastPrintedLatency != http2handler.Latency)
+        {
+            lastPrintedLatency = http2handler.Latency;
+            print(lastPrintedLatency);
+        }
+    }
+}
 ```
 
-## MaxConcurrentStreams
-Maximum concurrent http2 stream on http2 connection will allow. Its default value is 128;
+You can add this component to a GameObject and set its ServerURL field in the Unity3D Editor:
 
-```csharp
-HTTPManager.HTTP2Settings.MaxConcurrentStreams = 256;
-```
+![ping_printer](media/ping_printer.png)
 
-## InitialStreamWindowSize
-Initial window size of a http2 stream. Its default value is 10 MiB (10 * 1024 * 1024).
-
-```csharp
-HTTPManager.HTTP2Settings.InitialStreamWindowSize = 1 * 1024 * 1024;
-```
-
-## InitialConnectionWindowSize
-Global window size of a http/2 connection. Its default value is the maximum possible value on 31 bits.
-
-```csharp
-HTTPManager.HTTP2Settings.InitialConnectionWindowSize = HTTPManager.HTTP2Settings.MaxConcurrentStreams * 1024 * 1024;
-```
-
-## MaxFrameSize
-Maximum payload size of a http2 frame. Its default value is 16384. It must be between 16_384 and 16_777_215.
-
-```csharp
-HTTPManager.HTTP2Settings.MaxFrameSize = 1 * 1024 * 1024;
-```
-
-## MaxIdleTime
-With HTTP/2 only one connection will be open so we can can keep it open longer as we hope it will be resued more. Its default value is 120 seconds.
-
-```csharp
-HTTPManager.HTTP2Settings.MaxIdleTime = TimeSpan.FromSeconds(30);
-```
-
-## PingFrequency
-Minimum time between two ping messages.
-```csharp
-HTTPManager.HTTP2Settings.PingFrequency = TimeSpan.FromSeconds(30);
-```
-
-## Timeout
-Timeout to receive a ping acknowledgement from the server. If no ack reveived in this time the connection will be treated as broken.
-
-```csharp
-HTTPManager.HTTP2Settings.Timeout = TimeSpan.FromSeconds(5);
-```
+{% include note.html content="Latency is 0 until at least the first ping response received from the server." %}
 
 # WebSocket Over HTTP/2 Settings
 
@@ -88,4 +92,61 @@ Set it to disable fallback logic from the Websocket Over HTTP/2 implementation t
 
 ```csharp
 HTTPManager.HTTP2Settings.WebSocketOverHTTP2Settings.EnableImplementationFallback = false;
+```
+
+## Settings
+
+As most of the global settings, HTTP/2 settings can be accessed through the `HTTPManager` class:
+```csharp
+using BestHTTP;
+
+HTTPManager.HTTP2Settings.InitialStreamWindowSize = 5 * 1024 * 1024;
+```
+
+### MaxConcurrentStreams
+Maximum concurrent http2 stream on http2 connection will allow. Its default value is 128;
+
+```csharp
+HTTPManager.HTTP2Settings.MaxConcurrentStreams = 256;
+```
+
+### InitialStreamWindowSize
+Initial window size of a http2 stream. Its default value is 10 MiB (10 * 1024 * 1024).
+
+```csharp
+HTTPManager.HTTP2Settings.InitialStreamWindowSize = 1 * 1024 * 1024;
+```
+
+### InitialConnectionWindowSize
+Global window size of a http/2 connection. Its default value is the maximum possible value on 31 bits.
+
+```csharp
+HTTPManager.HTTP2Settings.InitialConnectionWindowSize = HTTPManager.HTTP2Settings.MaxConcurrentStreams * 1024 * 1024;
+```
+
+### MaxFrameSize
+Maximum payload size of a http2 frame. Its default value is 16384. It must be between 16_384 and 16_777_215.
+
+```csharp
+HTTPManager.HTTP2Settings.MaxFrameSize = 1 * 1024 * 1024;
+```
+
+### MaxIdleTime
+With HTTP/2 only one connection will be open so we can can keep it open longer as we hope it will be resued more. Its default value is 120 seconds.
+
+```csharp
+HTTPManager.HTTP2Settings.MaxIdleTime = TimeSpan.FromSeconds(30);
+```
+
+### PingFrequency
+Minimum time between two ping messages.
+```csharp
+HTTPManager.HTTP2Settings.PingFrequency = TimeSpan.FromSeconds(3);
+```
+
+### Timeout
+Timeout to receive a ping acknowledgement from the server. If no ack reveived in this time the connection will be treated as broken.
+
+```csharp
+HTTPManager.HTTP2Settings.Timeout = TimeSpan.FromSeconds(5);
 ```
