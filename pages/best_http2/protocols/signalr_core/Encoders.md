@@ -35,7 +35,31 @@ hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new Json
 
 The `JsonDotNetEncoder` and the `LitJsonEncoder` classes can be found in the `Best HTTP\Examples\SignalRCore\Encoders\` folder.
 
-## MessagePack
+## MessagePack-CSharp
+
+The official SignalR Core server implementation uses [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp) to serialize/deserialize message on the server side. To support 
+
+Steps to enable and useMessagePack-CSharp:
+
+1. Follow the [instructions](https://github.com/neuecc/MessagePack-CSharp#unity) to install MessagePack-CSharp
+2. Locate the BestHTTP.asmdef file under the *Best HTTP* folder
+3. Add MessagePack.asmdef (located in Scripts\MessagePack\) to the list of Assembly Definition References and press Apply:
+
+	![MessagePack-CSharp_AssemblyDefinition](media/MessagePack-CSharp_AssemblyDefinition.png)
+
+4. Add the **BESTHTTP_SIGNALR_CORE_ENABLE_GAMEDEVWARE_MESSAGEPACK** symbol to the [Scripting Define Symbols](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html) input under **PlayerSettings/Other Settings** and press Apply:
+
+	![MessagePack-CSharp_ScriptingDefineSymbols](media/MessagePack-CSharp_ScriptingDefineSymbols.png)
+	
+5. The `MessagePackCSharpProtocol` class is no available, it can be used to create a new HubConnection object:
+
+```csharp
+hub = new HubConnection(new Uri("https://server/hub"), new MessagePackCSharpProtocol());
+```
+
+{% include warning.html content="Carefully read through the [Unity Support](https://github.com/neuecc/MessagePack-CSharp#unity-support) and [AOT Code Generation](https://github.com/neuecc/MessagePack-CSharp#aot-code-generation-support-for-unityxamarin) topics to be able to properly set up MessagePack-CSharp!" %}
+
+## GameDevWare MessagePack
 
 By default the server has support for the JSon encoding but by [adding new packages and a few lines of code](https://docs.microsoft.com/en-us/aspnet/core/signalr/messagepackhubprotocol?view=aspnetcore-3.1) the MessagePack encoding can be enabled too.
 
