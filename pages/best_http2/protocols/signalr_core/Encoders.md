@@ -47,7 +47,7 @@ Steps to enable and useMessagePack-CSharp:
 
 	![MessagePack-CSharp_AssemblyDefinition](media/MessagePack-CSharp_AssemblyDefinition.png)
 
-4. Add the **BESTHTTP_SIGNALR_CORE_ENABLE_GAMEDEVWARE_MESSAGEPACK** symbol to the [Scripting Define Symbols](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html) input under **PlayerSettings/Other Settings** and press Apply:
+4. Add the **BESTHTTP_SIGNALR_CORE_ENABLE_MESSAGEPACK_CSHARP** symbol to the [Scripting Define Symbols](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html) input under **PlayerSettings/Other Settings** and press Apply:
 
 	![MessagePack-CSharp_ScriptingDefineSymbols](media/MessagePack-CSharp_ScriptingDefineSymbols.png)
 	
