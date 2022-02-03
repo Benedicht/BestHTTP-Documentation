@@ -64,27 +64,6 @@ request.Send();
 request.Abort();
 ```
 
-## Verify hostnames in HTTPS
-
-```csharp
-public sealed class HostNameVerifier : Org.BouncyCastle.Crypto.Tls.ICertificateVerifyer
-{
-    public bool IsValid(Uri targetUri, SecureProtocol.Org.BouncyCastle.Asn1.X509.X509CertificateStructure[] certs)
-    {
-        foreach (var cert in certs)
-        {
-            var values = cert.Subject.GetValueList();
-            if (values.Contains(targetUri.Host))
-                return true;
-        }
- 
-        return false;
-    }
-}
-
-HTTPManager.DefaultCertificateVerifyer = new HostNameVerifier();
-```
-
 ## Get header values
 
 ```csharp

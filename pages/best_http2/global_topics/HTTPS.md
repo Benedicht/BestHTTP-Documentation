@@ -5,7 +5,7 @@ sidebar: best_http2_main_sidebar
 
 ## HTTPS
 
-To support modern TLS/SSL version on as much platforms as the plugin just can, it comes bundled with [Bouncy Castle](https://github.com/bcgit/bc-csharp/). Bouncy Castle is the default TLS/SSL provider, and while it's a good replacement in general, sometime it can fail too for newer algorithms. Because of this, its usage can be disabled and the default `SslStream` implementation will be used instead.
+To support modern TLS versions on as much platforms as the plugin just can, it comes bundled with [Bouncy Castle](https://github.com/bcgit/bc-csharp/). Bouncy Castle is the default TLS provider of the plugin and while it's a good replacement in general, sometime it can fail too for newer algorithms. Because of this, its usage can be disabled and the default `SslStream` implementation will be used instead.
 
 To disable the use of Bouncy Castle globally, the following line can be added somewhere in a startup code:
 
@@ -13,38 +13,70 @@ To disable the use of Bouncy Castle globally, the following line can be added so
 BestHTTP.HTTPManager.UseAlternateSSLDefaultValue = false;
 ```
 
-`HTTPRequest` also has an `UseAlternateSSL` property, but because of connection pooling, the first request's value determines what TLS/SSL handler will be used. 
+{% include note.html content="[HTTP/2](HTTP2.md) works only when Bouncy Castle is in use, because it depends on TLS' `ALPN` feature" %}
 
+## Server Certication Verification
 
-{% include note.html content="[HTTP/2](HTTP2.md) (because it depends on TLS' `ALPN` feature) and `Server Name Indication` works only with Bouncy Castle." %}
-	
-Other HTTPS related topcis are [Server Certificate Validation](../protocols/http/ServerCertificateValidation.md) and [Hostname verification](../protocols/http/SmallCode-Samples.md#verify-hostnames-in-https).
+The plugin by default doesn't do any certication verification, accepts all -including self signed- certificates. To add a global verifier the default TLS client implementation can used as a base class:
+
+```csharp
+using BestHTTP.SecureProtocol.Org.BouncyCastle.Tls;
+
+public sealed class CustomTlsClient : BestHTTP.Connections.TLS.DefaultTls13Client
+{
+    public CustomTlsClient(Uri uri, List<ServerName> sniServerNames, List<ProtocolName> protocols) : base(uri, sniServerNames, protocols)
+    {
+    }
+
+    public override void NotifyServerCertificate(TlsServerCertificate serverCertificate)
+    {
+        // TODO: Verify the server sent certificate(s). Throw exceptions when invalid.
+    }
+}
+```
+
+And must be used in a TLS client factory:
+```csharp
+HTTPManager.TlsClientFactory = (HTTPRequest request, List<ProtocolName> protocols) =>
+{
+    List<ServerName> hostNames = null;
+
+    // If there's no user defined one and the host isn't an IP address, add the default one
+    if (!request.CurrentUri.IsHostIsAnIPAddress())
+    {
+        hostNames = new List<ServerName>(1);
+        hostNames.Add(new ServerName(0, System.Text.Encoding.UTF8.GetBytes(request.CurrentUri.Host)));
+    }
+
+    return new CustomTlsClient(request.CurrentUri, hostNames, protocols);
+};
+```
+
+This implementation is the same as the one that the plugin uses by default: accepts all certificates. I would recommend to use the [TLS Security Addon](https://assetstore.unity.com/packages/tools/network/best-http-2-tls-security-addon-184441?aid=1101lfX8E) for a full-fledged solution.
+
+## Client Certications
+
+Similarly to the server certication verification, the `GetClientCredentials` function can be overridden in the custom tls client to load and return with the client's certication:
+
+```csharp
+public sealed class CustomTlsClient : BestHTTP.Connections.TLS.DefaultTls13Client
+{
+    public CustomTlsClient(Uri uri, List<ServerName> sniServerNames, List<ProtocolName> protocols) : base(uri, sniServerNames, protocols)
+    {
+    }
+
+    public override TlsCredentials GetClientCredentials(CertificateRequest certificateRequest)
+    {
+        // TODO: find and return with a client certificate. base._uri contains the original uri the plugin trying to connect to.
+        return null;
+    }
+}
+```
+
+To manage client certificates, i would recommend to use the [TLS Security Addon](https://assetstore.unity.com/packages/tools/network/best-http-2-tls-security-addon-184441?aid=1101lfX8E) for a full-fledged solution.
 
 ## How to debug HTTPS requests
 
 The plugin doesn't verify server certificate so it's easy to set up a proxy and route the intersting requests through it. [Charles Proxy](https://www.charlesproxy.com) is one of the easiest proxy to set up and use.
 
 The plugin also supports the [NSS Key Log Format](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format). In the editor when the *SSLKEYLOGFILE* environment variable is present, the plugin will write the *client random* of the SSL session to the file. 3rd party programs like [Wireshark](https://wiki.wireshark.org/TLS) can use this file to decrypt packets sent by the plugin.
-
-## Certication Verification
-
-The plugin by default doesn't do any certication verification, accepts all -including self signed- certificates. To add a global verifier `HTTPManager.DefaultCertificateVerifyer` can be used:
-
-```csharp
-using System;
-using BestHTTP.SecureProtocol.Org.BouncyCastle.Crypto.Tls;
-using BestHTTP.SecureProtocol.Org.BouncyCastle.Asn1.X509;
-
-class CustomVerifier : ICertificateVerifyer
-{
-    public bool IsValid(Uri serverUri, X509CertificateStructure[] certs)
-    {
-        // TODO: Return false, if validation fails
-        return true;
-    }
-}
-
-HTTPManager.DefaultCertificateVerifyer = new CustomVerifier();
-```
-
-This implementation is the same as the one that the plugin uses by default: returns true for all https connection.

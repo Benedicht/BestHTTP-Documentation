@@ -107,11 +107,7 @@ entries:
                 - title: Request States
                   output: web
                   url: protocols/http/RequestStates.html
-                  
-                - title: Server Certifcate Validation
-                  output: web
-                  url: protocols/http/ServerCertificateValidation.html
-                  
+                                    
                 - title: Small Code Samples
                   output: web
                   url: protocols/http/SmallCode-Samples.html

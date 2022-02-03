@@ -3,6 +3,29 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.6.0 (TBR)
+
+This release contains breaking changes, check out the [Upgrade Guide](UpgradeGuide.html#upgrade-from-2x-to-26) for help.
+
+**TLS**
+
+- [<span style="color:green">New Feature</span>] Added support for **TLS 1.3**, the supported minimum TLS version is now **TLS 1.2**
+- [<span style="color:green">New Feature</span>] Added Server-initiated TLS renegotiation
+- [<span style="color:green">New Feature</span>] Before choosing a free connection from the pool, the connection going to be tested. If the server sent a TLS alert notify of closing the connection, the plugin also closes the pooled connection and not going to try to use it.
+- [<span style="color:blue">Improvement</span>] Removed TLS related functions and properties from the HTTPRequest
+
+**General**
+
+- [<span style="color:blue">Improvement</span>] `HTTPRequest`'s `OnHeadersReceived` now receives the headers as its parameter. This way regular and trailing headers can be distinguish.
+
+**HTTP/2**
+
+- [<span style="color:green">New Feature</span>] `HTTP2PluginSettings` has a new `Timeout` field: the time to wait for a pong answer from the server before treating the connection as broken.
+- [<span style="color:blue">Improvement</span>] When the `HTTPRequest`'s `IsKeepAlive` is set to false, the plugin not going to try to negotiate a HTTP/2 connection as it would kept alive no matter what's the value of the initiator `HTTPRequest`'s `IsKeepAlive`.
+- [<span style="color:blue">Improvement</span>] Lowered `HTTP2PluginSettings.PingFrequency` to send out ping requests more frequently.
+- [<span style="color:red">Bugfix</span>] Don't send 'proxy-' headers with the request
+- [<span style="color:red">Bugfix</span>] [[ISSUE-85](https://github.com/Benedicht/BestHTTP-Issues/issues/85)] HPACK encoder's DecodeString didn't handled the case where the string length is 0
+
 ## 2.5.4 (2021-12-27)
 
 **General**
