@@ -17,6 +17,11 @@ This release contains breaking changes, check out the [Upgrade Guide](UpgradeGui
 **General**
 
 - [<span style="color:blue">Improvement</span>] `HTTPRequest`'s `OnHeadersReceived` now receives the headers as its parameter. This way regular and trailing headers can be distinguish.
+- [<span style="color:blue">Improvement</span>] Added logging with context to Connection, Protocol and Plugin events.
+
+**HTTP/1**
+
+- [<span style="color:red">Bugfix</span>] Fixed case where redirecting and closing the connection resulted in only redirecting the request but the connection stayed open.
 
 **HTTP/2**
 
