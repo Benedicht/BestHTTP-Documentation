@@ -29,13 +29,13 @@ using BestHTTP.SecureProtocol.Org.BouncyCastle.Tls;
 
 public sealed class CustomTlsClient : BestHTTP.Connections.TLS.DefaultTls13Client
 {
-    public CustomTlsClient(Uri uri, List<ServerName> sniServerNames, List<ProtocolName> protocols) : base(uri, sniServerNames, protocols)
+    public CustomTlsClient(HTTPRequest request, List<ServerName> sniServerNames, List<ProtocolName> protocols) : base(request, sniServerNames, protocols)
     {
     }
 
     public override TlsCredentials GetClientCredentials(CertificateRequest certificateRequest)
     {
-        // TODO: find and return with a client certificate. base._uri contains the original uri the plugin trying to connect to.
+        // TODO: find and return with a client certificate. base._request contains the original uri the plugin trying to connect to.
         return null;
     }
 
@@ -63,7 +63,7 @@ HTTPManager.TlsClientFactory = (HTTPRequest request, List<ProtocolName> protocol
         hostNames.Add(new ServerName(0, System.Text.Encoding.UTF8.GetBytes(request.CurrentUri.Host)));
     }
 
-    return new CustomTlsClient(request.CurrentUri, hostNames, protocols);
+    return new CustomTlsClient(request, hostNames, protocols);
 };
 ```
 
