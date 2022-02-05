@@ -9,4 +9,4 @@ The new [SignalR Core](https://docs.microsoft.com/en-us/aspnet/core/signalr/intr
 
 The plugin's SignalR Core implements two transports: Long-Polling and WebSockets. First it will try to connect with the prefered transort set in the HubOptions (the default value is the Websockets transport), and when connecting with the transport fails, it will try the next available (Long-Polling).
 
-To continue with SignalR Core read about the [HubConnection](1.HubConnection.md) class.
+To continue with SignalR Core read about the [HubConnection](HubConnection.html) class.

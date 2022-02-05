@@ -29,7 +29,7 @@ Best HTTP/2 is a collection of protocols making them available on all major plat
 <div class="card-group"  style="display: flex;" >
 	{% include card.html img_url="images/signalr.png" 
 							 url="pages/best_http2/protocols/signalr_core/signalr_core.html" 
-							 title="SignalR Core+" 
+							 title="SignalR Core" 
 							 content="Reach your hubs using this high performance real-time protocol." %}
 	
 	{% include card.html img_url="images/sse.png" 
