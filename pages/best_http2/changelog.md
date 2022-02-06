@@ -9,15 +9,20 @@ This release contains breaking changes, check out the [Upgrade Guide](UpgradeGui
 
 **TLS**
 
+- [<span style="color:green">New Feature</span>] Migrated to BouncyCastles's new TLS api
 - [<span style="color:green">New Feature</span>] Added support for **TLS 1.3**, the supported minimum TLS version is now **TLS 1.2**
-- [<span style="color:green">New Feature</span>] Added Server-initiated TLS renegotiation
+- [<span style="color:green">New Feature</span>] Added support for Server-initiated TLS renegotiation
 - [<span style="color:green">New Feature</span>] Before choosing a free connection from the pool, the connection going to be tested. If the server sent a TLS alert notify of closing the connection, the plugin also closes the pooled connection and not going to try to use it.
 - [<span style="color:blue">Improvement</span>] Removed TLS related functions and properties from the HTTPRequest
+- [<span style="color:blue">Improvement</span>] More memory allocation optimizations
+- [<span style="color:blue">Improvement</span>] Removed the now unused crypto/tls folder
 
 **General**
 
 - [<span style="color:blue">Improvement</span>] `HTTPRequest`'s `OnHeadersReceived` now receives the headers as its parameter. This way regular and trailing headers can be distinguish.
 - [<span style="color:blue">Improvement</span>] Added logging with context to Connection, Protocol and Plugin events.
+- [<span style="color:blue">Improvement</span>] When a `HTTPRequest`'s `IsKeepAlive` is set to `false` and a new connection would open, the plugin not going to try to negotiate a HTTP/2 connection as it would be kept open even longer.
+- [<span style="color:blue">Improvement</span>] Removed WebGL specific IO service implementation as it's uses the default one since v2.5.3
 
 **HTTP/1**
 
@@ -31,6 +36,14 @@ This release contains breaking changes, check out the [Upgrade Guide](UpgradeGui
 - [<span style="color:red">Bugfix</span>] Don't send 'proxy-' headers with the request
 - [<span style="color:red">Bugfix</span>] [[ISSUE-85](https://github.com/Benedicht/BestHTTP-Issues/issues/85)] HPACK encoder's DecodeString didn't handled the case where the string length is 0
 
+**SocketIO 3+**
+
+- [<span style="color:blue">Improvement</span>] Improved debug logging of outgoing packets
+
+**SignalR Core**
+
+- [<span style="color:green">New Feature</span>] [[ISSUE-82](https://github.com/Benedicht/BestHTTP-Issues/issues/82)] [Added support](https://benedicht.github.io/BestHTTP-Documentation/pages/best_http2/protocols/signalr_core/Encoders.html#messagepack-csharp) for [neuecc/MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp)
+ 
 ## 2.5.4 (2021-12-27)
 
 **General**
