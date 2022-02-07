@@ -9,6 +9,23 @@ The plugin can connect to the an Azure SignalR Service with its default authenti
 
 {% include warning.html content="When used with Azure Functions Invoke and other client to server messaging can be done through Azure Functions (HTTP requests). See [https://docs.microsoft.com/en-us/azure/azure-signalr/signalr-concept-serverless-development-config#sending-messages-from-a-client-to-the-service](https://docs.microsoft.com/en-us/azure/azure-signalr/signalr-concept-serverless-development-config#sending-messages-from-a-client-to-the-service)" %}
 
+## Azure SignalR Service with Azure Functions
+
+When a /negotiate endpoint is defined in Azure Functions the SignalR client must connect to the Azure Functions service. 
+
+```csharp
+var conn = new HubConnection(new Uri("http://localhost:7071/api/"), new JsonProtocol(new BestHTTP.SignalRCore.Encoders.LitJsonEncoder()));
+        
+conn.On<string>("newMessage", msg =>
+{
+    Debug.Log(msg);
+});
+               
+conn.StartConnect();
+```
+
+When Azure SignalR Service is used with Functions, negotiating the protocol starts by getting the first connection information from Functions that contains both an access token and an url to redirect. The client will use these to connect to the SignalR Service.
+
 ## Azure SignalR Service with Azure Functions Authorization
 
 To send `x-ms-client-principal-id` header for PlayFab and `x-functions-key` for Azure Functions key the default authenticator can be modified to append these headers in `PrepareRequest`:
