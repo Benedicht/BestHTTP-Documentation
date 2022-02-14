@@ -43,6 +43,7 @@ This release contains breaking changes, check out the [Upgrade Guide](UpgradeGui
 **SignalR Core**
 
 - [<span style="color:green">New Feature</span>] [[ISSUE-82](https://github.com/Benedicht/BestHTTP-Issues/issues/82)] [Added support](https://benedicht.github.io/BestHTTP-Documentation/pages/best_http2/protocols/signalr_core/Encoders.html#messagepack-csharp) for [neuecc/MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp)
+- [<span style="color:red">Bugfix</span>] [[ISSUE-85](https://github.com/Benedicht/BestHTTP-Issues/issues/87)] Calling `StartClose` more than twice resulted in a `NullReferenceException`.
  
 ## 2.5.4 (2021-12-27)
 
