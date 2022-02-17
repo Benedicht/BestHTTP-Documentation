@@ -3,7 +3,7 @@ title: Ho to disable features
 sidebar: best_http2_main_sidebar
 ---
 
-There are many defines that can be used to disable various features. These defines can be combined, even all can be set. Disabled features will not compile, so build size can be reduced by disabling unused features. Check the Unity manual how you can set these defines: <http://docs.unity3d.com/Manual/PlatformDependentCompilation.html>
+There are many defines that can be used to disable various features. These defines can be combined, even all can be set. Disabled features will not compile, so build size can be reduced by disabling unused features. Check the Unity manual how you can set these defines: <https://docs.unity3d.com/Manual/CustomScriptingSymbols.html>
 
 ## Available defines
 
