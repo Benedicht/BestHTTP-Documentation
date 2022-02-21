@@ -44,6 +44,11 @@ This release contains breaking changes, check out the [Upgrade Guide](UpgradeGui
 
 - [<span style="color:green">New Feature</span>] [[ISSUE-82](https://github.com/Benedicht/BestHTTP-Issues/issues/82)] [Added support](https://benedicht.github.io/BestHTTP-Documentation/pages/best_http2/protocols/signalr_core/Encoders.html#messagepack-csharp) for [neuecc/MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp)
 - [<span style="color:red">Bugfix</span>] [[ISSUE-85](https://github.com/Benedicht/BestHTTP-Issues/issues/87)] Calling `StartClose` more than twice resulted in a `NullReferenceException`.
+- [<span style="color:red">Bugfix</span>] [[ISSUE-84](https://github.com/Benedicht/BestHTTP-Issues/issues/84)] Call `Clear` on `triedoutTransports` when reconnecting.
+ 
+**WebSocket**
+
+- [<span style="color:red">Bugfix</span>] [**WebGL**] [[ISSUE-88](https://github.com/Benedicht/BestHTTP-Issues/issues/88) Fixed case where sending textual message containing `null`(`\0`) characters failed because [Emscripten's UTF8ToString](https://emscripten.org/docs/api_reference/preamble.js.html#UTF8ToString) expects a null-terminated string and doesn't include it in the final string.
  
 ## 2.5.4 (2021-12-27)
 
