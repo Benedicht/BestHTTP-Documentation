@@ -329,6 +329,17 @@ var manager = new SocketManager(new Uri("http://localhost:3000"), options);
 - **AutoConnect**: By setting this false, you have to call SocketManager's Open() whenever you decide it's appropriate.
 - **ConnectWith**: The SocketManager will try to connect with the transport set to this property. It can be TransportTypes.Polling or TransportTypes.WebSocket.
 - **HTTPRequestCustomizationCallback**: A callback that called for every `HTTPRequest` the socket.io protocol sends out. It can be used to further customize (add additional headers for example) requests. This callback is called for Websocket upgrade requests too on non-WebGL platforms.
+
+```csharp
+SocketOptions options = new SocketOptions();
+options.HTTPRequestCustomizationCallback = (manager, request) =>
+{
+    request.AddHeader("Authorization", "Bearer <...>");
+};
+
+manager = new SocketManager(new Uri("http://localhost:3000"), options);
+```
+
 - **Auth**: Connecting to a namespace a client can send payload data. When the Auth callback function is set, the plugin going to call it when connecting to a namespace. Its return value going to be serialized by the Parser.
 
 When you create a new SocketOptions object its properties are set to theirs default values.
