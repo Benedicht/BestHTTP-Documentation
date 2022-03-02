@@ -3,6 +3,16 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 1.1.0 (TBR)
+
+**General**
+
+- [<span style="color:green">New Feature</span>] v1.1.0 requires [Best HTTP/2 v2.6.0](https://assetstore.unity.com/packages/tools/network/best-http-2-155981?aid=1101lfX8E) or newer
+- [<span style="color:green">New Feature</span>] Support for TLS 1.3
+- [<span style="color:green">New Feature</span>] Added Server Initiated Renegotiation support
+- [<span style="color:blue">Improvement</span>] Updated root and intermediate certificates
+- [<span style="color:red">Bugfix</span>] Rewrote certificate load in the editor as it's caches old certificates, loading/adding new didn't show up
+
 ## 1.0.1 (2021-10-18)
 
 **General**
