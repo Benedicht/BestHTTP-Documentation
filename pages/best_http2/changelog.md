@@ -3,7 +3,7 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
-## 2.6.0 (TBR)
+## 2.6.0 (2022-03-03)
 
 This release contains breaking changes, check out the [Upgrade Guide](UpgradeGuide.html#upgrade-from-2x-to-26) for help.
 
