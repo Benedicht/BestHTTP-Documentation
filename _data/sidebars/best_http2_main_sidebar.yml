@@ -197,6 +197,29 @@ entries:
                   output: web
                   url: protocols/socketio_2/options.html
         
+          - title: SignalR
+            output: web
+            subfolderitems:
+                - title: Introduction
+                  output: web
+                  url: protocols/signalr/signalr.html
+                  
+                - title: Connection
+                  output: web
+                  url: protocols/signalr/connection.html
+                  
+                - title: General Events
+                  output: web
+                  url: protocols/signalr/general_events.html
+                  
+                - title: Sending Non-Hub Messages
+                  output: web
+                  url: protocols/signalr/sending.html
+                  
+                - title: Hubs
+                  output: web
+                  url: protocols/signalr/hubs.html
+        
   - title: Global Topics
     output: web
     folderitems:
