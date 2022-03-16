@@ -3,6 +3,12 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 1.0.3 (2020-03-16)
+
+**General**
+
+- [<span style="color:green">New Feature</span>] Added support for single upload file through cURL's [--upload-file](https://curl.se/docs/manpage.html#-T) option.
+
 ## 1.0.2 (2021-10-18)
 
 **General**
