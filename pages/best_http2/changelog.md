@@ -3,6 +3,22 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.6.1 (2022-03-17)
+
+**General**
+
+- [<span style="color:blue">Improvement</span>] Lowered the logging severity of `RemoveConnection - Couldn't find connection!` warning string.
+- [<span style="color:red">Bugfix</span>] Fixed compile error when BESTHTTP_DISABLE_ALTERNATE_SSL is used.
+- [<span style="color:red">Bugfix</span>] Fixed compile error when BESTHTTP_DISABLE_COOKIES is used.
+
+**HTTP/2**
+
+- [<span style="color:blue">Improvement</span>] Lowered the logging severity of `Skipping data sending as remote Window is ...` warning string.
+
+**SignalR Core**
+
+- [<span style="color:red">Bugfix</span>] `MessagePackCSharpProtocol` now uses `MessagePackSerializer`'s IL2CPP friendly serialization/deserialization.
+
 ## 2.6.0 (2022-03-03)
 
 This release contains breaking changes, check out the [Upgrade Guide](UpgradeGuide.html#upgrade-from-2x-to-26) for help.
