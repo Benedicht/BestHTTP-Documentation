@@ -71,10 +71,10 @@ entries:
           output: web, pdf
           url: getting_started/optimization_tips_tricks.html
     
-  - title: Reference
-    output: web, pdf
-    
-    folderitems:
-      - title: MQTTClient
-        output: web, pdf
-        url: reference_guide/mqttclient.html
+#  - title: Reference
+#    output: web, pdf
+#    
+#    folderitems:
+#      - title: MQTTClient
+#        output: web, pdf
+#        url: reference_guide/mqttclient.html
