@@ -70,6 +70,20 @@ entries:
         - title: Optimization Tips & Tricks
           output: web, pdf
           url: getting_started/optimization_tips_tricks.html
+          
+  - title: Other Topics
+    output: web, pdf
+    folderitems:
+        - title: Switching Between MQTT Versions
+          output: web, pdf
+          url: other/mqtt_versions.html
+        - title: Authentication
+          output: web, pdf
+          url: other/authentication.html
+          
+        - title: Azure IoT Hub
+          output: web, pdf
+          url: other/azure_iot_hub.html
     
 #  - title: Reference
 #    output: web, pdf

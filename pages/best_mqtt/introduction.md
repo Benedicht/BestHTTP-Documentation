@@ -1,7 +1,7 @@
 ---
 title: Introduction
 sidebar: best_mqtt_sidebar
-summary: Best MQTT is an MQTT v5 protocol implementation that works on all major platforms, including WebGL.
+summary: Best MQTT is an MQTT v3.1.1 & v5 protocol implementation that works on all major platforms, including WebGL.
 ---
 
 ## Introduction
@@ -13,6 +13,10 @@ MQTT is an OASIS standard messaging protocol for the Internet of Things (IoT). I
 ## Supported Platforms
 
 Same platforms are supported as [Best HTTP/2](../best_http2/platforms.html). Under WebGL only the WebSocket transport can be used and certificate based authentication doesn't work.
+
+## Supported MQTT Versions
+
+With the release of Best MQTT v1.1.0 the two newest MQTT protocol versions (MQTT 3.1.1 and 5.0) are supported.
 
 ## Contact, Support
 
