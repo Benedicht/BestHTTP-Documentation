@@ -18,9 +18,7 @@ The plugin, to minimise latency added by logging, uses a new threaded logger. As
 It can be done by setting the logger's LogLevel:
 
 ```csharp
-using BestHTTP;
-
-HTTPManager.Logger.Level = Logger.Loglevels.All;
+BestHTTP.HTTPManager.Logger.Level = BestHTTP.Logger.Loglevels.All;
 ```
 
 Setting the log level to `Loglevels.All` can be handful when you tring to find bugs or want to send over for inspection. Unity log file locations are listed here: [LogFiles](https://docs.unity3d.com/Manual/LogFiles.html).
