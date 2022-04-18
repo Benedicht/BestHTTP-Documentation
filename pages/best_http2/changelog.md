@@ -3,6 +3,23 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.6.2 (2022-04-18)
+
+**TLS**
+
+- [<span style="color:red">Bugfix</span>] SslStream instance not set when HTTPManager.ClientCertificationProvider is null.
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] [WebGL] Fixed tangling with unity's webrequest module
+- [<span style="color:blue">Improvement</span>] [LitJson] Don't try to set a dictionary's property, add it as an element instead.
+- [<span style="color:blue">Improvement</span>] Add logging when connecting to an address.
+- [<span style="color:blue">Improvement</span>] Added warning for cases where the LastProcessedUri of the connectionEvent's Srouce is null.
+
+**SocketIO 3+**
+
+- [<span style="color:blue">Improvement</span>] Set options.ConnectWith to TransportTypes.WebSocket when the uri's scheme starts with wss/ws
+
 ## 2.6.1 (2022-03-17)
 
 **General**
