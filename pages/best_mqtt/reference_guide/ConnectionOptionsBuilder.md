@@ -9,23 +9,23 @@ Builder class to help creating [ConnectionOptions](ConnectionOptions.html) insta
 
 ## Functions
 
-- ### ConnectionOptionsBuilder WithTCP(string host, int port)
+- ### WithTCP(string host, int port)
 
 Set the `host` and `port` properties. It also sets the [ConnectionOptions](ConnectionOptions.html)' `Transport` property to `SupportedTransports.TCP`. Returns with the builder to be able to chain function calls together.
 
-- ### ConnectionOptionsBuilder WithWebSocket(string host, int port)
+- ### WithWebSocket(string host, int port)
 
 Set the `host` and `port` properties. It also sets the [ConnectionOptions](ConnectionOptions.html)' `Transport` property to `SupportedTransports.WebSocket`. Returns with the builder to be able to chain function calls together.
 
-- ### ConnectionOptionsBuilder WithTLS()
+- ### WithTLS()
 
 When used [MQTTClient](MQTTClient.html) going to use TLS to secure the communication. Returns with the builder to be able to chain function calls together.
 
-- ### ConnectionOptionsBuilder WithPath(string path)
+- ### WithPath(string path)
 
 Used by the WebSocket transport to connect to the given path. Returns with the builder to be able to chain function calls together.
 
-- ### ConnectionOptionsBuilder WithProtocolVersion(SupportedProtocolVersions version)
+- ### WithProtocolVersion(SupportedProtocolVersions version)
 
 The protocol version that the plugin has to use to connect with to the server. Returns with the builder to be able to chain function calls together.
 

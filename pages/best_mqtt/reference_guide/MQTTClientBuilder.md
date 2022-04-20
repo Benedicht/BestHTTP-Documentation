@@ -86,41 +86,40 @@ private void OnDisconnectDelegate(MQTTClient client, DisconnectReasonCodes reaso
 }
 ```
 
-```csharp
-public enum DisconnectReasonCodes : byte
-{
-    NormalDisconnection = 0x00,
-    DisconnectWithWillMessage = 0x04,
+Possible reason codes from the broker:
 
-    UnspecifiedError = 0x80,
-    MalformedPacket = 0x81,
-    ProtocolError = 0x82,
-    ImplementationSpecificError = 0x83,
-    NotAuthorized = 0x87,
-    ServerBusy = 0x89,
-    ServerShuttingDown = 0x8B,
-    KeepAliveTimeout = 0x8D,
-    SessionTakenOver = 0x8E,
-    TopicFilterInvalid = 0x8F,
-    TopicNameInvalid = 0x90,
-    ReceiveMaximumExceeded = 0x93,
-    TopicAliasInvalid = 0x94,
-    PacketTooLarge = 0x95,
-    MessageRateTooHigh = 0x96,
-    QuotaExceeded = 0x97,
-    AdministrativeAction = 0x98,
-    PayloadFormatInvalid = 0x99,
-    RetainNotSupported = 0x9A,
-    QoSNotSupported = 0x9B,
-    UseAnotherServer = 0x9C,
-    ServerMoved = 0x9D,
-    SharedSubscriptionsNotSupported = 0x9E,
-    ConnectionRateExceeded = 0x9F,
-    MaximumConnectTime = 0xA0,
-    SubscriptionIdentifiersNotSupported = 0xA1,
-    WildcardSubscriptionsNotSupported = 0xA2,
-}
-```
+Reason Code | Description
+--- | ---
+NormalDisconnection | Close the connection normally. Do not send the [Will Message](../getting_started/last_will.html).
+UnspecifiedError | The connection is closed but the sender either does not wish to reveal the reason, or none of the other Reason Codes apply.
+MalformedPacket | The received packet does not conform to this specification.
+ProtocolError | An unexpected or out of order packet was received.
+ImplementationSpecificError | The packet received is valid but cannot be processed by this implementation.
+NotAuthorized | The request is not authorized.
+ServerBusy | The broker is busy and cannot continue processing requests from this client.
+ServerShuttingDown | The broker is shutting down.
+KeepAliveTimeout | The connection is closed because no packet has been received for 1.5 times the Keepalive time.
+SessionTakenOver | Another connection using the same client ID has connected causing this connection to be closed.
+TopicFilterInvalid | The [Topic Filter](../getting_started/topic_filters.html) is correctly formed, but is not accepted by this broker.
+TopicNameInvalid | The [Topic Name](../getting_started/topic_filters.html) is correctly formed, but is not accepted by this broker.
+ReceiveMaximumExceeded | The broker has received more than [Receive Maximum](packet_builders/ConnectPacketBuilder.html#withreceivemaximumuint16-value) publication for which it has not sent PUBACK or PUBCOMP.
+TopicAliasInvalid | The broker has received a PUBLISH packet containing a [Topic Alias](MQTTClient.html#void-addtopicaliasstring-topicname) which is greater than the [Maximum Topic Alias](messages/ServerConnectAckMessage.html#uint16-topicaliasmaximum) it sent in the [connect acknowledgement](messages/ServerConnectAckMessage.html) packet.
+PacketTooLarge | The packet size is greater than [Maximum Packet Size](messages/ServerConnectAckMessage.html#uint32-maximumpacketsize) for this broker.
+MessageRateTooHigh | The received data rate is too high.
+QuotaExceeded | An implementation or administrative imposed limit has been exceeded.
+AdministrativeAction | The connection is closed due to an administrative action.
+PayloadFormatInvalid | The payload format does not match the one specified by the [Payload Format Indicator](packet_builders/ApplicationMessagePacketBuilder.html#withpayloadformatindicatorpayloadtypes-payloadtype).
+RetainNotSupported | The broker has does not support retained messages.
+QoSNotSupported | The client specified a QoS greater than the QoS specified in a [Maximum QoS in the server connect acknowledgement](messages/ServerConnectAckMessage.html#qoslevels-maximumqos).
+UseAnotherServer | The client should temporarily change its broker.
+ServerMoved | The broker is moved and the client should permanently change its server location.
+SharedSubscriptionsNotSupported | The broker does not support *Shared Subscriptions*.
+ConnectionRateExceeded | This connection is closed because the connection rate is too high.
+MaximumConnectTime | The maximum connection time authorized for this connection has been exceeded.
+SubscriptionIdentifiersNotSupported | The broker does not support *Subscription Identifiers*, hence the subscription is not accepted.
+WildcardSubscriptionsNotSupported | The broker does not support *Wildcard Subscriptions*, hence the subscription is not accepted.
+
+{% include note.html content="" %}
 
 - ### WithEventHandler(OnStateChangedDelegate onStateChanged)
 
@@ -135,12 +134,14 @@ private void OnStateChanged(MQTTClient client, ClientStates oldState, ClientStat
 
 #### Possible states of an `MQTTClient`
 
-1. **Initial**: State right after constructing the MQTTClient.
-2. **TransportConnecting**: The selected transport's connection process started.
-3. **TransportConnected**: Transport successfully connected to the broker.
-4. **Connected**: Connect packet sent and acknowledgement received from the broker.
-5. **Disconnecting**: Disconnect process initiated.
-6. **Disconnected**: Client disconnected from the broker. This could be the result either of a graceful termination or an unexpected error.
+State | Description
+---|---
+Initial | State right after constructing the MQTTClient.
+TransportConnecting | The selected transport's connection process started.
+TransportConnected | Transport successfully connected to the broker.
+Connected | Connect packet sent and acknowledgement received from the broker.
+Disconnecting | Disconnect process initiated.
+Disconnected | Client disconnected from the broker. This could be the result either of a graceful termination or an unexpected error.
 
 - ### CreateClient()
 

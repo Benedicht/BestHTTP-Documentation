@@ -6,7 +6,7 @@ summary: A last will is a regular application message, but the client can set it
 
 ## Creating a Last-Will
 
-A last-will can be created in the [connect packget builder callback](client_setup.html#connecting). The following code creates a last-will that will be published to the "client/last-will" topic 60 seconds after the client gone offline.
+A last-will can be created in the [connect packget builder callback](client_setup.html#connecting) using [ConnectPacketBuilder's WithLastWill](../reference_guide/packet_builders/ConnectPacketBuilder.html#withlastwilllastwillbuilder-lastwillbuilder) and a new [LastWillBuilder](../reference_guide/packet_builders/LastWillBuilder.html). The following code creates a last-will that will be published to the `"client/last-will"` topic 60 seconds after the client gone offline.
 
 ```csharp
 private ConnectPacketBuilder ConnectPacketBuilderCallback(MQTTClient client, ConnectPacketBuilder builder)
