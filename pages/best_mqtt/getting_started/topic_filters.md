@@ -29,7 +29,7 @@ Wildcard characters can be used in topic filters to match one or more levels wit
 A single-level wildcard can be used to match one level and multiple single-level wildcards can be used in one topic filter. 
 
 | Topic Filter | Matching topics | Non-matching topics |
-|-|-|-|
+|---|---:|---:|
 | `+` | `finance` | |
 | `/+` | `/finance` | |
 | `+/+` | `/finance` | |
@@ -44,7 +44,7 @@ A single-level wildcard can be used to match one level and multiple single-level
 A multi-level wildcard (`#`) can be used to match any level in a topic name. `#` matches its parent level and any number of child levels. When `#` is used it must be the last character of the topic filter.
 
 | Topic Filter | Matching topics |
-|-|-|
+|---|---:|
 | `sport/#` | `sport` |
 | `sport/tennis/player1/#` | `sport/tennis/player1` |
 | | `sport/tennis/player1/` |
@@ -56,5 +56,5 @@ A multi-level wildcard (`#`) can be used to match any level in a topic name. `#`
 Single and multi level wildcards can be used in one topic filter:
 
 | Topic Filter | Matching topics |
-|-|-|
+|-|-:|
 | `+/tennis/#` | `sport/tennis/player1/ranking` |

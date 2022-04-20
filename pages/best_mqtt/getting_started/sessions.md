@@ -3,6 +3,8 @@ title: Sessions
 sidebar: best_mqtt_sidebar
 ---
 
+{% include note.html content="By default Best MQTT creates a random client ID on first connection to a broker. Most of the time there's no need to use SessionHelper." %}
+
 To be able to support QoS 1 and 2 both the client and the broker must have a way to store state information. Best MQTT handles session creation and resuming to the last used one automatically. With the help of the `SessionHelper` class it's possible to manage and set sessions manually.
 
 {% include warning.html content="While the server stores the clients' subscriptions, Best MQTT can't recreate the binding between a topic filter and its callback. It's highly advised to always subscribe to topic filters when connected!" %}

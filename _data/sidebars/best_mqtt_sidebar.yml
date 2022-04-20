@@ -85,10 +85,86 @@ entries:
           output: web, pdf
           url: other/azure_iot_hub.html
     
-#  - title: Reference
-#    output: web, pdf
-#    
-#    folderitems:
-#      - title: MQTTClient
-#        output: web, pdf
-#        url: reference_guide/mqttclient.html
+  - title: Class Reference
+    output: web, pdf
+    
+    folderitems:
+      - title: MQTTClient
+        output: web, pdf
+        url: reference_guide/MQTTClient.html
+        
+      - title: MQTTClientBuilder
+        output: web, pdf
+        url: reference_guide/MQTTClientBuilder.html
+
+      - title: ConnectionOptions
+        output: web, pdf
+        url: reference_guide/ConnectionOptions.html
+        
+      - title: ConnectionOptionsBuilder
+        output: web, pdf
+        url: reference_guide/ConnectionOptionsBuilder.html
+        
+      - title: PacketBufferHelper
+        output: web, pdf
+        url: reference_guide/PacketBufferHelper.html
+
+      - title: SessionHelper
+        output: web, pdf
+        url: reference_guide/SessionHelper.html
+        
+      - title: NegotiatedOptions
+        output: web, pdf
+        url: reference_guide/NegotiatedOptions.html
+               
+        subfolders:
+          - title: Messages
+            output: web
+            subfolderitems:
+              - title: ApplicationMessage
+                output: web, pdf
+                url: reference_guide/messages/ApplicationMessage.html
+                
+              - title: ServerConnectAckMessage
+                output: web, pdf
+                url: reference_guide/messages/ServerConnectAckMessage.html
+          
+          - title: Packet Builders
+            output: web            
+            subfolderitems:
+            
+              - title: ApplicationMessagePacketBuilder
+                output: web, pdf
+                url: reference_guide/packet_builders/ApplicationMessagePacketBuilder.html
+               
+              - title: AuthenticationPacketBuilder
+                output: web, pdf
+                url: reference_guide/packet_builders/AuthenticationPacketBuilder.html
+                
+              - title: BulkSubscribePacketBuilder
+                output: web, pdf
+                url: reference_guide/packet_builders/BulkSubscribePacketBuilder.html
+                
+              - title: BulkUnsubscribePacketBuilder
+                output: web, pdf
+                url: reference_guide/packet_builders/BulkUnsubscribePacketBuilder.html
+                
+              - title: ConnectPacketBuilder
+                output: web, pdf
+                url: reference_guide/packet_builders/ConnectPacketBuilder.html
+               
+              - title: DisconnectPacketBuilder
+                output: web, pdf
+                url: reference_guide/packet_builders/DisconnectPacketBuilder.html
+
+              - title: LastWillBuilder
+                output: web, pdf
+                url: reference_guide/packet_builders/LastWillBuilder.html
+                
+              - title: SubscribePacketBuilder
+                output: web, pdf
+                url: reference_guide/packet_builders/SubscribePacketBuilder.html
+                
+              - title: UnsubscribePacketBuilder
+                output: web, pdf
+                url: reference_guide/packet_builders/UnsubscribePacketBuilder.html

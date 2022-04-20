@@ -59,6 +59,7 @@ private void OnAuthenticationCallback(MQTTClient client, AuthenticationMessage m
             string token = "<new token>";
 
             client.CreateAuthenticationPacketBuilder()
+                .WithReasonCode(AuthReasonCodes.ContinueAuthentication)
                 .WithAuthenticationMethod("Bearer")
                 .WithAuthenticationData(System.Text.Encoding.UTF8.GetBytes(token))
                 .BeginAuthenticate();
