@@ -80,3 +80,41 @@ To manage client certificates, i would recommend to use the [TLS Security Addon]
 The plugin doesn't verify server certificate so it's easy to set up a proxy and route the intersting requests through it. [Charles Proxy](https://www.charlesproxy.com) is one of the easiest proxy to set up and use.
 
 The plugin also supports the [NSS Key Log Format](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format). In the editor when the *SSLKEYLOGFILE* environment variable is present, the plugin will write the *client random* of the SSL session to the file. 3rd party programs like [Wireshark](https://wiki.wireshark.org/TLS) can use this file to decrypt packets sent by the plugin.
+
+## How to enable TLS 1.1
+
+v2.6.0 upped the minimum supported TLS version to 1.2, but support for 1.1 still can be enabled the following way:
+
+```csharp
+using BestHTTP;
+using BestHTTP.Extensions;
+using BestHTTP.SecureProtocol.Org.BouncyCastle.Tls;
+
+// Place this line somewhere in your startup code
+HTTPManager.TlsClientFactory = Tls11ClientFactory;
+
+// TLS client factory implementation
+public static BestHTTP.Connections.TLS.AbstractTls13Client Tls11ClientFactory(HTTPRequest request, List<ProtocolName> protocols)
+{
+    List<ServerName> hostNames = null;
+
+    if (!request.CurrentUri.IsHostIsAnIPAddress())
+    {
+        hostNames = new List<ServerName>(1);
+        hostNames.Add(new ServerName(0, System.Text.Encoding.UTF8.GetBytes(request.CurrentUri.Host)));
+    }
+
+    return new SupportForTLS11TlsClient(request, hostNames, protocols);
+}
+
+// Override the default tls client implemetation to add support for Tls v1.1
+class SupportForTLS11TlsClient : BestHTTP.Connections.TLS.DefaultTls13Client
+{
+    public SupportForTLS11TlsClient(HTTPRequest request, List<ServerName> sniServerNames, List<ProtocolName> protocols)
+            : base(request, sniServerNames, protocols)
+    {
+    }
+
+    protected override ProtocolVersion[] GetSupportedVersions() => ProtocolVersion.TLSv13.DownTo(ProtocolVersion.TLSv11);
+}
+```
