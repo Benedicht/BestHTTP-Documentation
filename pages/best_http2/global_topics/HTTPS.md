@@ -90,11 +90,11 @@ using BestHTTP;
 using BestHTTP.Extensions;
 using BestHTTP.SecureProtocol.Org.BouncyCastle.Tls;
 
-// Place this line somewhere in your startup code
+// Place this line somewhere in your startup code to overwrite the default factory method
 HTTPManager.TlsClientFactory = Tls11ClientFactory;
 
 // TLS client factory implementation
-public static BestHTTP.Connections.TLS.AbstractTls13Client Tls11ClientFactory(HTTPRequest request, List<ProtocolName> protocols)
+static BestHTTP.Connections.TLS.AbstractTls13Client Tls11ClientFactory(HTTPRequest request, List<ProtocolName> protocols)
 {
     List<ServerName> hostNames = null;
 
@@ -116,5 +116,44 @@ class SupportForTLS11TlsClient : BestHTTP.Connections.TLS.DefaultTls13Client
     }
 
     protected override ProtocolVersion[] GetSupportedVersions() => ProtocolVersion.TLSv13.DownTo(ProtocolVersion.TLSv11);
+}
+```
+
+## Custom TLS Client
+
+This is almost the same implementation than the previous topic, but the TLS client is implementing the `AbstractTls13Client` abstract class instead to gain slightly more control over configuration.
+
+```csharp
+using BestHTTP;
+using BestHTTP.Connections.TLS;
+using BestHTTP.Extensions;
+using BestHTTP.SecureProtocol.Org.BouncyCastle.Tls;
+using BestHTTP.SecureProtocol.Org.BouncyCastle.Tls.Crypto.Impl.BC;
+using BestHTTP.SecureProtocol.Org.BouncyCastle.Security;
+
+// Place this line somewhere in your startup code to overwrite the default factory method
+HTTPManager.TlsClientFactory = CustomTLSClientFactory;
+
+// TLS client factory implementation
+static AbstractTls13Client CustomTLSClientFactory(HTTPRequest request, List<ProtocolName> protocols)
+{
+    List<ServerName> hostNames = null;
+
+    if (!request.CurrentUri.IsHostIsAnIPAddress())
+    {
+        hostNames = new List<ServerName>(1);
+        hostNames.Add(new ServerName(0, System.Text.Encoding.UTF8.GetBytes(request.CurrentUri.Host)));
+    }
+
+    return new CustomTLSClient(request, hostNames, protocols);
+}
+
+// TLS client implementation
+class CustomTLSClient : AbstractTls13Client
+{
+    public CustomTLSClient(HTTPRequest request, List<ServerName> sniServerNames, List<ProtocolName> protocols)
+            : base(request, sniServerNames, protocols, new BcTlsCrypto(new SecureRandom()))
+    {
+    }
 }
 ```
