@@ -39,7 +39,7 @@ The `JsonDotNetEncoder` and the `LitJsonEncoder` classes can be found in the `Be
 
 The official SignalR Core server implementation uses [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp) to serialize/deserialize message on the server side. To support 
 
-Steps to enable and useMessagePack-CSharp:
+Steps to enable and use MessagePack-CSharp:
 
 1. Follow the [instructions](https://github.com/neuecc/MessagePack-CSharp#unity) to install MessagePack-CSharp
 2. Locate the BestHTTP.asmdef file under the *Best HTTP* folder
@@ -51,7 +51,7 @@ Steps to enable and useMessagePack-CSharp:
 
 	![MessagePack-CSharp_ScriptingDefineSymbols](media/MessagePack-CSharp_ScriptingDefineSymbols.png)
 	
-5. The `MessagePackCSharpProtocol` class is no available, it can be used to create a new HubConnection object:
+5. The `MessagePackCSharpProtocol` class is now available, it can be used to create a new HubConnection object:
 
 ```csharp
 hub = new HubConnection(new Uri("https://server/hub"), new MessagePackCSharpProtocol());
