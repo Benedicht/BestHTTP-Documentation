@@ -3,6 +3,36 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.6.3 (2022-07-07)
+
+**General**
+
+- [<span style="color:green">New Feature</span>] Added `HTTPUpdateDelegator.SwapThreadingMode()` function to switch between threaded and Unity's main thread mode.
+- [<span style="color:red">Bugfix</span>] In some cases ReadOnlyBufferedStream blocked indefinitely until new data arrived.
+- [<span style="color:blue">Improvement</span>] TcpClient will try to connect to IPv4 addresses first.
+
+**HTTP**
+
+- [<span style="color:red">Bugfix</span>] Don't send a Content-Length (: 0) header if there's an Upgrade header. Upgrade is set for websocket, and it might be not true that the client doesn't send any bytes.
+- [<span style="color:red">Bugfix</span>] Set Exception to null on Send() and Clear() calls
+- [<span style="color:blue">Improvement</span>] Added status code 303 as redirect code.
+
+**SocketIO 3+**
+
+- [<span style="color:red">Bugfix</span>] [MsgPackParser] no longer throws an exception after parsing an event that the client doesn't subscribed to.
+- [<span style="color:blue">Improvement</span>] Websocket transport will send pings using its default setting.
+
+**SignalR Core**
+
+- [<span style="color:red">Bugfix</span>] Fixed case where the protocol tried to reconnect while the application is quitting.
+- [<span style="color:red">Bugfix</span>] Fix for a case where the application is in the background and the (websocket) connection is closed, bringing the app foreground processes other messages (pings for example) first and errors out tring to send an answer instead of processing the close frame instead.
+- [<span style="color:red">Bugfix</span>] Fixed case where rwLock dispose code might execute while calling transport. Send in SendMessage, while holding the lock.
+- [<span style="color:blue">Improvement</span>] Websocket transport will send pings using its default setting.
+
+**Websocket**
+
+- [<span style="color:blue">Improvement</span>] Ping-pong mechanism moved to the sender thread, so a websocket connection will be kept alive in the background until threads are executed.
+
 ## 2.6.2 (2022-04-18)
 
 **TLS**
