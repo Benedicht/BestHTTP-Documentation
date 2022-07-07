@@ -304,7 +304,7 @@ manager.GetSocket("/customNamespace").On(SocketIOEventTypes.Connect, OnNameSpace
 
 ## Rooms
 
-Rooms are completely server-side features, no client support required!
+[Rooms](https://socket.io/docs/v4/rooms/) are completely server-side features, no client support required!
 
 ## Options
 
