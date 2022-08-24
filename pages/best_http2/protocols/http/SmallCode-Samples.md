@@ -81,3 +81,21 @@ var request = new HTTPRequest(new Uri("https://httpbin.org/get"), (req, resp) =>
 
 request.Send();
 ```
+
+## Sending requests on application quit
+
+```csharp
+BestHTTP.HTTPUpdateDelegator.OnBeforeApplicationQuit += () =>
+{
+    // Unsubscribe, so next time we will truly quit
+    BestHTTP.HTTPUpdateDelegator.OnBeforeApplicationQuit = null;
+
+    // Cancel the current quitting
+    UnityEngine.Application.CancelQuit();
+
+    // TODO: send out HTTP request, etc.
+
+    // Return false, so BestHTTP will not shut down itself
+    return false;
+};
+```

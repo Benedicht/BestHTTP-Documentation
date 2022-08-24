@@ -3,6 +3,42 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.7.0 (TBR)
+
+**General**
+
+- [<span style="color:green">New Feature</span>] [Issue-115](https://github.com/Benedicht/BestHTTP-Issues/issues/115) `HTTPManager.SetThreadingMode` implementation. 
+- [<span style="color:green">New Feature</span>] Added new `QUERY` http method.
+- [<span style="color:red">Bugfix</span>] `LoggingContext` now should generate a more unique hash for objects it's bound to, generating less confusing verbose logs.
+
+**TLS**
+
+- [<span style="color:green">New Feature</span>] Encrypt/decrypt performance now can be improved with [Burst](https://docs.unity3d.com/Manual/com.unity.burst.html)! See the [HTTPS documentation](global_topics/HTTPS.html#boost-tls-encryptdecrypt-performance-with-burst) for more info.
+- [<span style="color:blue">Improvement</span>] Removed Il2CppSetOptions as they are not improved the performance as aticipated while they added some risk for runtime errors.
+- [<span style="color:red">Bugfix</span>] Fixed race condition between `ReadApplicationData` and `TestApplicationData` calls.
+- [<span style="color:red">Bugfix</span>] [TLS 1.3] Send CertificateRequestContext with the client certificate.
+
+**HTTP/1**
+
+- [<span style="color:red">Bugfix</span>] [Issue-114](https://github.com/Benedicht/BestHTTP-Issues/issues/114) Store headers as received
+
+**HTTP/2**
+
+- [<span style="color:blue">Improvement</span>] HTTP/2 stream will not send a window-update frame if received all data.
+- [<span style="color:blue">Improvement</span>] Maximized memory allocation to `HTTPRequest.UploadChunkSize` when uploading content instead of the remote server's `MAX_FRAME_SIZE` settings as it can be quite large.
+
+**SocketIO 3+**
+
+- [<span style="color:red">Bugfix</span>] [MsgPackParser] will send null parameters correctly.
+
+**WebSocket**
+
+- [<span style="color:green">New Feature</span>] [ISSUE-116](https://github.com/Benedicht/BestHTTP-Issues/issues/116) [OnBinaryNoAlloc](protocols/websocket/websocket.html#onbinarynoalloc) implementation. Receive binary messages without memory allocations!
+
+**SignalR Core**
+
+- [<span style="color:red">Bugfix</span>] Fix for `"Missing required property 'type'"` errors caused by Managed Code Stripping.
+
 ## 2.6.3 (2022-07-07)
 
 **General**

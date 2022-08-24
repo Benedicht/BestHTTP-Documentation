@@ -157,3 +157,15 @@ class CustomTLSClient : AbstractTls13Client
     }
 }
 ```
+
+## Boost TLS encrypt/decrypt performance with Burst
+
+Steps to sppeed up `GCM block cipher` and `ChaCha20 engine` (the two most used chiper suites in TLS 1.3) with [Burst](https://docs.unity3d.com/Packages/com.unity.burst@1.7/manual/index.html):
+1. Install Burst using Unity's [Package Manager](https://docs.unity3d.com/Manual/upm-ui.html). Minimum supported Burst version is v1.7.3.
+2. Locate and select the BestHTTP.asmdef in the `Assets\Best HTTP\` folder.
+3. Add `Unity.Burst` to the [Assembly Definition References](https://docs.unity3d.com/Manual/class-AssemblyDefinitionReferenceImporter.html) and press **Apply**:
+	
+	![TLS_Unity.Burst](media/TLS_Unity.Burst.png)	
+4. Add the **BESTHTTP_WITH_BURST** symbol to the [Scripting Define Symbols](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html) input under **PlayerSettings/Other Settings** and press **Apply**:
+	
+	![TLS_BESTHTTP_WITH_BURST](media/TLS_BESTHTTP_WITH_BURST.png)
