@@ -34,6 +34,7 @@ sidebar: best_http2_main_sidebar
 **WebSocket**
 
 - [<span style="color:green">New Feature</span>] [ISSUE-116](https://github.com/Benedicht/BestHTTP-Issues/issues/116) [OnBinaryNoAlloc](protocols/websocket/websocket.html#onbinarynoalloc) implementation. Receive binary messages without memory allocations!
+- [<span style="color:blue">Improvement</span>] [ISSUE-116](https://github.com/Benedicht/BestHTTP-Issues/issues/116) If there's no subscriber for the `OnBinary` event, no memory allocations will be made.
 
 **SignalR Core**
 
