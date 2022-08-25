@@ -3,7 +3,7 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
-## 2.7.0 (TBR)
+## 2.7.0 (2022-08-25)
 
 **General**
 
