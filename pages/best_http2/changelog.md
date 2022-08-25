@@ -10,6 +10,7 @@ sidebar: best_http2_main_sidebar
 - [<span style="color:green">New Feature</span>] [Issue-115](https://github.com/Benedicht/BestHTTP-Issues/issues/115) `HTTPManager.SetThreadingMode` implementation. 
 - [<span style="color:green">New Feature</span>] Added new `QUERY` http method.
 - [<span style="color:red">Bugfix</span>] `LoggingContext` now should generate a more unique hash for objects it's bound to, generating less confusing verbose logs.
+- [<span style="color:red">Bugfix</span>] [Issue-117](https://github.com/Benedicht/BestHTTP-Issues/issues/117) Fixed compile errors when `BESTHTTP_DISABLE_PROXY` or `BESTHTTP_DISABLE_CACHING` are defined.
 
 **TLS**
 
