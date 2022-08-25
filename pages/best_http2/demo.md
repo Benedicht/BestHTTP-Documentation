@@ -33,7 +33,7 @@ sidebar: best_http2_main_sidebar
 	streamingAssetsUrl: "StreamingAssets",
 	companyName: "BestHTTP",
 	productName: "Best HTTP/2 Demo",
-	productVersion: "2.5.3",
+	productVersion: "2.7.0",
   };
   
   var canvas = document.querySelector("#unity-canvas");
