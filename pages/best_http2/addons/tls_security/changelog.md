@@ -3,6 +3,12 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 1.1.1 (2022-08-26)
+
+**General**
+- [<span style="color:blue">Improvement</span>] Updated root and intermediate certificates
+- [<span style="color:red">Bugfix</span>] Fixed compile error when BESTHTTP_DISABLE_CACHING was in use.
+
 ## 1.1.0 (2022-03-03)
 
 **General**
