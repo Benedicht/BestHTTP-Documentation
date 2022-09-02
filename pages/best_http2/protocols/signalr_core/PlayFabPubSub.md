@@ -1,5 +1,5 @@
 ---
-title: Azure SignalR Service
+title: PlayFab PubSub
 sidebar: best_http2_main_sidebar
 ---
 
