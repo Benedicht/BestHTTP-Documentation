@@ -150,6 +150,10 @@ entries:
                   output: web
                   url: protocols/signalr_core/AzureSignalRService.html
                   
+                - title: PlayFab - PubSub
+                  output: web
+                  url: protocols/signalr_core/PlayFabPubSub.html
+                  
                 - title: Encoders
                   output: web
                   url: protocols/signalr_core/Encoders.html
