@@ -3,6 +3,37 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.8.0 (TBR)
+
+**General**
+
+- [<span style="color:green">New Feature</span>] Experimental [automatic proxy detection](global_topics/Proxy.html#automatic-proxy-detection)
+- [<span style="color:blue">Improvement</span>] Do not build proxy related code into WebGL builds.
+- [<span style="color:blue">Improvement</span>] Increased `BufferPool.MaxPoolSize` to 20Mb.
+- [<span style="color:red">Bugfix</span>] Fixed case where a TCP connection might remain open.
+
+**HTTP**
+
+- [<span style="color:green">New Feature</span>] [Issue-125](https://github.com/Benedicht/BestHTTP-Issues/issues/125) Support added for Brotli compression under Unity 2021.2 or newer builds.
+- [<span style="color:blue">Improvement</span>] Maximize download/upload events to one per frame to reduce overhead when slow framerate combined with hight download/upload events.
+
+**WebSocket**
+
+- [<span style="color:green">New Feature</span>] New `SendAsBinary` and `SendAsText` implementation to send `BufferSegment`s.
+- [<span style="color:blue">Improvement</span>] Moved data fragmentation and extension negotiation to the send thread zeroing any overhead calling many `Send` method when sending large amount of data.
+- [<span style="color:blue">Improvement</span>] Reduced the number of data copying.
+
+**SignalR Core**
+
+- [<span style="color:green">New Feature</span>] Support added for [Server callable client functions](protocols/signalr_core/HubConnection.html#server-callable-client-functions).
+- [<span style="color:blue">Improvement</span>] Reduced the number of data copying with the websocket transport.
+
+**SocketIO 3+**
+
+- [<span style="color:blue">Improvement</span>] Reduced the number of data copying with the websocket transport.
+- [<span style="color:blue">Improvement</span>] MsgPackParser to try to avoid a lot of memory copy when used with large payloads, it computes an average payload length and allocates memory based on this instead of a fixed smaller value.
+- [<span style="color:red">Bugfix</span>] Fixed case where callbacks added with `ExpectAcknowledgement` didn't called when the sent data contained binary.
+
 ## 2.7.0 (2022-08-25)
 
 **General**

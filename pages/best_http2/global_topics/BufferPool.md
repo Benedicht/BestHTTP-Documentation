@@ -65,3 +65,8 @@ Resize a byte array. It will release the old one to the pool and get a new one f
 - ### void Clear()
 
 Remove all stored entries instantly.
+
+## BufferSegment
+
+BufferSegment is a wrapper around a byte[] and you should not use the Data’s Length property! BufferSegment is used when the byte[] is from the BufferPool, its length is usually is power of two.
+The array usually larger than the real payload it contains (so the BufferSegment’s Count is not equal to its Data’s Length) and the payload might not start on the Data’s zeroth index (hence the BufferSegment’s Offset property).

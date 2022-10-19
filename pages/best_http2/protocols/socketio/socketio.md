@@ -351,6 +351,20 @@ options.Auth = (manager, socket) => new { token = "<token>" };
 var manager = new SocketManager(new Uri("http://localhost:3000"), options);
 ```
 
+- **WebsocketOptions**: Customization options for the websocket transport. See the next, [WebsocketOptions](#websocketoptions) section for details.
+
+```csharp
+SocketOptions options = new SocketOptions();
+socketOptions.WebsocketOptions.PingIntervalOverride = TimeSpan.FromSeconds(10);
+
+var manager = new SocketManager(new Uri("http://localhost:3000"), options);
+```
+
+## WebsocketOptions
+
+- **ExtensionsFactory**: A function to return with an array of `IExtension`. By default it returns with an array of one element, the per-message deflate extension. When returns with `null`, no extension will be negotiated with the server. It's not available under WebGL.
+- **PingIntervalOverride**: With this property it's possible to overwrite the default ping interval of the underlying websocket. When set to `TimeSpan.Zero` or lower, Websocket pings will be disabled. It's not available under WebGL. It's default value is `TimeSpan.Zero`.
+
 ## Reconnection
 
 When there's a timeout or the transport disconnects from the server unintentionally the SocketOptions' Reconnection is true, the manager tries to reconnect to the server. Reconnect logic can be modified through SocketOptions.

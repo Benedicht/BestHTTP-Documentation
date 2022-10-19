@@ -143,6 +143,8 @@ webSocket.Open();
 
 - ### Send
 
+Send has a few overrides, but the most common is to send text or binary.
+
 Sending out text messages:
 ```csharp
 webSocket.Send("Message to the Server");
@@ -159,6 +161,14 @@ webSocket.Send(buffer);
 Large messages (larger than 32767 bytes by default) are sent fragmented to the server.
 
 Websocket frames produced by the `Send` methods are placed into an internal queue and a sender thread going to send them one by one. The `BufferedAmount` property keeps track the amount of bytes sitting in this queue. 
+
+- ### `SendAsText(BufferSegment data)`
+
+Will send data as a text frame and takes owenership over the memory region releasing it to the [BufferPool](../../global_topics/BufferPool.html) as soon as possible.
+
+- ### `SendAsBinary(BufferSegment data)`
+
+Will send the data in one or more binary frame and takes ownership over it calling [BufferPool](../../global_topics/BufferPool.html).Release when sent.
 
 - ### Close
 

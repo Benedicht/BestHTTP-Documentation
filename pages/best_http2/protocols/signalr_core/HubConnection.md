@@ -31,6 +31,12 @@ hub = new HubConnection(new Uri("https://server/hub"), new JsonProtocol(new LitJ
 - **PingTimeoutInterval**: If the client doesn't see any message in this interval, considers the connection broken. Its default value is 30 seconds.
 - **MaxRedirects**: The maximum count of redirect negoitiation result that the plugin will follow. Its default value is 100.
 - **ConnectTimeout**: The maximum time that the plugin allowed to spend trying to connect. Its default value is 1 minute.
+- **WebsocketOptions**: Customization options for the websocket transport. See the next, [WebsocketOptions](#websocketoptions) section for details.
+
+## WebsocketOptions
+
+- **ExtensionsFactory**: A function to return with an array of `IExtension`. By default it returns with an array of one element, the per-message deflate extension. When returns with `null`, no extension will be negotiated with the server. It's not available under WebGL.
+- **PingIntervalOverride**: With this property it's possible to overwrite the default ping interval of the underlying websocket. When set to `TimeSpan.Zero` or lower, Websocket pings will be disabled. It's not available under WebGL.  It's default value is `TimeSpan.Zero`.
 
 ## Events
 
@@ -196,6 +202,51 @@ public class TestHub : Hub
     }
 }
 ```
+
+## Server callable client functions
+
+{% include warning.html content="Available in v2.8.0 or newer with [.net 7 or newer](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-7-preview-4/#client-results-in-signalr)!" %}
+
+Server code that uses `InvokeAsync` and expects an `int` result:
+```csharp
+public async Task SomeMethod(IHubContext<TestHub> context)
+{
+    int min = 0, max = 10;
+    var randomValue = Random.Shared.Next(0, 10);
+    var result = await context.Clients.Client(Context.ConnectionId).InvokeAsync<int>("GetResult", $"Guess the value between {min} and {max}.", min, max);
+    if (result == randomValue)
+    {
+        await context.Clients.Client(Context.ConnectionId).SendAsync("EndResult", $"You guessed correctly ({result})!");
+    }
+    else
+    {
+        await context.Clients.Client(Context.ConnectionId).SendAsync("EndResult", $"You guessed incorrectly({result}), value was {randomValue}");
+    }
+}
+```
+
+Client side code:
+```csharp
+// Trigger SomeMethod on the server
+hub.Send("SomeMethod");
+
+// Function callback
+hub.On<string, int, int, int>("GetResult", (string description, int min, int max) =>
+{
+    UnityEngine.Debug.Log(description);
+
+    return UnityEngine.Random.Range(min, max);
+});
+
+// Final result called by the server
+hub.On<string>("EndResult", (result) =>
+{
+    UnityEngine.Debug.Log(result);
+});
+```
+
+`hub.Send("SomeMethod");` calls `SomeMethod` on the server triggering the whole logic. The first callback for `GetResult` receives the three arguments(`description`, `min` and `max`) and must return with an `int` result
+When the server receives `result` it continues its execution and compares it its own `randomValue` calling `EndResult` on the client.
 
 ## Streaming from the server
 
