@@ -56,9 +56,9 @@ request.Send();
 Any request that's [CurrentUri](../protocols/http/HTTPRequest.md#properties).Host's beginning matches a string from the proxy's Exceptions will not going trhough the proxy.
 
 ## Automatic Proxy Detection
-(From v2.8.0 or newer versions.)
+(v2.8.0 or newer versions.)
 
-{% include warning.html content="Automatic Proxy Detection is an experimental feature, it's API might change in the future. Use it with caution!" %}
+{% include warning.html content="Automatic Proxy Detection is an experimental feature, its API might change in the future. Use it with caution!" %}
 
 Automatic proxy detection is coordinated by the `ProxyDetector` class. It can be disabled by setting `HTTPManager.ProxyDetector` to `null`.
 To set the proxy detector with default settings the following line can be added before sending out the first request:

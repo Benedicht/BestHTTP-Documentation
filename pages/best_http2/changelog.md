@@ -5,12 +5,21 @@ sidebar: best_http2_main_sidebar
 
 ## 2.8.0 (TBR)
 
+**Known Issues**
+
+- While updating BouncyCastle to the latest version was necessary to bring in new features and improvements, it removed most of my speed and memory optimizations. These will be added back incrementally in the following releases.
+
 **General**
 
 - [<span style="color:green">New Feature</span>] Experimental [automatic proxy detection](global_topics/Proxy.html#automatic-proxy-detection)
 - [<span style="color:blue">Improvement</span>] Do not build proxy related code into WebGL builds.
 - [<span style="color:blue">Improvement</span>] Increased `BufferPool.MaxPoolSize` to 20Mb.
 - [<span style="color:red">Bugfix</span>] Fixed case where a TCP connection might remain open.
+
+**TLS**
+
+- [<span style="color:blue">Improvement</span>] Updated BouncyCastle to the latest version.
+- [<span style="color:red">Bugfix</span>] Fixed [Issue-123](https://github.com/Benedicht/BestHTTP-Issues/issues/123) (TLS decoding fails with *bad_record_mac* error).
 
 **HTTP**
 
@@ -22,6 +31,7 @@ sidebar: best_http2_main_sidebar
 - [<span style="color:green">New Feature</span>] New `SendAsBinary` and `SendAsText` implementation to send `BufferSegment`s.
 - [<span style="color:blue">Improvement</span>] Moved data fragmentation and extension negotiation to the send thread zeroing any overhead calling many `Send` method when sending large amount of data.
 - [<span style="color:blue">Improvement</span>] Reduced the number of data copying.
+- [<span style="color:blue">Improvement</span>] Masking the payload now can proccess 8 bytes per cycle instead of 4 bytes.
 
 **SignalR Core**
 
@@ -180,7 +190,7 @@ This release contains breaking changes, check out the [Upgrade Guide](UpgradeGui
  
 **WebSocket**
 
-- [<span style="color:red">Bugfix</span>] [**WebGL**] [[ISSUE-88](https://github.com/Benedicht/BestHTTP-Issues/issues/88) Fixed case where sending textual message containing `null`(`\0`) characters failed because [Emscripten's UTF8ToString](https://emscripten.org/docs/api_reference/preamble.js.html#UTF8ToString) expects a null-terminated string and doesn't include it in the final string.
+- [<span style="color:red">Bugfix</span>] [**WebGL**] [[ISSUE-88](https://github.com/Benedicht/BestHTTP-Issues/issues/88)] Fixed case where sending textual message containing `null`(`\0`) characters failed because [Emscripten's UTF8ToString](https://emscripten.org/docs/api_reference/preamble.js.html#UTF8ToString) expects a null-terminated string and doesn't include it in the final string.
  
 ## 2.5.4 (2021-12-27)
 

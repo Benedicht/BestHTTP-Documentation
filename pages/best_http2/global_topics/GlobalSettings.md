@@ -10,7 +10,7 @@ These changes will affect all request that created after their values changed.
 
 Changing the defaults can be made through the static properties of the `HTTPManager` class. Current settings are the following:
 
-## MaxConnectionPerServer
+### MaxConnectionPerServer
 
 Number of TCP connections allowed to a unique host. <http://example.org> and <https://example.org> are counted as two separate servers. Its default value is **6**.
 
@@ -20,7 +20,7 @@ HTTPManager.MaxConnectionPerServer = 10;
 
 {% include note.html content="[HTTP/2](HTTP2.md) uses one TCP connection, it has different setting for stream concurrency." %}
 
-## KeepAliveDefaultValue
+### KeepAliveDefaultValue
 
 The default value of the HTTPRequest's `IsKeepAlive` property. If `IsKeepAlive` is `false`, the tcp connections to the server will be set up before every request and closed right after it. It should be changed to false if consecutive requests are rare. Values given to the HTTPRequest's constructor will override this value for this request. Its default value is `true`.
 
@@ -28,7 +28,7 @@ The default value of the HTTPRequest's `IsKeepAlive` property. If `IsKeepAlive` 
 HTTPManager.KeepAliveDefaultValue = false;
 ```
 
-## IsCachingDisabled
+### IsCachingDisabled
 
 With this property we can globally disable or enable the caching service. Values given to the HTTPRequest's constructor will override this value for this request. Its default value is **false**.
 
@@ -36,7 +36,7 @@ With this property we can globally disable or enable the caching service. Values
 HTTPManager.IsCachingDisabled = true;
 ```
 
-## MaxConnectionIdleTime
+### MaxConnectionIdleTime
 
 Specifies the idle time BestHTTP should wait before it destroys the connection after it's finished the last request. Its default value is 20 seconds.
 
@@ -44,7 +44,7 @@ Specifies the idle time BestHTTP should wait before it destroys the connection a
 HTTPManager.MaxConnectionIdleTime = TimeSpan.FromSeconds(60);
 ```
 
-## IsCookiesEnabled
+### IsCookiesEnabled
 
 With this option all `Cookie` operation can be enabled or disabled. Its default value is true.
 
@@ -52,7 +52,7 @@ With this option all `Cookie` operation can be enabled or disabled. Its default 
 HTTPManager.IsCookiesEnabled = false;
 ```
 
-## CookieJarSize
+### CookieJarSize
 
 With this option the size of the `Cookie` store can be controlled. Its default value is 10485760 (**10 MB**).
 
@@ -60,7 +60,7 @@ With this option the size of the `Cookie` store can be controlled. Its default v
 HTTPManager.CookieJarSize = 1048576;
 ```
 
-## EnablePrivateBrowsing
+### EnablePrivateBrowsing
 
 If this option is enabled no `Cookie` will be written to the disk. Its default value is false. 
 
@@ -68,7 +68,7 @@ If this option is enabled no `Cookie` will be written to the disk. Its default v
 HTTPManager.EnablePrivateBrowsing = true;
 ```
 
-## ConnectTimeout
+### ConnectTimeout
 
 With this option you can set the HTTPRequests' default `ConnectTimeout` value. Its default value is 20 seconds.
 
@@ -76,7 +76,7 @@ With this option you can set the HTTPRequests' default `ConnectTimeout` value. I
 HTTPManager.ConnectTimeout = TimeSpan.FromSeconds(60);
 ```
 
-## RequestTimeout
+### RequestTimeout
 
 With this option you can set the HTTPRequests' default Timeout value. Its default value is 60 seconds.
 
@@ -84,7 +84,7 @@ With this option you can set the HTTPRequests' default Timeout value. Its defaul
 HTTPManager.RequestTimeout = TimeSpan.FromSeconds(60);
 ```
 
-## RootCacheFolderProvider
+### RootCacheFolderProvider
 
 By default the plugin will save all cache and cookie data under the path returned by `Application.persistentDataPath`. You can assign a function to this delegate to return a custom root path to define a new path. **This delegate will be called on a non Unity thread!**
 
@@ -92,7 +92,7 @@ By default the plugin will save all cache and cookie data under the path returne
 HTTPManager.RootCacheFolderProvider = () => Application.temporaryCachePath;
 ```
 
-## Proxy
+### Proxy
 
 The global, default proxy for all HTTPRequests. The HTTPRequest's Proxy still can be changed per-request. Default value is `null`. More information can be found about proxies in the [Proxy](Proxy.md) topic.
 
@@ -100,7 +100,7 @@ The global, default proxy for all HTTPRequests. The HTTPRequest's Proxy still ca
 HTTPManager.Proxy = new HTTPProxy(new Uri("http://localhost:8888"), null, true);
 ```
 
-## Logger
+### Logger
 
 An [ILogger implementation](Logging.md) to be able to control what information will be logged about the plugin's internals, and how these will be logged.
 
@@ -108,7 +108,7 @@ An [ILogger implementation](Logging.md) to be able to control what information w
 HTTPManager.Logger = new ThreadedLogger();
 ```
 
-## DefaultCertificateVerifyer
+### DefaultCertificateVerifyer
 
 An `ICertificateVerifyer` implementation can be set to this property. All new requests created after this will use this verifier when a secure protocol is used and the request's `UseAlternateSSL` is `true`. An `ICertificateVerifyer` implementation can be used to implement server certificate validation.
 
@@ -116,7 +116,7 @@ An `ICertificateVerifyer` implementation can be set to this property. All new re
 HTTPManager.DefaultCertificateVerifyer = new AlwaysValidVerifyer();
 ```
 
-## UseAlternateSSLDefaultValue
+### UseAlternateSSLDefaultValue
 
 The default value of HTTPRequest's UseAlternateSSL can be changed through this property. Its default value is `true`.
 
@@ -124,7 +124,7 @@ The default value of HTTPRequest's UseAlternateSSL can be changed through this p
 HTTPManager.UseAlternateSSLDefaultValue = false;
 ```
 
-## HTTP2Settings
+### HTTP2Settings
 
 Through this property, HTTP/2 related settings can be changed. See the [HTTP/2 topic for more information](HTTP2.md#settings).
 
@@ -132,11 +132,11 @@ Through this property, HTTP/2 related settings can be changed. See the [HTTP/2 t
 HTTPManager.HTTP2Settings.MaxConcurrentStreams = 256;
 ```
 
-## IsQuitting
+### IsQuitting
 
 It's true if the application is quitting and the plugin is shutting down itself.
 
-## UserAgent
+### UserAgent
 
 User-agent string that will be sent with each requests. It's default value contains the version of the plugin (`"BestHTTP/2 v2.2.1"` for example).
 
