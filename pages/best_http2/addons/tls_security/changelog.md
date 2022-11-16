@@ -3,6 +3,14 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 1.2.0 (TBR)
+
+Minimum required Best HTTP/2 version is v2.8.0!
+
+**General**
+- [<span style="color:red">Bugfix</span>] [[Issue-129](https://github.com/Benedicht/BestHTTP-Issues/issues/129)] Removed calling of slow test method
+- [<span style="color:red">Bugfix</span>] [[Issue-129](https://github.com/Benedicht/BestHTTP-Issues/issues/129)] Rewrote slow code to get the addon's folder with [CompilationPipeline.GetAssemblyDefinitionFilePathFromAssemblyName](https://docs.unity3d.com/ScriptReference/Compilation.CompilationPipeline.html)
+
 ## 1.1.1 (2022-08-26)
 
 **General**

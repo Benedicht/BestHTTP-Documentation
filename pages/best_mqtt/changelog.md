@@ -3,6 +3,13 @@ title: Changelog
 sidebar: best_mqtt_sidebar
 ---
 
+## 1.2.0 (TBR)
+
+Minimum required Best HTTP/2 version is v2.8.0!
+
+- [<span style="color:blue">Improvement</span>] Use [WebSocket's SendAsBinary](../best_http2/protocols/websocket/websocket.html#sendasbinarybuffersegment-data) introduced in [Best HTTP/2 v2.8.0](../best_http2/changelog.html).
+- [<span style="color:red">Bugfix</span>] Disable proxy usage under WebGL
+
 ## 1.1.1 (2022-08-26)
 
 - [<span style="color:blue">Improvement</span>] `ConnectPacketBuilder`: If not already added, set default `TopicAlias Maximum` to `ushort.MaxValue`.
