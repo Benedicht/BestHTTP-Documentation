@@ -3,11 +3,7 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
-## 2.8.0 (TBR)
-
-**Known Issues**
-
-- While updating BouncyCastle to the latest version was necessary to bring in new features and improvements, it removed most of my speed and memory optimizations. These will be added back incrementally in the following releases.
+## 2.8.0 (2022-11-16)
 
 **General**
 

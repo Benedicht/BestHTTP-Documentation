@@ -3,7 +3,7 @@ title: Changelog
 sidebar: best_mqtt_sidebar
 ---
 
-## 1.2.0 (TBR)
+## 1.2.0 (2022-11-16)
 
 Minimum required Best HTTP/2 version is v2.8.0!
 
