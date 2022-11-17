@@ -3,6 +3,12 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.8.1 (2022-11-16)
+
+**General**
+- [<span style="color:red">Bugfix</span>] Fixed compile error when *API Compatibility Level* was set to *.NET Framework*
+
+
 ## 2.8.0 (2022-11-16)
 
 **General**
