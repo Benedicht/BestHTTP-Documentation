@@ -113,3 +113,5 @@ This one uses the .net implementation of `System.Net.WebRequest.GetSystemWebProx
 ### AndroidProxyDetector
 
 A detector for Android systems using Java's [ProxySelector](https://docs.oracle.com/javase/8/docs/api/java/net/ProxySelector.html).
+
+{% include warning.html content="This requires the built-in [Android JNI module](https://docs.unity3d.com/ScriptReference/UnityEngine.AndroidJNIModule.html), enable it through the [Package Manager window](https://docs.unity3d.com/Manual/upm-ui.html)!" %}
