@@ -6,7 +6,7 @@ summary: A step-by-step guide to set up and use MQTTClient.
 
 ## Installation
 
-Import the Best MQTT package and all of its dependencies through the Unity Editor's Package Manager window. If all packages are imported properly, no further steps are required.
+Using [Unity Editor's Package Manager window](https://docs.unity3d.com/Manual/upm-ui.html) import the [Best HTTP/2](https://assetstore.unity.com/packages/tools/network/best-http-2-155981?aid=1101lfX8E) package first, then Best MQTT itself. If all packages are imported properly, no further steps are required.
 
 ## Initial setup
 
