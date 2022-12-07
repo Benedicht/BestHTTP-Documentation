@@ -3,6 +3,10 @@ title: Upgrade Guide
 sidebar: best_http2_main_sidebar
 ---
 
+## Upgrade to v2.8.x or newer
+
+Because of removed files from the BouncyCastle implementation, upgrading to v2.8.x or newer might result in compile errors. To avoid or fix it remove the \Best HTTP\ folder then import the plugin.
+
 ## Upgrade from 2.x to 2.6
 
 ### HTTPRequest.OnHeaders
