@@ -73,6 +73,10 @@ entries:
                 url: pages/best_http2/addons/tls_security/tls_security.html
                 output: web
  
+              - title: Profiler
+                url: pages/best_http2/addons/com.besthttp.profiler/profiler.html
+                output: web
+ 
   - title: Best MQTT
     output: web
     folderitems:

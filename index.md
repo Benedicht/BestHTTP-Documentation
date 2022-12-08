@@ -52,6 +52,11 @@ Addons are optional assets for Best HTTP/2 to make your life easier.
 							 url="pages/best_http2/addons/tls_security/tls_security.html" 
 							 title="TLS Security Addon" 
 							 content="Writing good and generic certificate verifier is hard and tedious work, but the TLS Security Addon with its one line setup is here to help you out." %}
+							 
+	{% include card.html img_url="images/profiler.png" 
+							 url="pages/best_http2/addons/com.besthttp.profiler/profiler.html" 
+							 title="Profiler Addon" 
+							 content="View internal statistics about the plugin in the Unity Profiler Window." %}
 </div>
 
 ## Best MQTT

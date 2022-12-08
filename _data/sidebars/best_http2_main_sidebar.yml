@@ -299,3 +299,10 @@ entries:
       - title: Changelog
         output: web
         url: addons/curl_parser/changelog.html
+        
+  - title: Profiler
+    output: web
+    folderitems:
+      - title: Profiler
+        output: web
+        url: addons/com.besthttp.profiler/profiler.html
