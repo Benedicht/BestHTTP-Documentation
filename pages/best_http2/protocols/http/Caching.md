@@ -18,6 +18,42 @@ Flow-chart about caching:
 
 ![Caching Explained](media/CachingExplained.svg)
 
+```mermaid
+flowchart TD
+    Start(HTTPRequest Send)
+    IsPresent{Is entity present in the cache?}
+    Process[Process Request]
+    ExpiresCheck{Is it expires in the future?}
+    AddHeaders(Add Cache Revalidation headers to the request)
+    Load(Load From Cache)
+    Success{Success?}
+    PartialCheck{Entity is in cache, has a stale-if-error value and it's in range}
+    CheckResponse{Is any\ncaching headers\npresent in the\nresponse?}
+    StoreValues{Refresh or store caching values}
+    Is304{Response is an '304 - Not Modified'?}
+    Store[Store response in cache]
+    Exit(Call HTTPRequest's callback)
+
+    Start --> IsPresent
+    IsPresent --> |Yes| ExpiresCheck
+    IsPresent --> |No| Process
+    Process --> Success
+    ExpiresCheck --> |Yes| Load
+    ExpiresCheck --> |No| AddHeaders
+    AddHeaders --> Process
+    Load --> Exit
+    Success --> |Yes| CheckResponse
+    Success --> |No| PartialCheck    
+    PartialCheck --> |Yes| Load
+    PartialCheck --> |No| Exit
+    CheckResponse --> |Yes| StoreValues
+    CheckResponse --> |No| Exit
+    StoreValues --> Is304
+    Is304 --> |Yes| Load
+    Is304 --> |No| Store
+    Store --> Exit
+```
+
 ## Disable caching
 
 There's quite a few ways to disable caching. It can be done globally with the [BESTHTTP_DISABLE_CACHING](../../global_topics/HowToDisableFeatures.md) define or by setting [HTTPManager.IsCachingDisabled](../../global_topics/GlobalSettings.md) to true before any HTTPRequest instantiation:
