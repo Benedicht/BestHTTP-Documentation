@@ -176,6 +176,8 @@ private void OnBinaryMessage(SocketManager manager, Socket socket, byte[] buffer
 }
 ```
 
+{% include note.html content="This works only with events sent by the server, but not with locally generated events like `disconnect`!" %}
+
 ## Server Acknowledgements
 
 With `ExpectAcknowledgement` we can set a callback that's going to be called (Client):
