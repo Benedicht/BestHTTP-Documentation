@@ -3,11 +3,53 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.8.2 (TBR)
+
+**General**
+
+- [<span style="color:green">New Feature</span>] Added `StringBufferPool` implementation and usage across the plugin.
+- [<span style="color:blue">Improvement</span>] [Issue-141](https://github.com/Benedicht/BestHTTP-Issues/issues/141) Automatic Proxy Detection: Add an exception list when `BypassProxyOnLocal` is true
+- [<span style="color:blue">Improvement</span>] Added [ProfilerMarker](https://docs.unity3d.com/ScriptReference/Unity.Profiling.ProfilerMarker.html)s around calls in `HTTPManager.OnUpdate`.
+- [<span style="color:red">Bugfix</span>] Switching to threaded mode returned if no `Setup()` is called previously resulting in no `OnUpdate` call at all.
+- [<span style="color:red">Bugfix</span>] Set `HTTPRequest`'s `Response` when reading from the cache. Otherwise `OnStreamingData` will be called with a null `HTTPResponse` object.
+- [<span style="color:red">Bugfix</span>] [Issue-141](https://github.com/Benedicht/BestHTTP-Issues/issues/141) Automatic Proxy Detection: fixed scheme checking in the `FrameworkProxyDetector`
+- [<span style="color:red">Bugfix</span>] Due to Unity limitations, the plugin will **not** request Brotli encoded content with the Mono runtime under Android.
+
+**TLS**
+
+- [<span style="color:blue">Improvement</span>] Further speed improvements using with [BESTHTTP_WITH_BURST](global_topics/HTTPS.html#boost-tls-encryptdecrypt-performance-with-burst) by utilising Burst's Avx2, Sse2 and Neon instruction sets.
+- [<span style="color:blue">Improvement</span>] `X509Name` is immutable and wil cache `ToString`'s result again.
+- [<span style="color:red">Bugfix</span>] Added a few empty files in place of deleted ones that caused compile errors.
+- [<span style="color:red">Bugfix</span>] Use memory alignment-safe functions instead of reinterpret casts.
+
+**HTTP/2**
+
+- [<span style="color:blue">Improvement</span>] "te: trailes" header required by GRPC is now supported
+- [<span style="color:red">Bugfix</span>] [Issue-142](https://github.com/Benedicht/BestHTTP-Issues/issues/142) Fixed case where the sender thread didn't slept as it should while waiting to send a new ping frame.
+
+**WebSocket**
+
+- [<span style="color:blue">Improvement</span>] Will not mask the sent data if it's sent over TLS (wss://).
+- [<span style="color:blue">Improvement</span>] When [BESTHTTP_WITH_BURST](global_topics/HTTPS.html#boost-tls-encryptdecrypt-performance-with-burst) is used, masking will try to use Avx2/Sse2 under X86 platforms and Neon under Arm to speed up masking.
+- [<span style="color:blue">Improvement</span>] [Issue-143](https://github.com/Benedicht/BestHTTP-Issues/issues/143) Naming of WebSocket threads.
+- [<span style="color:blue">Improvement</span>] Upped default ping frequency value to 10 seconds from 1 second.
+- [<span style="color:red">Bugfix</span>] Fixed a `NullReferenceException` in fragment generation.
+
+**SocketIO 3+**
+
+- [<span style="color:green">New Feature</span>] Added [JSON.NET parser](protocols/socketio/socketio.html#jsonnet) implementation.
+- [<span style="color:blue">Improvement</span>] Added a constructor to the `JsonDotNetParser` to be able to pass a `Newtonsoft.Json.JsonSerializerSettings` to customize serializations.
+
+**SignalR Core**
+
+- [<span style="color:blue">Improvement</span>] Added a constructor to the `JsonDotNetEncoder` to be able to pass a `Newtonsoft.Json.JsonSerializerSettings` to customize serializations.
+- [<span style="color:red">Bugfix</span>] Fixed a case where the HubConnection wasn't cleaned up properly.
+- [<span style="color:red">Bugfix</span>] Fixed handshake parsing when the server sent it with regular messages.
+
 ## 2.8.1 (2022-11-16)
 
 **General**
 - [<span style="color:red">Bugfix</span>] Fixed compile error when *API Compatibility Level* was set to *.NET Framework*
-
 
 ## 2.8.0 (2022-11-16)
 
