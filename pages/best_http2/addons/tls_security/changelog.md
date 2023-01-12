@@ -3,6 +3,13 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 1.2.1 (2023-01-12)
+
+**General**
+- [<span style="color:blue">Improvement</span>] [Issue-138](https://github.com/Benedicht/BestHTTP-Issues/issues/138) Multiple speed improvements on database loading: certificates are saved in an optimized way on a thread, less memory allocations, optimized AVLTree Depth calculation.
+- [<span style="color:blue">Improvement</span>] [Issue-138](https://github.com/Benedicht/BestHTTP-Issues/issues/144) Client certificates will not be overwritten
+- [<span style="color:blue">Improvement</span>] Updated root and intermediate certificates
+
 ## 1.2.0 (2022-11-16)
 
 Minimum required Best HTTP/2 version is v2.8.0!
