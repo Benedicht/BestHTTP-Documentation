@@ -3,7 +3,7 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
-## 2.8.2 (TBR)
+## 2.8.2 (2023-01-12)
 
 **General**
 
@@ -20,7 +20,7 @@ sidebar: best_http2_main_sidebar
 - [<span style="color:blue">Improvement</span>] Further speed improvements using with [BESTHTTP_WITH_BURST](global_topics/HTTPS.html#boost-tls-encryptdecrypt-performance-with-burst) by utilising Burst's Avx2, Sse2 and Neon instruction sets.
 - [<span style="color:blue">Improvement</span>] `X509Name` is immutable and wil cache `ToString`'s result again.
 - [<span style="color:red">Bugfix</span>] Added a few empty files in place of deleted ones that caused compile errors.
-- [<span style="color:red">Bugfix</span>] Use memory alignment-safe functions instead of reinterpret casts.
+- [<span style="color:red">Bugfix</span>] Use memory alignment-safe functions instead of reinterpret casts under Android.
 
 **HTTP/2**
 
@@ -34,6 +34,7 @@ sidebar: best_http2_main_sidebar
 - [<span style="color:blue">Improvement</span>] [Issue-143](https://github.com/Benedicht/BestHTTP-Issues/issues/143) Naming of WebSocket threads.
 - [<span style="color:blue">Improvement</span>] Upped default ping frequency value to 10 seconds from 1 second.
 - [<span style="color:red">Bugfix</span>] Fixed a `NullReferenceException` in fragment generation.
+- [<span style="color:red">Bugfix</span>] [Issue-145](https://github.com/Benedicht/BestHTTP-Issues/issues/145) Fixed an issue in fragment generation where not all data sent to the server if the source data had an offset.
 
 **SocketIO 3+**
 
