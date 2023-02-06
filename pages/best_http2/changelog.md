@@ -11,7 +11,7 @@ sidebar: best_http2_main_sidebar
 
 **SignalR Core**
 
-- [<span style="color:red">Bugfix</span>] [Issue-146](https://github.com/Benedicht/BestHTTP-Issues/issues/146) 
+- [<span style="color:red">Bugfix</span>] [Issue-146](https://github.com/Benedicht/BestHTTP-Issues/issues/146) Exit early to prevent executing SendMessage when the connection is already cleaned up.
 
 ## 2.8.2 (2023-01-12)
 
