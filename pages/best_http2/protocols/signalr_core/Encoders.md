@@ -23,7 +23,7 @@ There's an encoder implementation that uses the [Newtonsoft's JSON .NET For Unit
 
 Steps to enable it and use it:
 
-1. Download and import the [Newtonsoft's JSON .NET For Unity](https://assetstore.unity.com/packages/tools/input-management/json-net-for-unity-11347?aid=1101lfX8E) package
+1. Download and import the [Newtonsoft's JSON .NET For Unity](https://assetstore.unity.com/packages/tools/input-management/json-net-for-unity-11347?aid=1101lfX8E) package.
 2. Add the **BESTHTTP_SIGNALR_CORE_ENABLE_NEWTONSOFT_JSON_DOTNET_ENCODER** define to the [Scripting Define Symbols](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html) input under **PlayerSettings/Other Settings**:
 
 	![Scrypting Define Symbols](media/JSONDotNet_ScriptingDefineSymbols.png)
