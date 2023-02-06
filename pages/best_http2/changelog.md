@@ -3,6 +3,16 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.8.3 (2023-02-06)
+
+**TLS**
+
+- [<span style="color:red">Bugfix</span>] Until further investigation and fix, disabling the Span based apis of BouncyCastle as it [seems to be causing crashing under Android](https://forum.unity.com/threads/best-http-released.200006/page-71#post-8775157)
+
+**SignalR Core**
+
+- [<span style="color:red">Bugfix</span>] [Issue-146](https://github.com/Benedicht/BestHTTP-Issues/issues/146) 
+
 ## 2.8.2 (2023-01-12)
 
 **General**
