@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: MQTT Versions
 sidebar: best_mqtt_sidebar
 summary: How to switch between MQTT protocol versions.
 ---
