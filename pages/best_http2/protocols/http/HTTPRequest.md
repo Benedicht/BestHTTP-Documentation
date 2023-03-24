@@ -112,7 +112,6 @@ void OnRequestFinished(HTTPRequest req, HTTPResponse resp)
 - `bool HasProxy`: True, if there is a Proxy object set for the `Proxy` property.
 - `Proxy Proxy`: A web [proxy](../../global_topics/Proxy.md)'s properties where the request must pass through.
 - `int MaxRedirects`: How many redirection supported for this request. The default is int.MaxValue. 0 or a negative value means no redirection supported.
-- `bool UseAlternateSSL`: Use Bouncy Castle's code to handle the secure protocol instead of Mono's. Its default value is true. Read more about [HTTPS](../../global_topics/HTTPS.md).
 
 {% include note.html content="If there's an active connection to the server the plugin doesn't check what SSL/TLS handler is used for that connection and the request going to be processed by the available connection." %}
 
@@ -121,14 +120,10 @@ void OnRequestFinished(HTTPRequest req, HTTPResponse resp)
 - `HTTPFormUsage FormUsage`: What form should used. Its default value is Automatic.
 - `HTTPRequestStates State`: Current state of this request.
 - `int RedirectCount`: How many times the request redirected.
-- `Func<HTTPRequest, System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography.X509Certificates.X509Chain, bool> CustomCertificationValidator`: Custom validator for an SslStream. This event will receive the original HTTPRequest, an X509Certificate and an X509Chain objects. It must return true if the certificate valid, false otherwise. It's not available when `UseAlternateSSL` is true and on some platforms!
 - `TimeSpan ConnectTimeout`: Maximum time we wait to establish the connection to the target server. If set to TimeSpan.Zero or lower, no connect timeout logic is executed. Default value is 20 seconds.
 - `TimeSpan Timeout`: Maximum time we want to wait to the request to finish after the connection is established. Default value is 60 seconds. It's disabled for streaming requests! See `EnableTimoutForStreaming`.
 - `bool EnableTimoutForStreaming`: Set to true to enable Timeouts on streaming request. Default value is false.
 - `bool EnableSafeReadOnUnknownContentLength`: Enables safe read method when the response's length of the content is unknown. Its default value is enabled (true).
-- `SecureProtocol.Org.BouncyCastle.Crypto.Tls.ICertificateVerifyer CustomCertificateVerifyer`: The `ICertificateVerifyer` implementation that the plugin will use to verify the server certificates when the request's `UseAlternateSSL` property is set to true.
-- `SecureProtocol.Org.BouncyCastle.Crypto.Tls.IClientCredentialsProvider CustomClientCredentialsProvider`: The `IClientCredentialsProvider` implementation that the plugin will use to send client certificates when the request's `UseAlternateSSL` property is set to true.
-- `List<string> CustomTLSServerNameList`: With this property custom Server Name Indication entries can be sent to the server while negotiating TLS. All added entries must conform to the rules defined in [RFC 3546](https://tools.ietf.org/html/rfc3546#section-3.1), the plugin will not check the entries' validity! *This list will be sent to every server that the plugin must connect to while it tries to finish the request. So for example if redirected to an another server, that new server will receive this list too!*
 - `LoggingContext Context`: [Logging context](../../global_topics/Logging.md#LoggingContext) of the request.
 - `TimingCollector Timing`: [Timing information](Timing.md).
 - `WithCredentials`: Its value will be set to the [XmlHTTPRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)'s [withCredentials](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials) field. Its default value is [`HTTPManager.IsCookiesEnabled`](../../global_topics/GlobalSettings.md#iscookiesenabled)'s value. It's WebGL only.
