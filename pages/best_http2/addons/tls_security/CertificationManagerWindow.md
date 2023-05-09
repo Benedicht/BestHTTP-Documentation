@@ -57,7 +57,7 @@ These are the basis of the trust chain, servers doesn't send root certificates t
 7.  <p id="root_7"><b>Add Custom</b>: Add certificates from .cer, .pem and .p7b files.</p>
 8.  <p id="root_8"><b>Delete Selected</b>: Delete selected certificates. Locked certificates can't be deleted!</p>
 9.  <p id="root_9"><b>Search Input</b>: It can be used to search certificates by their `Subject` name. Minimum 3 characters needed.</p>
-10. <p id="root_10"></b>Help (?) Button</b>: Opens a browser window to this manual.</p>
+10. <p id="root_10"><b>Help (?) Button</b>: Opens a browser window to this manual.</p>
 
 11. <p id="root_11"><b># Column</b>: Index of the certificate.</p>
 12. <p id="root_12"><b>User Column</b>: It has a ✔, if it's a user-added certificate.</p>
