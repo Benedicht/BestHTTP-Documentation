@@ -3,6 +3,31 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.8.4 (2023-06-06)
+
+**General**
+
+- [<span style="color:green">New Feature</span>] Added `IsMainThread()` function to `HTTPUpdateDelegator`
+- [<span style="color:red">Bugfix</span>] Fixed crash under android when `ThreadingMode.Threaded` is in use
+- [<span style="color:red">Bugfix</span>] [Use invariant version of ToLower](https://forum.unity.com/threads/best-http-released.200006/page-71#post-8907570)
+- [<span style="color:red">Bugfix</span>] Moved brotli decompressor usage under the BESTHTTP_ENABLE_BROTLI define
+
+**WebSocket**
+
+- [<span style="color:blue">Improvement</span>] Always release back the header frame to the BufferPool.
+- [<span style="color:red">Bugfix</span>] If there were a http/2 connection to the redirected wss:// address, no new implementation (OverHTTP1/OverHTTP2) got created and the old OverHTTP1 implementation treated the HTTP/2 response as an error. Now, when there's a redirection, the request will not follow the redirection directly, but the websocket instance creates and uses a new implementation based on the new uri.
+- [<span style="color:red">Bugfix</span>] [Issue-154](https://github.com/Benedicht/BestHTTP-Issues/issues/154) Reworked header and fragmentation handling
+
+**Socket.IO 3+**
+
+- [<span style="color:green">New Feature</span>] Added `OnIncomingPacket` event.
+
+**SignalR Core**
+
+- [<span style="color:blue">Improvement</span>] [Issue-162](https://github.com/Benedicht/BestHTTP-Issues/issues/162) Added support for async functions
+- [<span style="color:red">Bugfix</span>] [Issue-158](https://github.com/Benedicht/BestHTTP-Issues/issues/158) Fixed exception handling for SendMessage and CancellationToken usage in Register calls
+- [<span style="color:red">Bugfix</span>] [Issue-161](https://github.com/Benedicht/BestHTTP-Issues/issues/161) Removed exception throwing in the On and Remove methods
+
 ## 2.8.3 (2023-02-06)
 
 **TLS**
