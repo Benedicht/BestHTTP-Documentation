@@ -33,7 +33,7 @@ signalRConnection.OnReconnecting += (con) => Debug.Log("Reconnecting");
 - **OnReconnected**: Fired when a reconnect attempt was successful.
 
 ```csharp
-signalRConnection.OnReconnecting += (con) => Debug.Log("Reconnected");
+signalRConnection.OnReconnected += (con) => Debug.Log("Reconnected");
 ```
 
 - **OnStateChnaged**: Fired when the connection’s State changed. The event handler will receive both the old state and the new state.
