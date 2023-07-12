@@ -3,6 +3,24 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.8.5 (2023-07-12)
+
+**General**
+
+- [<span style="color:red">Bugfix</span>] Fixed expection under Unity 2023.1 using HTTPResponse's DataAsTexture
+
+**HTTP/2**
+
+- [<span style="color:red">Bugfix</span>] Always generate window updates, even for closed streams, preventing 
+
+**Socket.IO 3+**
+
+- [<span style="color:red">Bugfix</span>] [Issue-166](https://github.com/Benedicht/BestHTTP-Issues/issues/166) Fixed `JsonDotNetParser` not serializing ACK packets properly
+
+**SignalR Core**
+
+- [<span style="color:blue">Improvement</span>] Try to reconnect when negotiation request fails
+
 ## 2.8.4 (2023-06-06)
 
 **General**
