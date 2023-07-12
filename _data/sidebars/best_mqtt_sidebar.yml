@@ -81,9 +81,13 @@ entries:
           output: web, pdf
           url: other/authentication.html
           
-        - title: Azure IoT Hub
+        - title: Azure IoT Hub with x509 Auth
           output: web, pdf
           url: other/azure_iot_hub.html
+          
+        - title: Azure IoT Hub with Symmetric Key Auth
+          output: web, pdf
+          url: other/azure_iot_hub_sak.html
     
   - title: Class Reference
     output: web, pdf

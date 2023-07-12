@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub
+title: Azure IoT Hub with X.509 Certificate Authentication
 sidebar: best_mqtt_sidebar
 summary: How to connect to an Azure IoT Hub using X.509 Certificate Authentication.
 ---
