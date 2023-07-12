@@ -1,5 +1,5 @@
 ---
-title: Ho to disable features
+title: How to disable features
 sidebar: best_http2_main_sidebar
 ---
 
