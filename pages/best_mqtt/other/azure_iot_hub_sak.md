@@ -60,6 +60,8 @@ public static string GenerateSasToken(string resourceUri, string key, string pol
 }
 ```
 
+## Complete Code
+
 The whole code put toghether (don't forget to set the `host`, `deviceId` and `sharedAccessKey` fields from the connection string!):
 
 ```csharp
