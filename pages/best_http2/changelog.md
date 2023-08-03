@@ -11,7 +11,7 @@ sidebar: best_http2_main_sidebar
 
 **HTTP/2**
 
-- [<span style="color:red">Bugfix</span>] Always generate window updates, even for closed streams, preventing 
+- [<span style="color:red">Bugfix</span>] Always generate window updates, even for closed streams, otherwise the global window for the whole connection could reach zero and the server would stop sending more DATA frames
 
 **Socket.IO 3+**
 
