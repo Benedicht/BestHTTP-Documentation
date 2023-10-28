@@ -3,6 +3,19 @@ title: Changelog
 sidebar: best_http2_main_sidebar
 ---
 
+## 2.8.6 (2023-10-28)
+
+**General**
+- [<span style="color:red">Bugfix</span>] [Issue-176](https://github.com/Benedicht/BestHTTP-Issues/issues/176) "Async await and json parse error = hanged Task"
+
+**Server-Sent Events**
+
+- [<span style="color:red">Bugfix</span>] [Issue-168](https://github.com/Benedicht/BestHTTP-Issues/issues/168) Handle optional `"content-type"` header parameters other then the upgrade `"text/event-stream"`.
+
+**WebSocket**
+
+- [<span style="color:blue">Improvement</span>] [Issue-175](https://github.com/Benedicht/BestHTTP-Issues/issues/175) Added code to stop any further event processing
+
 ## 2.8.5 (2023-07-12)
 
 **General**
